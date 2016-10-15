@@ -25,7 +25,7 @@ namespace SeeSharp
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            ;
         }
 
         private void Grid_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -33,6 +33,7 @@ namespace SeeSharp
             SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
         }
 
+        #region Private Methods
         private void SetView(ViewType viewType, string section)
         {
             this.DynamicView.Children.Clear();
@@ -40,5 +41,6 @@ namespace SeeSharp
             this.DynamicView.UpdateLayout();
             this.SectionBlock.Text = string.Format(SectionPrefixPattern, section);
         }
+        #endregion
     }
 }

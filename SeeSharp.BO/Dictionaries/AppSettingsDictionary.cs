@@ -1,12 +1,16 @@
-﻿namespace SeeSharp.BO.Dictionaries
+﻿using System.Resources;
+
+namespace SeeSharp.BO.Dictionaries
 {
     public static class AppSettingsDictionary
     {
+        private static ResourceManager AppSetttings = new ResourceManager(typeof(AppSettings));
+
         public static string XmlFilesDirectiory
         {
             get
             {
-                return AppSettings.XmlFileDirectory;
+                return AppSetttings.GetString("XmlFileDirectory");
             }
         }
     }
