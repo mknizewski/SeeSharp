@@ -71,12 +71,16 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutAuthors.xaml.cs">
+      <DependentUpon>AboutAuthors.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="CircularProgressBar.xaml.cs">
       <DependentUpon>CircularProgressBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\ViewFactory.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -87,6 +91,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="AboutAuthors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CircularProgressBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,6 +172,12 @@
     <Resource Include="Images\Interface\volume.png" />
     <Resource Include="Images\Interface\zoom-in.png" />
     <Resource Include="Images\Interface\zoom-out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SeeSharp.BO\SeeSharp.BO.csproj">
+      <Project>{4DDFFA8E-F3C0-41EB-98C9-97FC5C07D3DC}</Project>
+      <Name>SeeSharp.BO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

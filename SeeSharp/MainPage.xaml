@@ -43,7 +43,7 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="2*" />
                             </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" Source="/Images/Interface/pencil.png" MaxWidth="60" MaxHeight="60" HorizontalAlignment="Left" Margin="0 0 15 0" Width="auto" Height="auto" />
+                            <Image Grid.Column="0" Source="Images/Interface/pencil.png" HorizontalAlignment="Left" Margin="0 0 15 0" Width="auto" Height="auto" />
                             <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" MinWidth="150" MinHeight="50" Height="auto" Content="Rejestracja" BorderThickness="0" Cursor="Hand" FontFamily="Open Sans" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#FF0B68D8" >
                                 <Button.Effect>
                                     <DropShadowEffect/>
@@ -63,7 +63,7 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="2*" />
                             </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" Source="/Images/Interface/cursor.png" HorizontalAlignment="Left" Margin="0 0 15 0" Width="auto" Height="auto" />
+                            <Image Grid.Column="0" Source="Images/Interface/cursor.png" HorizontalAlignment="Left" Margin="0 0 15 0" Width="auto" Height="auto" />
                             <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" MinWidth="150" MinHeight="50" Height="auto" Content="Zaloguj się" BorderThickness="0" Cursor="Hand" FontFamily="Open Sans" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#FF0B68D8" >
                                 <Button.Effect>
                                     <DropShadowEffect/>
@@ -83,7 +83,7 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="2*" />
                             </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" Source="/Images/Interface/earth-globe.png" HorizontalAlignment="Left" Margin="0 0 15 0" Width="auto" Height="auto" />
+                            <Image Grid.Column="0" Source="Images/Interface/earth-globe.png" HorizontalAlignment="Left" Margin="0 0 15 0" Width="auto" Height="auto" />
                             <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" MinWidth="150" MinHeight="50" Height="auto" Content="O kursie" BorderThickness="0" Cursor="Hand" FontFamily="Open Sans" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#FF0B68D8" >
                                 <Button.Effect>
                                     <DropShadowEffect/>
@@ -103,8 +103,8 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="2*" />
                             </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" Source="/Images/Interface/group.png" HorizontalAlignment="Left" Margin="0 0 15 0" Width="auto" Height="auto" />
-                            <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" MinWidth="150" MinHeight="50" Height="auto" Content="Autorzy" BorderThickness="0" Cursor="Hand" FontFamily="Open Sans" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#FF0B68D8" >
+                            <Image Grid.Column="0" Source="Images/Interface/group.png" HorizontalAlignment="Left" Margin="0 0 15 0" Width="auto" Height="auto" />
+                            <Button Click="AboutAuthors_Click" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" MinWidth="150" MinHeight="50" Height="auto" Content="Autorzy" BorderThickness="0" Cursor="Hand" FontFamily="Open Sans" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#FF0B68D8" >
                                 <Button.Effect>
                                     <DropShadowEffect/>
                                 </Button.Effect>
@@ -128,10 +128,12 @@
                     <Viewbox Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top">
                         <TextBlock Text="Postęp ukończenia:" Margin="0 20 0 0" FontFamily="Open Sans" FontSize="24"></TextBlock>
                     </Viewbox>
-                    <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <DesignInControl:CircularProgressBar HorizontalAlignment="Center" VerticalAlignment="Center" SegmentColor="#FF878889" StrokeThickness="25" Percentage="100" />
-                        <DesignInControl:CircularProgressBar HorizontalAlignment="Center" VerticalAlignment="Center" Percentage="25" SegmentColor="#026873" StrokeThickness="25" Loaded="CircularProgressBar_Loaded" />
-                    </Grid>
+                    <Viewbox Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid>
+                            <DesignInControl:CircularProgressBar HorizontalAlignment="Center" VerticalAlignment="Center" SegmentColor="#FF878889" StrokeThickness="25" Percentage="100" />
+                            <DesignInControl:CircularProgressBar x:Name="ProgressCircle" HorizontalAlignment="Center" VerticalAlignment="Center" SegmentColor="#026873" StrokeThickness="25"/>
+                        </Grid>
+                    </Viewbox>
                 </Grid>
             </Grid>
             <Grid Grid.Column="1">
@@ -145,9 +147,10 @@
                         <TextBlock Text="Internetowy przewodnik po środowisku .NET" FontFamily="Open Sans" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                     </Viewbox>
                 </Grid>
-                <Grid Grid.Row="1" Background="#FFF1F1F1"></Grid>
+                <Grid Grid.Row="1" x:Name="DynamicView" Background="#FFF1F1F1">
+                </Grid>
                 <Grid Grid.Row="2" Background="#FF2D3370">
-                    <TextBlock Text="Jesteś w sekcji: Strona Główna" Foreground="White" FontFamily="Open Sans" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                    <TextBlock Margin="0 0 15 0" x:Name="SectionBlock" Text="Jesteś w sekcji: Strona Główna" Foreground="White" FontFamily="Open Sans" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
                 </Grid>
             </Grid>
         </Grid>
