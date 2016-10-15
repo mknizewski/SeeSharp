@@ -28,7 +28,7 @@
                     <RowDefinition Height="5*" />
                     <RowDefinition Height="2*" />
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Background="#FF9C6EA0" Cursor="Hand">
+                <Grid Grid.Row="0" Background="#FF9C6EA0" Cursor="Hand" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
                     <Viewbox HorizontalAlignment="Left" MaxWidth="50" MaxHeight="50">
                         <Image Source="Images/icon-account.png" />
                     </Viewbox>
@@ -150,7 +150,7 @@
                 <Grid Grid.Row="1" x:Name="DynamicView" Background="#FFF1F1F1">
                 </Grid>
                 <Grid Grid.Row="2" Background="#FF2D3370">
-                    <TextBlock Margin="0 0 15 0" x:Name="SectionBlock" Text="Jesteś w sekcji: Strona Główna" Foreground="White" FontFamily="Open Sans" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                    <TextBlock Margin="0 0 15 0" x:Name="SectionBlock" Text="Jesteś w sekcji: " Foreground="White" FontFamily="Open Sans" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
                 </Grid>
             </Grid>
         </Grid>

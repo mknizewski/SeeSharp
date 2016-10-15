@@ -1,36 +1,44 @@
 ﻿using SeeSharp.BO.Dictionaries;
 using SeeSharp.Infrastructure;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 
 namespace SeeSharp
 {
-    public partial class MainPage : UserControl
+    public partial class MainPage : UserControl, IDisposable
     {
-        private const string SectionPrefix = "Jesteś w sekcji: ";
+        private const string SectionPrefixPattern = "Jesteś w sekcji: {0}";
 
         public MainPage()
         {
             InitializeComponent();
+            SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
             this.ProgressCircle.Percentage = 25.0;
-            this.SectionBlock.Text = SectionPrefix + NavigationDictionary.MainView;
+            this.SectionBlock.Text = string.Format(SectionPrefixPattern, NavigationDictionary.WelcomePageView);
         }
 
         private void AboutAuthors_Click(object sender, RoutedEventArgs e)
         {
+            SetView(ViewType.AboutAuthors, NavigationDictionary.AboutAuthorsView);
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
+        }
+
+        private void SetView(ViewType viewType, string section)
+        {
             this.DynamicView.Children.Clear();
-            this.DynamicView.Children.Add(ViewFactory.GetView(ViewType.AboutAuthors));
+            this.DynamicView.Children.Add(ViewFactory.GetView(viewType));
             this.DynamicView.UpdateLayout();
-            this.SectionBlock.Text = SectionPrefix + NavigationDictionary.AboutAuthorsView;
+            this.SectionBlock.Text = string.Format(SectionPrefixPattern, section);
         }
     }
 }

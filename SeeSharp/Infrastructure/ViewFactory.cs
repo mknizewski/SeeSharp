@@ -8,8 +8,8 @@ namespace SeeSharp.Infrastructure
         {
             switch (viewType)
             {
-                case ViewType.MainPage:
-                    return new MainPage();
+                case ViewType.WelcomePage:
+                    return new WelcomePage();
                 case ViewType.AboutAuthors:
                     return new AboutAuthors();
                 case ViewType.Register:
@@ -26,7 +26,7 @@ namespace SeeSharp.Infrastructure
 
     public enum ViewType
     {
-        MainPage,
+        WelcomePage,
         AboutAuthors,
         Register,
         Login

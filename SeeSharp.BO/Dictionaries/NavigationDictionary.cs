@@ -2,7 +2,7 @@
 {
     public static class NavigationDictionary
     {
-        public static string MainView = "Strona Główna";
+        public static string WelcomePageView = "Strona Główna";
         public static string AboutAuthorsView = "Autorzy";
     }
 }
