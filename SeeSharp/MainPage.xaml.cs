@@ -18,5 +18,10 @@ namespace SeeSharp
         {
             InitializeComponent();
         }
+
+        private void CircularProgressBar_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
