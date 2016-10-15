@@ -14,9 +14,13 @@ namespace SeeSharp
 {
     public partial class AboutAuthors : UserControl
     {
+        private const string CopyRightInfoPattern = "Białystok, {0}";
+
         public AboutAuthors()
         {
-            InitializeComponent();
+            this.InitializeComponent();
+            this.CopyrightInformation.Text = string.Format(CopyRightInfoPattern, DateTime.Now.Year.ToString());
+            this.Focus();
         }
     }
 }

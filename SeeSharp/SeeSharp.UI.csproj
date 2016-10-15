@@ -124,6 +124,7 @@
     <None Include="Service References\ServiceReference1\ServerService.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Resource Include="Images\w_uwb_kolor.jpg" />
     <Content Include="ServiceReferences.ClientConfig" />
     <None Include="Service References\ServiceReference1\ServerService1.xsd">
       <SubType>Designer</SubType>
