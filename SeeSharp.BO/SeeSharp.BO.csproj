@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="Dictionaries\AppSettingsDictionary.cs" />
     <Compile Include="Dictionaries\NavigationDictionary.cs" />
+    <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

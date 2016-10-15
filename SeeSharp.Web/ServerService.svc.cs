@@ -1,29 +1,36 @@
-﻿using System;
+﻿using SeeSharp.Web.Dictionaries;
+using SeeSharp.Web.Managers;
+using System;
 using System.IO;
 using System.Xml;
 
 namespace SeeSharp.Web
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ServerService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select ServerService.svc or ServerService.svc.cs at the Solution Explorer and start debugging.
     public class ServerService : IServerService
     {
-        public void CreateDirectoryForUser(string loginName)
+        private const string Separator = @"\";
+
+        public void CreateDirectoryForUser(string loginName, int code)
         {
-            throw new NotImplementedException();
+            string xmlDirectoryPath = string.Concat(AppDomain.CurrentDomain.BaseDirectory, WebConfigDictionary.XmlFileDirectory);
+            string userDirectory = string.Concat(xmlDirectoryPath, Separator, loginName);
+
+            if (!Directory.Exists(userDirectory))
+            {
+                Directory.CreateDirectory(userDirectory);
+                XmlDocument xmlFile = XmlManager.CreateNewXmlFile(loginName, code);
+                string fullXmlFilePath = string.Concat(userDirectory, Separator, WebConfigDictionary.XmlFileName);
+
+                xmlFile.Save(fullXmlFilePath);
+            }
         }
 
-        public void CreateMainDirectoryIfDosentExists(string nameOfDirectory)
+        public void CreateMainDirectoryIfDosentExists()
         {
-            string xmlPath = string.Join(@"\", AppDomain.CurrentDomain.BaseDirectory, nameOfDirectory);
+            string xmlDirectoryPath = string.Concat(AppDomain.CurrentDomain.BaseDirectory, WebConfigDictionary.XmlFileDirectory);
 
-            if (!Directory.Exists(xmlPath))
-                Directory.CreateDirectory(xmlPath);
-        }
-
-        public XmlDocument GetUserXml(string loginName)
-        {
-            throw new NotImplementedException();
+            if (!Directory.Exists(xmlDirectoryPath))
+                Directory.CreateDirectory(xmlDirectoryPath);
         }
     }
 }

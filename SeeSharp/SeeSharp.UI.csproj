@@ -128,9 +128,6 @@
     <None Include="Service References\ServiceReference1\ServerService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\ServerService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\icon-account.png" />

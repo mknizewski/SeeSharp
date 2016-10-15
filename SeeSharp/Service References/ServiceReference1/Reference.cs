@@ -19,43 +19,18 @@ namespace SeeSharp.ServiceReference1 {
     public interface IServerService {
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerService/CreateMainDirectoryIfDosentExists", ReplyAction="http://tempuri.org/IServerService/CreateMainDirectoryIfDosentExistsResponse")]
-        System.IAsyncResult BeginCreateMainDirectoryIfDosentExists(string nameOfDirectory, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginCreateMainDirectoryIfDosentExists(System.AsyncCallback callback, object asyncState);
         
         void EndCreateMainDirectoryIfDosentExists(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerService/CreateDirectoryForUser", ReplyAction="http://tempuri.org/IServerService/CreateDirectoryForUserResponse")]
-        System.IAsyncResult BeginCreateDirectoryForUser(string loginName, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginCreateDirectoryForUser(string loginName, int code, System.AsyncCallback callback, object asyncState);
         
         void EndCreateDirectoryForUser(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerService/GetUserXml", ReplyAction="http://tempuri.org/IServerService/GetUserXmlResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        System.IAsyncResult BeginGetUserXml(string loginName, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<object> EndGetUserXml(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServerServiceChannel : SeeSharp.ServiceReference1.IServerService, System.ServiceModel.IClientChannel {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetUserXmlCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetUserXmlCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<object> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<object>)(this.results[0]));
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -73,12 +48,6 @@ namespace SeeSharp.ServiceReference1 {
         private EndOperationDelegate onEndCreateDirectoryForUserDelegate;
         
         private System.Threading.SendOrPostCallback onCreateDirectoryForUserCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetUserXmlDelegate;
-        
-        private EndOperationDelegate onEndGetUserXmlDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetUserXmlCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -137,15 +106,13 @@ namespace SeeSharp.ServiceReference1 {
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CreateDirectoryForUserCompleted;
         
-        public event System.EventHandler<GetUserXmlCompletedEventArgs> GetUserXmlCompleted;
-        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SeeSharp.ServiceReference1.IServerService.BeginCreateMainDirectoryIfDosentExists(string nameOfDirectory, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginCreateMainDirectoryIfDosentExists(nameOfDirectory, callback, asyncState);
+        System.IAsyncResult SeeSharp.ServiceReference1.IServerService.BeginCreateMainDirectoryIfDosentExists(System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCreateMainDirectoryIfDosentExists(callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -154,8 +121,7 @@ namespace SeeSharp.ServiceReference1 {
         }
         
         private System.IAsyncResult OnBeginCreateMainDirectoryIfDosentExists(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string nameOfDirectory = ((string)(inValues[0]));
-            return ((SeeSharp.ServiceReference1.IServerService)(this)).BeginCreateMainDirectoryIfDosentExists(nameOfDirectory, callback, asyncState);
+            return ((SeeSharp.ServiceReference1.IServerService)(this)).BeginCreateMainDirectoryIfDosentExists(callback, asyncState);
         }
         
         private object[] OnEndCreateMainDirectoryIfDosentExists(System.IAsyncResult result) {
@@ -170,11 +136,11 @@ namespace SeeSharp.ServiceReference1 {
             }
         }
         
-        public void CreateMainDirectoryIfDosentExistsAsync(string nameOfDirectory) {
-            this.CreateMainDirectoryIfDosentExistsAsync(nameOfDirectory, null);
+        public void CreateMainDirectoryIfDosentExistsAsync() {
+            this.CreateMainDirectoryIfDosentExistsAsync(null);
         }
         
-        public void CreateMainDirectoryIfDosentExistsAsync(string nameOfDirectory, object userState) {
+        public void CreateMainDirectoryIfDosentExistsAsync(object userState) {
             if ((this.onBeginCreateMainDirectoryIfDosentExistsDelegate == null)) {
                 this.onBeginCreateMainDirectoryIfDosentExistsDelegate = new BeginOperationDelegate(this.OnBeginCreateMainDirectoryIfDosentExists);
             }
@@ -184,13 +150,12 @@ namespace SeeSharp.ServiceReference1 {
             if ((this.onCreateMainDirectoryIfDosentExistsCompletedDelegate == null)) {
                 this.onCreateMainDirectoryIfDosentExistsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCreateMainDirectoryIfDosentExistsCompleted);
             }
-            base.InvokeAsync(this.onBeginCreateMainDirectoryIfDosentExistsDelegate, new object[] {
-                        nameOfDirectory}, this.onEndCreateMainDirectoryIfDosentExistsDelegate, this.onCreateMainDirectoryIfDosentExistsCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginCreateMainDirectoryIfDosentExistsDelegate, null, this.onEndCreateMainDirectoryIfDosentExistsDelegate, this.onCreateMainDirectoryIfDosentExistsCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SeeSharp.ServiceReference1.IServerService.BeginCreateDirectoryForUser(string loginName, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginCreateDirectoryForUser(loginName, callback, asyncState);
+        System.IAsyncResult SeeSharp.ServiceReference1.IServerService.BeginCreateDirectoryForUser(string loginName, int code, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCreateDirectoryForUser(loginName, code, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -200,7 +165,8 @@ namespace SeeSharp.ServiceReference1 {
         
         private System.IAsyncResult OnBeginCreateDirectoryForUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string loginName = ((string)(inValues[0]));
-            return ((SeeSharp.ServiceReference1.IServerService)(this)).BeginCreateDirectoryForUser(loginName, callback, asyncState);
+            int code = ((int)(inValues[1]));
+            return ((SeeSharp.ServiceReference1.IServerService)(this)).BeginCreateDirectoryForUser(loginName, code, callback, asyncState);
         }
         
         private object[] OnEndCreateDirectoryForUser(System.IAsyncResult result) {
@@ -215,11 +181,11 @@ namespace SeeSharp.ServiceReference1 {
             }
         }
         
-        public void CreateDirectoryForUserAsync(string loginName) {
-            this.CreateDirectoryForUserAsync(loginName, null);
+        public void CreateDirectoryForUserAsync(string loginName, int code) {
+            this.CreateDirectoryForUserAsync(loginName, code, null);
         }
         
-        public void CreateDirectoryForUserAsync(string loginName, object userState) {
+        public void CreateDirectoryForUserAsync(string loginName, int code, object userState) {
             if ((this.onBeginCreateDirectoryForUserDelegate == null)) {
                 this.onBeginCreateDirectoryForUserDelegate = new BeginOperationDelegate(this.OnBeginCreateDirectoryForUser);
             }
@@ -230,53 +196,8 @@ namespace SeeSharp.ServiceReference1 {
                 this.onCreateDirectoryForUserCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCreateDirectoryForUserCompleted);
             }
             base.InvokeAsync(this.onBeginCreateDirectoryForUserDelegate, new object[] {
-                        loginName}, this.onEndCreateDirectoryForUserDelegate, this.onCreateDirectoryForUserCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SeeSharp.ServiceReference1.IServerService.BeginGetUserXml(string loginName, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetUserXml(loginName, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<object> SeeSharp.ServiceReference1.IServerService.EndGetUserXml(System.IAsyncResult result) {
-            return base.Channel.EndGetUserXml(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetUserXml(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string loginName = ((string)(inValues[0]));
-            return ((SeeSharp.ServiceReference1.IServerService)(this)).BeginGetUserXml(loginName, callback, asyncState);
-        }
-        
-        private object[] OnEndGetUserXml(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<object> retVal = ((SeeSharp.ServiceReference1.IServerService)(this)).EndGetUserXml(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetUserXmlCompleted(object state) {
-            if ((this.GetUserXmlCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetUserXmlCompleted(this, new GetUserXmlCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetUserXmlAsync(string loginName) {
-            this.GetUserXmlAsync(loginName, null);
-        }
-        
-        public void GetUserXmlAsync(string loginName, object userState) {
-            if ((this.onBeginGetUserXmlDelegate == null)) {
-                this.onBeginGetUserXmlDelegate = new BeginOperationDelegate(this.OnBeginGetUserXml);
-            }
-            if ((this.onEndGetUserXmlDelegate == null)) {
-                this.onEndGetUserXmlDelegate = new EndOperationDelegate(this.OnEndGetUserXml);
-            }
-            if ((this.onGetUserXmlCompletedDelegate == null)) {
-                this.onGetUserXmlCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserXmlCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetUserXmlDelegate, new object[] {
-                        loginName}, this.onEndGetUserXmlDelegate, this.onGetUserXmlCompletedDelegate, userState);
+                        loginName,
+                        code}, this.onEndCreateDirectoryForUserDelegate, this.onCreateDirectoryForUserCompletedDelegate, userState);
         }
         
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -355,9 +276,8 @@ namespace SeeSharp.ServiceReference1 {
                     base(client) {
             }
             
-            public System.IAsyncResult BeginCreateMainDirectoryIfDosentExists(string nameOfDirectory, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = nameOfDirectory;
+            public System.IAsyncResult BeginCreateMainDirectoryIfDosentExists(System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[0];
                 System.IAsyncResult _result = base.BeginInvoke("CreateMainDirectoryIfDosentExists", _args, callback, asyncState);
                 return _result;
             }
@@ -367,9 +287,10 @@ namespace SeeSharp.ServiceReference1 {
                 base.EndInvoke("CreateMainDirectoryIfDosentExists", _args, result);
             }
             
-            public System.IAsyncResult BeginCreateDirectoryForUser(string loginName, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
+            public System.IAsyncResult BeginCreateDirectoryForUser(string loginName, int code, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
                 _args[0] = loginName;
+                _args[1] = code;
                 System.IAsyncResult _result = base.BeginInvoke("CreateDirectoryForUser", _args, callback, asyncState);
                 return _result;
             }
@@ -377,19 +298,6 @@ namespace SeeSharp.ServiceReference1 {
             public void EndCreateDirectoryForUser(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 base.EndInvoke("CreateDirectoryForUser", _args, result);
-            }
-            
-            public System.IAsyncResult BeginGetUserXml(string loginName, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = loginName;
-                System.IAsyncResult _result = base.BeginInvoke("GetUserXml", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<object> EndGetUserXml(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<object> _result = ((System.Collections.ObjectModel.ObservableCollection<object>)(base.EndInvoke("GetUserXml", _args, result)));
-                return _result;
             }
         }
     }

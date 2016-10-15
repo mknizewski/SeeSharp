@@ -1,0 +1,10 @@
+<appProfile>
+  <user>
+    <login>test</login>
+    <code>1234</code>
+  </user>
+  <tutorial>
+    <percentage>0</percentage>
+    <last />
+  </tutorial>
+</appProfile>

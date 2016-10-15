@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
-using System.Xml;
+﻿using System.ServiceModel;
 
 namespace SeeSharp.Web
 {
@@ -13,12 +7,9 @@ namespace SeeSharp.Web
     public interface IServerService
     {
         [OperationContract]
-        void CreateMainDirectoryIfDosentExists(string nameOfDirectory);
+        void CreateMainDirectoryIfDosentExists();
 
         [OperationContract]
-        void CreateDirectoryForUser(string loginName);
-
-        [OperationContract]
-        XmlDocument GetUserXml(string loginName);
+        void CreateDirectoryForUser(string loginName, int code);
     }
 }
