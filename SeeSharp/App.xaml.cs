@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using SeeSharp.BO.Dictionaries;
+using SeeSharp.ServiceReference1;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 
 namespace SeeSharp
 {
@@ -27,11 +20,13 @@ namespace SeeSharp
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             this.RootVisual = new MainPage();
+            this.CreateXmlDirectoryIfNotExists();
         }
 
         private void Application_Exit(object sender, EventArgs e)
         {
-
+            MainPage mainPage = this.RootVisual as MainPage;
+            mainPage.Dispose();
         }
 
         private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
@@ -63,6 +58,13 @@ namespace SeeSharp
             catch (Exception)
             {
             }
+        }
+
+        private void CreateXmlDirectoryIfNotExists()
+        {
+            ServerServiceClient serverService = new ServerServiceClient();
+
+            serverService.CreateMainDirectoryIfDosentExistsAsync();
         }
     }
 }

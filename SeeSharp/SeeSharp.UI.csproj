@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CAA37C92-D208-43D5-82C2-1D54DB61A65C}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SeeSharp</RootNamespace>
+    <AssemblyName>SeeSharp</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>SeeSharp.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>SeeSharp.App</SilverlightAppEntry>
+    <TestPageFileName>SeeSharpTestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\SeeSharp.Web\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutAuthors.xaml.cs">
+      <DependentUpon>AboutAuthors.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CircularProgressBar.xaml.cs">
+      <DependentUpon>CircularProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\ViewFactory.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="AboutAuthors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CircularProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WelcomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Service References\ServiceReference1\ServerService.wsdl" />
+    <None Include="Service References\ServiceReference1\ServerService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Resource Include="Images\w_uwb_kolor.jpg" />
+    <Content Include="ServiceReferences.ClientConfig" />
+    <None Include="Service References\ServiceReference1\ServerService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon-account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Interface\airplane.png" />
+    <Resource Include="Images\Interface\attachment.png" />
+    <Resource Include="Images\Interface\broken-heart.png" />
+    <Resource Include="Images\Interface\browser.png" />
+    <Resource Include="Images\Interface\cancel.png" />
+    <Resource Include="Images\Interface\center-alignment.png" />
+    <Resource Include="Images\Interface\clock-1.png" />
+    <Resource Include="Images\Interface\clock.png" />
+    <Resource Include="Images\Interface\cloud-computing.png" />
+    <Resource Include="Images\Interface\compass.png" />
+    <Resource Include="Images\Interface\computer.png" />
+    <Resource Include="Images\Interface\cursor.png" />
+    <Resource Include="Images\Interface\document-1.png" />
+    <Resource Include="Images\Interface\document-2.png" />
+    <Resource Include="Images\Interface\document-3.png" />
+    <Resource Include="Images\Interface\document.png" />
+    <Resource Include="Images\Interface\download.png" />
+    <Resource Include="Images\Interface\earth-globe.png" />
+    <Resource Include="Images\Interface\email.png" />
+    <Resource Include="Images\Interface\film.png" />
+    <Resource Include="Images\Interface\folder.png" />
+    <Resource Include="Images\Interface\gamepad.png" />
+    <Resource Include="Images\Interface\group.png" />
+    <Resource Include="Images\Interface\heart.png" />
+    <Resource Include="Images\Interface\internet.png" />
+    <Resource Include="Images\Interface\layers.png" />
+    <Resource Include="Images\Interface\left-alignment.png" />
+    <Resource Include="Images\Interface\light-bulb-1.png" />
+    <Resource Include="Images\Interface\light-bulb.png" />
+    <Resource Include="Images\Interface\link.png" />
+    <Resource Include="Images\Interface\list.png" />
+    <Resource Include="Images\Interface\mail.png" />
+    <Resource Include="Images\Interface\microphone.png" />
+    <Resource Include="Images\Interface\notification.png" />
+    <Resource Include="Images\Interface\padlock.png" />
+    <Resource Include="Images\Interface\pencil.png" />
+    <Resource Include="Images\Interface\phone-book-1.png" />
+    <Resource Include="Images\Interface\phone-book.png" />
+    <Resource Include="Images\Interface\picture-1.png" />
+    <Resource Include="Images\Interface\picture.png" />
+    <Resource Include="Images\Interface\placeholder.png" />
+    <Resource Include="Images\Interface\push-pin.png" />
+    <Resource Include="Images\Interface\right-alignment.png" />
+    <Resource Include="Images\Interface\settings.png" />
+    <Resource Include="Images\Interface\share.png" />
+    <Resource Include="Images\Interface\shield-1.png" />
+    <Resource Include="Images\Interface\shield-2.png" />
+    <Resource Include="Images\Interface\shield.png" />
+    <Resource Include="Images\Interface\smartphone.png" />
+    <Resource Include="Images\Interface\speech-bubble-1.png" />
+    <Resource Include="Images\Interface\speech-bubble.png" />
+    <Resource Include="Images\Interface\tablet.png" />
+    <Resource Include="Images\Interface\unlock.png" />
+    <Resource Include="Images\Interface\upload.png" />
+    <Resource Include="Images\Interface\user-1.png" />
+    <Resource Include="Images\Interface\user-2.png" />
+    <Resource Include="Images\Interface\user-3.png" />
+    <Resource Include="Images\Interface\user.png" />
+    <Resource Include="Images\Interface\volume.png" />
+    <Resource Include="Images\Interface\zoom-in.png" />
+    <Resource Include="Images\Interface\zoom-out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SeeSharp.BO\SeeSharp.BO.csproj">
+      <Project>{4DDFFA8E-F3C0-41EB-98C9-97FC5C07D3DC}</Project>
+      <Name>SeeSharp.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\OutOfBrowserSettings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\ServerService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
