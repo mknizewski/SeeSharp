@@ -1,7 +1,9 @@
 ﻿using SeeSharp.Web.Dictionaries;
 using SeeSharp.Web.Managers;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml;
 
 namespace SeeSharp.Web
@@ -9,6 +11,11 @@ namespace SeeSharp.Web
     public class ServerService : IServerService
     {
         private const string Separator = @"\";
+
+        public string Chuj()
+        {
+            throw new NotImplementedException();
+        }
 
         public void CreateDirectoryForUser(string loginName, int code)
         {
@@ -31,6 +38,17 @@ namespace SeeSharp.Web
 
             if (!Directory.Exists(xmlDirectoryPath))
                 Directory.CreateDirectory(xmlDirectoryPath);
+        }
+
+        public Dictionary<string, string> GetUserProfile(string loginName)
+        {
+            string xmlDirectoryPath = string.Concat(AppDomain.CurrentDomain.BaseDirectory, WebConfigDictionary.XmlFileDirectory);
+            string userProfilePath = string.Concat(xmlDirectoryPath, Separator, loginName, Separator, WebConfigDictionary.XmlFileName);
+
+            var xmlUserProfile = new XmlDocument();
+            xmlUserProfile.Load(userProfilePath);
+
+            return XmlManager.DeserializeXmlProfile(xmlUserProfile);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System.Collections.Generic;
+using System.Xml;
 
 namespace SeeSharp.Web.Managers
 {
@@ -35,6 +36,23 @@ namespace SeeSharp.Web.Managers
             rootNode.AppendChild(tutorialNode);
 
             return xmlDocument;
+        }
+
+        public static Dictionary<string, string> DeserializeXmlProfile(XmlDocument xmlProfile)
+        {
+            var userDictionary = new Dictionary<string, string>();
+            foreach (XmlNode node in xmlProfile.ChildNodes)
+            {
+                foreach (XmlNode subNode in node.ChildNodes)
+                {
+                    foreach (XmlNode properties in subNode.ChildNodes)
+                    {
+                        userDictionary.Add(properties.Name, properties.InnerText);
+                    }
+                }
+            }
+
+            return userDictionary;
         }
     }
 }

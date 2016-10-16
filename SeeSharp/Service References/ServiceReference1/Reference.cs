@@ -27,10 +27,34 @@ namespace SeeSharp.ServiceReference1 {
         System.IAsyncResult BeginCreateDirectoryForUser(string loginName, int code, System.AsyncCallback callback, object asyncState);
         
         void EndCreateDirectoryForUser(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerService/GetUserProfile", ReplyAction="http://tempuri.org/IServerService/GetUserProfileResponse")]
+        System.IAsyncResult BeginGetUserProfile(string loginName, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.Generic.Dictionary<string, string> EndGetUserProfile(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServerServiceChannel : SeeSharp.ServiceReference1.IServerService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetUserProfileCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetUserProfileCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.Generic.Dictionary<string, string> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.Generic.Dictionary<string, string>)(this.results[0]));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -48,6 +72,12 @@ namespace SeeSharp.ServiceReference1 {
         private EndOperationDelegate onEndCreateDirectoryForUserDelegate;
         
         private System.Threading.SendOrPostCallback onCreateDirectoryForUserCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetUserProfileDelegate;
+        
+        private EndOperationDelegate onEndGetUserProfileDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetUserProfileCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -105,6 +135,8 @@ namespace SeeSharp.ServiceReference1 {
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CreateMainDirectoryIfDosentExistsCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CreateDirectoryForUserCompleted;
+        
+        public event System.EventHandler<GetUserProfileCompletedEventArgs> GetUserProfileCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -198,6 +230,52 @@ namespace SeeSharp.ServiceReference1 {
             base.InvokeAsync(this.onBeginCreateDirectoryForUserDelegate, new object[] {
                         loginName,
                         code}, this.onEndCreateDirectoryForUserDelegate, this.onCreateDirectoryForUserCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SeeSharp.ServiceReference1.IServerService.BeginGetUserProfile(string loginName, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetUserProfile(loginName, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.Generic.Dictionary<string, string> SeeSharp.ServiceReference1.IServerService.EndGetUserProfile(System.IAsyncResult result) {
+            return base.Channel.EndGetUserProfile(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetUserProfile(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string loginName = ((string)(inValues[0]));
+            return ((SeeSharp.ServiceReference1.IServerService)(this)).BeginGetUserProfile(loginName, callback, asyncState);
+        }
+        
+        private object[] OnEndGetUserProfile(System.IAsyncResult result) {
+            System.Collections.Generic.Dictionary<string, string> retVal = ((SeeSharp.ServiceReference1.IServerService)(this)).EndGetUserProfile(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetUserProfileCompleted(object state) {
+            if ((this.GetUserProfileCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetUserProfileCompleted(this, new GetUserProfileCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetUserProfileAsync(string loginName) {
+            this.GetUserProfileAsync(loginName, null);
+        }
+        
+        public void GetUserProfileAsync(string loginName, object userState) {
+            if ((this.onBeginGetUserProfileDelegate == null)) {
+                this.onBeginGetUserProfileDelegate = new BeginOperationDelegate(this.OnBeginGetUserProfile);
+            }
+            if ((this.onEndGetUserProfileDelegate == null)) {
+                this.onEndGetUserProfileDelegate = new EndOperationDelegate(this.OnEndGetUserProfile);
+            }
+            if ((this.onGetUserProfileCompletedDelegate == null)) {
+                this.onGetUserProfileCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserProfileCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetUserProfileDelegate, new object[] {
+                        loginName}, this.onEndGetUserProfileDelegate, this.onGetUserProfileCompletedDelegate, userState);
         }
         
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -298,6 +376,19 @@ namespace SeeSharp.ServiceReference1 {
             public void EndCreateDirectoryForUser(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 base.EndInvoke("CreateDirectoryForUser", _args, result);
+            }
+            
+            public System.IAsyncResult BeginGetUserProfile(string loginName, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = loginName;
+                System.IAsyncResult _result = base.BeginInvoke("GetUserProfile", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.Generic.Dictionary<string, string> EndGetUserProfile(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.Generic.Dictionary<string, string> _result = ((System.Collections.Generic.Dictionary<string, string>)(base.EndInvoke("GetUserProfile", _args, result)));
+                return _result;
             }
         }
     }

@@ -1,7 +1,9 @@
 ﻿using SeeSharp.BO.Dictionaries;
 using SeeSharp.ServiceReference1;
 using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Xml.Linq;
 
 namespace SeeSharp
 {
@@ -63,7 +65,6 @@ namespace SeeSharp
         private void CreateXmlDirectoryIfNotExists()
         {
             ServerServiceClient serverService = new ServerServiceClient();
-
             serverService.CreateMainDirectoryIfDosentExistsAsync();
         }
     }
