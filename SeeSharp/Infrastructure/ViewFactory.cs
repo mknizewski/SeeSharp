@@ -13,7 +13,7 @@ namespace SeeSharp.Infrastructure
                 case ViewType.AboutAuthors:
                     return new AboutAuthors();
                 case ViewType.Register:
-                    break;
+                    return new RegisterPage();
                 case ViewType.Login:
                     break;
                 default:

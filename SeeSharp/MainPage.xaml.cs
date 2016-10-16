@@ -42,5 +42,10 @@ namespace SeeSharp
             this.SectionBlock.Text = string.Format(SectionPrefixPattern, section);
         }
         #endregion
+
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetView(ViewType.Register, NavigationDictionary.RegisterPageView);
+        }
     }
 }

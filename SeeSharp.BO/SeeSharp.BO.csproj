@@ -65,7 +65,13 @@
       <DependentUpon>AppSettings.resx</DependentUpon>
     </Compile>
     <Compile Include="Dictionaries\AppSettingsDictionary.cs" />
+    <Compile Include="Dictionaries\ExceptionDictionary.cs" />
     <Compile Include="Dictionaries\NavigationDictionary.cs" />
+    <Compile Include="Exception.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Exception.resx</DependentUpon>
+    </Compile>
     <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -73,6 +79,10 @@
     <EmbeddedResource Include="AppSettings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppSettings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Exception.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Exception.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
