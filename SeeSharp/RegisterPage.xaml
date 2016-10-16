@@ -22,12 +22,12 @@
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
             <Button x:Name="LoginButton" Click="Login_OnClick" Cursor="Hand" IsEnabled="False" Height="30" Width="100" Content="Zaloguj się" FontWeight="Bold" FontFamily="Open Sans" Margin="0 0 15 0">
                 <Button.Effect>
-                    <DropShadowEffect/>
+                    <DropShadowEffect />
                 </Button.Effect>
             </Button>
             <Button x:Name="RegisterButton" Cursor="Hand" Content="Rejestruj się" Margin="0 0 15 0" Height="30" Width="100" FontFamily="Open Sans" Click="Register_OnClick" FontWeight="Bold">
                 <Button.Effect>
-                    <DropShadowEffect/>
+                    <DropShadowEffect />
                 </Button.Effect>
             </Button>
         </StackPanel>

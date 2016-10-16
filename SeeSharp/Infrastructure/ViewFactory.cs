@@ -10,12 +10,16 @@ namespace SeeSharp.Infrastructure
             {
                 case ViewType.WelcomePage:
                     return new WelcomePage();
+
                 case ViewType.AboutAuthors:
                     return new AboutAuthors();
+
                 case ViewType.Register:
                     return new RegisterPage();
+
                 case ViewType.Login:
                     break;
+
                 default:
                     return new MainPage();
             }

@@ -44,7 +44,6 @@ namespace SeeSharp
 
         private void Login_OnClick(object sender, RoutedEventArgs e)
         {
-
         }
     }
 }

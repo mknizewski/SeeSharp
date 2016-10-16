@@ -10,7 +10,7 @@
         <Storyboard x:Name="Loading">
             <DoubleAnimation Duration="0:0:1.5" To="60" Storyboard.TargetProperty="(RangeBase.Value)" Storyboard.TargetName="slider" d:IsOptimized="True">
                 <DoubleAnimation.EasingFunction>
-                    <BackEase Amplitude="0.5" EasingMode="EaseOut"/>
+                    <BackEase Amplitude="0.5" EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
         </Storyboard>
@@ -44,16 +44,16 @@
                                 <ColumnDefinition Width="2*" />
                             </Grid.ColumnDefinitions>
                             <Image Grid.Column="0" Source="Images/Interface/pencil.png" HorizontalAlignment="Left" Margin="0 0 15 0" Width="auto" Height="auto" />
-                            <Button Click="RegisterButton_Click" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" MinWidth="150" MinHeight="50" Height="auto" Content="Rejestracja" BorderThickness="0" Cursor="Hand" FontFamily="Open Sans" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#FF0B68D8" >
+                            <Button Click="RegisterButton_Click" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" MinWidth="150" MinHeight="50" Height="auto" Content="Rejestracja" BorderThickness="0" Cursor="Hand" FontFamily="Open Sans" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#FF0B68D8">
                                 <Button.Effect>
-                                    <DropShadowEffect/>
+                                    <DropShadowEffect />
                                 </Button.Effect>
                                 <Button.BorderBrush>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#FFA3AEB9" Offset="0"/>
-                                        <GradientStop Color="#FF8399A9" Offset="0.375"/>
-                                        <GradientStop Color="#FF718597" Offset="0.375"/>
-                                        <GradientStop Color="#FF90CAFF" Offset="1"/>
+                                        <GradientStop Color="#FFA3AEB9" Offset="0" />
+                                        <GradientStop Color="#FF8399A9" Offset="0.375" />
+                                        <GradientStop Color="#FF718597" Offset="0.375" />
+                                        <GradientStop Color="#FF90CAFF" Offset="1" />
                                     </LinearGradientBrush>
                                 </Button.BorderBrush>
                             </Button>
@@ -64,16 +64,16 @@
                                 <ColumnDefinition Width="2*" />
                             </Grid.ColumnDefinitions>
                             <Image Grid.Column="0" Source="Images/Interface/cursor.png" HorizontalAlignment="Left" Margin="0 0 15 0" Width="auto" Height="auto" />
-                            <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" MinWidth="150" MinHeight="50" Height="auto" Content="Zaloguj się" BorderThickness="0" Cursor="Hand" FontFamily="Open Sans" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#FF0B68D8" >
+                            <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" MinWidth="150" MinHeight="50" Height="auto" Content="Zaloguj się" BorderThickness="0" Cursor="Hand" FontFamily="Open Sans" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#FF0B68D8">
                                 <Button.Effect>
-                                    <DropShadowEffect/>
+                                    <DropShadowEffect />
                                 </Button.Effect>
                                 <Button.BorderBrush>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#FFA3AEB9" Offset="0"/>
-                                        <GradientStop Color="#FF8399A9" Offset="0.375"/>
-                                        <GradientStop Color="#FF718597" Offset="0.375"/>
-                                        <GradientStop Color="#FF90CAFF" Offset="1"/>
+                                        <GradientStop Color="#FFA3AEB9" Offset="0" />
+                                        <GradientStop Color="#FF8399A9" Offset="0.375" />
+                                        <GradientStop Color="#FF718597" Offset="0.375" />
+                                        <GradientStop Color="#FF90CAFF" Offset="1" />
                                     </LinearGradientBrush>
                                 </Button.BorderBrush>
                             </Button>
@@ -84,16 +84,16 @@
                                 <ColumnDefinition Width="2*" />
                             </Grid.ColumnDefinitions>
                             <Image Grid.Column="0" Source="Images/Interface/earth-globe.png" HorizontalAlignment="Left" Margin="0 0 15 0" Width="auto" Height="auto" />
-                            <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" MinWidth="150" MinHeight="50" Height="auto" Content="O kursie" BorderThickness="0" Cursor="Hand" FontFamily="Open Sans" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#FF0B68D8" >
+                            <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" MinWidth="150" MinHeight="50" Height="auto" Content="O kursie" BorderThickness="0" Cursor="Hand" FontFamily="Open Sans" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#FF0B68D8">
                                 <Button.Effect>
-                                    <DropShadowEffect/>
+                                    <DropShadowEffect />
                                 </Button.Effect>
                                 <Button.BorderBrush>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#FFA3AEB9" Offset="0"/>
-                                        <GradientStop Color="#FF8399A9" Offset="0.375"/>
-                                        <GradientStop Color="#FF718597" Offset="0.375"/>
-                                        <GradientStop Color="#FF90CAFF" Offset="1"/>
+                                        <GradientStop Color="#FFA3AEB9" Offset="0" />
+                                        <GradientStop Color="#FF8399A9" Offset="0.375" />
+                                        <GradientStop Color="#FF718597" Offset="0.375" />
+                                        <GradientStop Color="#FF90CAFF" Offset="1" />
                                     </LinearGradientBrush>
                                 </Button.BorderBrush>
                             </Button>
@@ -104,16 +104,16 @@
                                 <ColumnDefinition Width="2*" />
                             </Grid.ColumnDefinitions>
                             <Image Grid.Column="0" Source="Images/Interface/group.png" HorizontalAlignment="Left" Margin="0 0 15 0" Width="auto" Height="auto" />
-                            <Button Click="AboutAuthors_Click" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" MinWidth="150" MinHeight="50" Height="auto" Content="Autorzy" BorderThickness="0" Cursor="Hand" FontFamily="Open Sans" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#FF0B68D8" >
+                            <Button Click="AboutAuthors_Click" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" MinWidth="150" MinHeight="50" Height="auto" Content="Autorzy" BorderThickness="0" Cursor="Hand" FontFamily="Open Sans" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#FF0B68D8">
                                 <Button.Effect>
-                                    <DropShadowEffect/>
+                                    <DropShadowEffect />
                                 </Button.Effect>
                                 <Button.BorderBrush>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#FFA3AEB9" Offset="0"/>
-                                        <GradientStop Color="#FF8399A9" Offset="0.375"/>
-                                        <GradientStop Color="#FF718597" Offset="0.375"/>
-                                        <GradientStop Color="#FF90CAFF" Offset="1"/>
+                                        <GradientStop Color="#FFA3AEB9" Offset="0" />
+                                        <GradientStop Color="#FF8399A9" Offset="0.375" />
+                                        <GradientStop Color="#FF718597" Offset="0.375" />
+                                        <GradientStop Color="#FF90CAFF" Offset="1" />
                                     </LinearGradientBrush>
                                 </Button.BorderBrush>
                             </Button>
@@ -131,7 +131,7 @@
                     <Viewbox Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Grid>
                             <DesignInControl:CircularProgressBar HorizontalAlignment="Center" VerticalAlignment="Center" SegmentColor="#FF878889" StrokeThickness="25" Percentage="100" />
-                            <DesignInControl:CircularProgressBar x:Name="ProgressCircle" HorizontalAlignment="Center" VerticalAlignment="Center" SegmentColor="#026873" StrokeThickness="25"/>
+                            <DesignInControl:CircularProgressBar x:Name="ProgressCircle" HorizontalAlignment="Center" VerticalAlignment="Center" SegmentColor="#026873" StrokeThickness="25" />
                         </Grid>
                     </Viewbox>
                 </Grid>
