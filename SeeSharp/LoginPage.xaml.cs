@@ -3,7 +3,6 @@ using SeeSharp.BO.Managers;
 using SeeSharp.Infrastructure;
 using SeeSharp.ServiceReference1;
 using System;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Windows.Controls;
 
@@ -39,8 +38,8 @@ namespace SeeSharp
                     throw new Exception(ExceptionDictionary.CodeIsNotNumber);
 
                 serverService.GetUserProfileAsync(loginName);
-                serverService.GetUserProfileCompleted += (send, recive) => {
-
+                serverService.GetUserProfileCompleted += (send, recive) =>
+                {
                     try
                     {
                         root.UserManager = ManagerFactory.GetManager<UserManager>();
@@ -55,7 +54,6 @@ namespace SeeSharp
                         this.LoginAlert.Visibility = System.Windows.Visibility.Visible;
                         this.LoginAlert.Text = ex.Message;
                     }
-
                 };
             }
             catch (Exception ex)
