@@ -61,6 +61,15 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nie poprawne dane do logowania!.
+        /// </summary>
+        internal static string IncorrectLoginCreditentials {
+            get {
+                return ResourceManager.GetString("IncorrectLoginCreditentials", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nie wpisano poprawnie loginu!.
         /// </summary>
         internal static string LoginNameNotFound {

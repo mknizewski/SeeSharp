@@ -13,5 +13,13 @@ namespace SeeSharp.BO.Dictionaries
                 return ExceptionsMessage.GetString("LoginNameNotFound");
             }
         }
+
+        public static string IncorrectLoginCreditentials
+        {
+            get
+            {
+                return ExceptionsMessage.GetString("IncorrectLoginCreditentials");
+            }
+        }
     }
 }

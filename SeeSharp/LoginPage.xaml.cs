@@ -1,4 +1,5 @@
 ﻿using SeeSharp.BO.Managers;
+using SeeSharp.Infrastructure;
 using System;
 using System.Windows.Controls;
 
@@ -11,7 +12,7 @@ namespace SeeSharp
         public LoginPage()
         {
             InitializeComponent();
-            UserManager = new UserManager();
+            UserManager = ManagerFactory.GetManager<UserManager>();
         }
 
         public void Dispose()
@@ -21,7 +22,8 @@ namespace SeeSharp
 
         private void LoginButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            string loginName = this.LoginBox.Text;
+            string loginCode = this.CodeBox.Text;
         }
     }
 }
