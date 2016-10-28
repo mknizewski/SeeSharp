@@ -11,11 +11,6 @@ namespace SeeSharp.Web
     {
         private const string Separator = @"\";
 
-        public string Chuj()
-        {
-            throw new NotImplementedException();
-        }
-
         public void CreateDirectoryForUser(string loginName, int code)
         {
             string xmlDirectoryPath = string.Concat(AppDomain.CurrentDomain.BaseDirectory, WebConfigDictionary.XmlFileDirectory);
