@@ -7,6 +7,8 @@ namespace SeeSharp.BO.Managers
         private const int MinRandomValue = 1000;
         private const int MaxRandomValue = 9999;
 
+        public UserInfo UserInfo;
+
         public static int GenerateCodeForNewUser()
         {
             Random randomNumber = new Random(DateTime.Now.Millisecond);
@@ -21,7 +23,15 @@ namespace SeeSharp.BO.Managers
 
         public void SignOut()
         {
-
+            UserInfo = null;
         }
+    }
+
+    public class UserInfo
+    {
+        public string Login { get; set; }
+        public string Code { get; set; }
+        public int Percentage { get; set; }
+        public string LastTutorial { get; set; }
     }
 }

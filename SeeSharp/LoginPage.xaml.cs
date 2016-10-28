@@ -22,8 +22,15 @@ namespace SeeSharp
 
         private void LoginButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            string loginName = this.LoginBox.Text;
-            string loginCode = this.CodeBox.Text;
+            try
+            {
+                string loginName = this.LoginBox.Text;
+                string loginCode = this.CodeBox.Text;
+            }
+            catch (Exception ex)
+            {
+                this.LoginAlert.Text = ex.Message;
+            }
         }
     }
 }

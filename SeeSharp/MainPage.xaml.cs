@@ -42,12 +42,31 @@ namespace SeeSharp
             SetView(ViewType.Login, NavigationDictionary.LoginPageView);
         }
 
+        private void LogOut_Click(object sender, RoutedEvent e)
+        {
+
+        }
+
         public void SetView(ViewType viewType, string section)
         {
             this.DynamicView.Children.Clear();
             this.DynamicView.Children.Add(ViewFactory.GetView(viewType));
             this.DynamicView.UpdateLayout();
             this.SectionBlock.Text = string.Format(SectionPrefixPattern, section);
+        }
+
+        public void UnloggedUserMenuView()
+        {
+            this.LogOutButtonMenu.Visibility = Visibility.Collapsed;
+            this.LoginButtonMenu.Visibility = Visibility.Visible;
+            this.RegisterButtonMenu.Visibility = Visibility.Visible;
+        }
+
+        public void LoggedUserMenuView()
+        {
+            this.LogOutButtonMenu.Visibility = Visibility.Visible;
+            this.RegisterButtonMenu.Visibility = Visibility.Collapsed;
+            this.LoginButtonMenu.Visibility = Visibility.Collapsed;
         }
     }
 }
