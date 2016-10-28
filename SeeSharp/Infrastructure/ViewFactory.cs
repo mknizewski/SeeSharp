@@ -25,6 +25,9 @@ namespace SeeSharp.Infrastructure
                 case ViewType.Login:
                     return new LoginPage();
 
+                case ViewType.AboutCourse:
+                    return new AboutCourse();
+
                 default:
                     return new MainPage();
             }
@@ -36,6 +39,7 @@ namespace SeeSharp.Infrastructure
         WelcomePage,
         AboutAuthors,
         Register,
-        Login
+        Login,
+        AboutCourse,
     }
 }

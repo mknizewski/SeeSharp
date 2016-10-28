@@ -45,6 +45,11 @@ namespace SeeSharp
             SetView(ViewType.Login, NavigationDictionary.LoginPageView);
         }
 
+        private void AboutCourse_Click(object sender, RoutedEventArgs e)
+        {
+            SetView(ViewType.AboutCourse, NavigationDictionary.AboutCourseView);
+        }
+
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             UserManager.SignOut();
