@@ -18,5 +18,10 @@ namespace SeeSharp
         {
             throw new NotImplementedException();
         }
+
+        private void LoginButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
     }
 }

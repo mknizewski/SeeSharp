@@ -64,7 +64,7 @@
                                 <ColumnDefinition Width="2*" />
                             </Grid.ColumnDefinitions>
                             <Image Grid.Column="0" Source="Images/Interface/cursor.png" HorizontalAlignment="Left" Margin="0 0 15 0" Width="auto" Height="auto" />
-                            <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" MinWidth="150" MinHeight="50" Height="auto" Content="Zaloguj się" BorderThickness="0" Cursor="Hand" FontFamily="Open Sans" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#FF0B68D8">
+                            <Button Grid.Column="1" HorizontalAlignment="Center" Click="Login_Click" VerticalAlignment="Center" Width="auto" MinWidth="150" MinHeight="50" Height="auto" Content="Zaloguj się" BorderThickness="0" Cursor="Hand" FontFamily="Open Sans" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#FF0B68D8">
                                 <Button.Effect>
                                     <DropShadowEffect />
                                 </Button.Effect>

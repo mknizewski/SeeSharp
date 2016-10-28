@@ -37,6 +37,11 @@ namespace SeeSharp
             SetView(ViewType.Register, NavigationDictionary.RegisterPageView);
         }
 
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            SetView(ViewType.Login, NavigationDictionary.LoginPageView);
+        }
+
         public void SetView(ViewType viewType, string section)
         {
             this.DynamicView.Children.Clear();
