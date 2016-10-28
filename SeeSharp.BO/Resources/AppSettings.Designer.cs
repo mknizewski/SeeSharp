@@ -61,6 +61,24 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 0.04.
+        /// </summary>
+        internal static string AppVersion {
+            get {
+                return ResourceManager.GetString("AppVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wersja: {0}.
+        /// </summary>
+        internal static string VersionMessagePattern {
+            get {
+                return ResourceManager.GetString("VersionMessagePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to XmlFiles.
         /// </summary>
         internal static string XmlFileDirectory {

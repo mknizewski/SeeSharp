@@ -18,6 +18,7 @@ namespace SeeSharp
         {
             InitializeComponent();
             SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
+            this.AppVersion.Text = string.Format(AppSettingsDictionary.AppVersionMessagePattern, AppSettingsDictionary.AppVersion);
         }
 
         private void AboutAuthors_Click(object sender, RoutedEventArgs e)
