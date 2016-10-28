@@ -4,7 +4,7 @@ namespace SeeSharp.BO.Dictionaries
 {
     public static class AppSettingsDictionary
     {
-        private static ResourceManager AppSetttings = new ResourceManager(typeof(AppSettings));
+        private readonly static ResourceManager AppSetttings = new ResourceManager(typeof(Resources.AppSettings));
 
         public static string XmlFilesDirectiory
         {

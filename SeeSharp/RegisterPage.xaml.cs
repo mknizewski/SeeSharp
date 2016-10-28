@@ -9,8 +9,6 @@ namespace SeeSharp
 {
     public partial class RegisterPage : UserControl
     {
-        private const string SuccesfullRegisterMessagePattern = "Pomyślnie zarejestrowano konto o loginie {0}! \n\r Twój kod rejestracyjny to: {1}";
-
         public RegisterPage()
         {
             InitializeComponent();
@@ -32,7 +30,7 @@ namespace SeeSharp
                 serverService.CreateDirectoryForUserAsync(loginName, generatedNumber);
 
                 this.RegisterAlert.Visibility = Visibility.Visible;
-                this.RegisterAlert.Text = string.Format(SuccesfullRegisterMessagePattern, loginName, generatedNumber);
+                this.RegisterAlert.Text = string.Format(RegisterPageDictionary.SuccesfulRegisterMessagePattern, loginName, generatedNumber);
                 this.LoginButton.IsEnabled = true;
             }
             catch (Exception ex)
