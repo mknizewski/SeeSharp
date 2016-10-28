@@ -4,7 +4,7 @@ namespace SeeSharp.BO.Dictionaries
 {
     public static class ExceptionDictionary
     {
-        private static ResourceManager ExceptionsMessage = new ResourceManager(typeof(BO.Exception));
+        private static ResourceManager ExceptionsMessage = new ResourceManager(typeof(Resources.Exception));
 
         public static string LoginNotFoundMessage
         {

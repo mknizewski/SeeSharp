@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SeeSharp.BO {
+namespace SeeSharp.BO.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace SeeSharp.BO {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Exception {
+    internal class AppSettings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Exception() {
+        internal AppSettings() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace SeeSharp.BO {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SeeSharp.BO.Exception", typeof(Exception).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SeeSharp.BO.Resources.AppSettings", typeof(AppSettings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,11 @@ namespace SeeSharp.BO {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nie wpisano poprawnie loginu!.
+        ///   Looks up a localized string similar to XmlFiles.
         /// </summary>
-        internal static string LoginNameNotFound {
+        internal static string XmlFileDirectory {
             get {
-                return ResourceManager.GetString("LoginNameNotFound", resourceCulture);
+                return ResourceManager.GetString("XmlFileDirectory", resourceCulture);
             }
         }
     }
