@@ -34,7 +34,7 @@ namespace SeeSharp
                 if (string.IsNullOrEmpty(loginName) || string.IsNullOrEmpty(loginCode))
                     throw new Exception(ExceptionDictionary.IncorrectLoginCreditentials);
 
-                if (!IsTextAllowed(loginCode))
+                if (IsNotNumber(loginCode))
                     throw new Exception(ExceptionDictionary.CodeIsNotNumber);
 
                 serverService.GetUserProfileAsync(loginName);
@@ -62,10 +62,10 @@ namespace SeeSharp
             }
         }
 
-        private static bool IsTextAllowed(string text)
+        private static bool IsNotNumber(string text)
         {
             Regex regex = new Regex(RegexNumberOnlyPattern);
-            return !regex.IsMatch(text);
+            return regex.IsMatch(text);
         }
     }
 }

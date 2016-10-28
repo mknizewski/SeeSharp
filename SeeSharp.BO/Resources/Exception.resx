@@ -121,7 +121,7 @@
     <value>Kod nie jest numerem!</value>
   </data>
   <data name="IncorrectLoginCreditentials" xml:space="preserve">
-    <value>Nie poprawne dane do logowania!</value>
+    <value>Niepoprawne dane do logowania!</value>
   </data>
   <data name="LoginNameNotFound" xml:space="preserve">
     <value>Nie wpisano poprawnie loginu!</value>

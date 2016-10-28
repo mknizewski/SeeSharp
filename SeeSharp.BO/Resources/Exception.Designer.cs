@@ -70,7 +70,7 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nie poprawne dane do logowania!.
+        ///   Looks up a localized string similar to Niepoprawne dane do logowania!.
         /// </summary>
         internal static string IncorrectLoginCreditentials {
             get {
