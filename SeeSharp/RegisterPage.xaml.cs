@@ -26,7 +26,7 @@ namespace SeeSharp
                 int generatedNumber = UserManager.GenerateCodeForNewUser();
                 this.RegisterButton.IsEnabled = false;
 
-                ServerServiceClient serverService = new ServerServiceClient();
+                ServerServiceClient serverService = ServerServiceClient.GetInstance();
                 serverService.CreateDirectoryForUserAsync(loginName, generatedNumber);
 
                 this.RegisterAlert.Visibility = Visibility.Visible;
@@ -42,6 +42,7 @@ namespace SeeSharp
 
         private void Login_OnClick(object sender, RoutedEventArgs e)
         {
+            
         }
     }
 }

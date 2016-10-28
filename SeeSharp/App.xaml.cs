@@ -1,4 +1,5 @@
-﻿using SeeSharp.ServiceReference1;
+﻿using SeeSharp.Infrastructure;
+using SeeSharp.ServiceReference1;
 using System;
 using System.Windows;
 
@@ -19,6 +20,7 @@ namespace SeeSharp
         {
             this.RootVisual = new MainPage();
             this.CreateXmlDirectoryIfNotExists();
+            ViewFactory.MainPageCurrentInstance = this.RootVisual as MainPage;
         }
 
         private void Application_Exit(object sender, EventArgs e)
@@ -59,7 +61,7 @@ namespace SeeSharp
 
         private void CreateXmlDirectoryIfNotExists()
         {
-            ServerServiceClient serverService = new ServerServiceClient();
+            ServerServiceClient serverService = ServerServiceClient.GetInstance();
             serverService.CreateMainDirectoryIfDosentExistsAsync();
         }
     }

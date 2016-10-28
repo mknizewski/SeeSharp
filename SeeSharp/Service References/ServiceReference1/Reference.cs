@@ -91,6 +91,9 @@ namespace SeeSharp.ServiceReference1 {
         
         private System.Threading.SendOrPostCallback onCloseCompletedDelegate;
         
+        public static ServerServiceClient GetInstance()
+        { return new ServerServiceClient(); }
+
         public ServerServiceClient() {
         }
         

@@ -15,7 +15,6 @@ namespace SeeSharp
             InitializeComponent();
             SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
             this.ProgressCircle.Percentage = 25.0;
-            this.SectionBlock.Text = string.Format(SectionPrefixPattern, NavigationDictionary.WelcomePageView);
         }
 
         private void AboutAuthors_Click(object sender, RoutedEventArgs e)
