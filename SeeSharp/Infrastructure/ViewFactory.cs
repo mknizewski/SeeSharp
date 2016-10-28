@@ -4,7 +4,10 @@ namespace SeeSharp.Infrastructure
 {
     public static class ViewFactory
     {
-        public static MainPage MainPageCurrentInstance;
+        /// <summary>
+        /// Instancja MainPage służąca w celu zmiany widoków.
+        /// </summary>
+        public static MainPage MainPageInstance;
 
         public static UserControl GetView(ViewType viewType)
         {
@@ -20,13 +23,11 @@ namespace SeeSharp.Infrastructure
                     return new RegisterPage();
 
                 case ViewType.Login:
-                    break;
+                    return new LoginPage();
 
                 default:
                     return new MainPage();
             }
-
-            return new MainPage();
         }
     }
 

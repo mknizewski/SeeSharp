@@ -1,5 +1,6 @@
 ﻿using SeeSharp.BO.Dictionaries;
 using SeeSharp.BO.Managers;
+using SeeSharp.Infrastructure;
 using SeeSharp.ServiceReference1;
 using System;
 using System.Windows;
@@ -42,7 +43,7 @@ namespace SeeSharp
 
         private void Login_OnClick(object sender, RoutedEventArgs e)
         {
-            
+            ViewFactory.MainPageInstance.SetView(ViewType.Login, NavigationDictionary.LoginPageView);
         }
     }
 }

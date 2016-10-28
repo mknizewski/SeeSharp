@@ -32,21 +32,17 @@ namespace SeeSharp
             SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
         }
 
-        #region Private Methods
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetView(ViewType.Register, NavigationDictionary.RegisterPageView);
+        }
 
-        private void SetView(ViewType viewType, string section)
+        public void SetView(ViewType viewType, string section)
         {
             this.DynamicView.Children.Clear();
             this.DynamicView.Children.Add(ViewFactory.GetView(viewType));
             this.DynamicView.UpdateLayout();
             this.SectionBlock.Text = string.Format(SectionPrefixPattern, section);
-        }
-
-        #endregion Private Methods
-
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
-        {
-            SetView(ViewType.Register, NavigationDictionary.RegisterPageView);
         }
     }
 }
