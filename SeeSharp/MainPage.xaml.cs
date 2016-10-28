@@ -34,6 +34,7 @@ namespace SeeSharp
         }
 
         #region Private Methods
+
         private void SetView(ViewType viewType, string section)
         {
             this.DynamicView.Children.Clear();
@@ -41,6 +42,12 @@ namespace SeeSharp
             this.DynamicView.UpdateLayout();
             this.SectionBlock.Text = string.Format(SectionPrefixPattern, section);
         }
-        #endregion
+
+        #endregion Private Methods
+
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetView(ViewType.Register, NavigationDictionary.RegisterPageView);
+        }
     }
 }

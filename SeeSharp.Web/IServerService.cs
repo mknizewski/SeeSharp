@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace SeeSharp.Web
 {
@@ -11,5 +12,8 @@ namespace SeeSharp.Web
 
         [OperationContract]
         void CreateDirectoryForUser(string loginName, int code);
+
+        [OperationContract]
+        Dictionary<string, string> GetUserProfile(string loginName);
     }
 }
