@@ -15,6 +15,10 @@
             margin: 0;
         }
 
+        form {
+            font-size: 0;
+        }
+
         #silverlightControlHost {
             height: 100%;
             text-align: center;
@@ -56,12 +60,19 @@
 
             throw new Error(errMsg);
         }
+
+        window.onload = resizeObject;
+        window.onresize = resizeObject;
+        function resizeObject() {
+            var height = document.getElementById('silverlightControlHost').offsetHeight;
+            document.getElementById('silverlightObject').height = height;
+        }
     </script>
 </head>
 <body>
-    <form id="form1" runat="server" style="height: 100%">
+    <form id="form1" runat="server" style="height: 100%; width: 100%;">
         <div id="silverlightControlHost">
-            <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="100%" height="100%">
+            <object id="silverlightObject" data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="100%" height="100%">
                 <param name="source" value="ClientBin/SeeSharp.xap" />
                 <param name="onError" value="onSilverlightError" />
                 <param name="background" value="white" />
