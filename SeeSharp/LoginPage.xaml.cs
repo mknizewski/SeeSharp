@@ -32,7 +32,7 @@ namespace SeeSharp
                 ServerServiceClient serverService = ServerServiceClient.GetInstance();
 
                 if (string.IsNullOrEmpty(loginName) || string.IsNullOrEmpty(loginCode))
-                    throw new ArgumentNullException(ExceptionDictionary.IncorrectLoginCreditentials);
+                    throw new Exception(ExceptionDictionary.IncorrectLoginCreditentials);
 
                 if (!IsTextAllowed(loginCode))
                     throw new Exception(ExceptionDictionary.CodeIsNotNumber);
@@ -44,7 +44,6 @@ namespace SeeSharp
                     {
                         root.UserManager = ManagerFactory.GetManager<UserManager>();
                         root.UserManager.SignIn(recive.Result, loginCode);
-                        root.LoginName.Text = root.UserManager.UserInfo.Login;
 
                         root.SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
                         root.SetUserMenuView(User.Logged);

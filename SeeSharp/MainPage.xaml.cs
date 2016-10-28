@@ -50,7 +50,6 @@ namespace SeeSharp
             UserManager.SignOut();
             SetUserMenuView(User.Unlogged);
             SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
-            this.LoginName.Text = UnloggedAlert;
         }
 
         public void SetView(ViewType viewType, string section)
@@ -72,6 +71,8 @@ namespace SeeSharp
                 this.ProgressTextViewBox.Visibility = Visibility.Visible;
                 this.ProgressCircleViewBox.Visibility = Visibility.Visible;
                 this.ProgressCircle.Percentage = UserManager.UserInfo.Percentage;
+
+                this.LoginName.Text = UserManager.UserInfo.Login;
             }
             else
             {
@@ -81,6 +82,8 @@ namespace SeeSharp
 
                 this.ProgressTextViewBox.Visibility = Visibility.Collapsed;
                 this.ProgressCircleViewBox.Visibility = Visibility.Collapsed;
+
+                this.LoginName.Text = UnloggedAlert;
             }
         }
     }
