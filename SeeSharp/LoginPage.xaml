@@ -22,7 +22,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
             <TextBlock Text="Podaj kod:" FontFamily="Open Sans" FontSize="24" Width="150" Margin="0 0 15 0" />
-            <TextBox x:Name="CodeBox" Width="150" />
+            <TextBox x:Name="CodeBox" Width="150"  />
         </StackPanel>
         <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
             <Button x:Name="LoginButton" Click="LoginButton_Click" Cursor="Hand" Height="30" Width="100" Content="Zaloguj się" FontWeight="Bold" FontFamily="Open Sans" Margin="0 0 0 0">
@@ -31,6 +31,6 @@
                 </Button.Effect>
             </Button>
         </StackPanel>
-        <TextBlock Visibility="Collapsed" Grid.Row="3" x:Name="LoginAlert" TextWrapping="Wrap" FontFamily="Open Sans" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
+        <TextBlock Visibility="Collapsed" Grid.Row="4" x:Name="LoginAlert" TextWrapping="Wrap" FontFamily="Open Sans" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
     </Grid>
 </UserControl>

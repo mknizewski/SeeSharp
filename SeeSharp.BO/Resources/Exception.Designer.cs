@@ -61,6 +61,15 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kod nie jest numerem!.
+        /// </summary>
+        internal static string CodeIsNotNumber {
+            get {
+                return ResourceManager.GetString("CodeIsNotNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nie poprawne dane do logowania!.
         /// </summary>
         internal static string IncorrectLoginCreditentials {

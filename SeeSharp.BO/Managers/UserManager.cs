@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SeeSharp.BO.Dictionaries;
+using System;
+using System.Collections.Generic;
 
 namespace SeeSharp.BO.Managers
 {
@@ -16,9 +18,20 @@ namespace SeeSharp.BO.Managers
             return randomNumber.Next(MinRandomValue, MaxRandomValue);
         }
 
-        public void SignIn()
+        public void SignIn(Dictionary<string, string> userProfile, string loginCode)
         {
+            if (userProfile.Count == 0)
+                throw new Exception(ExceptionDictionary.IncorrectLoginCreditentials);
+            else if (!string.Equals(userProfile["code"], loginCode))
+                throw new Exception(ExceptionDictionary.IncorrectLoginCreditentials);
 
+            UserInfo = new UserInfo
+            {
+                Login = userProfile["login"],
+                Code = userProfile["code"],
+                Percentage = int.Parse(userProfile["percentage"]),
+                LastTutorial = userProfile["last"]
+            };
         }
 
         public void SignOut()

@@ -1,4 +1,5 @@
 ﻿using SeeSharp.BO.Dictionaries;
+using SeeSharp.BO.Managers;
 using SeeSharp.Infrastructure;
 using System;
 using System.Windows;
@@ -9,6 +10,9 @@ namespace SeeSharp
     public partial class MainPage : UserControl, IDisposable
     {
         private const string SectionPrefixPattern = "Jesteś w sekcji: {0}";
+        private const string UnloggedAlert = "Niezalogowany";
+
+        public UserManager UserManager;
 
         public MainPage()
         {
@@ -42,9 +46,12 @@ namespace SeeSharp
             SetView(ViewType.Login, NavigationDictionary.LoginPageView);
         }
 
-        private void LogOut_Click(object sender, RoutedEvent e)
+        private void LogOut_Click(object sender, RoutedEventArgs e)
         {
-
+            UserManager.SignOut();
+            UnloggedUserMenuView();
+            SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
+            this.LoginName.Text = UnloggedAlert;
         }
 
         public void SetView(ViewType viewType, string section)

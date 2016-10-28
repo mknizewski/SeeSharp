@@ -21,5 +21,13 @@ namespace SeeSharp.BO.Dictionaries
                 return ExceptionsMessage.GetString("IncorrectLoginCreditentials");
             }
         }
+
+        public static string CodeIsNotNumber
+        {
+            get
+            {
+                return ExceptionsMessage.GetString("CodeIsNotNumber");
+            }
+        }
     }
 }
