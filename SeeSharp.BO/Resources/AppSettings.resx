@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppVersion" xml:space="preserve">
-    <value>0.04</value>
+    <value>0.05</value>
   </data>
   <data name="VersionMessagePattern" xml:space="preserve">
     <value>Wersja: {0}</value>
