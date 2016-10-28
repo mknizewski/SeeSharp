@@ -145,10 +145,10 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="3*" />
                     </Grid.RowDefinitions>
-                    <Viewbox Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Viewbox Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="ProgressTextViewBox" Visibility="Collapsed">
                         <TextBlock Text="Postęp ukończenia:" Margin="0 20 0 0" FontFamily="Open Sans" FontSize="24"></TextBlock>
                     </Viewbox>
-                    <Viewbox Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Viewbox Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="ProgressCircleViewBox" Visibility="Collapsed">
                         <Grid>
                             <DesignInControl:CircularProgressBar HorizontalAlignment="Center" VerticalAlignment="Center" SegmentColor="#FF878889" StrokeThickness="25" Percentage="100" />
                             <DesignInControl:CircularProgressBar x:Name="ProgressCircle" HorizontalAlignment="Center" VerticalAlignment="Center" SegmentColor="#026873" StrokeThickness="25" />

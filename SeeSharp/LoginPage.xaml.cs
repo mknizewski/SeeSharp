@@ -47,7 +47,7 @@ namespace SeeSharp
                         root.LoginName.Text = root.UserManager.UserInfo.Login;
 
                         root.SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
-                        root.LoggedUserMenuView();
+                        root.SetUserMenuView(User.Logged);
                     }
                     catch (Exception ex)
                     {

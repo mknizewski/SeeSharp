@@ -18,7 +18,6 @@ namespace SeeSharp
         {
             InitializeComponent();
             SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
-            this.ProgressCircle.Percentage = 25.0;
         }
 
         private void AboutAuthors_Click(object sender, RoutedEventArgs e)
@@ -49,7 +48,7 @@ namespace SeeSharp
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             UserManager.SignOut();
-            UnloggedUserMenuView();
+            SetUserMenuView(User.Unlogged);
             SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
             this.LoginName.Text = UnloggedAlert;
         }
@@ -62,18 +61,32 @@ namespace SeeSharp
             this.SectionBlock.Text = string.Format(SectionPrefixPattern, section);
         }
 
-        public void UnloggedUserMenuView()
+        public void SetUserMenuView(User user)
         {
-            this.LogOutButtonMenu.Visibility = Visibility.Collapsed;
-            this.LoginButtonMenu.Visibility = Visibility.Visible;
-            this.RegisterButtonMenu.Visibility = Visibility.Visible;
-        }
+            if (user == User.Logged)
+            {
+                this.LogOutButtonMenu.Visibility = Visibility.Visible;
+                this.RegisterButtonMenu.Visibility = Visibility.Collapsed;
+                this.LoginButtonMenu.Visibility = Visibility.Collapsed;
 
-        public void LoggedUserMenuView()
-        {
-            this.LogOutButtonMenu.Visibility = Visibility.Visible;
-            this.RegisterButtonMenu.Visibility = Visibility.Collapsed;
-            this.LoginButtonMenu.Visibility = Visibility.Collapsed;
+                this.ProgressTextViewBox.Visibility = Visibility.Visible;
+                this.ProgressCircleViewBox.Visibility = Visibility.Visible;
+                this.ProgressCircle.Percentage = UserManager.UserInfo.Percentage;
+            }
+            else
+            {
+                this.LogOutButtonMenu.Visibility = Visibility.Collapsed;
+                this.LoginButtonMenu.Visibility = Visibility.Visible;
+                this.RegisterButtonMenu.Visibility = Visibility.Visible;
+
+                this.ProgressTextViewBox.Visibility = Visibility.Collapsed;
+                this.ProgressCircleViewBox.Visibility = Visibility.Collapsed;
+            }
         }
+    }
+
+    public enum User
+    {
+        Logged, Unlogged
     }
 }
