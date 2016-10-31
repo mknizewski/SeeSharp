@@ -63,6 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClientBin\SeeSharp.xap" />
+    <Content Include="Content\MovieCourses\First_movie.htm" />
+    <Content Include="Content\MovieCourses\First_movie.swf" />
     <Content Include="SeeSharpTestPage.aspx" />
     <Content Include="SeeSharpTestPage.html" />
     <Content Include="ServerService.svc" />
@@ -70,7 +72,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dictionaries\WebConfigDictionary.cs" />
+    <Compile Include="Dictionaries\ServerDictionary.cs" />
     <Compile Include="IServerService.cs" />
     <Compile Include="Managers\XmlManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

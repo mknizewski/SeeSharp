@@ -4,6 +4,11 @@ namespace SeeSharp.Infrastructure
 {
     public static class ViewFactory
     {
+        /// <summary>
+        /// Instancja MainPage służąca w celu zmiany widoków.
+        /// </summary>
+        public static MainPage MainPageInstance;
+
         public static UserControl GetView(ViewType viewType)
         {
             switch (viewType)
@@ -18,13 +23,14 @@ namespace SeeSharp.Infrastructure
                     return new RegisterPage();
 
                 case ViewType.Login:
-                    break;
+                    return new LoginPage();
+
+                case ViewType.AboutCourse:
+                    return new AboutCourse();
 
                 default:
                     return new MainPage();
             }
-
-            return new MainPage();
         }
     }
 
@@ -33,6 +39,7 @@ namespace SeeSharp.Infrastructure
         WelcomePage,
         AboutAuthors,
         Register,
-        Login
+        Login,
+        AboutCourse,
     }
 }

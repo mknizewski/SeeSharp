@@ -1,4 +1,5 @@
 ﻿using SeeSharp.BO.Dictionaries;
+using SeeSharp.BO.Managers;
 using SeeSharp.Infrastructure;
 using System;
 using System.Windows;
@@ -9,13 +10,15 @@ namespace SeeSharp
     public partial class MainPage : UserControl, IDisposable
     {
         private const string SectionPrefixPattern = "Jesteś w sekcji: {0}";
+        private const string UnloggedAlert = "Niezalogowany";
+
+        public UserManager UserManager;
 
         public MainPage()
         {
             InitializeComponent();
             SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
-            this.ProgressCircle.Percentage = 25.0;
-            this.SectionBlock.Text = string.Format(SectionPrefixPattern, NavigationDictionary.WelcomePageView);
+            this.AppVersion.Text = string.Format(AppSettingsDictionary.AppVersionMessagePattern, AppSettingsDictionary.AppVersion);
         }
 
         private void AboutAuthors_Click(object sender, RoutedEventArgs e)
@@ -33,9 +36,29 @@ namespace SeeSharp
             SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
         }
 
-        #region Private Methods
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetView(ViewType.Register, NavigationDictionary.RegisterPageView);
+        }
 
-        private void SetView(ViewType viewType, string section)
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            SetView(ViewType.Login, NavigationDictionary.LoginPageView);
+        }
+
+        private void AboutCourse_Click(object sender, RoutedEventArgs e)
+        {
+            SetView(ViewType.AboutCourse, NavigationDictionary.AboutCourseView);
+        }
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+            UserManager.SignOut();
+            SetUserMenuView(User.Unlogged);
+            SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
+        }
+
+        public void SetView(ViewType viewType, string section)
         {
             this.DynamicView.Children.Clear();
             this.DynamicView.Children.Add(ViewFactory.GetView(viewType));
@@ -43,11 +66,36 @@ namespace SeeSharp
             this.SectionBlock.Text = string.Format(SectionPrefixPattern, section);
         }
 
-        #endregion Private Methods
-
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        public void SetUserMenuView(User user)
         {
-            SetView(ViewType.Register, NavigationDictionary.RegisterPageView);
+            if (user == User.Logged)
+            {
+                this.LogOutButtonMenu.Visibility = Visibility.Visible;
+                this.RegisterButtonMenu.Visibility = Visibility.Collapsed;
+                this.LoginButtonMenu.Visibility = Visibility.Collapsed;
+
+                this.ProgressTextViewBox.Visibility = Visibility.Visible;
+                this.ProgressCircleViewBox.Visibility = Visibility.Visible;
+                this.ProgressCircle.Percentage = UserManager.UserInfo.Percentage;
+
+                this.LoginName.Text = UserManager.UserInfo.Login;
+            }
+            else
+            {
+                this.LogOutButtonMenu.Visibility = Visibility.Collapsed;
+                this.LoginButtonMenu.Visibility = Visibility.Visible;
+                this.RegisterButtonMenu.Visibility = Visibility.Visible;
+
+                this.ProgressTextViewBox.Visibility = Visibility.Collapsed;
+                this.ProgressCircleViewBox.Visibility = Visibility.Collapsed;
+
+                this.LoginName.Text = UnloggedAlert;
+            }
         }
+    }
+
+    public enum User
+    {
+        Logged, Unlogged
     }
 }

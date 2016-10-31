@@ -2,8 +2,10 @@
 
 namespace SeeSharp.Web.Dictionaries
 {
-    public static class WebConfigDictionary
+    public static class ServerDictionary
     {
+        public static string DirectoryNotFoundMessage = "Nie znaleziono użytkownika!";
+
         public static string XmlFileDirectory
         {
             get

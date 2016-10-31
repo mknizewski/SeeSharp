@@ -1,4 +1,5 @@
-﻿using SeeSharp.ServiceReference1;
+﻿using SeeSharp.Infrastructure;
+using SeeSharp.ServiceReference1;
 using System;
 using System.Windows;
 
@@ -19,25 +20,18 @@ namespace SeeSharp
         {
             this.RootVisual = new MainPage();
             this.CreateXmlDirectoryIfNotExists();
+            ViewFactory.MainPageInstance = this.RootVisual as MainPage;
         }
 
         private void Application_Exit(object sender, EventArgs e)
         {
-            MainPage mainPage = this.RootVisual as MainPage;
-            mainPage.Dispose();
+            (this.RootVisual as MainPage).Dispose();
         }
 
         private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
         {
-            // If the app is running outside of the debugger then report the exception using
-            // the browser's exception mechanism. On IE this will display it a yellow alert
-            // icon in the status bar and Firefox will display a script error.
             if (!System.Diagnostics.Debugger.IsAttached)
             {
-                // NOTE: This will allow the application to continue running after an exception has been thrown
-                // but not handled.
-                // For production applications this error handling should be replaced with something that will
-                // report the error to the website and stop the application.
                 e.Handled = true;
                 Deployment.Current.Dispatcher.BeginInvoke(delegate { ReportErrorToDOM(e); });
             }
@@ -59,7 +53,7 @@ namespace SeeSharp
 
         private void CreateXmlDirectoryIfNotExists()
         {
-            ServerServiceClient serverService = new ServerServiceClient();
+            ServerServiceClient serverService = ServerServiceClient.GetInstance();
             serverService.CreateMainDirectoryIfDosentExistsAsync();
         }
     }

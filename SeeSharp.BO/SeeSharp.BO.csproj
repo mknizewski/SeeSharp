@@ -59,7 +59,8 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppSettings.Designer.cs">
+    <Compile Include="Dictionaries\RegisterPageDictionary.cs" />
+    <Compile Include="Resources\AppSettings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppSettings.resx</DependentUpon>
@@ -67,22 +68,31 @@
     <Compile Include="Dictionaries\AppSettingsDictionary.cs" />
     <Compile Include="Dictionaries\ExceptionDictionary.cs" />
     <Compile Include="Dictionaries\NavigationDictionary.cs" />
-    <Compile Include="Exception.Designer.cs">
+    <Compile Include="Resources\Exception.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Exception.resx</DependentUpon>
     </Compile>
     <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\RegisterPage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegisterPage.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AppSettings.resx">
+    <EmbeddedResource Include="Resources\AppSettings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppSettings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Exception.resx">
+    <EmbeddedResource Include="Resources\Exception.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Exception.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\RegisterPage.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RegisterPage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using SeeSharp.BO.Dictionaries;
 using SeeSharp.BO.Managers;
+using SeeSharp.Infrastructure;
 using SeeSharp.ServiceReference1;
 using System;
 using System.Windows;
@@ -9,8 +10,6 @@ namespace SeeSharp
 {
     public partial class RegisterPage : UserControl
     {
-        private const string SuccesfullRegisterMessagePattern = "Pomyślnie zarejestrowano konto o loginie {0}! \n\r Twój kod rejestracyjny to: {1}";
-
         public RegisterPage()
         {
             InitializeComponent();
@@ -28,11 +27,11 @@ namespace SeeSharp
                 int generatedNumber = UserManager.GenerateCodeForNewUser();
                 this.RegisterButton.IsEnabled = false;
 
-                ServerServiceClient serverService = new ServerServiceClient();
+                ServerServiceClient serverService = ServerServiceClient.GetInstance();
                 serverService.CreateDirectoryForUserAsync(loginName, generatedNumber);
 
                 this.RegisterAlert.Visibility = Visibility.Visible;
-                this.RegisterAlert.Text = string.Format(SuccesfullRegisterMessagePattern, loginName, generatedNumber);
+                this.RegisterAlert.Text = string.Format(RegisterPageDictionary.SuccesfulRegisterMessagePattern, loginName, generatedNumber);
                 this.LoginButton.IsEnabled = true;
             }
             catch (Exception ex)
@@ -44,6 +43,7 @@ namespace SeeSharp
 
         private void Login_OnClick(object sender, RoutedEventArgs e)
         {
+            ViewFactory.MainPageInstance.SetView(ViewType.Login, NavigationDictionary.LoginPageView);
         }
     }
 }

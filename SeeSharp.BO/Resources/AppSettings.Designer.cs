@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SeeSharp.BO {
+namespace SeeSharp.BO.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace SeeSharp.BO {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SeeSharp.BO.AppSettings", typeof(AppSettings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SeeSharp.BO.Resources.AppSettings", typeof(AppSettings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,24 @@ namespace SeeSharp.BO {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0.06.
+        /// </summary>
+        internal static string AppVersion {
+            get {
+                return ResourceManager.GetString("AppVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wersja: {0}.
+        /// </summary>
+        internal static string VersionMessagePattern {
+            get {
+                return ResourceManager.GetString("VersionMessagePattern", resourceCulture);
             }
         }
         

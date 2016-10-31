@@ -38,8 +38,11 @@ namespace SeeSharp.Web.Managers
             return xmlDocument;
         }
 
-        public static Dictionary<string, string> DeserializeXmlProfile(XmlDocument xmlProfile)
+        public static Dictionary<string, string> DeserializeXmlProfile(string xmlFilePath)
         {
+            XmlDocument xmlProfile = new XmlDocument();
+            xmlProfile.Load(xmlFilePath);
+
             var userDictionary = new Dictionary<string, string>();
             foreach (XmlNode node in xmlProfile.ChildNodes)
             {

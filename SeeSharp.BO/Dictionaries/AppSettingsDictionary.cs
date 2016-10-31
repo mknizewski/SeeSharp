@@ -4,13 +4,29 @@ namespace SeeSharp.BO.Dictionaries
 {
     public static class AppSettingsDictionary
     {
-        private static ResourceManager AppSetttings = new ResourceManager(typeof(AppSettings));
+        private readonly static ResourceManager AppSettings = new ResourceManager(typeof(Resources.AppSettings));
 
         public static string XmlFilesDirectiory
         {
             get
             {
-                return AppSetttings.GetString("XmlFileDirectory");
+                return AppSettings.GetString("XmlFileDirectory");
+            }
+        }
+
+        public static string AppVersion
+        {
+            get
+            {
+                return AppSettings.GetString("AppVersion");
+            }
+        }
+
+        public static string AppVersionMessagePattern
+        {
+            get
+            {
+                return AppSettings.GetString("VersionMessagePattern");
             }
         }
     }
