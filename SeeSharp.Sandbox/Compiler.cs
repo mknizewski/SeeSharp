@@ -1,49 +1,46 @@
-﻿using Microsoft.CSharp;
-using System;
+﻿using System;
 using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.CodeDom;
 
 namespace SeeSharp.Sandbox
 {
     public class Compiler : IDisposable
     {
         private CodeDomProvider _codeDomProvider;
-        private const string CSharpLanguague = "CSharp";
         private string _assemblyName;
+        private string _sourceCode;
 
-        public string AssemblyName
+        private const string CSharpLanguague = "CSharp";
+
+        public string SourceCode
         {
-            get { return _assemblyName; }
-            set { _assemblyName = value; }
+            get { return _sourceCode; }
+            set { _sourceCode = value; }
         }
 
-        public Compiler(string assemblyName)
+        public Compiler(string sourceCode)
         {
             _codeDomProvider = CodeDomProvider.CreateProvider(CSharpLanguague);
-            _assemblyName = assemblyName;
+            _sourceCode = sourceCode;
         }
 
-        private CompilerParameters GetCompilerParameters(string assemblyName)
+        private CompilerParameters GetCompilerParameters(string pathToWriteAssembly)
         {
             CompilerParameters compilerParameters = ObjectFactory.GetInstance<CompilerParameters>();
-
-            string fullPathToAssembly = string.Format("");
 
             compilerParameters.GenerateInMemory = true;
             compilerParameters.GenerateExecutable = true;
             compilerParameters.TreatWarningsAsErrors = false;
-            compilerParameters.OutputAssembly = fullPathToAssembly;
+            compilerParameters.OutputAssembly = pathToWriteAssembly;
 
             return compilerParameters;
         }
 
-        public void Compile()
+        public CompilerResults Compile(string pathToWriteAssembly)
         {
-            CompilerParameters compilerParameters = GetCompilerParameters(_assemblyName);
+            CompilerParameters compilerParameters = GetCompilerParameters(pathToWriteAssembly);
+            CompilerResults compilerResult = _codeDomProvider.CompileAssemblyFromSource(compilerParameters, _sourceCode);
+
+            return compilerResult;
         }
 
         public void Dispose()
