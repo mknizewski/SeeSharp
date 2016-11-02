@@ -17,9 +17,10 @@ namespace SeeSharp.Sandbox
         {
             Type typeOfSandbox = typeof(Sandbox);
             AppDomainSetup appDomainSetup = ObjectFactory.GetInstance<AppDomainSetup>();
-            appDomainSetup.ApplicationBase = applicationBase;
             Evidence evidence = ObjectFactory.GetInstance<Evidence>();
             Zone zone = new Zone(securityZone);
+
+            appDomainSetup.ApplicationBase = applicationBase;
             evidence.AddHostEvidence(zone);
 
             PermissionSet permissionSet = SecurityManager.GetStandardSandbox(evidence);
