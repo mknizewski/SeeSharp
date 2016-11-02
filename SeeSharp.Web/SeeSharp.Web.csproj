@@ -93,6 +93,12 @@
   <ItemGroup>
     <Folder Include="ClientBin\Debug\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SeeSharp.Sandbox\SeeSharp.Sandbox.csproj">
+      <Project>{acf8a33d-0f59-4c73-8102-a1c319627e78}</Project>
+      <Name>SeeSharp.Sandbox</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
