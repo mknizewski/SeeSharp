@@ -1,6 +1,4 @@
-﻿using System.Security;
-
-namespace SeeSharp.Sandbox
+﻿namespace SeeSharp.Sandbox
 {
     internal static class ObjectFactory
     {
