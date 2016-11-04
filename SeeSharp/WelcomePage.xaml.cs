@@ -1,5 +1,6 @@
 ﻿using SeeSharp.BO.Dictionaries;
 using SeeSharp.ServiceReference1;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SeeSharp
@@ -10,6 +11,13 @@ namespace SeeSharp
         {
             InitializeComponent();
             textBox.Text = AppSettingsDictionary.HelloWorldProgram;
+        }
+
+        public WelcomePage(Visibility visibility)
+        {
+            InitializeComponent();
+            textBox.Text = AppSettingsDictionary.HelloWorldProgram;
+            LayoutRoot.Visibility = visibility;
         }
 
         private void CompileButton_Click(object sender, System.Windows.RoutedEventArgs e)
