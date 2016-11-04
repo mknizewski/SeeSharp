@@ -136,7 +136,6 @@ namespace SeeSharp.Sandbox
 
         public override void Write(char value)
         {
-            base.Write(value);
             _consoleOut += value.ToString();
         }
     }
