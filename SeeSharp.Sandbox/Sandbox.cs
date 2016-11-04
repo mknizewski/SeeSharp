@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.Remoting;
 using System.Security;
@@ -7,7 +9,6 @@ using System.Security.Permissions;
 using System.Security.Policy;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace SeeSharp.Sandbox
 {
@@ -15,7 +16,7 @@ namespace SeeSharp.Sandbox
     {
         private const string FrienldyName = "Sandbox";
         private const string EntryPoint = "Main";
-        private const int TimeOutInMs = 3;
+        private const int TimeOutInS = 3;
 
         public Sandbox()
         { }
@@ -31,7 +32,6 @@ namespace SeeSharp.Sandbox
             evidence.AddHostEvidence(zone);
 
             PermissionSet permissionSet = SecurityManager.GetStandardSandbox(evidence);
-
             StrongName fullTrustAssembly = typeof(Sandbox).Assembly.Evidence.GetHostEvidence<StrongName>();
             AppDomain appDomain = AppDomain.CreateDomain(
                 FrienldyName,
@@ -49,7 +49,7 @@ namespace SeeSharp.Sandbox
         }
 
         [SecurityPermission(SecurityAction.Assert, UnmanagedCode = true)]
-        private void SetConsoleReader(ConsoleReader consoleReader)
+        private void SetConsoleStreamToConsoleReader(ConsoleReader consoleReader)
         {
             Console.SetOut(consoleReader);
         }
@@ -62,15 +62,26 @@ namespace SeeSharp.Sandbox
 
         public string ExecuteUntrusedCode(Assembly assembly, string[] parameters)
         {
-            string consoleOutput = string.Empty;
-
             try
             {
-                Type[] type = assembly.GetTypes();
-                MethodInfo[] untrused = type[0].GetMethods();
-                MethodInfo untrustedMethod = untrused[0];
+                List<Type> type = assembly.GetTypes().ToList();
+                MethodInfo untrustedMethod = null;
+
+                type.ForEach(typeInList =>
+                {
+                    List<MethodInfo> methods = typeInList.GetMethods().ToList();
+                    methods.ForEach(method => 
+                    {
+                        if (string.Equals(method.Name, EntryPoint))
+                            untrustedMethod = method;
+                    });
+                });
+
+                if (untrustedMethod == null)
+                    throw new Exception("Nie znaleziono metody Main!");
+
                 ConsoleReader consoleReader = new ConsoleReader();
-                SetConsoleReader(consoleReader);
+                SetConsoleStreamToConsoleReader(consoleReader);
 
                 Thread thread = new Thread(() => 
                 {
@@ -78,23 +89,22 @@ namespace SeeSharp.Sandbox
                 });
                 thread.Start();
 
-                if (!thread.Join(TimeSpan.FromSeconds(TimeOutInMs)))
+                if (!thread.Join(TimeSpan.FromSeconds(TimeOutInS)))
                 {
                     AbortThread(thread);
-                    throw new Exception("Upłynął limit oczekiwania");
+
+                    throw new Exception("Upłynął limit oczekiwania.");
                 }
  
-                consoleOutput = consoleReader.ConsoleOut;
-
                 consoleReader.Close();
                 consoleReader.Dispose();
+
+                return consoleReader.ConsoleOut;
             }
             catch (Exception ex)
             {
-                consoleOutput = ex.Message;
+                return ex.Message;
             }
-
-            return consoleOutput;
         }
     }
 

@@ -1,5 +1,7 @@
 ﻿using SeeSharp.BO.Dictionaries;
+using SeeSharp.ServiceReference1;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace SeeSharp
 {
@@ -16,7 +18,7 @@ namespace SeeSharp
             CompileButton.Content = "Proszę czekać";
             CompileButton.IsEnabled = false;
 
-            ServiceReference1.ServerServiceClient serverService = ServiceReference1.ServerServiceClient.GetInstance();
+            ServerServiceClient serverService = ServerServiceClient.GetInstance();
             serverService.CompileAndRunProgramAsync(textBox.Text);
 
             serverService.CompileAndRunProgramCompleted += (send, recv) => 

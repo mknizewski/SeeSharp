@@ -53,13 +53,11 @@ namespace SeeSharp.Web
 
         public string CompileAndRunProgram(string sourceCode)
         {
-            string output = string.Empty;
-
             try
             {
                 string randomDirectoryName = Guid.NewGuid().ToString();
                 string directoryPath = string.Concat(AppDomain.CurrentDomain.BaseDirectory, ServerDictionary.SourceFileDictionary, Separator, randomDirectoryName);
-                string randomFileName = string.Format("{0}.exe", Path.GetRandomFileName());
+                string randomFileName = string.Format(ServerDictionary.ExeExtensionPattern, Path.GetRandomFileName());
                 string filePath = string.Concat(directoryPath, Separator, randomFileName);
 
                 Directory.CreateDirectory(directoryPath);
@@ -71,20 +69,19 @@ namespace SeeSharp.Web
                     string errorList = string.Empty;
 
                     foreach (CompilerError item in cResults.Errors)
-                        errorList += string.Format("Linia {0}: {1} {2}{3}", item.Line, item.ErrorNumber, item.ErrorText, Environment.NewLine);
+                        errorList += string.Format(ServerDictionary.ErrorPattern, item.Line, item.ErrorNumber, item.ErrorText, Environment.NewLine);
 
                     throw new Exception(errorList);
                 }
 
                 Sandbox.Sandbox sandobx = Sandbox.Sandbox.CreateSandbox(directoryPath, System.Security.SecurityZone.Internet);
-                output = sandobx.ExecuteUntrusedCode(cResults.CompiledAssembly, new string[] { }); 
+
+                return sandobx.ExecuteUntrusedCode(cResults.CompiledAssembly, new string[] { }); 
             }
             catch (Exception ex)
             {
-                output = ex.Message;
+                return ex.Message;
             }
-
-            return output;
         }
     }
 }
