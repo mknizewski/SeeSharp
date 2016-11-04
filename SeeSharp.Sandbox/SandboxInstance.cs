@@ -12,18 +12,18 @@ using System.Threading;
 
 namespace SeeSharp.Sandbox
 {
-    public class Sandbox : MarshalByRefObject
+    public class SandboxInstance : MarshalByRefObject
     {
         private const string FrienldyName = "Sandbox";
         private const string EntryPoint = "Main";
-        private const int TimeOutInS = 3;
+        private const int TimeOutInSec = 3;
 
-        public Sandbox()
+        public SandboxInstance()
         { }
 
-        public static Sandbox CreateSandbox(string applicationBase, SecurityZone securityZone)
+        public static SandboxInstance CreateSandbox(string applicationBase, SecurityZone securityZone)
         {
-            Type typeOfSandbox = typeof(Sandbox);
+            Type typeOfSandbox = typeof(SandboxInstance);
             AppDomainSetup appDomainSetup = ObjectFactory.GetInstance<AppDomainSetup>();
             Evidence evidence = ObjectFactory.GetInstance<Evidence>();
             Zone zone = new Zone(securityZone);
@@ -32,7 +32,7 @@ namespace SeeSharp.Sandbox
             evidence.AddHostEvidence(zone);
 
             PermissionSet permissionSet = SecurityManager.GetStandardSandbox(evidence);
-            StrongName fullTrustAssembly = typeof(Sandbox).Assembly.Evidence.GetHostEvidence<StrongName>();
+            StrongName fullTrustAssembly = typeOfSandbox.Assembly.Evidence.GetHostEvidence<StrongName>();
             AppDomain appDomain = AppDomain.CreateDomain(
                 FrienldyName,
                 evidence,
@@ -45,7 +45,7 @@ namespace SeeSharp.Sandbox
                 typeOfSandbox.Assembly.ManifestModule.FullyQualifiedName,
                 typeOfSandbox.FullName);
      
-            return handle.Unwrap() as Sandbox;
+            return handle.Unwrap() as SandboxInstance;
         }
 
         [SecurityPermission(SecurityAction.Assert, UnmanagedCode = true)]
@@ -58,27 +58,35 @@ namespace SeeSharp.Sandbox
         private void AbortThread(Thread thread)
         {
             thread.Abort();
+            throw new Exception(SandboxExceptions.Timeout);
+        }
+
+        private MethodInfo FindMainMethod(Assembly assembly)
+        {
+            List<Type> type = assembly.GetTypes().ToList();
+            MethodInfo untrustedMethod = null;
+
+            type.ForEach(typeInList =>
+            {
+                List<MethodInfo> methods = typeInList.GetMethods().ToList();
+                methods.ForEach(method =>
+                {
+                    if (string.Equals(method.Name, EntryPoint))
+                        untrustedMethod = method;
+                });
+            });
+
+            return untrustedMethod;
         }
 
         public string ExecuteUntrusedCode(Assembly assembly, string[] parameters)
         {
             try
             {
-                List<Type> type = assembly.GetTypes().ToList();
-                MethodInfo untrustedMethod = null;
-
-                type.ForEach(typeInList =>
-                {
-                    List<MethodInfo> methods = typeInList.GetMethods().ToList();
-                    methods.ForEach(method => 
-                    {
-                        if (string.Equals(method.Name, EntryPoint))
-                            untrustedMethod = method;
-                    });
-                });
+                MethodInfo untrustedMethod = FindMainMethod(assembly);
 
                 if (untrustedMethod == null)
-                    throw new Exception("Nie znaleziono metody Main!");
+                    throw new Exception(SandboxExceptions.MainNotFound);
 
                 ConsoleReader consoleReader = new ConsoleReader();
                 SetConsoleStreamToConsoleReader(consoleReader);
@@ -96,14 +104,9 @@ namespace SeeSharp.Sandbox
                 });
                 thread.Start();
 
-                if (!thread.Join(TimeSpan.FromSeconds(TimeOutInS)))
-                {
+                if (!thread.Join(TimeSpan.FromSeconds(TimeOutInSec)))
                     AbortThread(thread);
 
-                    throw new Exception("Upłynął limit oczekiwania.");
-                }
-
-                
                 consoleReader.Close();
                 consoleReader.Dispose();
 
@@ -130,7 +133,7 @@ namespace SeeSharp.Sandbox
         {
             get
             {
-                return System.Text.Encoding.UTF8;
+                return Encoding.UTF8;
             }
         }
 

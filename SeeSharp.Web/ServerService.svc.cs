@@ -75,7 +75,7 @@ namespace SeeSharp.Web
                     throw new Exception(errorList);
                 }
 
-                Sandbox.Sandbox sandobx = Sandbox.Sandbox.CreateSandbox(directoryPath, System.Security.SecurityZone.Internet);
+                SandboxInstance sandobx = Sandbox.SandboxInstance.CreateSandbox(directoryPath, System.Security.SecurityZone.Internet);
                 output = sandobx.ExecuteUntrusedCode(cResults.CompiledAssembly, new string[] { });
 
                 compiler.Dispose();
