@@ -1,7 +1,6 @@
 ﻿using SeeSharp.BO.Dictionaries;
 using SeeSharp.ServiceReference1;
 using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace SeeSharp
 {
