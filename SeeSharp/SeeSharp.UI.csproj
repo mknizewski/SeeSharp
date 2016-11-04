@@ -153,7 +153,6 @@
     <None Include="Service References\ServiceReference1\ServerService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Resource Include="Images\w_uwb_kolor.jpg" />
     <None Include="Service References\ServiceReference1\ServerService.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
@@ -161,6 +160,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Resource Include="Images\w_uwb_kolor.png" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
