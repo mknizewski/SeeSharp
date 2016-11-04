@@ -70,6 +70,25 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to using System;
+        ///namespace HelloWorld
+        ///{
+        ///    public class Hello 
+        ///    {
+        ///        public static void Main() 
+        ///        {
+        ///            Console.WriteLine(&quot;Hello World!&quot;);
+        ///        }
+        ///    }
+        ///}.
+        /// </summary>
+        internal static string HelloWorld {
+            get {
+                return ResourceManager.GetString("HelloWorld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wersja: {0}.
         /// </summary>
         internal static string VersionMessagePattern {

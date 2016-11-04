@@ -6,7 +6,6 @@ namespace SeeSharp.Sandbox
     public class Compiler : IDisposable
     {
         private CodeDomProvider _codeDomProvider;
-        private string _assemblyName;
         private string _sourceCode;
 
         private const string CSharpLanguague = "CSharp";

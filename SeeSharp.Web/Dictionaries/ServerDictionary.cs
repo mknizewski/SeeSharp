@@ -21,5 +21,13 @@ namespace SeeSharp.Web.Dictionaries
                 return WebConfigurationManager.AppSettings["XmlFileName"];
             }
         }
+
+        public static string SourceFileDictionary
+        {
+            get
+            {
+                return WebConfigurationManager.AppSettings["SourceFilesDirectory"];
+            }
+        }
     }
 }

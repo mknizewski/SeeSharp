@@ -8,12 +8,15 @@ namespace SeeSharp.Web
     public interface IServerService
     {
         [OperationContract]
-        void CreateMainDirectoryIfDosentExists();
+        void CreateDirectoriesIfDosentExists();
 
         [OperationContract]
         void CreateDirectoryForUser(string loginName, int code);
 
         [OperationContract]
         Dictionary<string, string> GetUserProfile(string loginName);
+
+        [OperationContract]
+        string CompileAndRunProgram(string sourceCode);
     }
 }

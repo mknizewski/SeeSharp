@@ -18,10 +18,10 @@ namespace SeeSharp.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IServerService")]
     public interface IServerService {
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerService/CreateMainDirectoryIfDosentExists", ReplyAction="http://tempuri.org/IServerService/CreateMainDirectoryIfDosentExistsResponse")]
-        System.IAsyncResult BeginCreateMainDirectoryIfDosentExists(System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerService/CreateDirectoriesIfDosentExists", ReplyAction="http://tempuri.org/IServerService/CreateDirectoriesIfDosentExistsResponse")]
+        System.IAsyncResult BeginCreateDirectoriesIfDosentExists(System.AsyncCallback callback, object asyncState);
         
-        void EndCreateMainDirectoryIfDosentExists(System.IAsyncResult result);
+        void EndCreateDirectoriesIfDosentExists(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerService/CreateDirectoryForUser", ReplyAction="http://tempuri.org/IServerService/CreateDirectoryForUserResponse")]
         System.IAsyncResult BeginCreateDirectoryForUser(string loginName, int code, System.AsyncCallback callback, object asyncState);
@@ -32,6 +32,11 @@ namespace SeeSharp.ServiceReference1 {
         System.IAsyncResult BeginGetUserProfile(string loginName, System.AsyncCallback callback, object asyncState);
         
         System.Collections.Generic.Dictionary<string, string> EndGetUserProfile(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerService/CompileAndRunProgram", ReplyAction="http://tempuri.org/IServerService/CompileAndRunProgramResponse")]
+        System.IAsyncResult BeginCompileAndRunProgram(string sourceCode, System.AsyncCallback callback, object asyncState);
+        
+        string EndCompileAndRunProgram(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -59,13 +64,32 @@ namespace SeeSharp.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CompileAndRunProgramCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CompileAndRunProgramCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ServerServiceClient : System.ServiceModel.ClientBase<SeeSharp.ServiceReference1.IServerService>, SeeSharp.ServiceReference1.IServerService {
         
-        private BeginOperationDelegate onBeginCreateMainDirectoryIfDosentExistsDelegate;
+        private BeginOperationDelegate onBeginCreateDirectoriesIfDosentExistsDelegate;
         
-        private EndOperationDelegate onEndCreateMainDirectoryIfDosentExistsDelegate;
+        private EndOperationDelegate onEndCreateDirectoriesIfDosentExistsDelegate;
         
-        private System.Threading.SendOrPostCallback onCreateMainDirectoryIfDosentExistsCompletedDelegate;
+        private System.Threading.SendOrPostCallback onCreateDirectoriesIfDosentExistsCompletedDelegate;
         
         private BeginOperationDelegate onBeginCreateDirectoryForUserDelegate;
         
@@ -79,6 +103,12 @@ namespace SeeSharp.ServiceReference1 {
         
         private System.Threading.SendOrPostCallback onGetUserProfileCompletedDelegate;
         
+        private BeginOperationDelegate onBeginCompileAndRunProgramDelegate;
+        
+        private EndOperationDelegate onEndCompileAndRunProgramDelegate;
+        
+        private System.Threading.SendOrPostCallback onCompileAndRunProgramCompletedDelegate;
+        
         private BeginOperationDelegate onBeginOpenDelegate;
         
         private EndOperationDelegate onEndOpenDelegate;
@@ -91,12 +121,14 @@ namespace SeeSharp.ServiceReference1 {
         
         private System.Threading.SendOrPostCallback onCloseCompletedDelegate;
         
-        public static ServerServiceClient GetInstance()
-        { return new ServerServiceClient(); }
-
         public ServerServiceClient() {
         }
         
+        public static ServerServiceClient GetInstance()
+        {
+            return new ServerServiceClient();
+        }
+
         public ServerServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
@@ -135,57 +167,59 @@ namespace SeeSharp.ServiceReference1 {
             }
         }
         
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CreateMainDirectoryIfDosentExistsCompleted;
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CreateDirectoriesIfDosentExistsCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CreateDirectoryForUserCompleted;
         
         public event System.EventHandler<GetUserProfileCompletedEventArgs> GetUserProfileCompleted;
+        
+        public event System.EventHandler<CompileAndRunProgramCompletedEventArgs> CompileAndRunProgramCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SeeSharp.ServiceReference1.IServerService.BeginCreateMainDirectoryIfDosentExists(System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginCreateMainDirectoryIfDosentExists(callback, asyncState);
+        System.IAsyncResult SeeSharp.ServiceReference1.IServerService.BeginCreateDirectoriesIfDosentExists(System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCreateDirectoriesIfDosentExists(callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SeeSharp.ServiceReference1.IServerService.EndCreateMainDirectoryIfDosentExists(System.IAsyncResult result) {
-            base.Channel.EndCreateMainDirectoryIfDosentExists(result);
+        void SeeSharp.ServiceReference1.IServerService.EndCreateDirectoriesIfDosentExists(System.IAsyncResult result) {
+            base.Channel.EndCreateDirectoriesIfDosentExists(result);
         }
         
-        private System.IAsyncResult OnBeginCreateMainDirectoryIfDosentExists(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            return ((SeeSharp.ServiceReference1.IServerService)(this)).BeginCreateMainDirectoryIfDosentExists(callback, asyncState);
+        private System.IAsyncResult OnBeginCreateDirectoriesIfDosentExists(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            return ((SeeSharp.ServiceReference1.IServerService)(this)).BeginCreateDirectoriesIfDosentExists(callback, asyncState);
         }
         
-        private object[] OnEndCreateMainDirectoryIfDosentExists(System.IAsyncResult result) {
-            ((SeeSharp.ServiceReference1.IServerService)(this)).EndCreateMainDirectoryIfDosentExists(result);
+        private object[] OnEndCreateDirectoriesIfDosentExists(System.IAsyncResult result) {
+            ((SeeSharp.ServiceReference1.IServerService)(this)).EndCreateDirectoriesIfDosentExists(result);
             return null;
         }
         
-        private void OnCreateMainDirectoryIfDosentExistsCompleted(object state) {
-            if ((this.CreateMainDirectoryIfDosentExistsCompleted != null)) {
+        private void OnCreateDirectoriesIfDosentExistsCompleted(object state) {
+            if ((this.CreateDirectoriesIfDosentExistsCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.CreateMainDirectoryIfDosentExistsCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+                this.CreateDirectoriesIfDosentExistsCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void CreateMainDirectoryIfDosentExistsAsync() {
-            this.CreateMainDirectoryIfDosentExistsAsync(null);
+        public void CreateDirectoriesIfDosentExistsAsync() {
+            this.CreateDirectoriesIfDosentExistsAsync(null);
         }
         
-        public void CreateMainDirectoryIfDosentExistsAsync(object userState) {
-            if ((this.onBeginCreateMainDirectoryIfDosentExistsDelegate == null)) {
-                this.onBeginCreateMainDirectoryIfDosentExistsDelegate = new BeginOperationDelegate(this.OnBeginCreateMainDirectoryIfDosentExists);
+        public void CreateDirectoriesIfDosentExistsAsync(object userState) {
+            if ((this.onBeginCreateDirectoriesIfDosentExistsDelegate == null)) {
+                this.onBeginCreateDirectoriesIfDosentExistsDelegate = new BeginOperationDelegate(this.OnBeginCreateDirectoriesIfDosentExists);
             }
-            if ((this.onEndCreateMainDirectoryIfDosentExistsDelegate == null)) {
-                this.onEndCreateMainDirectoryIfDosentExistsDelegate = new EndOperationDelegate(this.OnEndCreateMainDirectoryIfDosentExists);
+            if ((this.onEndCreateDirectoriesIfDosentExistsDelegate == null)) {
+                this.onEndCreateDirectoriesIfDosentExistsDelegate = new EndOperationDelegate(this.OnEndCreateDirectoriesIfDosentExists);
             }
-            if ((this.onCreateMainDirectoryIfDosentExistsCompletedDelegate == null)) {
-                this.onCreateMainDirectoryIfDosentExistsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCreateMainDirectoryIfDosentExistsCompleted);
+            if ((this.onCreateDirectoriesIfDosentExistsCompletedDelegate == null)) {
+                this.onCreateDirectoriesIfDosentExistsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCreateDirectoriesIfDosentExistsCompleted);
             }
-            base.InvokeAsync(this.onBeginCreateMainDirectoryIfDosentExistsDelegate, null, this.onEndCreateMainDirectoryIfDosentExistsDelegate, this.onCreateMainDirectoryIfDosentExistsCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginCreateDirectoriesIfDosentExistsDelegate, null, this.onEndCreateDirectoriesIfDosentExistsDelegate, this.onCreateDirectoriesIfDosentExistsCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -281,6 +315,52 @@ namespace SeeSharp.ServiceReference1 {
                         loginName}, this.onEndGetUserProfileDelegate, this.onGetUserProfileCompletedDelegate, userState);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SeeSharp.ServiceReference1.IServerService.BeginCompileAndRunProgram(string sourceCode, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCompileAndRunProgram(sourceCode, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SeeSharp.ServiceReference1.IServerService.EndCompileAndRunProgram(System.IAsyncResult result) {
+            return base.Channel.EndCompileAndRunProgram(result);
+        }
+        
+        private System.IAsyncResult OnBeginCompileAndRunProgram(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string sourceCode = ((string)(inValues[0]));
+            return ((SeeSharp.ServiceReference1.IServerService)(this)).BeginCompileAndRunProgram(sourceCode, callback, asyncState);
+        }
+        
+        private object[] OnEndCompileAndRunProgram(System.IAsyncResult result) {
+            string retVal = ((SeeSharp.ServiceReference1.IServerService)(this)).EndCompileAndRunProgram(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCompileAndRunProgramCompleted(object state) {
+            if ((this.CompileAndRunProgramCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CompileAndRunProgramCompleted(this, new CompileAndRunProgramCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CompileAndRunProgramAsync(string sourceCode) {
+            this.CompileAndRunProgramAsync(sourceCode, null);
+        }
+        
+        public void CompileAndRunProgramAsync(string sourceCode, object userState) {
+            if ((this.onBeginCompileAndRunProgramDelegate == null)) {
+                this.onBeginCompileAndRunProgramDelegate = new BeginOperationDelegate(this.OnBeginCompileAndRunProgram);
+            }
+            if ((this.onEndCompileAndRunProgramDelegate == null)) {
+                this.onEndCompileAndRunProgramDelegate = new EndOperationDelegate(this.OnEndCompileAndRunProgram);
+            }
+            if ((this.onCompileAndRunProgramCompletedDelegate == null)) {
+                this.onCompileAndRunProgramCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCompileAndRunProgramCompleted);
+            }
+            base.InvokeAsync(this.onBeginCompileAndRunProgramDelegate, new object[] {
+                        sourceCode}, this.onEndCompileAndRunProgramDelegate, this.onCompileAndRunProgramCompletedDelegate, userState);
+        }
+        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -357,15 +437,15 @@ namespace SeeSharp.ServiceReference1 {
                     base(client) {
             }
             
-            public System.IAsyncResult BeginCreateMainDirectoryIfDosentExists(System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginCreateDirectoriesIfDosentExists(System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[0];
-                System.IAsyncResult _result = base.BeginInvoke("CreateMainDirectoryIfDosentExists", _args, callback, asyncState);
+                System.IAsyncResult _result = base.BeginInvoke("CreateDirectoriesIfDosentExists", _args, callback, asyncState);
                 return _result;
             }
             
-            public void EndCreateMainDirectoryIfDosentExists(System.IAsyncResult result) {
+            public void EndCreateDirectoriesIfDosentExists(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                base.EndInvoke("CreateMainDirectoryIfDosentExists", _args, result);
+                base.EndInvoke("CreateDirectoriesIfDosentExists", _args, result);
             }
             
             public System.IAsyncResult BeginCreateDirectoryForUser(string loginName, int code, System.AsyncCallback callback, object asyncState) {
@@ -391,6 +471,19 @@ namespace SeeSharp.ServiceReference1 {
             public System.Collections.Generic.Dictionary<string, string> EndGetUserProfile(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 System.Collections.Generic.Dictionary<string, string> _result = ((System.Collections.Generic.Dictionary<string, string>)(base.EndInvoke("GetUserProfile", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginCompileAndRunProgram(string sourceCode, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = sourceCode;
+                System.IAsyncResult _result = base.BeginInvoke("CompileAndRunProgram", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public string EndCompileAndRunProgram(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                string _result = ((string)(base.EndInvoke("CompileAndRunProgram", _args, result)));
                 return _result;
             }
         }

@@ -54,7 +54,7 @@ namespace SeeSharp
         private void CreateXmlDirectoryIfNotExists()
         {
             ServerServiceClient serverService = ServerServiceClient.GetInstance();
-            serverService.CreateMainDirectoryIfDosentExistsAsync();
+            serverService.CreateDirectoriesIfDosentExistsAsync();
         }
     }
 }

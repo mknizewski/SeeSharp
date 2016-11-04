@@ -253,3 +253,6 @@ paket-files/
 
 # XmlProfile Files
 XmlFiles/
+
+# Compiled Program Files
+SourceFiles/

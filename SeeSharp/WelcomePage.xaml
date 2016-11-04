@@ -7,5 +7,23 @@
     d:DesignHeight="300" d:DesignWidth="400">
 
     <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="125" />
+        </Grid.RowDefinitions>
+        <Viewbox Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Sandbox" />
+        </Viewbox>
+        <TextBox Grid.Row="1" x:Name="textBox" HorizontalAlignment="Stretch" AcceptsReturn="True" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Stretch" Margin="5 5 5 5" />
+        <Button x:Name="CompileButton" Click="CompileButton_Click" Grid.Row="2" MaxWidth="100" HorizontalAlignment="Right" Margin="0 0 15 0">Kompiluj</Button>
+        <Viewbox Grid.Row="3" HorizontalAlignment="Left" Margin="15 0 0 0" VerticalAlignment="Center">
+            <TextBlock Text="Output:" />
+        </Viewbox>
+        <Grid Grid.Row="4" Background="Black" Margin="5 5 5 5">
+            <TextBlock x:Name="outputText" TextWrapping="Wrap" Foreground="White"></TextBlock>
+        </Grid>
     </Grid>
 </UserControl>

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.Remoting;
 using System.Security;
+using System.Security.Permissions;
 using System.Security.Policy;
+using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace SeeSharp.Sandbox
 {
@@ -13,9 +15,9 @@ namespace SeeSharp.Sandbox
     {
         private const string FrienldyName = "Sandbox";
         private const string EntryPoint = "Main";
-        private const int TimeOut = 10;
+        private const int TimeOutInMs = 3;
 
-        private Sandbox()
+        public Sandbox()
         { }
 
         public static Sandbox CreateSandbox(string applicationBase, SecurityZone securityZone)
@@ -29,7 +31,8 @@ namespace SeeSharp.Sandbox
             evidence.AddHostEvidence(zone);
 
             PermissionSet permissionSet = SecurityManager.GetStandardSandbox(evidence);
-            StrongName fullTrustAssembly = typeOfSandbox.Assembly.Evidence.GetHostEvidence<StrongName>();
+
+            StrongName fullTrustAssembly = typeof(Sandbox).Assembly.Evidence.GetHostEvidence<StrongName>();
             AppDomain appDomain = AppDomain.CreateDomain(
                 FrienldyName,
                 evidence,
@@ -45,44 +48,78 @@ namespace SeeSharp.Sandbox
             return handle.Unwrap() as Sandbox;
         }
 
+        [SecurityPermission(SecurityAction.Assert, UnmanagedCode = true)]
+        private void SetConsoleReader(ConsoleReader consoleReader)
+        {
+            Console.SetOut(consoleReader);
+        }
+
+        [SecurityPermission(SecurityAction.Assert, ControlThread = true)]
+        private void AbortThread(Thread thread)
+        {
+            thread.Abort();
+        }
+
         public string ExecuteUntrusedCode(Assembly assembly, string[] parameters)
         {
-            StreamReader streamReader = new StreamReader(Console.OpenStandardOutput());
-            MethodInfo untrustedMethod = assembly
-                .GetTypes()
-                .Select(x => x.GetMethod(EntryPoint))
-                .FirstOrDefault();
             string consoleOutput = string.Empty;
 
             try
             {
-                Thread thread = new Thread(() =>
+                Type[] type = assembly.GetTypes();
+                MethodInfo[] untrused = type[0].GetMethods();
+                MethodInfo untrustedMethod = untrused[0];
+                ConsoleReader consoleReader = new ConsoleReader();
+                SetConsoleReader(consoleReader);
+
+                Thread thread = new Thread(() => 
                 {
                     untrustedMethod.Invoke(null, parameters);
                 });
-
                 thread.Start();
-                consoleOutput = streamReader.ReadToEnd();
 
-                if (!thread.Join(TimeSpan.FromSeconds(TimeOut)))
+                if (!thread.Join(TimeSpan.FromSeconds(TimeOutInMs)))
                 {
-                    thread.Abort();
-                    string exMessage = string.Format("Przekroczono {0} sekund!", TimeOut);
-
-                    throw new TimeoutException(exMessage);
+                    AbortThread(thread);
+                    throw new Exception("Upłynął limit oczekiwania");
                 }
+ 
+                consoleOutput = consoleReader.ConsoleOut;
+
+                consoleReader.Close();
+                consoleReader.Dispose();
             }
             catch (Exception ex)
             {
                 consoleOutput = ex.Message;
             }
-            finally
-            {
-                streamReader.Close();
-                streamReader.Dispose();
-            }
 
             return consoleOutput;
+        }
+    }
+
+    internal class ConsoleReader : TextWriter
+    {
+        private string _consoleOut;
+        public string ConsoleOut { get { return _consoleOut; } set { _consoleOut = value; } }
+
+        public ConsoleReader()
+        {
+            _consoleOut = string.Empty;
+        }
+
+        public override Encoding Encoding
+        {
+            get
+            {
+                return System.Text.Encoding.UTF8;
+            }
+        }
+
+        public override void Write(char value)
+        {
+            base.Write(value);
+            _consoleOut += value.ToString();
         }
     }
 }
