@@ -44,7 +44,7 @@ namespace SeeSharp.Sandbox
                 appDomain,
                 typeOfSandbox.Assembly.ManifestModule.FullyQualifiedName,
                 typeOfSandbox.FullName);
-
+     
             return handle.Unwrap() as Sandbox;
         }
 
@@ -85,7 +85,14 @@ namespace SeeSharp.Sandbox
 
                 Thread thread = new Thread(() => 
                 {
-                    untrustedMethod.Invoke(null, parameters);
+                    try
+                    {
+                        untrustedMethod.Invoke(null, parameters);
+                    }
+                    catch (Exception ex)
+                    {
+                        consoleReader.ConsoleOut = ex.InnerException.Message;
+                    }
                 });
                 thread.Start();
 
@@ -95,7 +102,8 @@ namespace SeeSharp.Sandbox
 
                     throw new Exception("Upłynął limit oczekiwania.");
                 }
- 
+
+                
                 consoleReader.Close();
                 consoleReader.Dispose();
 
