@@ -61,7 +61,7 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0.07.
+        ///   Looks up a localized string similar to 0.07 - Środowisko Testowe.
         /// </summary>
         internal static string AppVersion {
             get {
