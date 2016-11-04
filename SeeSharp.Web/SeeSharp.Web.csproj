@@ -65,6 +65,7 @@
     <Content Include="ClientBin\SeeSharp.xap" />
     <Content Include="Content\MovieCourses\First_movie.htm" />
     <Content Include="Content\MovieCourses\First_movie.swf" />
+    <Content Include="Content\MovieCourses\testVegass.wmv" />
     <Content Include="SeeSharpTestPage.aspx" />
     <Content Include="SeeSharpTestPage.html" />
     <Content Include="ServerService.svc" />
