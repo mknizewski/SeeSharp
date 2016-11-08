@@ -58,9 +58,12 @@ namespace SeeSharp
 
         public void SetView(ViewType viewType, string section)
         {
+            UserControl view = ViewFactory.GetView(viewType);
+
             this.DynamicView.Children.Clear();
-            this.DynamicView.Children.Add(ViewFactory.GetView(viewType));
+            this.DynamicView.Children.Add(view);
             this.DynamicView.UpdateLayout();
+
             this.SectionBlock.Text = string.Format(AppSettingsDictionary.SectionPrefixPattern, section);
         }
 
@@ -95,10 +98,5 @@ namespace SeeSharp
                 this.LoginName.Text = AppSettingsDictionary.UnllogedAlert;
             }
         }
-    }
-
-    public enum User
-    {
-        Logged, Unlogged
     }
 }

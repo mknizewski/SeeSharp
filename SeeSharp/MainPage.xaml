@@ -156,7 +156,7 @@
                         </Grid>
                     </Viewbox>
                     <Viewbox Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="ProgressPercentageViewBox" Visibility="Collapsed">
-                        <TextBlock Text="25 %" x:Name="ProgressPercentageTextBlock" FontFamily="Open Sans" FontSize="24" />
+                        <TextBlock x:Name="ProgressPercentageTextBlock" FontFamily="Open Sans" FontSize="24" />
                     </Viewbox>
                 </Grid>
             </Grid>

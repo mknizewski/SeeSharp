@@ -47,4 +47,9 @@ namespace SeeSharp.BO.Managers
         public int Percentage { get; set; }
         public string LastTutorial { get; set; }
     }
+
+    public enum User
+    {
+        Logged, Unlogged
+    }
 }
