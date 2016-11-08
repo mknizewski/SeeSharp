@@ -133,6 +133,15 @@ namespace HelloWorld
     }
 }</value>
   </data>
+  <data name="PercentagePattern" xml:space="preserve">
+    <value>{0} %</value>
+  </data>
+  <data name="SectionPrefixPattern" xml:space="preserve">
+    <value>Jesteś w sekcji: {0}</value>
+  </data>
+  <data name="UnloggedAlert" xml:space="preserve">
+    <value>Niezalogowany</value>
+  </data>
   <data name="VersionMessagePattern" xml:space="preserve">
     <value>Wersja: {0}</value>
   </data>

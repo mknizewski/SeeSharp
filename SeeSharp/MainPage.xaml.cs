@@ -9,15 +9,13 @@ namespace SeeSharp
 {
     public partial class MainPage : UserControl, IDisposable
     {
-        private const string SectionPrefixPattern = "Jesteś w sekcji: {0}";
-        private const string UnloggedAlert = "Niezalogowany";
-
         public UserManager UserManager;
 
         public MainPage()
         {
             InitializeComponent();
             SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
+
             this.AppVersion.Text = string.Format(AppSettingsDictionary.AppVersionMessagePattern, AppSettingsDictionary.AppVersion);
         }
 
@@ -63,7 +61,7 @@ namespace SeeSharp
             this.DynamicView.Children.Clear();
             this.DynamicView.Children.Add(ViewFactory.GetView(viewType));
             this.DynamicView.UpdateLayout();
-            this.SectionBlock.Text = string.Format(SectionPrefixPattern, section);
+            this.SectionBlock.Text = string.Format(AppSettingsDictionary.SectionPrefixPattern, section);
         }
 
         public void SetUserMenuView(User user)
@@ -76,9 +74,12 @@ namespace SeeSharp
 
                 this.ProgressTextViewBox.Visibility = Visibility.Visible;
                 this.ProgressCircleViewBox.Visibility = Visibility.Visible;
-                this.ProgressCircle.Percentage = UserManager.UserInfo.Percentage;
+                this.ProgressPercentageTextBlock.Visibility = Visibility.Visible;
+                this.ProgressPercentageViewBox.Visibility = Visibility.Visible;
 
+                this.ProgressCircle.Percentage = UserManager.UserInfo.Percentage;
                 this.LoginName.Text = UserManager.UserInfo.Login;
+                this.ProgressPercentageTextBlock.Text = string.Format(AppSettingsDictionary.PercentagePattern, UserManager.UserInfo.Percentage);
             }
             else
             {
@@ -88,8 +89,10 @@ namespace SeeSharp
 
                 this.ProgressTextViewBox.Visibility = Visibility.Collapsed;
                 this.ProgressCircleViewBox.Visibility = Visibility.Collapsed;
+                this.ProgressPercentageViewBox.Visibility = Visibility.Collapsed;
+                this.ProgressPercentageTextBlock.Visibility = Visibility.Collapsed;
 
-                this.LoginName.Text = UnloggedAlert;
+                this.LoginName.Text = AppSettingsDictionary.UnllogedAlert;
             }
         }
     }

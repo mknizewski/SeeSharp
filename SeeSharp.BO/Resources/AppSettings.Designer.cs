@@ -89,6 +89,33 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} %.
+        /// </summary>
+        internal static string PercentagePattern {
+            get {
+                return ResourceManager.GetString("PercentagePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jesteś w sekcji: {0}.
+        /// </summary>
+        internal static string SectionPrefixPattern {
+            get {
+                return ResourceManager.GetString("SectionPrefixPattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Niezalogowany.
+        /// </summary>
+        internal static string UnloggedAlert {
+            get {
+                return ResourceManager.GetString("UnloggedAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wersja: {0}.
         /// </summary>
         internal static string VersionMessagePattern {

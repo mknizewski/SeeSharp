@@ -144,6 +144,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="3*" />
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Viewbox Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="ProgressTextViewBox" Visibility="Collapsed">
                         <TextBlock Text="Postęp ukończenia:" Margin="0 20 0 0" FontFamily="Open Sans" FontSize="24"></TextBlock>
@@ -153,6 +154,9 @@
                             <DesignInControl:CircularProgressBar HorizontalAlignment="Center" VerticalAlignment="Center" SegmentColor="#FF878889" StrokeThickness="25" Percentage="100" />
                             <DesignInControl:CircularProgressBar x:Name="ProgressCircle" HorizontalAlignment="Center" VerticalAlignment="Center" SegmentColor="#026873" StrokeThickness="25" />
                         </Grid>
+                    </Viewbox>
+                    <Viewbox Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="ProgressPercentageViewBox" Visibility="Collapsed">
+                        <TextBlock Text="25 %" x:Name="ProgressPercentageTextBlock" FontFamily="Open Sans" FontSize="24" />
                     </Viewbox>
                 </Grid>
             </Grid>

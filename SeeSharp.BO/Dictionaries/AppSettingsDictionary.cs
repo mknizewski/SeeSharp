@@ -37,5 +37,29 @@ namespace SeeSharp.BO.Dictionaries
                 return AppSettings.GetString("HelloWorld");
             }
         }
+
+        public static string UnllogedAlert
+        {
+            get
+            {
+                return AppSettings.GetString("UnloggedAlert");
+            }
+        }
+
+        public static string SectionPrefixPattern
+        {
+            get
+            {
+                return AppSettings.GetString("SectionPrefixPattern");
+            }
+        }
+
+        public static string PercentagePattern
+        {
+            get
+            {
+                return AppSettings.GetString("PercentagePattern");
+            }
+        }
     }
 }
