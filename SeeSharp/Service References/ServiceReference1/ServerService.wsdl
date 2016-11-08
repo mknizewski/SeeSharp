@@ -7,11 +7,11 @@
       <xsd:import schemaLocation="http://localhost:15504/ServerService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IServerService_CreateMainDirectoryIfDosentExists_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreateMainDirectoryIfDosentExists" />
+  <wsdl:message name="IServerService_CreateDirectoriesIfDosentExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDirectoriesIfDosentExists" />
   </wsdl:message>
-  <wsdl:message name="IServerService_CreateMainDirectoryIfDosentExists_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreateMainDirectoryIfDosentExistsResponse" />
+  <wsdl:message name="IServerService_CreateDirectoriesIfDosentExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDirectoriesIfDosentExistsResponse" />
   </wsdl:message>
   <wsdl:message name="IServerService_CreateDirectoryForUser_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateDirectoryForUser" />
@@ -25,10 +25,16 @@
   <wsdl:message name="IServerService_GetUserProfile_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserProfileResponse" />
   </wsdl:message>
+  <wsdl:message name="IServerService_CompileAndRunProgram_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompileAndRunProgram" />
+  </wsdl:message>
+  <wsdl:message name="IServerService_CompileAndRunProgram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompileAndRunProgramResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServerService">
-    <wsdl:operation name="CreateMainDirectoryIfDosentExists">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServerService/CreateMainDirectoryIfDosentExists" message="tns:IServerService_CreateMainDirectoryIfDosentExists_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServerService/CreateMainDirectoryIfDosentExistsResponse" message="tns:IServerService_CreateMainDirectoryIfDosentExists_OutputMessage" />
+    <wsdl:operation name="CreateDirectoriesIfDosentExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServerService/CreateDirectoriesIfDosentExists" message="tns:IServerService_CreateDirectoriesIfDosentExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServerService/CreateDirectoriesIfDosentExistsResponse" message="tns:IServerService_CreateDirectoriesIfDosentExists_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateDirectoryForUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IServerService/CreateDirectoryForUser" message="tns:IServerService_CreateDirectoryForUser_InputMessage" />
@@ -38,11 +44,15 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServerService/GetUserProfile" message="tns:IServerService_GetUserProfile_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServerService/GetUserProfileResponse" message="tns:IServerService_GetUserProfile_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="CompileAndRunProgram">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServerService/CompileAndRunProgram" message="tns:IServerService_CompileAndRunProgram_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServerService/CompileAndRunProgramResponse" message="tns:IServerService_CompileAndRunProgram_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServerService" type="tns:IServerService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="CreateMainDirectoryIfDosentExists">
-      <soap:operation soapAction="http://tempuri.org/IServerService/CreateMainDirectoryIfDosentExists" style="document" />
+    <wsdl:operation name="CreateDirectoriesIfDosentExists">
+      <soap:operation soapAction="http://tempuri.org/IServerService/CreateDirectoriesIfDosentExists" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -61,6 +71,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetUserProfile">
       <soap:operation soapAction="http://tempuri.org/IServerService/GetUserProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompileAndRunProgram">
+      <soap:operation soapAction="http://tempuri.org/IServerService/CompileAndRunProgram" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

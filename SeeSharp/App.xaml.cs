@@ -19,7 +19,7 @@ namespace SeeSharp
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             this.RootVisual = new MainPage();
-            this.CreateXmlDirectoryIfNotExists();
+            this.ConfigureServer();
             ViewFactory.MainPageInstance = this.RootVisual as MainPage;
         }
 
@@ -51,10 +51,10 @@ namespace SeeSharp
             }
         }
 
-        private void CreateXmlDirectoryIfNotExists()
+        private void ConfigureServer()
         {
             ServerServiceClient serverService = ServerServiceClient.GetInstance();
-            serverService.CreateMainDirectoryIfDosentExistsAsync();
+            serverService.CreateDirectoriesIfDosentExistsAsync();
         }
     }
 }

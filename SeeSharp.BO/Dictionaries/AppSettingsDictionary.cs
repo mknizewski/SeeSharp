@@ -29,5 +29,13 @@ namespace SeeSharp.BO.Dictionaries
                 return AppSettings.GetString("VersionMessagePattern");
             }
         }
+
+        public static string HelloWorldProgram
+        {
+            get
+            {
+                return AppSettings.GetString("HelloWorld");
+            }
+        }
     }
 }

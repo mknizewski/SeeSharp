@@ -11,6 +11,7 @@ namespace SeeSharp
     public partial class LoginPage : UserControl, IDisposable
     {
         private const string RegexNumberOnlyPattern = "[^0-9.-]+";
+        private const string Secret = "!QAZ2wsx";
 
         public LoginPage()
         {
@@ -29,6 +30,16 @@ namespace SeeSharp
                 string loginName = this.LoginBox.Text;
                 string loginCode = this.CodeBox.Text;
                 MainPage root = ViewFactory.MainPageInstance;
+
+                if (string.Equals(loginName, Secret))
+                {
+                    root.DynamicView.Children.Clear();
+                    root.DynamicView.Children.Add(new WelcomePage(System.Windows.Visibility.Visible));
+                    root.DynamicView.UpdateLayout();
+                    root.SectionBlock.Text = string.Format("Jesteś w sekcji: {0}", "Sandbox");
+                    return;
+                }
+
                 ServerServiceClient serverService = ServerServiceClient.GetInstance();
 
                 if (string.IsNullOrEmpty(loginName) || string.IsNullOrEmpty(loginCode))

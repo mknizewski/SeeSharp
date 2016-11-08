@@ -118,7 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppVersion" xml:space="preserve">
-    <value>0.07 - Środowisko Testowe</value>
+    <value>0.08 - Środowisko Testowe</value>
+  </data>
+  <data name="HelloWorld" xml:space="preserve">
+    <value>using System;
+namespace HelloWorld
+{
+    public class Hello 
+    {
+        public static void Main() 
+        {
+            Console.WriteLine("Hello World!");
+        }
+    }
+}</value>
   </data>
   <data name="VersionMessagePattern" xml:space="preserve">
     <value>Wersja: {0}</value>

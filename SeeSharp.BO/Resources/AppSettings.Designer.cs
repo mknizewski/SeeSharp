@@ -61,11 +61,30 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0.07 - Środowisko Testowe.
+        ///   Looks up a localized string similar to 0.08 - Środowisko Testowe.
         /// </summary>
         internal static string AppVersion {
             get {
                 return ResourceManager.GetString("AppVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using System;
+        ///namespace HelloWorld
+        ///{
+        ///    public class Hello 
+        ///    {
+        ///        public static void Main() 
+        ///        {
+        ///            Console.WriteLine(&quot;Hello World!&quot;);
+        ///        }
+        ///    }
+        ///}.
+        /// </summary>
+        internal static string HelloWorld {
+            get {
+                return ResourceManager.GetString("HelloWorld", resourceCulture);
             }
         }
         
