@@ -2,10 +2,11 @@
 {
     public static class NavigationDictionary
     {
-        public static string WelcomePageView = "Strona Główna";
-        public static string AboutAuthorsView = "Autorzy";
-        public static string RegisterPageView = "Rejestracja";
-        public static string LoginPageView = "Logowanie";
-        public static string AboutCourseView = "O kursie";
+        public const string WelcomePageView = "Strona Główna";
+        public const string AboutAuthorsView = "Autorzy";
+        public const string RegisterPageView = "Rejestracja";
+        public const string LoginPageView = "Logowanie";
+        public const string AboutCourseView = "O kursie";
+        public const string UserProfileView = "Profil Użytkownika";
     }
 }

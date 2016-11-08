@@ -28,6 +28,9 @@ namespace SeeSharp.Infrastructure
                 case ViewType.AboutCourse:
                     return new AboutCourse();
 
+                case ViewType.UserProfile:
+                    return new UserProfile();
+
                 default:
                     return new MainPage();
             }
@@ -41,5 +44,6 @@ namespace SeeSharp.Infrastructure
         Register,
         Login,
         AboutCourse,
+        UserProfile
     }
 }

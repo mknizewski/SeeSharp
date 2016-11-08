@@ -31,7 +31,8 @@ namespace SeeSharp
 
         private void Grid_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
+            if (UserManager != null)
+                SetView(ViewType.UserProfile, NavigationDictionary.UserProfileView);
         }
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
