@@ -17,7 +17,7 @@
             <TextBlock Text="Sandbox" />
         </Viewbox>
         <TextBox Grid.Row="1" x:Name="textBox" HorizontalAlignment="Stretch" AcceptsReturn="True" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Stretch" Margin="5 5 5 5" />
-        <Button x:Name="CompileButton" Click="CompileButton_Click" Grid.Row="2" MaxWidth="100" HorizontalAlignment="Right" Margin="0 0 15 0">Kompiluj</Button>
+        <Button x:Name="CompileButton" Click="CompileButton_Click" Grid.Row="2" MaxWidth="120" HorizontalAlignment="Right" Margin="0 0 15 0">Kompiluj i Uruchom</Button>
         <Viewbox Grid.Row="3" HorizontalAlignment="Left" Margin="15 0 0 0" VerticalAlignment="Center">
             <TextBlock Text="Output:" />
         </Viewbox>

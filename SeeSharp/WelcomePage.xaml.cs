@@ -10,7 +10,6 @@ namespace SeeSharp
         public WelcomePage()
         {
             InitializeComponent();
-            textBox.Text = AppSettingsDictionary.HelloWorldProgram;
         }
 
         public WelcomePage(Visibility visibility)
@@ -26,13 +25,13 @@ namespace SeeSharp
             CompileButton.IsEnabled = false;
 
             ServerServiceClient serverService = ServerServiceClient.GetInstance();
-            serverService.CompileAndRunProgramAsync(textBox.Text);
+            serverService.CompileAndRunProgramAsync(textBox.Text, new System.Collections.Generic.List<string>());
 
             serverService.CompileAndRunProgramCompleted += (send, recv) => 
             {
                 outputText.Text = recv.Result;
 
-                CompileButton.Content = "Kompiluj";
+                CompileButton.Content = "Kompiluj & Uruchom";
                 CompileButton.IsEnabled = true;
             };
         }

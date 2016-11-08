@@ -42,6 +42,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="sourceCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="parameters" nillable="true" type="q2:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

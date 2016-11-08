@@ -5,6 +5,8 @@ using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
+using System.Security;
 using System.Xml;
 
 namespace SeeSharp.Web
@@ -43,7 +45,12 @@ namespace SeeSharp.Web
         public Dictionary<string, string> GetUserProfile(string loginName)
         {
             string xmlDirectoryPath = string.Concat(AppDomain.CurrentDomain.BaseDirectory, ServerDictionary.XmlFileDirectory);
-            string userProfilePath = string.Concat(xmlDirectoryPath, Separator, loginName, Separator, ServerDictionary.XmlFileName);
+            string userProfilePath = string.Concat(
+                xmlDirectoryPath, 
+                Separator, 
+                loginName, 
+                Separator, 
+                ServerDictionary.XmlFileName);
 
             if (!File.Exists(userProfilePath))
                 return new Dictionary<string, string>();
@@ -51,33 +58,43 @@ namespace SeeSharp.Web
             return XmlManager.DeserializeXmlProfile(userProfilePath);
         }
 
-        public string CompileAndRunProgram(string sourceCode)
+        public string CompileAndRunProgram(string sourceCode, string[] parameters)
         {
-            string output = string.Empty;
+            string consoleOutput = string.Empty;
             string randomDirectoryName = Guid.NewGuid().ToString();
-            string directoryPath = string.Concat(AppDomain.CurrentDomain.BaseDirectory, ServerDictionary.SourceFileDictionary, Separator, randomDirectoryName);
+            string pathToProgramDirectory = string.Concat(
+                AppDomain.CurrentDomain.BaseDirectory, 
+                ServerDictionary.SourceFileDictionary,
+                Separator,
+                randomDirectoryName);
             string randomFileName = string.Format(ServerDictionary.ExeExtensionPattern, Path.GetRandomFileName());
-            string filePath = string.Concat(directoryPath, Separator, randomFileName);
+            string pathToProgramAssembly = string.Concat(pathToProgramDirectory, Separator, randomFileName);
 
             try
             {
-                DirectoryInfo dinfo = Directory.CreateDirectory(directoryPath);
+                Directory.CreateDirectory(pathToProgramDirectory);
                 Compiler compiler = new Compiler(sourceCode);
-                CompilerResults cResults = compiler.Compile(filePath);
+                CompilerResults compilerResults = compiler.Compile(pathToProgramAssembly);
 
-                if (cResults.Errors.HasErrors)
+                if (compilerResults.Errors.HasErrors)
                 {
                     string errorList = string.Empty;
 
-                    foreach (CompilerError item in cResults.Errors)
-                        errorList += string.Format(ServerDictionary.ErrorPattern, item.Line, item.ErrorNumber, item.ErrorText, Environment.NewLine);
+                    foreach (CompilerError error in compilerResults.Errors)
+                        errorList += string.Format(
+                            ServerDictionary.ErrorPattern, 
+                            error.Line, 
+                            error.ErrorNumber, 
+                            error.ErrorText, 
+                            Environment.NewLine);
 
                     throw new Exception(errorList);
                 }
 
-                SandboxInstance sandobx = Sandbox.SandboxInstance.CreateSandbox(directoryPath, System.Security.SecurityZone.Internet);
-                output = sandobx.ExecuteUntrusedCode(cResults.CompiledAssembly, new string[] { });
+                SandboxInstance sandobxAssembly = SandboxInstance.CreateSandbox(pathToProgramDirectory, SecurityZone.Internet);
+                Assembly untrusedAssembly = compilerResults.CompiledAssembly;
 
+                consoleOutput = sandobxAssembly.ExecuteUntrusedCode(untrusedAssembly, parameters);
                 compiler.Dispose();
             }
             catch (Exception ex)
@@ -85,7 +102,7 @@ namespace SeeSharp.Web
                 return ex.Message;
             }
            
-            return output;
+            return consoleOutput;
         }
     }
 }

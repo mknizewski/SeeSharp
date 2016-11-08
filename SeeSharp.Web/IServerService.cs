@@ -17,6 +17,6 @@ namespace SeeSharp.Web
         Dictionary<string, string> GetUserProfile(string loginName);
 
         [OperationContract]
-        string CompileAndRunProgram(string sourceCode);
+        string CompileAndRunProgram(string sourceCode, string[] parameters);
     }
 }

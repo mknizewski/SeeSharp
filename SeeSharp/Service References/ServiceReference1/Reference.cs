@@ -34,7 +34,7 @@ namespace SeeSharp.ServiceReference1 {
         System.Collections.Generic.Dictionary<string, string> EndGetUserProfile(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerService/CompileAndRunProgram", ReplyAction="http://tempuri.org/IServerService/CompileAndRunProgramResponse")]
-        System.IAsyncResult BeginCompileAndRunProgram(string sourceCode, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginCompileAndRunProgram(string sourceCode, System.Collections.Generic.List<string> parameters, System.AsyncCallback callback, object asyncState);
         
         string EndCompileAndRunProgram(System.IAsyncResult result);
     }
@@ -121,14 +121,14 @@ namespace SeeSharp.ServiceReference1 {
         
         private System.Threading.SendOrPostCallback onCloseCompletedDelegate;
         
-        public ServerServiceClient() {
-        }
-        
         public static ServerServiceClient GetInstance()
         {
             return new ServerServiceClient();
         }
 
+        public ServerServiceClient() {
+        }
+        
         public ServerServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
@@ -316,8 +316,8 @@ namespace SeeSharp.ServiceReference1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SeeSharp.ServiceReference1.IServerService.BeginCompileAndRunProgram(string sourceCode, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginCompileAndRunProgram(sourceCode, callback, asyncState);
+        System.IAsyncResult SeeSharp.ServiceReference1.IServerService.BeginCompileAndRunProgram(string sourceCode, System.Collections.Generic.List<string> parameters, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCompileAndRunProgram(sourceCode, parameters, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -327,7 +327,8 @@ namespace SeeSharp.ServiceReference1 {
         
         private System.IAsyncResult OnBeginCompileAndRunProgram(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string sourceCode = ((string)(inValues[0]));
-            return ((SeeSharp.ServiceReference1.IServerService)(this)).BeginCompileAndRunProgram(sourceCode, callback, asyncState);
+            System.Collections.Generic.List<string> parameters = ((System.Collections.Generic.List<string>)(inValues[1]));
+            return ((SeeSharp.ServiceReference1.IServerService)(this)).BeginCompileAndRunProgram(sourceCode, parameters, callback, asyncState);
         }
         
         private object[] OnEndCompileAndRunProgram(System.IAsyncResult result) {
@@ -343,11 +344,11 @@ namespace SeeSharp.ServiceReference1 {
             }
         }
         
-        public void CompileAndRunProgramAsync(string sourceCode) {
-            this.CompileAndRunProgramAsync(sourceCode, null);
+        public void CompileAndRunProgramAsync(string sourceCode, System.Collections.Generic.List<string> parameters) {
+            this.CompileAndRunProgramAsync(sourceCode, parameters, null);
         }
         
-        public void CompileAndRunProgramAsync(string sourceCode, object userState) {
+        public void CompileAndRunProgramAsync(string sourceCode, System.Collections.Generic.List<string> parameters, object userState) {
             if ((this.onBeginCompileAndRunProgramDelegate == null)) {
                 this.onBeginCompileAndRunProgramDelegate = new BeginOperationDelegate(this.OnBeginCompileAndRunProgram);
             }
@@ -358,7 +359,8 @@ namespace SeeSharp.ServiceReference1 {
                 this.onCompileAndRunProgramCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCompileAndRunProgramCompleted);
             }
             base.InvokeAsync(this.onBeginCompileAndRunProgramDelegate, new object[] {
-                        sourceCode}, this.onEndCompileAndRunProgramDelegate, this.onCompileAndRunProgramCompletedDelegate, userState);
+                        sourceCode,
+                        parameters}, this.onEndCompileAndRunProgramDelegate, this.onCompileAndRunProgramCompletedDelegate, userState);
         }
         
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -474,9 +476,10 @@ namespace SeeSharp.ServiceReference1 {
                 return _result;
             }
             
-            public System.IAsyncResult BeginCompileAndRunProgram(string sourceCode, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
+            public System.IAsyncResult BeginCompileAndRunProgram(string sourceCode, System.Collections.Generic.List<string> parameters, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
                 _args[0] = sourceCode;
+                _args[1] = parameters;
                 System.IAsyncResult _result = base.BeginInvoke("CompileAndRunProgram", _args, callback, asyncState);
                 return _result;
             }

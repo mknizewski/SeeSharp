@@ -63,12 +63,12 @@ namespace SeeSharp.Sandbox
 
         private MethodInfo FindMainMethod(Assembly assembly)
         {
-            List<Type> type = assembly.GetTypes().ToList();
+            List<Type> typeList = assembly.GetTypes().ToList();
             MethodInfo untrustedMethod = null;
 
-            type.ForEach(typeInList =>
+            typeList.ForEach(type =>
             {
-                List<MethodInfo> methods = typeInList.GetMethods().ToList();
+                List<MethodInfo> methods = type.GetMethods().ToList();
                 methods.ForEach(method =>
                 {
                     if (string.Equals(method.Name, EntryPoint))
