@@ -29,10 +29,10 @@
                     <RowDefinition Height="2*" />
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0" Background="#FF9C6EA0" Cursor="Hand" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
-                    <Viewbox HorizontalAlignment="Left" MaxWidth="50" MaxHeight="50">
-                        <Image Source="Images/icon-account.png" />
+                    <Viewbox HorizontalAlignment="Left" MaxWidth="50" MaxHeight="50" Margin="5 0 0 0">
+                        <Image Source="Images/person-flat.png" />
                     </Viewbox>
-                    <Viewbox StretchDirection="DownOnly" Stretch="Uniform" HorizontalAlignment="Right">
+                    <Viewbox StretchDirection="DownOnly" Stretch="Uniform" HorizontalAlignment="Right" Margin="0 0 5 0">
                         <TextBlock x:Name="LoginName" HorizontalAlignment="Right" Width="auto" Height="auto" FontSize="22" TextWrapping="Wrap" Text="Niezalogowany" Margin="50 0 0 0" VerticalAlignment="Center" FontFamily="Open Sans" />
                     </Viewbox>
                 </Grid>

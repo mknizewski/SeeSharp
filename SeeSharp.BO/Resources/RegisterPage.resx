@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="SuccesfullRegisterMessagePattern" xml:space="preserve">
-    <value>Pomyślnie zarejestrowano konto o loginie {0}! \n\r Twój kod rejestracyjny to: {1}</value>
+    <value>Pomyślnie zarejestrowano konto o loginie {0}! {1}Twój kod rejestracyjny to: {2}</value>
   </data>
 </root>

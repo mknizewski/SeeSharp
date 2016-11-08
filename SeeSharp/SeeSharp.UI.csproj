@@ -163,6 +163,7 @@
     <Resource Include="Images\w_uwb_kolor.png" />
     <Resource Include="Images\Visual_Studio_2013_Logo.svg.png" />
     <Resource Include="Images\visualstudio-pro.png" />
+    <Resource Include="Images\person-flat.png" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
