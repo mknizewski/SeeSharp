@@ -38,6 +38,26 @@
                 </Grid>
                 <Grid Grid.Row="1" Background="#FF5E6183">
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 15 0 0">
+                        <Grid Margin="0 0 0 10" x:Name="MyProfileButtonMenu" Visibility="Collapsed">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="Images/Interface/settings.png" HorizontalAlignment="Left" Margin="0 0 15 0" Width="auto" Height="auto" />
+                            <Button Click="MyProfileButton_Click" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" MinWidth="150" MinHeight="50" Height="auto" Content="Mój profil" BorderThickness="0" Cursor="Hand" FontFamily="Open Sans" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#FF0B68D8">
+                                <Button.Effect>
+                                    <DropShadowEffect />
+                                </Button.Effect>
+                                <Button.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFA3AEB9" Offset="0" />
+                                        <GradientStop Color="#FF8399A9" Offset="0.375" />
+                                        <GradientStop Color="#FF718597" Offset="0.375" />
+                                        <GradientStop Color="#FF90CAFF" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Button.BorderBrush>
+                            </Button>
+                        </Grid>
                         <Grid Margin="0 0 0 10" x:Name="RegisterButtonMenu">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />

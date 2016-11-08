@@ -20,5 +20,15 @@ namespace SeeSharp
             this.PercentageTextBlock.Text = string.Format(PercentageTextBlock.Text, mainView.UserManager.UserInfo.Percentage);
             this.LastModuleTextBlock.Text = string.Format(LastModuleTextBlock.Text, mainView.UserManager.UserInfo.LastTutorial);
         }
+
+        private void DeleteAccountButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void NewModuleButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
     }
 }

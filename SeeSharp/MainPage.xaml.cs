@@ -40,6 +40,11 @@ namespace SeeSharp
             SetView(ViewType.Register, NavigationDictionary.RegisterPageView);
         }
 
+        private void MyProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetView(ViewType.UserProfile, NavigationDictionary.UserProfileView);
+        }
+
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             SetView(ViewType.Login, NavigationDictionary.LoginPageView);
@@ -75,6 +80,7 @@ namespace SeeSharp
                 this.LogOutButtonMenu.Visibility = Visibility.Visible;
                 this.RegisterButtonMenu.Visibility = Visibility.Collapsed;
                 this.LoginButtonMenu.Visibility = Visibility.Collapsed;
+                this.MyProfileButtonMenu.Visibility = Visibility.Visible;
 
                 this.ProgressTextViewBox.Visibility = Visibility.Visible;
                 this.ProgressCircleViewBox.Visibility = Visibility.Visible;
@@ -90,6 +96,7 @@ namespace SeeSharp
                 this.LogOutButtonMenu.Visibility = Visibility.Collapsed;
                 this.LoginButtonMenu.Visibility = Visibility.Visible;
                 this.RegisterButtonMenu.Visibility = Visibility.Visible;
+                this.MyProfileButtonMenu.Visibility = Visibility.Collapsed;
 
                 this.ProgressTextViewBox.Visibility = Visibility.Collapsed;
                 this.ProgressCircleViewBox.Visibility = Visibility.Collapsed;
