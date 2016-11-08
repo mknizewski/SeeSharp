@@ -29,19 +29,19 @@
         function onSilverlightError(sender, args) {
             var appSource = "";
             if (sender != null && sender != 0) {
-              appSource = sender.getHost().Source;
+                appSource = sender.getHost().Source;
             }
 
             var errorType = args.ErrorType;
             var iErrorCode = args.ErrorCode;
 
             if (errorType == "ImageError" || errorType == "MediaError") {
-              return;
+                return;
             }
 
-            var errMsg = "Unhandled Error in Silverlight Application " +  appSource + "\n" ;
+            var errMsg = "Unhandled Error in Silverlight Application " + appSource + "\n";
 
-            errMsg += "Code: "+ iErrorCode + "    \n";
+            errMsg += "Code: " + iErrorCode + "    \n";
             errMsg += "Category: " + errorType + "       \n";
             errMsg += "Message: " + args.ErrorMessage + "     \n";
 
@@ -53,7 +53,7 @@
             else if (errorType == "RuntimeError") {
                 if (args.lineNumber != 0) {
                     errMsg += "Line: " + args.lineNumber + "     \n";
-                    errMsg += "Position: " +  args.charPosition + "     \n";
+                    errMsg += "Position: " + args.charPosition + "     \n";
                 }
                 errMsg += "MethodName: " + args.methodName + "     \n";
             }

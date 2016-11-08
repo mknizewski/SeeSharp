@@ -27,7 +27,7 @@ namespace SeeSharp
             ServerServiceClient serverService = ServerServiceClient.GetInstance();
             serverService.CompileAndRunProgramAsync(textBox.Text, new System.Collections.Generic.List<string>());
 
-            serverService.CompileAndRunProgramCompleted += (send, recv) => 
+            serverService.CompileAndRunProgramCompleted += (send, recv) =>
             {
                 outputText.Text = recv.Result;
 

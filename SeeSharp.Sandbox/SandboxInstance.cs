@@ -44,7 +44,7 @@ namespace SeeSharp.Sandbox
                 appDomain,
                 typeOfSandbox.Assembly.ManifestModule.FullyQualifiedName,
                 typeOfSandbox.FullName);
-     
+
             return handle.Unwrap() as SandboxInstance;
         }
 
@@ -91,7 +91,7 @@ namespace SeeSharp.Sandbox
                 ConsoleReader consoleReader = new ConsoleReader();
                 SetConsoleStreamToConsoleReader(consoleReader);
 
-                Thread thread = new Thread(() => 
+                Thread thread = new Thread(() =>
                 {
                     try
                     {
