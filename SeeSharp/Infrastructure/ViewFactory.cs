@@ -35,6 +35,11 @@ namespace SeeSharp.Infrastructure
                     return new MainPage();
             }
         }
+
+        public static UserControl GetModule(ModuleType moduleType)
+        {
+            return null;
+        }
     }
 
     public enum ViewType
@@ -45,5 +50,10 @@ namespace SeeSharp.Infrastructure
         Login,
         AboutCourse,
         UserProfile
+    }
+
+    public enum ModuleType
+    {
+
     }
 }

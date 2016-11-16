@@ -1,34 +1,35 @@
 ﻿using SeeSharp.BO.Dictionaries;
+using System;
 
 namespace SeeSharp.BO.Managers
 {
     public class GreetingsManager
     {
-        public static string GetGreetingsByDayOfWeek(int dayOfWeek, string userName)
+        public static string GetGreetingsByDayOfWeek(DayOfWeek dayOfWeek, string userName)
         {
             string greetings = string.Empty;
 
             switch (dayOfWeek)
             {
-                case 1:
+                case DayOfWeek.Monday:
                     greetings = GreetingsDictionary.MondayPattern;
                     break;
-                case 2:
+                case DayOfWeek.Tuesday:
                     greetings = GreetingsDictionary.TuesdayPattern;
                     break;
-                case 3:
+                case DayOfWeek.Wednesday:
                     greetings = GreetingsDictionary.WenesdayPattern;
                     break;
-                case 4:
+                case DayOfWeek.Thursday:
                     greetings = GreetingsDictionary.ThursdayPattern;
                     break;
-                case 5:
+                case DayOfWeek.Friday:
                     greetings = GreetingsDictionary.FridayPattern;
                     break;
-                case 6:
+                case DayOfWeek.Saturday:
                     greetings = GreetingsDictionary.SaturdayPattern;
                     break;
-                case 7:
+                case DayOfWeek.Sunday:
                     greetings = GreetingsDictionary.SundayPattern;
                     break;
                 default:

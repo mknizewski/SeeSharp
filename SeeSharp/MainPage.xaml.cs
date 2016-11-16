@@ -33,6 +33,8 @@ namespace SeeSharp
         {
             if (UserManager != null)
                 SetView(ViewType.UserProfile, NavigationDictionary.UserProfileView);
+            else
+                SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
         }
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
@@ -58,6 +60,8 @@ namespace SeeSharp
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             UserManager.SignOut();
+            UserManager = null;
+
             SetUserMenuView(User.Unlogged);
             SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
         }
@@ -105,6 +109,11 @@ namespace SeeSharp
 
                 this.LoginName.Text = AppSettingsDictionary.UnllogedAlert;
             }
+        }
+
+        private void WelcomePageButtonMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
         }
     }
 }
