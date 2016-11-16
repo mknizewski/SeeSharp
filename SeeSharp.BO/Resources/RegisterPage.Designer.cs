@@ -61,7 +61,7 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pomyślnie zarejestrowano konto o loginie {0}! \n\r Twój kod rejestracyjny to: {1}.
+        ///   Looks up a localized string similar to Pomyślnie zarejestrowano konto o loginie {0}! {1}Twój kod rejestracyjny to: {2}.
         /// </summary>
         internal static string SuccesfullRegisterMessagePattern {
             get {

@@ -1,10 +1,11 @@
-﻿using System.Resources;
+﻿using SeeSharp.BO.Infrastructure;
+using System.Resources;
 
 namespace SeeSharp.BO.Dictionaries
 {
     public static class AppSettingsDictionary
     {
-        private readonly static ResourceManager AppSettings = new ResourceManager(typeof(Resources.AppSettings));
+        private readonly static ResourceManager AppSettings = ResourceManagerFactory.GetResource(typeof(Resources.AppSettings));
 
         public static string XmlFilesDirectiory
         {
@@ -35,6 +36,38 @@ namespace SeeSharp.BO.Dictionaries
             get
             {
                 return AppSettings.GetString("HelloWorld");
+            }
+        }
+
+        public static string UnllogedAlert
+        {
+            get
+            {
+                return AppSettings.GetString("UnloggedAlert");
+            }
+        }
+
+        public static string SectionPrefixPattern
+        {
+            get
+            {
+                return AppSettings.GetString("SectionPrefixPattern");
+            }
+        }
+
+        public static string PercentagePattern
+        {
+            get
+            {
+                return AppSettings.GetString("PercentagePattern");
+            }
+        }
+
+        public static string CheckMark
+        {
+            get
+            {
+                return AppSettings.GetString("CheckMark");
             }
         }
     }

@@ -46,10 +46,10 @@ namespace SeeSharp.Web
         {
             string xmlDirectoryPath = string.Concat(AppDomain.CurrentDomain.BaseDirectory, ServerDictionary.XmlFileDirectory);
             string userProfilePath = string.Concat(
-                xmlDirectoryPath, 
-                Separator, 
-                loginName, 
-                Separator, 
+                xmlDirectoryPath,
+                Separator,
+                loginName,
+                Separator,
                 ServerDictionary.XmlFileName);
 
             if (!File.Exists(userProfilePath))
@@ -63,7 +63,7 @@ namespace SeeSharp.Web
             string consoleOutput = string.Empty;
             string randomDirectoryName = Guid.NewGuid().ToString();
             string pathToProgramDirectory = string.Concat(
-                AppDomain.CurrentDomain.BaseDirectory, 
+                AppDomain.CurrentDomain.BaseDirectory,
                 ServerDictionary.SourceFileDictionary,
                 Separator,
                 randomDirectoryName);
@@ -82,10 +82,10 @@ namespace SeeSharp.Web
 
                     foreach (CompilerError error in compilerResults.Errors)
                         errorList += string.Format(
-                            ServerDictionary.ErrorPattern, 
-                            error.Line, 
-                            error.ErrorNumber, 
-                            error.ErrorText, 
+                            ServerDictionary.ErrorPattern,
+                            error.Line,
+                            error.ErrorNumber,
+                            error.ErrorText,
                             Environment.NewLine);
 
                     throw new Exception(errorList);
@@ -101,7 +101,7 @@ namespace SeeSharp.Web
             {
                 return ex.Message;
             }
-           
+
             return consoleOutput;
         }
     }

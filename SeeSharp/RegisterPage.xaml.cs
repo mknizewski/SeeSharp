@@ -22,7 +22,7 @@ namespace SeeSharp
                 string loginName = this.LoginBox.Text;
 
                 if (string.IsNullOrEmpty(loginName))
-                    throw new ArgumentNullException(nameof(loginName), ExceptionDictionary.LoginNotFoundMessage);
+                    throw new Exception(ExceptionDictionary.LoginNotFoundMessage);
 
                 int generatedNumber = UserManager.GenerateCodeForNewUser();
                 this.RegisterButton.IsEnabled = false;
@@ -31,7 +31,12 @@ namespace SeeSharp
                 serverService.CreateDirectoryForUserAsync(loginName, generatedNumber);
 
                 this.RegisterAlert.Visibility = Visibility.Visible;
-                this.RegisterAlert.Text = string.Format(RegisterPageDictionary.SuccesfulRegisterMessagePattern, loginName, generatedNumber);
+                this.RegisterAlert.Text = string.Format(
+                    RegisterPageDictionary.SuccesfulRegisterMessagePattern, 
+                    loginName,
+                    Environment.NewLine,
+                    generatedNumber);
+
                 this.LoginButton.IsEnabled = true;
             }
             catch (Exception ex)

@@ -61,11 +61,20 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0.08 - Środowisko Testowe.
+        ///   Looks up a localized string similar to 0.1 - Środowisko Testowe.
         /// </summary>
         internal static string AppVersion {
             get {
                 return ResourceManager.GetString("AppVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ✓.
+        /// </summary>
+        internal static string CheckMark {
+            get {
+                return ResourceManager.GetString("CheckMark", resourceCulture);
             }
         }
         
@@ -85,6 +94,33 @@ namespace SeeSharp.BO.Resources {
         internal static string HelloWorld {
             get {
                 return ResourceManager.GetString("HelloWorld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} %.
+        /// </summary>
+        internal static string PercentagePattern {
+            get {
+                return ResourceManager.GetString("PercentagePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jesteś w sekcji: {0}.
+        /// </summary>
+        internal static string SectionPrefixPattern {
+            get {
+                return ResourceManager.GetString("SectionPrefixPattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Niezalogowany.
+        /// </summary>
+        internal static string UnloggedAlert {
+            get {
+                return ResourceManager.GetString("UnloggedAlert", resourceCulture);
             }
         }
         
