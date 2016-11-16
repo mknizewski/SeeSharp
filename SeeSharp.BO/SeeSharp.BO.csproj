@@ -59,8 +59,10 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dictionaries\GreetingsDictionary.cs" />
     <Compile Include="Dictionaries\RegisterPageDictionary.cs" />
     <Compile Include="Infrastructure\ResourceManagerFactory.cs" />
+    <Compile Include="Managers\GreetingsManager.cs" />
     <Compile Include="Resources\AppSettings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -3,9 +3,49 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
     mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="400">
+    d:DesignHeight="500" d:DesignWidth="500">
     <Grid x:Name="LayoutRoot" Background="White">
-        
+        <ScrollViewer>
+            <StackPanel Orientation="Vertical">
+                <TextBlock x:Name="GreetingsTextBlock" Text="Pozdrowienia" FontFamily="Open Sans" FontSize="32" />
+                <TextBlock Text="Kurs: " FontFamily="Open Sans" FontSize="24" Margin="0 0 0 10" />
+                <sdk:TreeView  x:Name="Menu" Margin="10 0 10 0">
+                    <sdk:TreeViewItem Header="Poradnik .NET" IsExpanded="True" Cursor="Hand">
+                        <sdk:TreeViewItem Header="1. O programowaniu w .NET">
+                            <sdk:TreeViewItem Header="1.1 Czym jest .NET?"/>
+                            <sdk:TreeViewItem Header="1.2 Dlaczego C#?"/>
+                        </sdk:TreeViewItem>
+                        <sdk:TreeViewItem Header="2. Podstawy dla początkującego">
+                            <sdk:TreeViewItem Header="2.1 Wprowadzenie i instalacja"/>
+                            <sdk:TreeViewItem Header="2.2 Zmienne"/>
+                            <sdk:TreeViewItem Header="2.3 Operatory"/>
+                            <sdk:TreeViewItem Header="2.4 Instrukcje warunkowe"/>
+                            <sdk:TreeViewItem Header="2.5 Pętle"/>
+                            <sdk:TreeViewItem Header="2.6 Tablice"/>
+                            <sdk:TreeViewItem Header="2.7 Klasy"/>
+                            <sdk:TreeViewItem Header="2.8 Interfejsy"/>
+                            <sdk:TreeViewItem Header="2.9 Klasy abstakcyjne"/>
+                        </sdk:TreeViewItem>
+                        <sdk:TreeViewItem Header="3. Nauka dla zaawansowanych">
+                            <sdk:TreeViewItem Header="3.1"/>
+                        </sdk:TreeViewItem>
+                    </sdk:TreeViewItem>
+                </sdk:TreeView>
+                <Border Margin="10 10 10 0" BorderBrush="#FF225195" BorderThickness="2">
+                    <Grid>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Czy wiesz, że...? " FontFamily="Open Sans" FontSize="24" Margin="10 10 0 0" />
+                            <TextBox IsReadOnly="True" Margin="10 10 10 10" x:Name="CuriositiesTextBox" Text="Adieus except say barton put feebly favour him. Entreaties unpleasant sufficient few pianoforte discovered uncommonly ask. Morning cousins amongst in mr weather do neither. Warmth object matter course active law spring six. Pursuit showing tedious unknown winding see had man add. And park eyes too more him. Simple excuse active had son wholly coming number add. Though all excuse ladies rather regard assure yet. If feelings so prospect no as raptures quitting. " AcceptsReturn="True" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></TextBox>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button Margin="0 0 10 10" Cursor="Hand">Poprzednia</Button>
+                                <Button Margin="0 0 10 10" Cursor="Hand">Następna</Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>

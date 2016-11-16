@@ -61,6 +61,15 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Miłego dnia, {0}!.
+        /// </summary>
+        internal static string DefaultPattern {
+            get {
+                return ResourceManager.GetString("DefaultPattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wesołego piątku, {0}!.
         /// </summary>
         internal static string FridayPattern {
