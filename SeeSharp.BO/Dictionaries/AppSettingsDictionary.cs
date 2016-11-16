@@ -61,5 +61,13 @@ namespace SeeSharp.BO.Dictionaries
                 return AppSettings.GetString("PercentagePattern");
             }
         }
+
+        public static string CheckMark
+        {
+            get
+            {
+                return AppSettings.GetString("CheckMark");
+            }
+        }
     }
 }

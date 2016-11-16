@@ -70,6 +70,15 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ✓.
+        /// </summary>
+        internal static string CheckMark {
+            get {
+                return ResourceManager.GetString("CheckMark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to using System;
         ///namespace HelloWorld
         ///{

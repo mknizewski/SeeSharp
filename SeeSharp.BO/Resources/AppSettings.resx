@@ -120,6 +120,9 @@
   <data name="AppVersion" xml:space="preserve">
     <value>0.1 - Środowisko Testowe</value>
   </data>
+  <data name="CheckMark" xml:space="preserve">
+    <value>✓</value>
+  </data>
   <data name="HelloWorld" xml:space="preserve">
     <value>using System;
 namespace HelloWorld
