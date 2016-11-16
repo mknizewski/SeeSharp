@@ -5,7 +5,7 @@ namespace SeeSharp.BO.Infrastructure
 {
     public static class ResourceManagerFactory
     {
-        public static ResourceManager GetInstance(Type type)
+        public static ResourceManager GetResource(Type type)
         {
             return new ResourceManager(type);
         }

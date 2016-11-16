@@ -7,7 +7,7 @@
     mc:Ignorable="d"
     d:DesignHeight="500" d:DesignWidth="400">
 
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" Background="White">
         <ScrollViewer>
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Konto: {0}" FontFamily="OpenSans" FontSize="32" Margin="0 0 0 5" x:Name="AccountNameTextBlock" />
@@ -17,16 +17,24 @@
                 <TextBlock Text="Twój kurs:" FontFamily="OpenSans" Margin="0 5 0 0 " FontSize="32" />
                 <TextBlock Text="Moduły:" FontFamily="Open Sans" Margin="10 0 0 5" FontSize="18" />
                 <sdk:TreeView  x:Name="Menu" Margin="10 0 10 0">
-                    <sdk:TreeViewItem Header="Menu" IsExpanded="True" Cursor="Hand">
-                        <sdk:TreeViewItem Header="SubMenu1">
-                            <sdk:TreeViewItem Header="Item1"/>
-                            <sdk:TreeViewItem Header="Item2"/>
-                            <sdk:TreeViewItem Header="Item3"/>
+                    <sdk:TreeViewItem Header="Poradnik .NET" IsExpanded="True" Cursor="Hand">
+                        <sdk:TreeViewItem Header="1. O programowaniu w .NET">
+                            <sdk:TreeViewItem Header="1.1 Czym jest .NET?"/>
+                            <sdk:TreeViewItem Header="1.2 Dlaczego C#?"/>
                         </sdk:TreeViewItem>
-                        <sdk:TreeViewItem Header="SubMenu2">
-                            <sdk:TreeViewItem Header="Item1"/>
-                            <sdk:TreeViewItem Header="Item2"/>
-                            <sdk:TreeViewItem Header="Item3"/>
+                        <sdk:TreeViewItem Header="2. Podstawy dla początkującego">
+                            <sdk:TreeViewItem Header="2.1 Wprowadzenie i instalacja"/>
+                            <sdk:TreeViewItem Header="2.2 Zmienne"/>
+                            <sdk:TreeViewItem Header="2.3 Operatory"/>
+                            <sdk:TreeViewItem Header="2.4 Instrukcje warunkowe"/>
+                            <sdk:TreeViewItem Header="2.5 Pętle"/>
+                            <sdk:TreeViewItem Header="2.6 Tablice"/>
+                            <sdk:TreeViewItem Header="2.7 Klasy"/>
+                            <sdk:TreeViewItem Header="2.8 Interfejsy"/>
+                            <sdk:TreeViewItem Header="2.9 Klasy abstakcyjne"/>
+                        </sdk:TreeViewItem>
+                        <sdk:TreeViewItem Header="3. Nauka dla zaawansowanych">
+                            <sdk:TreeViewItem Header="3.1"/>
                         </sdk:TreeViewItem>
                     </sdk:TreeViewItem>
                 </sdk:TreeView>

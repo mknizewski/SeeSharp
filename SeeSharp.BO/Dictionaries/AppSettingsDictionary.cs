@@ -1,10 +1,11 @@
-﻿using System.Resources;
+﻿using SeeSharp.BO.Infrastructure;
+using System.Resources;
 
 namespace SeeSharp.BO.Dictionaries
 {
     public static class AppSettingsDictionary
     {
-        private readonly static ResourceManager AppSettings = new ResourceManager(typeof(Resources.AppSettings));
+        private readonly static ResourceManager AppSettings = ResourceManagerFactory.GetResource(typeof(Resources.AppSettings));
 
         public static string XmlFilesDirectiory
         {
