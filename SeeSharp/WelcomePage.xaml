@@ -11,8 +11,8 @@
             <StackPanel Orientation="Vertical">
                 <TextBlock x:Name="GreetingsTextBlock" Text="Pozdrowienia" FontFamily="Open Sans" FontSize="32" />
                 <TextBlock Text="Kurs: " FontFamily="Open Sans" FontSize="24" Margin="0 0 0 10" />
-                <sdk:TreeView  x:Name="Menu" Margin="10 0 10 0">
-                    <sdk:TreeViewItem Header="Poradnik .NET" IsExpanded="True" Cursor="Hand">
+                <sdk:TreeView x:Name="Menu" Margin="10 0 10 0">
+                    <sdk:TreeViewItem MouseLeftButtonUp="Menu_MouseLeftButtonDown" Header="Poradnik .NET" IsExpanded="True" Cursor="Hand">
                         <sdk:TreeViewItem Header="1. O programowaniu w .NET">
                             <sdk:TreeViewItem Header="1.1 Czym jest .NET?"/>
                             <sdk:TreeViewItem Header="1.2 Dlaczego C#?"/>
