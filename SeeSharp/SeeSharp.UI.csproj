@@ -95,6 +95,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MediaViewModel.cs" />
     <Compile Include="ModulePage.xaml.cs">
       <DependentUpon>ModulePage.xaml</DependentUpon>
     </Compile>
@@ -107,6 +108,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="VolumeConverter.cs" />
     <Compile Include="WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
@@ -172,6 +174,12 @@
     <Resource Include="Images\Visual_Studio_2013_Logo.svg.png" />
     <Resource Include="Images\visualstudio-pro.png" />
     <Resource Include="Images\person-flat.png" />
+    <Resource Include="Images\Video\pause_button.png" />
+    <Resource Include="Images\Video\pause_button_hover.png" />
+    <Resource Include="Images\Video\play_button.png" />
+    <Resource Include="Images\Video\play_button_hover.png" />
+    <Resource Include="Images\Video\replay_button.png" />
+    <Resource Include="Images\Video\replay_button_hover.png" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
