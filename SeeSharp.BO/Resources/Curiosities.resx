@@ -141,4 +141,7 @@
   <data name="Curiosities_8" xml:space="preserve">
     <value>CLI wykorzystuje bibliotekę klas i maszynę wirtualną Common Language Runtime (CLR) firmy Microsoft. W trakcie przygotowania jest wiele kompilatorów, które będą generować kod dla CLR zapisany w postaci Common Intermediate Language (CIL) (inna nazwa: Microsoft Intermediate Language, MSIL). Kod CIL jest niezależny od zestawu instrukcji procesora, co umożliwia jego translację na kod natywny. W związku z tym CIL może być nazwany asemblerem wysokiego poziomu. Maszyna CLR jest z założenia konkurentem dla Java Virtual Machine (JVM), a CLI – dla Java Software Development Kit (SDK).</value>
   </data>
+  <data name="Curiosities_9" xml:space="preserve">
+    <value>C# łączy w sobie to, co najlepsze z języków Java, C oraz C++. Składnia języka podobna jest do tej z C++, zaś samo działanie programów przypomina mechanizm Javy (jest to wirtualizacja).</value>
+  </data>
 </root>

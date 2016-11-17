@@ -33,9 +33,9 @@ namespace SeeSharp.Infrastructure
             }
         }
 
-        public static UserControl GetModule(ModuleType moduleType)
+        public static UserControl GetModule(string moduleName, string tag)
         {
-            return null;
+            return new ModulePage(moduleName, tag);
         }
     }
 
@@ -46,9 +46,5 @@ namespace SeeSharp.Infrastructure
         Register,
         Login,
         AboutCourse
-    }
-
-    public enum ModuleType
-    {
     }
 }

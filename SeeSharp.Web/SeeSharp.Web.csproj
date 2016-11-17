@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ClientBin\Debug\" />
+    <Folder Include="Content\Samples\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SeeSharp.Sandbox\SeeSharp.Sandbox.csproj">

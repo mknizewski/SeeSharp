@@ -131,5 +131,14 @@ namespace SeeSharp.BO.Resources {
                 return ResourceManager.GetString("Curiosities_8", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to C# łączy w sobie to, co najlepsze z języków Java, C oraz C++. Składnia języka podobna jest do tej z C++, zaś samo działanie programów przypomina mechanizm Javy (jest to wirtualizacja)..
+        /// </summary>
+        internal static string Curiosities_9 {
+            get {
+                return ResourceManager.GetString("Curiosities_9", resourceCulture);
+            }
+        }
     }
 }

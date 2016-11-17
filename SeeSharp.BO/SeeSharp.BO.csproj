@@ -64,6 +64,7 @@
     <Compile Include="Infrastructure\ResourceManagerFactory.cs" />
     <Compile Include="Managers\CuriositiesManager.cs" />
     <Compile Include="Managers\GreetingsManager.cs" />
+    <Compile Include="Managers\ModuleManager.cs" />
     <Compile Include="Resources\AppSettings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -6,7 +6,7 @@
     xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
     mc:Ignorable="d"
     d:DesignHeight="800" d:DesignWidth="500">
-    <Grid x:Name="LayoutRoot" Background="White">
+    <Grid x:Name="LayoutRoot">
         <ScrollViewer>
             <StackPanel Orientation="Vertical">
                 <TextBlock x:Name="GreetingsTextBlock" Text="Pozdrowienia" FontFamily="Open Sans" FontSize="32" />

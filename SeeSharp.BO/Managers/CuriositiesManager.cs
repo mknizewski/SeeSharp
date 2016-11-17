@@ -9,7 +9,7 @@ namespace SeeSharp.BO.Managers
         private static ResourceManager CuriositiesDictionary = ResourceManagerFactory.GetResource(typeof(Resources.Curiosities));
         private static int CuriositiesIterator = 1;
 
-        private const int CuriositiesCount = 8;
+        private const int CuriositiesCount = 9;
         private const int CuriosityMinValue = 1;
         private const string CouriositiesPattern = "Curiosities_{0}";
 
