@@ -50,6 +50,5 @@ namespace SeeSharp.Infrastructure
 
     public enum ModuleType
     {
-
     }
 }

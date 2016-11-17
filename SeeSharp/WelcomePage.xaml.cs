@@ -24,11 +24,11 @@ namespace SeeSharp
                 if (mainView.UserManager != null)
                 {
                     this.LayoutRoot.Visibility = System.Windows.Visibility.Visible;
-                    this.GreetingsTextBlock.Text = GreetingsManager.GetGreetingsByDayOfWeek(DateTime.Now.DayOfWeek, mainView.UserManager.UserInfo.Login);
                     this.CodeTextBlock.Text = string.Format(CodeTextBlock.Text, mainView.UserManager.UserInfo.Code);
                     this.PercentageTextBlock.Text = string.Format(PercentageTextBlock.Text, mainView.UserManager.UserInfo.Percentage);
                     this.LastModuleTextBlock.Text = string.Format(LastModuleTextBlock.Text, mainView.UserManager.UserInfo.LastTutorial);
                     this.CuriositiesTextBox.Text = CuriositiesManager.GetRandomCuriosities();
+                    this.GreetingsTextBlock.Text = GreetingsManager.GetGreetingsByDayOfWeek(DateTime.Now.DayOfWeek, mainView.UserManager.UserInfo.Login);
                 }
                 else
                     this.LayoutRoot.Visibility = System.Windows.Visibility.Collapsed;
@@ -39,12 +39,10 @@ namespace SeeSharp
 
         private void DeleteAccountButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
         }
 
         private void NewModuleButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
         }
 
         private void Menu_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
