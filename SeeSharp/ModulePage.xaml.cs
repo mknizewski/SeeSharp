@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Browser;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -24,6 +25,11 @@ namespace SeeSharp
 
         private void InitializeView()
         {
+            this.ModuleTitle.Text = _moduleManager.ModuleName;
+
+            string pathToVegas = @"/Content/MovieCourses/testVegass.wmv";
+            this.media.Source = new Uri(HtmlPage.Document.DocumentUri, pathToVegas);
+
             this.DataContext = this._viewModel = new MediaViewModel(this.media);
 
             this.media.MediaOpened += this.MediaOpened;
@@ -97,9 +103,7 @@ namespace SeeSharp
         private void UpdatePlayBar()
         {
             if (media.NaturalDuration.TimeSpan != TimeSpan.Zero)
-            {
                 playBar.Width = media.Position.TotalMilliseconds / media.NaturalDuration.TimeSpan.TotalMilliseconds * playCanvas.ActualWidth;
-            }
         }
 
         private void UpdateBufferBar()
@@ -139,9 +143,7 @@ namespace SeeSharp
                 this.playPauseButton.Style = (Style)App.Current.Resources["PlayButtonStyle"];
             }
             else
-            {
                 this.playPauseButton.IsEnabled = false;
-            }
         }
     }
 }

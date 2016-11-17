@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:SeeSharp"
     mc:Ignorable="d"
-    d:DesignHeight="900" d:DesignWidth="700">
+    d:DesignHeight="600" d:DesignWidth="700">
     
     <UserControl.Resources>
         <local:VolumeConverter x:Key="VolumeConverter" />
@@ -14,9 +14,8 @@
     <Grid x:Name="LayoutRoot" Background="White">
         <ScrollViewer>
             <StackPanel Orientation="Vertical">
-                <TextBlock FontFamily="Open Sans" FontSize="32" Text="Title" HorizontalAlignment="Center" />
+                <TextBlock x:Name="ModuleTitle" FontFamily="Open Sans" FontSize="32" Text="Title" HorizontalAlignment="Center" />
                 <TextBox x:Name="ModuleTextBox" AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True" FontFamily="Open Sans" FontSize="16" Margin="20 10 20 10" />
-                <MediaElement x:Name="ModuleVideo" Margin="20 10 20 10" MinHeight="250"></MediaElement>
                 <Grid Margin="20 0 20 0">
                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Grid.RowDefinitions>
@@ -27,7 +26,7 @@
                         </Grid.RowDefinitions>
 
                         <Border BorderThickness="0" Background="Black">
-                            <MediaElement x:Name="media" Width="640" Height="400"
+                            <MediaElement x:Name="media" MaxWidth="1280" MaxHeight="720"
 							  Source="http://ecn.channel9.msdn.com/o9/content/smf/progressivecontent/wildlife.wmv"
 							  AutoPlay="False"
 							  Position="{Binding Position, Mode=TwoWay}" />

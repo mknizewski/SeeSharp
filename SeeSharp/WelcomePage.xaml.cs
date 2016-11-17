@@ -50,7 +50,12 @@ namespace SeeSharp
             TreeViewItem selected = GetSelectedItem(sender);
 
             if (selected != null)
-                System.Windows.Browser.HtmlPage.Window.Eval("alert('" + selected.Header + "');");
+            {
+                string moduleName = selected.Header.ToString();
+                string tag = "";
+
+                ViewFactory.MainPageInstance.SetModule(moduleName, tag);
+            }
         }
 
         private TreeViewItem GetSelectedItem(object sender)

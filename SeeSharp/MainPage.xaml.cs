@@ -69,6 +69,17 @@ namespace SeeSharp
             this.SectionBlock.Text = string.Format(AppSettingsDictionary.SectionPrefixPattern, section);
         }
 
+        public void SetModule(string moduleName, string tag)
+        {
+            UserControl module = ViewFactory.GetModule(moduleName, tag);
+
+            this.DynamicView.Children.Clear();
+            this.DynamicView.Children.Add(module);
+            this.DynamicView.UpdateLayout();
+
+            this.SectionBlock.Text = string.Format(AppSettingsDictionary.SectionPrefixPattern, moduleName);
+        }
+
         public void SetUserMenuView(User user)
         {
             if (user == User.Logged)
