@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClientBin\SeeSharp.xap" />
+    <Content Include="Content\MovieCourses\2.1.3.mp4" />
     <Content Include="Content\MovieCourses\First_movie.htm" />
     <Content Include="Content\MovieCourses\First_movie.swf" />
     <Content Include="Content\MovieCourses\testVegass.wmv" />

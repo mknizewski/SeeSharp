@@ -1,4 +1,5 @@
-﻿using SeeSharp.BO.Managers;
+﻿using SeeSharp.BO.Dictionaries;
+using SeeSharp.BO.Managers;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -26,8 +27,9 @@ namespace SeeSharp
         private void InitializeView()
         {
             this.ModuleTitle.Text = _moduleManager.ModuleName;
+            this.ModuleTextBox.Text = AppSettingsDictionary.RandomText;
 
-            string pathToVegas = @"/Content/MovieCourses/testVegass.wmv";
+            string pathToVegas = @"/Content/MovieCourses/2.1.3.mp4";
             this.media.Source = new Uri(HtmlPage.Document.DocumentUri, pathToVegas);
 
             this.DataContext = this._viewModel = new MediaViewModel(this.media);

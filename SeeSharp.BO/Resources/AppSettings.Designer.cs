@@ -107,6 +107,15 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Przejrzystość nowym ledwo Worończańskim osoby przez zwierciadlanéj. Pokrewieństwem najwymowniejsza jezior orzeł zwierciadlanéj Wystrzeliliśmy Lubił przejrzystość Przedstawiając Majora młoda. Najpiękniejszym żołniersczyzny Niesiołowskiemu wola tace nierostrzygniony syna moje Kościuszkowskie. Bębna Podkomorzym mgłą ciżby czasie pewnością można przysłowie powiatowém uszaki bitwie. Uprzyjemnić cicha cudna śnie Przed szlacheckich najwyższych zdradzieckim ręka. Zdał Kulturze Brał kawiarka czernił dziwo oboje Gdzi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RandomText {
+            get {
+                return ResourceManager.GetString("RandomText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Jesteś w sekcji: {0}.
         /// </summary>
         internal static string SectionPrefixPattern {

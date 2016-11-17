@@ -11,7 +11,7 @@
         <local:VolumeConverter x:Key="VolumeConverter" />
     </UserControl.Resources>
 
-    <Grid x:Name="LayoutRoot" Background="White">
+    <Grid x:Name="LayoutRoot">
         <ScrollViewer>
             <StackPanel Orientation="Vertical">
                 <TextBlock x:Name="ModuleTitle" FontFamily="Open Sans" FontSize="32" Text="Title" HorizontalAlignment="Center" />
