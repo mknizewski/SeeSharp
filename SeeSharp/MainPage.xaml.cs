@@ -31,20 +31,12 @@ namespace SeeSharp
 
         private void Grid_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if (UserManager != null)
-                SetView(ViewType.UserProfile, NavigationDictionary.UserProfileView);
-            else
-                SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
+            SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
         }
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             SetView(ViewType.Register, NavigationDictionary.RegisterPageView);
-        }
-
-        private void MyProfileButton_Click(object sender, RoutedEventArgs e)
-        {
-            SetView(ViewType.UserProfile, NavigationDictionary.UserProfileView);
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
@@ -84,7 +76,6 @@ namespace SeeSharp
                 this.LogOutButtonMenu.Visibility = Visibility.Visible;
                 this.RegisterButtonMenu.Visibility = Visibility.Collapsed;
                 this.LoginButtonMenu.Visibility = Visibility.Collapsed;
-                this.MyProfileButtonMenu.Visibility = Visibility.Visible;
 
                 this.ProgressTextViewBox.Visibility = Visibility.Visible;
                 this.ProgressCircleViewBox.Visibility = Visibility.Visible;
@@ -100,7 +91,6 @@ namespace SeeSharp
                 this.LogOutButtonMenu.Visibility = Visibility.Collapsed;
                 this.LoginButtonMenu.Visibility = Visibility.Visible;
                 this.RegisterButtonMenu.Visibility = Visibility.Visible;
-                this.MyProfileButtonMenu.Visibility = Visibility.Collapsed;
 
                 this.ProgressTextViewBox.Visibility = Visibility.Collapsed;
                 this.ProgressCircleViewBox.Visibility = Visibility.Collapsed;

@@ -62,6 +62,7 @@
     <Compile Include="Dictionaries\GreetingsDictionary.cs" />
     <Compile Include="Dictionaries\RegisterPageDictionary.cs" />
     <Compile Include="Infrastructure\ResourceManagerFactory.cs" />
+    <Compile Include="Managers\CuriositiesManager.cs" />
     <Compile Include="Managers\GreetingsManager.cs" />
     <Compile Include="Resources\AppSettings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -71,6 +72,11 @@
     <Compile Include="Dictionaries\AppSettingsDictionary.cs" />
     <Compile Include="Dictionaries\ExceptionDictionary.cs" />
     <Compile Include="Dictionaries\NavigationDictionary.cs" />
+    <Compile Include="Resources\Curiosities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Curiosities.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Exception.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +99,10 @@
     <EmbeddedResource Include="Resources\AppSettings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppSettings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Curiosities.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Curiosities.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Exception.resx">
       <Generator>ResXFileCodeGenerator</Generator>

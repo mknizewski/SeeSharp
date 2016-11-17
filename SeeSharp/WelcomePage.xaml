@@ -5,12 +5,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
     mc:Ignorable="d"
-    d:DesignHeight="500" d:DesignWidth="500">
-    <Grid x:Name="LayoutRoot">
+    d:DesignHeight="800" d:DesignWidth="500">
+    <Grid x:Name="LayoutRoot" Background="White">
         <ScrollViewer>
             <StackPanel Orientation="Vertical">
                 <TextBlock x:Name="GreetingsTextBlock" Text="Pozdrowienia" FontFamily="Open Sans" FontSize="32" />
-                <TextBlock Text="Kurs: " FontFamily="Open Sans" FontSize="24" Margin="0 0 0 10" />
+                <TextBlock Text="Konto:" FontFamily="OpenSans" FontSize="32" Margin="0 0 0 5" x:Name="AccountNameTextBlock" />
+                <TextBlock Text="Twój kod: {0}" FontFamily="Open Sans" Margin="10 0 0 0" FontSize="16" x:Name="CodeTextBlock" />
+                <TextBlock Text="Procent ukończenia: {0}%" FontFamily="Open Sans" Margin="10 0 0 0" FontSize="16" x:Name="PercentageTextBlock" />
+                <TextBlock Text="Ostatnio ukończony moduł: {0}" FontFamily="Open Sans" Margin="10 0 0 0" FontSize="16" x:Name="LastModuleTextBlock" />
+                <TextBlock Text="Kurs: " FontFamily="Open Sans" FontSize="32" Margin="0 0 0 10" />
                 <sdk:TreeView x:Name="Menu" Margin="10 0 10 0">
                     <sdk:TreeViewItem MouseLeftButtonUp="Menu_MouseLeftButtonDown" Header="Poradnik .NET" IsExpanded="True" Cursor="Hand">
                         <sdk:TreeViewItem Header="1. O programowaniu w .NET">
@@ -39,12 +43,17 @@
                             <TextBlock Text="Czy wiesz, że...? " FontFamily="Open Sans" FontSize="24" Margin="10 10 0 0" />
                             <TextBox IsReadOnly="True" Margin="10 10 10 10" x:Name="CuriositiesTextBox" FontFamily="Open Sans" FontSize="16" Text="Adieus except say barton put feebly favour him. Entreaties unpleasant sufficient few pianoforte discovered uncommonly ask. Morning cousins amongst in mr weather do neither. Warmth object matter course active law spring six. Pursuit showing tedious unknown winding see had man add. And park eyes too more him. Simple excuse active had son wholly coming number add. Though all excuse ladies rather regard assure yet. If feelings so prospect no as raptures quitting. " AcceptsReturn="True" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></TextBox>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button Margin="0 0 10 10" Cursor="Hand">Poprzednia</Button>
-                                <Button Margin="0 0 10 10" Cursor="Hand">Następna</Button>
+                                <Button Margin="0 0 10 10" Cursor="Hand" Click="PervButton_Click">Poprzednia</Button>
+                                <Button Margin="0 0 10 10" Cursor="Hand" Click="NextButton_Click">Następna</Button>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
                 </Border>
+                <TextBlock Text="Ustawienia:" FontFamily="OpenSans" Margin="0 5 0 0 " FontSize="32" />
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="DeleteAccountButton" Click="DeleteAccountButton_Click" Cursor="Hand" MaxWidth="100" Margin="5 0 10 0">Usuń konto</Button>
+                    <Button x:Name="NewModuleButton" Click="NewModuleButton_Click" Cursor="Hand" MaxWidth="125">Ustawienia domyślne</Button>
+                </StackPanel>
             </StackPanel>
         </ScrollViewer>
     </Grid>

@@ -17,20 +17,34 @@ namespace SeeSharp
 
         private void InitializeView()
         {
-            MainPage mainPage = ViewFactory.MainPageInstance;
+            MainPage mainView = ViewFactory.MainPageInstance;
 
-            if (mainPage != null)
+            if (mainView != null)
             {
-                if (mainPage.UserManager != null)
+                if (mainView.UserManager != null)
                 {
                     this.LayoutRoot.Visibility = System.Windows.Visibility.Visible;
-                    this.GreetingsTextBlock.Text = GreetingsManager.GetGreetingsByDayOfWeek(DateTime.Now.DayOfWeek, mainPage.UserManager.UserInfo.Login);
+                    this.GreetingsTextBlock.Text = GreetingsManager.GetGreetingsByDayOfWeek(DateTime.Now.DayOfWeek, mainView.UserManager.UserInfo.Login);
+                    this.CodeTextBlock.Text = string.Format(CodeTextBlock.Text, mainView.UserManager.UserInfo.Code);
+                    this.PercentageTextBlock.Text = string.Format(PercentageTextBlock.Text, mainView.UserManager.UserInfo.Percentage);
+                    this.LastModuleTextBlock.Text = string.Format(LastModuleTextBlock.Text, mainView.UserManager.UserInfo.LastTutorial);
+                    this.CuriositiesTextBox.Text = CuriositiesManager.GetRandomCuriosities();
                 }
                 else
                     this.LayoutRoot.Visibility = System.Windows.Visibility.Collapsed;
             }
             else
                 this.LayoutRoot.Visibility = System.Windows.Visibility.Collapsed;
+        }
+
+        private void DeleteAccountButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void NewModuleButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
         }
 
         private void Menu_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -58,6 +72,16 @@ namespace SeeSharp
             });
 
             return selected;
+        }
+
+        private void PervButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.CuriositiesTextBox.Text = CuriositiesManager.GetPervCuriosities();
+        }
+
+        private void NextButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.CuriositiesTextBox.Text = CuriositiesManager.GetNextCuriosities();
         }
     }
 }
