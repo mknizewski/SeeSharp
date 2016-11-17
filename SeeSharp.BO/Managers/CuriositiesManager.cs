@@ -16,7 +16,7 @@ namespace SeeSharp.BO.Managers
         public static string GetRandomCuriosities()
         {
             Random random = new Random(DateTime.Now.Millisecond);
-            int randomCuriosity = random.Next(CuriositiesCount);
+            int randomCuriosity = random.Next(CuriosityMinValue, CuriositiesCount);
 
             CuriositiesIterator = randomCuriosity;
 
