@@ -83,6 +83,7 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\SeeSharp-Test - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\SeeSharp-Test - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\SeeSharp-Test.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
