@@ -12,7 +12,7 @@
     </UserControl.Resources>
 
     <Grid x:Name="LayoutRoot">
-        <ScrollViewer>
+        <ScrollViewer x:Name="Scroll">
             <StackPanel Orientation="Vertical">
                 <TextBlock x:Name="ModuleTitle" FontFamily="Open Sans" FontSize="32" Text="Title" HorizontalAlignment="Center" />
                 <TextBox x:Name="ModuleTextBox" AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True" FontFamily="Open Sans" FontSize="16" Margin="20 10 20 10" />
@@ -47,6 +47,11 @@
                         <TextBlock x:Name="errorText" Grid.Row="3" Foreground="Red" TextWrapping="Wrap" Visibility="Collapsed" />
                     </Grid>
                 </Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20 10 20 0">
+                    <Button x:Name="MainPage" Click="MainPage_Click" Cursor="Hand" Width="100" Height="65">Strona Główna</Button>
+                    <Button x:Name="PervModule" Click="PervModule_Click" Cursor="Hand" Width="100" Height="65" Margin="10 0 0 0">Poprzedni</Button>
+                    <Button x:Name="NextModule" Click="NextModule_Click" Cursor="Hand" Width="100" Height="65" Margin="10 0 0 0">Następny</Button>
+                </StackPanel>
             </StackPanel>
         </ScrollViewer>
     </Grid>

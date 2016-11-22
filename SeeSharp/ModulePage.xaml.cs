@@ -1,5 +1,6 @@
 ﻿using SeeSharp.BO.Dictionaries;
 using SeeSharp.BO.Managers;
+using SeeSharp.Infrastructure;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -24,10 +25,11 @@ namespace SeeSharp
 
         public ModulePage(string moduleName, string tag)
         {
-            this._moduleManager = ModuleManager.GetModuleManager(moduleName, tag);
+            this._moduleManager = ModuleManager.GetModuleManager(tag);
 
             InitializeComponent();
             InitializeView();
+            InitializeModule();
             AdjustMediaMaxResolution();
         }
 
@@ -45,14 +47,23 @@ namespace SeeSharp
             this.media.MaxWidth = mediaWidth;
         }
 
-        private void InitializeView()
+        private void InitializeModule()
         {
-            this.ModuleTitle.Text = _moduleManager.ModuleName;
+            this.ModuleTitle.Text = _moduleManager.CurrentModule.ModuleName;
             this.ModuleTextBox.Text = AppSettingsDictionary.RandomText;
 
             string pathToVegas = @"/Content/MovieCourses/2_1_3.mp4";
             this.media.Source = new Uri(HtmlPage.Document.DocumentUri, pathToVegas);
 
+            this.PervModule.IsEnabled = !_moduleManager.First;
+            this.NextModule.IsEnabled = !_moduleManager.Last;
+
+            this.Scroll.ScrollToVerticalOffset(0.0);
+            ViewFactory.MainPageInstance.SectionBlock.Text = string.Format(AppSettingsDictionary.SectionPrefixPattern, _moduleManager.CurrentModule.ModuleName);
+        }
+
+        private void InitializeView()
+        {
             this.DataContext = this._viewModel = new MediaViewModel(this.media);
 
             this.media.MediaOpened += this.MediaOpened;
@@ -164,6 +175,23 @@ namespace SeeSharp
             }
             else
                 this.playPauseButton.IsEnabled = false;
+        }
+
+        private void MainPage_Click(object sender, RoutedEventArgs e)
+        {
+            ViewFactory.MainPageInstance.SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
+        }
+
+        private void PervModule_Click(object sender, RoutedEventArgs e)
+        {
+            _moduleManager.ChangeModule(ActionModule.Perv);
+            InitializeModule();
+        }
+
+        private void NextModule_Click(object sender, RoutedEventArgs e)
+        {
+            _moduleManager.ChangeModule(ActionModule.Next);
+            InitializeModule();
         }
     }
 }
