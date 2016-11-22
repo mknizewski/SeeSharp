@@ -64,10 +64,6 @@
   <ItemGroup>
     <Content Include="ClientBin\SeeSharp.xap" />
     <Content Include="Content\MovieCourses\2_1_3.mp4" />
-    <Content Include="Content\MovieCourses\2.wmv" />
-    <Content Include="Content\MovieCourses\First_movie.htm" />
-    <Content Include="Content\MovieCourses\First_movie.swf" />
-    <Content Include="Content\MovieCourses\testVegass.wmv" />
     <Content Include="SeeSharpTestPage.aspx" />
     <Content Include="SeeSharpTestPage.html" />
     <Content Include="ServerService.svc" />
