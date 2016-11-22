@@ -61,7 +61,7 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0.3 - Środowisko Testowe.
+        ///   Looks up a localized string similar to 0.4 - Środowisko Testowe.
         /// </summary>
         internal static string AppVersion {
             get {
@@ -107,6 +107,15 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /Content/Samples/{0}.cs.
+        /// </summary>
+        internal static string ProgramFilesDirectory {
+            get {
+                return ResourceManager.GetString("ProgramFilesDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Przejrzystość nowym ledwo Worończańskim osoby przez zwierciadlanéj. Pokrewieństwem najwymowniejsza jezior orzeł zwierciadlanéj Wystrzeliliśmy Lubił przejrzystość Przedstawiając Majora młoda. Najpiękniejszym żołniersczyzny Niesiołowskiemu wola tace nierostrzygniony syna moje Kościuszkowskie. Bębna Podkomorzym mgłą ciżby czasie pewnością można przysłowie powiatowém uszaki bitwie. Uprzyjemnić cicha cudna śnie Przed szlacheckich najwyższych zdradzieckim ręka. Zdał Kulturze Brał kawiarka czernił dziwo oboje Gdzi [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RandomText {
@@ -139,6 +148,15 @@ namespace SeeSharp.BO.Resources {
         internal static string VersionMessagePattern {
             get {
                 return ResourceManager.GetString("VersionMessagePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Content/MovieCourses/{0}.mp4.
+        /// </summary>
+        internal static string VideoDirectory {
+            get {
+                return ResourceManager.GetString("VideoDirectory", resourceCulture);
             }
         }
         
