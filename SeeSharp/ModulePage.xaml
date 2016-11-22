@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="SeeSharp.ModulePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:SeeSharp"
+    mc:Ignorable="d"
+    d:DesignHeight="600" d:DesignWidth="700">
+    
+    <UserControl.Resources>
+        <local:VolumeConverter x:Key="VolumeConverter" />
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <ScrollViewer>
+            <StackPanel Orientation="Vertical">
+                <TextBlock x:Name="ModuleTitle" FontFamily="Open Sans" FontSize="32" Text="Title" HorizontalAlignment="Center" />
+                <TextBox x:Name="ModuleTextBox" AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True" FontFamily="Open Sans" FontSize="16" Margin="20 10 20 10" />
+                <Grid Margin="20 0 20 0">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Border BorderThickness="0" Background="Black">
+                            <MediaElement x:Name="media" MaxWidth="1280" MaxHeight="720"
+							  Source="http://ecn.channel9.msdn.com/o9/content/smf/progressivecontent/wildlife.wmv"
+							  AutoPlay="False"
+							  Position="{Binding Position, Mode=TwoWay}" />
+                        </Border>
+                        <Canvas x:Name="playCanvas" Grid.Row="1" Background="#444444" Height="8" MouseLeftButtonDown="PlayCanvas_MouseLeftButtonUp">
+                            <Rectangle x:Name="bufferBar" Fill="#777777" Height="8" Width="0" />
+                            <Rectangle x:Name="playBar" Fill="#CC181E" Height="8" Width="0" />
+                        </Canvas>
+
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" Background="#1B1B1B">
+                            <Button x:Name="playPauseButton" Style="{StaticResource PlayButtonStyle}" Click="playPauseButton_Click" />
+                            <Slider Style="{StaticResource VolumeSlider}" Width="56" Minimum="0" Maximum="10" Value="{Binding Path=Volume, ElementName=media, Mode=TwoWay, Converter={StaticResource VolumeConverter}}" />
+                            <TextBlock Margin="6,0,0,0" VerticalAlignment="Center" Style="{StaticResource ProgressTextStyle}">
+					<Run Text="{Binding PositionText}" Foreground="White" />
+					<Run Text=" / " />
+					<Run Text="{Binding DurationText}" />
+                            </TextBlock>
+                        </StackPanel>
+                        <TextBlock x:Name="statusText" Grid.Row="3" Visibility="Collapsed" />
+                        <TextBlock x:Name="errorText" Grid.Row="3" Foreground="Red" TextWrapping="Wrap" Visibility="Collapsed" />
+                    </Grid>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

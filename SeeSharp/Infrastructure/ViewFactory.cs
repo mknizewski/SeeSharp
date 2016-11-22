@@ -28,12 +28,14 @@ namespace SeeSharp.Infrastructure
                 case ViewType.AboutCourse:
                     return new AboutCourse();
 
-                case ViewType.UserProfile:
-                    return new UserProfile();
-
                 default:
                     return new MainPage();
             }
+        }
+
+        public static UserControl GetModule(string moduleName, string tag)
+        {
+            return new ModulePage(moduleName, tag);
         }
     }
 
@@ -43,7 +45,6 @@ namespace SeeSharp.Infrastructure
         AboutAuthors,
         Register,
         Login,
-        AboutCourse,
-        UserProfile
+        AboutCourse
     }
 }

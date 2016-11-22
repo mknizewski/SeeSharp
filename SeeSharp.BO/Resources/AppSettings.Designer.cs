@@ -61,7 +61,7 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0.1 - Środowisko Testowe.
+        ///   Looks up a localized string similar to 0.3 - Środowisko Testowe.
         /// </summary>
         internal static string AppVersion {
             get {
@@ -103,6 +103,15 @@ namespace SeeSharp.BO.Resources {
         internal static string PercentagePattern {
             get {
                 return ResourceManager.GetString("PercentagePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Przejrzystość nowym ledwo Worończańskim osoby przez zwierciadlanéj. Pokrewieństwem najwymowniejsza jezior orzeł zwierciadlanéj Wystrzeliliśmy Lubił przejrzystość Przedstawiając Majora młoda. Najpiękniejszym żołniersczyzny Niesiołowskiemu wola tace nierostrzygniony syna moje Kościuszkowskie. Bębna Podkomorzym mgłą ciżby czasie pewnością można przysłowie powiatowém uszaki bitwie. Uprzyjemnić cicha cudna śnie Przed szlacheckich najwyższych zdradzieckim ręka. Zdał Kulturze Brał kawiarka czernił dziwo oboje Gdzi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RandomText {
+            get {
+                return ResourceManager.GetString("RandomText", resourceCulture);
             }
         }
         

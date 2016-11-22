@@ -9,7 +9,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="Images/Visual_Studio_2013_Logo.svg.png" Opacity="0.6">
                 <ImageBrush.RelativeTransform>
-                    <CompositeTransform CenterY="0.5" CenterX="0.5"/>
+                    <CompositeTransform CenterY="0.5" CenterX="0.5" />
                 </ImageBrush.RelativeTransform>
             </ImageBrush>
         </Grid.Background>

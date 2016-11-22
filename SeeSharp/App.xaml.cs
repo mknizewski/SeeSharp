@@ -19,8 +19,8 @@ namespace SeeSharp
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             this.RootVisual = new MainPage();
-            this.ConfigureServer();
             ViewFactory.MainPageInstance = this.RootVisual as MainPage;
+            this.ConfigureServer();
         }
 
         private void Application_Exit(object sender, EventArgs e)

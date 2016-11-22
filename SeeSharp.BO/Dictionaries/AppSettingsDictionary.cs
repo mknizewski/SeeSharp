@@ -70,5 +70,13 @@ namespace SeeSharp.BO.Dictionaries
                 return AppSettings.GetString("CheckMark");
             }
         }
+
+        public static string RandomText
+        {
+            get
+            {
+                return AppSettings.GetString("RandomText");
+            }
+        }
     }
 }
