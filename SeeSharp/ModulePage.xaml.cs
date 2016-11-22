@@ -28,10 +28,10 @@ namespace SeeSharp
             
             InitializeComponent();
             InitializeView();
-            AdjustMediaResolution();
+            AdjustMediaMaxResolution();
         }
 
-        private void AdjustMediaResolution()
+        private void AdjustMediaMaxResolution()
         {
             double actualViewWidth = this.ActualWidth; 
             double actualViewHeight = this.ActualHeight;

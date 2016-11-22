@@ -31,5 +31,15 @@ namespace SeeSharp.BO.Managers
         {
 
         }
+
+        public string GetNextModule()
+        {
+            return string.Empty;
+        }
+
+        public string GetPervModule()
+        {
+            return string.Empty;
+        }
     }
 }
