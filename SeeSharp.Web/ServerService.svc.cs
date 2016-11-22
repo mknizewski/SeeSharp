@@ -15,7 +15,7 @@ namespace SeeSharp.Web
     {
         private const string Separator = @"\";
 
-        public void CreateDirectoryForUser(string loginName, int code)
+        public bool CreateDirectoryForUser(string loginName, int code)
         {
             string xmlDirectoryPath = string.Concat(AppDomain.CurrentDomain.BaseDirectory, ServerDictionary.XmlFileDirectory);
             string userDirectory = string.Concat(xmlDirectoryPath, Separator, loginName);
@@ -27,7 +27,11 @@ namespace SeeSharp.Web
                 string fullXmlFilePath = string.Concat(userDirectory, Separator, ServerDictionary.XmlFileName);
 
                 xmlFile.Save(fullXmlFilePath);
+
+                return true;
             }
+
+            return false;
         }
 
         public void CreateDirectoriesIfDosentExists()

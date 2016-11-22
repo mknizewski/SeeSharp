@@ -15,6 +15,14 @@ namespace SeeSharp.BO.Dictionaries
             }
         }
 
+        public static string LoginIsUsed
+        {
+            get
+            {
+                return ExceptionsMessage.GetString("LoginIsUsed");
+            }
+        }
+
         public static string IncorrectLoginCreditentials
         {
             get

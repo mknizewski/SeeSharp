@@ -79,6 +79,16 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login {0} jest już używany!
+        ///Proszę wpisz inny login..
+        /// </summary>
+        internal static string LoginIsUsed {
+            get {
+                return ResourceManager.GetString("LoginIsUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nie wpisano poprawnie loginu!.
         /// </summary>
         internal static string LoginNameNotFound {

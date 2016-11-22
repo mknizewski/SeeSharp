@@ -29,15 +29,32 @@ namespace SeeSharp
 
                 ServerServiceClient serverService = ServerServiceClient.GetInstance();
                 serverService.CreateDirectoryForUserAsync(loginName, generatedNumber);
+                serverService.CreateDirectoryForUserCompleted += (send, recv) =>
+                {
+                    try
+                    {
+                        bool isRegistered = recv.Result;
 
-                this.RegisterAlert.Visibility = Visibility.Visible;
-                this.RegisterAlert.Text = string.Format(
-                    RegisterPageDictionary.SuccesfulRegisterMessagePattern,
-                    loginName,
-                    Environment.NewLine,
-                    generatedNumber);
+                        if (isRegistered)
+                        {
+                            this.RegisterAlert.Visibility = Visibility.Visible;
+                            this.RegisterAlert.Text = string.Format(
+                                RegisterPageDictionary.SuccesfulRegisterMessagePattern,
+                                loginName,
+                                Environment.NewLine,
+                                generatedNumber);
 
-                this.LoginButton.IsEnabled = true;
+                            this.LoginButton.IsEnabled = true;
+                        }
+                        else
+                            throw new Exception(ExceptionDictionary.LoginIsUsed);
+                    }
+                    catch (Exception ex)
+                    {
+                        this.RegisterAlert.Visibility = Visibility.Visible;
+                        this.RegisterAlert.Text = ex.Message;
+                    }
+                };
             }
             catch (Exception ex)
             {
