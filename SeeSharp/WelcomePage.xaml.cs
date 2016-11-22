@@ -1,7 +1,9 @@
-﻿using SeeSharp.BO.Managers;
+﻿using SeeSharp.BO.Dictionaries;
+using SeeSharp.BO.Managers;
 using SeeSharp.Infrastructure;
 using System;
 using System.Linq;
+using System.Windows.Browser;
 using System.Windows.Controls;
 
 namespace SeeSharp
@@ -22,10 +24,12 @@ namespace SeeSharp
             {
                 if (mainView.UserManager != null)
                 {
+                    string lastModuleMessage = string.IsNullOrEmpty(mainView.UserManager.UserInfo.LastTutorial) ? PageDictionary.TutorialNotStarted : mainView.UserManager.UserInfo.LastTutorial;
+
                     this.LayoutRoot.Visibility = System.Windows.Visibility.Visible;
                     this.CodeTextBlock.Text = string.Format(CodeTextBlock.Text, mainView.UserManager.UserInfo.Code);
                     this.PercentageTextBlock.Text = string.Format(PercentageTextBlock.Text, mainView.UserManager.UserInfo.Percentage);
-                    this.LastModuleTextBlock.Text = string.Format(LastModuleTextBlock.Text, mainView.UserManager.UserInfo.LastTutorial);
+                    this.LastModuleTextBlock.Text = string.Format(LastModuleTextBlock.Text, lastModuleMessage);
                     this.CuriositiesTextBox.Text = CuriositiesManager.GetRandomCuriosities();
                     this.GreetingsTextBlock.Text = GreetingsManager.GetGreetingsByDayOfWeek(DateTime.Now.DayOfWeek, mainView.UserManager.UserInfo.Login);
                 }
@@ -54,16 +58,33 @@ namespace SeeSharp
             this.CuriositiesTextBox.Text = CuriositiesManager.GetNextCuriosities();
         }
 
+        private void ReturnToModuleButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            try
+            {
+                string lastModuleTag = ViewFactory.MainPageInstance.UserManager.UserInfo.LastTutorial;
+
+                if (string.IsNullOrEmpty(lastModuleTag))
+                    throw new Exception(ExceptionDictionary.TutorialNotStarted);
+
+                ViewFactory.MainPageInstance.SetModule(lastModuleTag);
+            }
+            catch (Exception ex)
+            {
+                string jsAlertPopUp = string.Format(AppSettingsDictionary.JavaScriptAlert, ex.Message);
+                HtmlPage.Window.Eval(jsAlertPopUp);
+            }
+        }
+
         #region Modules & ModuleEvents
 
         private void LoadModule(TreeViewItem selectedItem)
         {
             if (selectedItem != null)
             {
-                string moduleName = selectedItem.Header.ToString();
                 string tag = selectedItem.Tag.ToString();
 
-                ViewFactory.MainPageInstance.SetModule(moduleName, tag);
+                ViewFactory.MainPageInstance.SetModule(tag);
             }
         }
 

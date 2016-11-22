@@ -98,6 +98,15 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to alert(&apos;{0}&apos;);.
+        /// </summary>
+        internal static string JavaScriptAlert {
+            get {
+                return ResourceManager.GetString("JavaScriptAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} %.
         /// </summary>
         internal static string PercentagePattern {
@@ -107,7 +116,7 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to /Content/Samples/{0}.cs.
+        ///   Looks up a localized string similar to /Content/Samples/{0}.txt.
         /// </summary>
         internal static string ProgramFilesDirectory {
             get {

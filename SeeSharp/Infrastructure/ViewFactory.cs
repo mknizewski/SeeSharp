@@ -33,9 +33,9 @@ namespace SeeSharp.Infrastructure
             }
         }
 
-        public static UserControl GetModule(string moduleName, string tag)
+        public static UserControl GetModule(string tag)
         {
-            return new ModulePage(moduleName, tag);
+            return new ModulePage(tag);
         }
     }
 

@@ -130,4 +130,7 @@ Proszę wpisz inny login.</value>
   <data name="LoginNameNotFound" xml:space="preserve">
     <value>Nie wpisano poprawnie loginu!</value>
   </data>
+  <data name="TutorialNotStarted" xml:space="preserve">
+    <value>Nie zaczęto kursu!</value>
+  </data>
 </root>

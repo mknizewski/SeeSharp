@@ -7,6 +7,14 @@ namespace SeeSharp.BO.Dictionaries
     {
         private readonly static ResourceManager AppSettings = ResourceManagerFactory.GetResource(typeof(Resources.AppSettings));
 
+        public static string JavaScriptAlert
+        {
+            get
+            {
+                return AppSettings.GetString("JavaScriptAlert");
+            }
+        }
+
         public static string VideoDirectory
         {
             get

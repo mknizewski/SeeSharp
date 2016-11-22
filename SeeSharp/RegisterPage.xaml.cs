@@ -39,7 +39,7 @@ namespace SeeSharp
                         {
                             this.RegisterAlert.Visibility = Visibility.Visible;
                             this.RegisterAlert.Text = string.Format(
-                                RegisterPageDictionary.SuccesfulRegisterMessagePattern,
+                                PageDictionary.SuccesfulRegisterMessagePattern,
                                 loginName,
                                 Environment.NewLine,
                                 generatedNumber);

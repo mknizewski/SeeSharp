@@ -96,5 +96,14 @@ namespace SeeSharp.BO.Resources {
                 return ResourceManager.GetString("LoginNameNotFound", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie zaczęto kursu!.
+        /// </summary>
+        internal static string TutorialNotStarted {
+            get {
+                return ResourceManager.GetString("TutorialNotStarted", resourceCulture);
+            }
+        }
     }
 }

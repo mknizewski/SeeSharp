@@ -120,4 +120,7 @@
   <data name="SuccesfullRegisterMessagePattern" xml:space="preserve">
     <value>Pomyślnie zarejestrowano konto o loginie {0}! {1}Twój kod rejestracyjny to: {2}</value>
   </data>
+  <data name="TutorialNotStarted" xml:space="preserve">
+    <value>Nie zaczęto</value>
+  </data>
 </root>

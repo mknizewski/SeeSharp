@@ -23,7 +23,7 @@ namespace SeeSharp
 
         private enum ButtonState { Play, Pause, Restart }
 
-        public ModulePage(string moduleName, string tag)
+        public ModulePage(string tag)
         {
             this._moduleManager = ModuleManager.GetModuleManager(tag);
 
@@ -52,10 +52,10 @@ namespace SeeSharp
             this.ModuleTitle.Text = _moduleManager.CurrentModule.ModuleName;
             this.ModuleTextBox.Text = AppSettingsDictionary.RandomText;
 
-            string pathToVegas = @"/Content/MovieCourses/2_1_3.mp4";
+            string pathToVegas = string.Format(AppSettingsDictionary.VideoDirectory, "2_1_3");
             this.media.Source = new Uri(HtmlPage.Document.DocumentUri, pathToVegas);
 
-            string pathToTemplateProgram = @"/Content/Samples/ProgramTemplate.txt";
+            string pathToTemplateProgram = string.Format(AppSettingsDictionary.ProgramFilesDirectory, "ProgramTemplate");
             this.ProgramDownloadLink.NavigateUri = new Uri(HtmlPage.Document.DocumentUri, pathToTemplateProgram);
 
             this.PervModule.IsEnabled = !_moduleManager.First;
