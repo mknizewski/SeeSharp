@@ -57,6 +57,7 @@ namespace SeeSharp
                     {
                         this.RegisterAlert.Visibility = Visibility.Visible;
                         this.RegisterAlert.Text = ex.Message;
+                        this.RegisterButton.IsEnabled = true;
                     }
                 };
             }

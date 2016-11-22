@@ -12,16 +12,37 @@ namespace SeeSharp
 {
     public partial class ModulePage : UserControl, IDisposable
     {
+        private const double Width720p = 1280.0;
+        private const double Height720p = 720;
+        private const double Width480p = 854.0;
+        private const double Height480p = 480.0;
+
         private ModuleManager _moduleManager;
         private MediaViewModel _viewModel;
+
         private enum ButtonState { Play, Pause, Restart }
 
         public ModulePage(string moduleName, string tag)
         {
-            _moduleManager = ModuleManager.GetModuleManager(moduleName, tag);
-
+            this._moduleManager = ModuleManager.GetModuleManager(moduleName, tag);
+            
             InitializeComponent();
             InitializeView();
+            AdjustMediaResolution();
+        }
+
+        private void AdjustMediaResolution()
+        {
+            double actualViewWidth = this.ActualWidth; 
+            double actualViewHeight = this.ActualHeight;
+            double mediaWidth = double.NaN;
+            double mediaHeight = double.NaN;
+
+            mediaHeight = actualViewHeight >= Height720p ? Height720p : Height480p;
+            mediaWidth = actualViewWidth >= Width720p ? Width720p : Width480p;
+
+            this.media.MaxHeight = mediaHeight;
+            this.media.MaxWidth = mediaWidth;
         }
 
         private void InitializeView()
@@ -45,6 +66,8 @@ namespace SeeSharp
             this.UpdateStatusText();
             this.UpdatePlayPauseButton();
         }
+
+
 
         public void Dispose()
         {
@@ -91,7 +114,6 @@ namespace SeeSharp
 
         private void MediaFailed(object sender, ExceptionRoutedEventArgs e)
         {
-            statusText.Visibility = Visibility.Collapsed;
             errorText.Visibility = Visibility.Visible;
             errorText.Text = e.ErrorException.Message;
         }
@@ -120,8 +142,6 @@ namespace SeeSharp
         private void UpdateStatusText()
         {
             errorText.Visibility = Visibility.Collapsed;
-            statusText.Visibility = Visibility.Visible;
-            statusText.Text = media.CurrentState.ToString();
         }
 
         private void UpdatePlayPauseButton()

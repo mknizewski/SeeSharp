@@ -27,7 +27,6 @@
 
                         <Border BorderThickness="0" Background="Black">
                             <MediaElement x:Name="media" MaxWidth="1280" MaxHeight="720"
-							  Source="http://ecn.channel9.msdn.com/o9/content/smf/progressivecontent/wildlife.wmv"
 							  AutoPlay="False"
 							  Position="{Binding Position, Mode=TwoWay}" />
                         </Border>
@@ -45,7 +44,6 @@
 					<Run Text="{Binding DurationText}" />
                             </TextBlock>
                         </StackPanel>
-                        <TextBlock x:Name="statusText" Grid.Row="3" Visibility="Collapsed" />
                         <TextBlock x:Name="errorText" Grid.Row="3" Foreground="Red" TextWrapping="Wrap" Visibility="Collapsed" />
                     </Grid>
                 </Grid>
