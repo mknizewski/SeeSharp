@@ -55,6 +55,9 @@ namespace SeeSharp
             string pathToVegas = @"/Content/MovieCourses/2_1_3.mp4";
             this.media.Source = new Uri(HtmlPage.Document.DocumentUri, pathToVegas);
 
+            string pathToTemplateProgram = @"/Content/Samples/ProgramTemplate.txt";
+            this.ProgramDownloadLink.NavigateUri = new Uri(HtmlPage.Document.DocumentUri, pathToTemplateProgram);
+
             this.PervModule.IsEnabled = !_moduleManager.First;
             this.NextModule.IsEnabled = !_moduleManager.Last;
 

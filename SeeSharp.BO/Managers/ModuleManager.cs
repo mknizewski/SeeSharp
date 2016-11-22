@@ -34,7 +34,8 @@ namespace SeeSharp.BO.Managers
 
         public void Dispose()
         {
-
+            _examList.Clear();
+            _moduleList.Clear();
         }
 
         public void ChangeModule(ActionModule actionModule)

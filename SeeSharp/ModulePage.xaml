@@ -47,6 +47,7 @@
                         <TextBlock x:Name="errorText" Grid.Row="3" Foreground="Red" TextWrapping="Wrap" Visibility="Collapsed" />
                     </Grid>
                 </Grid>
+                <HyperlinkButton x:Name="ProgramDownloadLink" TargetName="_blank" Width="140" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 5 20 0">Pobierz program z video</HyperlinkButton>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20 10 20 0">
                     <Button x:Name="MainPage" Click="MainPage_Click" Cursor="Hand" Width="100" Height="65">Strona Główna</Button>
                     <Button x:Name="PervModule" Click="PervModule_Click" Cursor="Hand" Width="100" Height="65" Margin="10 0 0 0">Poprzedni</Button>

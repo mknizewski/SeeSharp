@@ -64,6 +64,7 @@
   <ItemGroup>
     <Content Include="ClientBin\SeeSharp.xap" />
     <Content Include="Content\MovieCourses\2_1_3.mp4" />
+    <Content Include="Content\Samples\ProgramTemplate.txt" />
     <Content Include="SeeSharpTestPage.aspx" />
     <Content Include="SeeSharpTestPage.html" />
     <Content Include="ServerService.svc" />
@@ -91,7 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ClientBin\Debug\" />
-    <Folder Include="Content\Samples\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SeeSharp.Sandbox\SeeSharp.Sandbox.csproj">
