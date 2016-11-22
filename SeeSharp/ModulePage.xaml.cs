@@ -195,6 +195,9 @@ namespace SeeSharp
         {
             _moduleManager.ChangeModule(ActionModule.Next);
             InitializeModule();
+
+            //ViewFactory.MainPageInstance.ProgressCircle.Percentage += 2.93;
+            //ViewFactory.MainPageInstance.ProgressPercentageTextBlock.Text = Math.Ceiling(ViewFactory.MainPageInstance.ProgressCircle.Percentage).ToString() + " %";
         }
     }
 }
