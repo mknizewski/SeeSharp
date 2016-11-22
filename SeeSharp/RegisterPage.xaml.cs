@@ -47,7 +47,11 @@ namespace SeeSharp
                             this.LoginButton.IsEnabled = true;
                         }
                         else
-                            throw new Exception(ExceptionDictionary.LoginIsUsed);
+                        {
+                            string exceptionMessage = string.Format(ExceptionDictionary.LoginIsUsed, loginName);
+
+                            throw new Exception(exceptionMessage);
+                        }
                     }
                     catch (Exception ex)
                     {
