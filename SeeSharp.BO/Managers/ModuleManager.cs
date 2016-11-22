@@ -10,7 +10,7 @@ namespace SeeSharp.BO.Managers
         private string _moduleName;
         private string _tag;
 
-        private ModuleManager(string moduleName, string tag )
+        private ModuleManager(string moduleName, string tag)
         {
             _moduleName = moduleName;
             _tag = tag;
@@ -29,7 +29,6 @@ namespace SeeSharp.BO.Managers
 
         public void LoadModule()
         {
-
         }
 
         public string GetNextModule()

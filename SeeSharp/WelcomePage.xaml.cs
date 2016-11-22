@@ -1,7 +1,6 @@
 ﻿using SeeSharp.BO.Managers;
 using SeeSharp.Infrastructure;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 
@@ -56,6 +55,7 @@ namespace SeeSharp
         }
 
         #region Modules & ModuleEvents
+
         private void LoadModule(TreeViewItem selectedItem)
         {
             if (selectedItem != null)
@@ -86,14 +86,12 @@ namespace SeeSharp
             LoadModule(GetSelectedItem(sender));
         }
 
-
         private void LoadTopModule_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             TreeViewItem selectedModule = sender as TreeViewItem;
             LoadModule(selectedModule);
         }
 
-        #endregion
-       
+        #endregion Modules & ModuleEvents
     }
 }

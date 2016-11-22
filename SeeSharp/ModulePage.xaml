@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:SeeSharp"
     mc:Ignorable="d"
     d:DesignHeight="600" d:DesignWidth="700">
-    
+
     <UserControl.Resources>
         <local:VolumeConverter x:Key="VolumeConverter" />
     </UserControl.Resources>

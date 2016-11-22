@@ -25,7 +25,7 @@ namespace SeeSharp
         public ModulePage(string moduleName, string tag)
         {
             this._moduleManager = ModuleManager.GetModuleManager(moduleName, tag);
-            
+
             InitializeComponent();
             InitializeView();
             AdjustMediaMaxResolution();
@@ -33,7 +33,7 @@ namespace SeeSharp
 
         private void AdjustMediaMaxResolution()
         {
-            double actualViewWidth = this.ActualWidth; 
+            double actualViewWidth = this.ActualWidth;
             double actualViewHeight = this.ActualHeight;
             double mediaWidth = double.NaN;
             double mediaHeight = double.NaN;
@@ -66,8 +66,6 @@ namespace SeeSharp
             this.UpdateStatusText();
             this.UpdatePlayPauseButton();
         }
-
-
 
         public void Dispose()
         {

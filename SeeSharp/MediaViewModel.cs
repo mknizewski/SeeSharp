@@ -5,69 +5,69 @@ using System.Windows.Controls;
 namespace SeeSharp
 {
     public class MediaViewModel : INotifyPropertyChanged
-	{
-		private MediaElement _element;
+    {
+        private MediaElement _element;
 
-		public MediaViewModel(MediaElement element)
-		{
-			this._element = element;
+        public MediaViewModel(MediaElement element)
+        {
+            this._element = element;
 
-			this.PositionChanged += (s, e) => this.UpdatePositionInfo();
-		}
+            this.PositionChanged += (s, e) => this.UpdatePositionInfo();
+        }
 
-		private TimeSpan _position;
+        private TimeSpan _position;
 
-		public TimeSpan Position
-		{
-			get { return this._position; }
-			set
-			{
-				this._position = value;
-				this.PositionChanged(this, EventArgs.Empty);
-			}
-		}
+        public TimeSpan Position
+        {
+            get { return this._position; }
+            set
+            {
+                this._position = value;
+                this.PositionChanged(this, EventArgs.Empty);
+            }
+        }
 
-		private string _positionText;
+        private string _positionText;
 
-		public string PositionText
-		{
-			get { return this._positionText; }
-			set
-			{
-				this._positionText = value;
-				this.RaisePropertyChanged("PositionText");
-			}
-		}
+        public string PositionText
+        {
+            get { return this._positionText; }
+            set
+            {
+                this._positionText = value;
+                this.RaisePropertyChanged("PositionText");
+            }
+        }
 
-		private string _durationText;
+        private string _durationText;
 
-		public string DurationText
-		{
-			get { return this._durationText; }
-			set
-			{
-				this._durationText = value;
-				this.RaisePropertyChanged("DurationText");
-			}
-		}
+        public string DurationText
+        {
+            get { return this._durationText; }
+            set
+            {
+                this._durationText = value;
+                this.RaisePropertyChanged("DurationText");
+            }
+        }
 
-		public void UpdatePositionInfo()
-		{
-			this.PositionText = this.Position.ToString("mm\\:ss");
-		}
+        public void UpdatePositionInfo()
+        {
+            this.PositionText = this.Position.ToString("mm\\:ss");
+        }
 
-		public void UpdateDurationInfo()
-		{
-			this.DurationText = this._element.NaturalDuration.TimeSpan.ToString("mm\\:ss");
-		}
+        public void UpdateDurationInfo()
+        {
+            this.DurationText = this._element.NaturalDuration.TimeSpan.ToString("mm\\:ss");
+        }
 
-		public event EventHandler PositionChanged = delegate { }; 
+        public event EventHandler PositionChanged = delegate { };
 
-		public event PropertyChangedEventHandler PropertyChanged = delegate { };
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
-		private void RaisePropertyChanged(string propertyName)
-		{
-			PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
+        private void RaisePropertyChanged(string propertyName)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
 }
