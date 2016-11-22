@@ -75,7 +75,7 @@
                                 <sdk:TreeViewItem Header="3.3.1 Budowa" Tag="3.3.1" />
                                 <sdk:TreeViewItem Header="3.3.2 Delegaty złożone i anonimowe" Tag="3.3.2" />
                             </sdk:TreeViewItem>
-                            <sdk:TreeViewItem Header="3.4 Wyrażenia lambda" Tag="3.4" MouseLeftButtonUp="LoadInnerModule_Click" />
+                            <sdk:TreeViewItem Header="3.4 Wyrażenia lambda" Tag="3.4" MouseLeftButtonUp="LoadTopModule_Click" />
                             <sdk:TreeViewItem Header="3.5 Kilka słów o Garbage Collector" Tag="3.5" MouseLeftButtonUp="LoadTopModule_Click" />
                         </sdk:TreeViewItem>
                     </sdk:TreeViewItem>
