@@ -45,38 +45,6 @@ namespace SeeSharp
         {
         }
 
-        private void Menu_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TreeViewItem selected = GetSelectedItem(sender);
-
-            if (selected != null)
-            {
-                string moduleName = selected.Header.ToString();
-                string tag = "";
-
-                ViewFactory.MainPageInstance.SetModule(moduleName, tag);
-            }
-        }
-
-        private TreeViewItem GetSelectedItem(object sender)
-        {
-            TreeViewItem list = sender as TreeViewItem;
-            TreeViewItem selected = null;
-
-            list.Items.Cast<TreeViewItem>().ToList().ForEach(x =>
-            {
-                List<TreeViewItem> subList = x.Items.Cast<TreeViewItem>().ToList();
-
-                subList.ForEach(y =>
-                {
-                    if (y.IsSelected)
-                        selected = y;
-                });
-            });
-
-            return selected;
-        }
-
         private void PervButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             this.CuriositiesTextBox.Text = CuriositiesManager.GetPervCuriosities();
@@ -86,5 +54,46 @@ namespace SeeSharp
         {
             this.CuriositiesTextBox.Text = CuriositiesManager.GetNextCuriosities();
         }
+
+        #region Modules & ModuleEvents
+        private void LoadModule(TreeViewItem selectedItem)
+        {
+            if (selectedItem != null)
+            {
+                string moduleName = selectedItem.Header.ToString();
+                string tag = selectedItem.Tag.ToString();
+
+                ViewFactory.MainPageInstance.SetModule(moduleName, tag);
+            }
+        }
+
+        private TreeViewItem GetSelectedItem(object sender)
+        {
+            TreeViewItem list = sender as TreeViewItem;
+            TreeViewItem selectedModule = null;
+
+            list.Items.Cast<TreeViewItem>().ToList().ForEach(module =>
+            {
+                if (module.IsSelected)
+                    selectedModule = module;
+            });
+
+            return selectedModule;
+        }
+
+        private void LoadInnerModule_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            LoadModule(GetSelectedItem(sender));
+        }
+
+
+        private void LoadTopModule_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            TreeViewItem selectedModule = sender as TreeViewItem;
+            LoadModule(selectedModule);
+        }
+
+        #endregion
+       
     }
 }
