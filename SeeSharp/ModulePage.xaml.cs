@@ -35,6 +35,7 @@ namespace SeeSharp
             InitializeView();
             InitializeModule();
             BeginCourseIfNotStarted();
+            UpdateUserCourseAndUI();
         }
 
         private void AdjustMediaMaxResolution(Size size)

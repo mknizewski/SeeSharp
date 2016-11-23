@@ -130,7 +130,10 @@ Proszę wpisz inny login.</value>
   <data name="LoginNameNotFound" xml:space="preserve">
     <value>Nie wpisano poprawnie loginu!</value>
   </data>
+  <data name="ModuleNotAllowed" xml:space="preserve">
+    <value>Ten moduł nie jest jeszcze dostępny! Możesz przejść do modułu następnego, licząc od modułu ostatnio zakończonego. </value>
+  </data>
   <data name="TutorialNotStarted" xml:space="preserve">
-    <value>Nie zaczęto kursu!</value>
+    <value>Nie zaczęto kursu! Kurs można zacząć poprzez kliknięcie na pozycję 1.1 na liście.</value>
   </data>
 </root>

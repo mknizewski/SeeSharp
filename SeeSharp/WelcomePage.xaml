@@ -17,7 +17,7 @@
                 <TextBlock Text="Kurs: " FontFamily="Open Sans" FontSize="32" Margin="0 0 0 10" />
                 <sdk:TreeView x:Name="Menu" Margin="10 0 10 0">
                     <sdk:TreeViewItem Header="Poradnik .NET" IsExpanded="True" Cursor="Hand">
-                        <sdk:TreeViewItem Header="1. O programowaniu w .NET KURWA" MouseLeftButtonUp="LoadInnerModule_Click">
+                        <sdk:TreeViewItem Header="1. O programowaniu w .NET" MouseLeftButtonUp="LoadInnerModule_Click">
                             <sdk:TreeViewItem Header="1.1 Czym jest .NET?" Tag="1.1" />
                             <sdk:TreeViewItem Header="1.2 Dlaczego C#?" Tag="1.2" />
                         </sdk:TreeViewItem>

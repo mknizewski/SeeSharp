@@ -2,6 +2,7 @@
 using SeeSharp.BO.Managers;
 using SeeSharp.Infrastructure;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Browser;
 using System.Windows.Controls;
@@ -10,6 +11,8 @@ namespace SeeSharp
 {
     public partial class WelcomePage : UserControl
     {
+        private const int MaxModulesDiffrence = 1;
+
         public WelcomePage()
         {
             InitializeComponent();
@@ -77,14 +80,35 @@ namespace SeeSharp
         }
 
         #region Modules & ModuleEvents
-
         private void LoadModule(TreeViewItem selectedItem)
         {
             if (selectedItem != null)
             {
-                string tag = selectedItem.Tag.ToString();
+                try
+                {
+                    List<Module> modules = ModuleManager.ModuleList;
+                    UserManager userManager = ViewFactory.MainPageInstance.UserManager;
 
-                ViewFactory.MainPageInstance.SetModule(tag);
+                    string selectedTag = selectedItem.Tag.ToString();
+                    string userTag = userManager.UserInfo.LastTutorial;
+
+                    if (string.IsNullOrEmpty(userTag) && selectedTag != modules.First().ModuleTag)
+                        throw new Exception(ExceptionDictionary.TutorialNotStarted);
+
+                    int selectedTagIndex = modules.IndexOf(modules.Where(x => x.ModuleTag == selectedTag).First());
+                    int userTagIndex = string.IsNullOrEmpty(userTag) ? (int)decimal.Zero : modules.IndexOf(modules.Where(x => x.ModuleTag == userTag).First());
+                    int diffrence = selectedTagIndex - userTagIndex;
+
+                    if (diffrence > MaxModulesDiffrence)
+                        throw new Exception(ExceptionDictionary.ModuleNotAllowed);
+
+                    ViewFactory.MainPageInstance.SetModule(selectedTag);
+                }
+                catch (Exception ex)
+                {
+                    string jsAlertPopUp = string.Format(AppSettingsDictionary.JavaScriptAlert, ex.Message);
+                    HtmlPage.Window.Eval(jsAlertPopUp);
+                }
             }
         }
 
@@ -109,10 +133,8 @@ namespace SeeSharp
 
         private void LoadTopModule_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            TreeViewItem selectedModule = sender as TreeViewItem;
-            LoadModule(selectedModule);
+            LoadModule(sender as TreeViewItem);
         }
-
         #endregion Modules & ModuleEvents
     }
 }

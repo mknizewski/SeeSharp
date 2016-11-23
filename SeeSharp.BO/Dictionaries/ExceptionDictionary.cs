@@ -7,6 +7,14 @@ namespace SeeSharp.BO.Dictionaries
     {
         private readonly static ResourceManager ExceptionsMessage = ResourceManagerFactory.GetResource(typeof(Resources.Exception));
 
+        public static string ModuleNotAllowed
+        {
+            get
+            {
+                return ExceptionsMessage.GetString("ModuleNotAllowed");
+            }
+        }
+
         public static string TutorialNotStarted
         {
             get
