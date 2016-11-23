@@ -6,13 +6,13 @@
     xmlns:local="clr-namespace:SeeSharp"
     mc:Ignorable="d"
     d:DesignHeight="600" d:DesignWidth="700">
-    
+
     <UserControl.Resources>
         <local:VolumeConverter x:Key="VolumeConverter" />
     </UserControl.Resources>
 
-    <Grid x:Name="LayoutRoot">
-        <ScrollViewer>
+    <Grid x:Name="LayoutRoot" SizeChanged="LayoutRoot_SizeChanged" Background="White">
+        <ScrollViewer x:Name="Scroll">
             <StackPanel Orientation="Vertical">
                 <TextBlock x:Name="ModuleTitle" FontFamily="Open Sans" FontSize="32" Text="Title" HorizontalAlignment="Center" />
                 <TextBox x:Name="ModuleTextBox" AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True" FontFamily="Open Sans" FontSize="16" Margin="20 10 20 10" />
@@ -27,7 +27,7 @@
 
                         <Border BorderThickness="0" Background="Black">
                             <MediaElement x:Name="media" MaxWidth="1280" MaxHeight="720"
-							  Source="http://ecn.channel9.msdn.com/o9/content/smf/progressivecontent/wildlife.wmv"
+                              Source="http://ecn.channel9.msdn.com/o9/content/smf/progressivecontent/wildlife.wmv"
 							  AutoPlay="False"
 							  Position="{Binding Position, Mode=TwoWay}" />
                         </Border>
@@ -45,10 +45,24 @@
 					<Run Text="{Binding DurationText}" />
                             </TextBlock>
                         </StackPanel>
-                        <TextBlock x:Name="statusText" Grid.Row="3" Visibility="Collapsed" />
                         <TextBlock x:Name="errorText" Grid.Row="3" Foreground="Red" TextWrapping="Wrap" Visibility="Collapsed" />
                     </Grid>
                 </Grid>
+                <HyperlinkButton x:Name="ProgramDownloadLink" TargetName="_blank" Width="140" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 5 20 0">Pobierz program z video</HyperlinkButton>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20 10 20 10">
+                    <Button x:Name="MainPage" Click="MainPage_Click" Cursor="Hand" Width="100" Height="65">
+                        <Button.Effect>
+                            <DropShadowEffect/>
+                        </Button.Effect> Strona Główna</Button>
+                    <Button x:Name="PervModule" Click="PervModule_Click" Cursor="Hand" Width="100" Height="65" Margin="10 0 0 0">
+                        <Button.Effect>
+                            <DropShadowEffect/>
+                        </Button.Effect> Poprzedni</Button>
+                    <Button x:Name="NextModule" Click="NextModule_Click" Cursor="Hand" Width="100" Height="65" Margin="10 0 0 0">
+                        <Button.Effect>
+                            <DropShadowEffect/>
+                        </Button.Effect> Następny</Button>
+                </StackPanel>
             </StackPanel>
         </ScrollViewer>
     </Grid>

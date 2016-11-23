@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dictionaries\GreetingsDictionary.cs" />
-    <Compile Include="Dictionaries\RegisterPageDictionary.cs" />
+    <Compile Include="Dictionaries\PageDictionary.cs" />
     <Compile Include="Infrastructure\ResourceManagerFactory.cs" />
     <Compile Include="Managers\CuriositiesManager.cs" />
     <Compile Include="Managers\GreetingsManager.cs" />
@@ -90,10 +90,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Greetings.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\RegisterPage.Designer.cs">
+    <Compile Include="Resources\Page.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RegisterPage.resx</DependentUpon>
+      <DependentUpon>Page.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -113,9 +113,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Greetings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\RegisterPage.resx">
+    <EmbeddedResource Include="Resources\Page.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>RegisterPage.Designer.cs</LastGenOutput>
+      <LastGenOutput>Page.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

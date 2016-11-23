@@ -11,12 +11,15 @@ namespace SeeSharp.Web
         void CreateDirectoriesIfDosentExists();
 
         [OperationContract]
-        void CreateDirectoryForUser(string loginName, int code);
+        bool CreateDirectoryForUser(string loginName, int code);
 
         [OperationContract]
         Dictionary<string, string> GetUserProfile(string loginName);
 
         [OperationContract]
         string CompileAndRunProgram(string sourceCode, string[] parameters);
+
+        [OperationContract]
+        void UpdateUserProfile(Dictionary<string, string> userProfile);
     }
 }

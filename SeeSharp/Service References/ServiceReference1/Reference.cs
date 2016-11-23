@@ -26,7 +26,7 @@ namespace SeeSharp.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerService/CreateDirectoryForUser", ReplyAction="http://tempuri.org/IServerService/CreateDirectoryForUserResponse")]
         System.IAsyncResult BeginCreateDirectoryForUser(string loginName, int code, System.AsyncCallback callback, object asyncState);
         
-        void EndCreateDirectoryForUser(System.IAsyncResult result);
+        bool EndCreateDirectoryForUser(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerService/GetUserProfile", ReplyAction="http://tempuri.org/IServerService/GetUserProfileResponse")]
         System.IAsyncResult BeginGetUserProfile(string loginName, System.AsyncCallback callback, object asyncState);
@@ -37,10 +37,34 @@ namespace SeeSharp.ServiceReference1 {
         System.IAsyncResult BeginCompileAndRunProgram(string sourceCode, System.Collections.Generic.List<string> parameters, System.AsyncCallback callback, object asyncState);
         
         string EndCompileAndRunProgram(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerService/UpdateUserProfile", ReplyAction="http://tempuri.org/IServerService/UpdateUserProfileResponse")]
+        System.IAsyncResult BeginUpdateUserProfile(System.Collections.Generic.Dictionary<string, string> userProfile, System.AsyncCallback callback, object asyncState);
+        
+        void EndUpdateUserProfile(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServerServiceChannel : SeeSharp.ServiceReference1.IServerService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CreateDirectoryForUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CreateDirectoryForUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -109,6 +133,12 @@ namespace SeeSharp.ServiceReference1 {
         
         private System.Threading.SendOrPostCallback onCompileAndRunProgramCompletedDelegate;
         
+        private BeginOperationDelegate onBeginUpdateUserProfileDelegate;
+        
+        private EndOperationDelegate onEndUpdateUserProfileDelegate;
+        
+        private System.Threading.SendOrPostCallback onUpdateUserProfileCompletedDelegate;
+        
         private BeginOperationDelegate onBeginOpenDelegate;
         
         private EndOperationDelegate onEndOpenDelegate;
@@ -121,14 +151,15 @@ namespace SeeSharp.ServiceReference1 {
         
         private System.Threading.SendOrPostCallback onCloseCompletedDelegate;
         
+        public ServerServiceClient() {
+        }
+        
+
         public static ServerServiceClient GetInstance()
         {
             return new ServerServiceClient();
         }
 
-        public ServerServiceClient() {
-        }
-        
         public ServerServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
@@ -169,11 +200,13 @@ namespace SeeSharp.ServiceReference1 {
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CreateDirectoriesIfDosentExistsCompleted;
         
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CreateDirectoryForUserCompleted;
+        public event System.EventHandler<CreateDirectoryForUserCompletedEventArgs> CreateDirectoryForUserCompleted;
         
         public event System.EventHandler<GetUserProfileCompletedEventArgs> GetUserProfileCompleted;
         
         public event System.EventHandler<CompileAndRunProgramCompletedEventArgs> CompileAndRunProgramCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> UpdateUserProfileCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -228,8 +261,8 @@ namespace SeeSharp.ServiceReference1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SeeSharp.ServiceReference1.IServerService.EndCreateDirectoryForUser(System.IAsyncResult result) {
-            base.Channel.EndCreateDirectoryForUser(result);
+        bool SeeSharp.ServiceReference1.IServerService.EndCreateDirectoryForUser(System.IAsyncResult result) {
+            return base.Channel.EndCreateDirectoryForUser(result);
         }
         
         private System.IAsyncResult OnBeginCreateDirectoryForUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -239,14 +272,15 @@ namespace SeeSharp.ServiceReference1 {
         }
         
         private object[] OnEndCreateDirectoryForUser(System.IAsyncResult result) {
-            ((SeeSharp.ServiceReference1.IServerService)(this)).EndCreateDirectoryForUser(result);
-            return null;
+            bool retVal = ((SeeSharp.ServiceReference1.IServerService)(this)).EndCreateDirectoryForUser(result);
+            return new object[] {
+                    retVal};
         }
         
         private void OnCreateDirectoryForUserCompleted(object state) {
             if ((this.CreateDirectoryForUserCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.CreateDirectoryForUserCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+                this.CreateDirectoryForUserCompleted(this, new CreateDirectoryForUserCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
@@ -363,6 +397,51 @@ namespace SeeSharp.ServiceReference1 {
                         parameters}, this.onEndCompileAndRunProgramDelegate, this.onCompileAndRunProgramCompletedDelegate, userState);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SeeSharp.ServiceReference1.IServerService.BeginUpdateUserProfile(System.Collections.Generic.Dictionary<string, string> userProfile, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUpdateUserProfile(userProfile, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SeeSharp.ServiceReference1.IServerService.EndUpdateUserProfile(System.IAsyncResult result) {
+            base.Channel.EndUpdateUserProfile(result);
+        }
+        
+        private System.IAsyncResult OnBeginUpdateUserProfile(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.Collections.Generic.Dictionary<string, string> userProfile = ((System.Collections.Generic.Dictionary<string, string>)(inValues[0]));
+            return ((SeeSharp.ServiceReference1.IServerService)(this)).BeginUpdateUserProfile(userProfile, callback, asyncState);
+        }
+        
+        private object[] OnEndUpdateUserProfile(System.IAsyncResult result) {
+            ((SeeSharp.ServiceReference1.IServerService)(this)).EndUpdateUserProfile(result);
+            return null;
+        }
+        
+        private void OnUpdateUserProfileCompleted(object state) {
+            if ((this.UpdateUserProfileCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UpdateUserProfileCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UpdateUserProfileAsync(System.Collections.Generic.Dictionary<string, string> userProfile) {
+            this.UpdateUserProfileAsync(userProfile, null);
+        }
+        
+        public void UpdateUserProfileAsync(System.Collections.Generic.Dictionary<string, string> userProfile, object userState) {
+            if ((this.onBeginUpdateUserProfileDelegate == null)) {
+                this.onBeginUpdateUserProfileDelegate = new BeginOperationDelegate(this.OnBeginUpdateUserProfile);
+            }
+            if ((this.onEndUpdateUserProfileDelegate == null)) {
+                this.onEndUpdateUserProfileDelegate = new EndOperationDelegate(this.OnEndUpdateUserProfile);
+            }
+            if ((this.onUpdateUserProfileCompletedDelegate == null)) {
+                this.onUpdateUserProfileCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateUserProfileCompleted);
+            }
+            base.InvokeAsync(this.onBeginUpdateUserProfileDelegate, new object[] {
+                        userProfile}, this.onEndUpdateUserProfileDelegate, this.onUpdateUserProfileCompletedDelegate, userState);
+        }
+        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -458,9 +537,10 @@ namespace SeeSharp.ServiceReference1 {
                 return _result;
             }
             
-            public void EndCreateDirectoryForUser(System.IAsyncResult result) {
+            public bool EndCreateDirectoryForUser(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                base.EndInvoke("CreateDirectoryForUser", _args, result);
+                bool _result = ((bool)(base.EndInvoke("CreateDirectoryForUser", _args, result)));
+                return _result;
             }
             
             public System.IAsyncResult BeginGetUserProfile(string loginName, System.AsyncCallback callback, object asyncState) {
@@ -488,6 +568,18 @@ namespace SeeSharp.ServiceReference1 {
                 object[] _args = new object[0];
                 string _result = ((string)(base.EndInvoke("CompileAndRunProgram", _args, result)));
                 return _result;
+            }
+            
+            public System.IAsyncResult BeginUpdateUserProfile(System.Collections.Generic.Dictionary<string, string> userProfile, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = userProfile;
+                System.IAsyncResult _result = base.BeginInvoke("UpdateUserProfile", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndUpdateUserProfile(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("UpdateUserProfile", _args, result);
             }
         }
     }

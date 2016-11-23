@@ -7,11 +7,35 @@ namespace SeeSharp.BO.Dictionaries
     {
         private readonly static ResourceManager ExceptionsMessage = ResourceManagerFactory.GetResource(typeof(Resources.Exception));
 
+        public static string ModuleNotAllowed
+        {
+            get
+            {
+                return ExceptionsMessage.GetString("ModuleNotAllowed");
+            }
+        }
+
+        public static string TutorialNotStarted
+        {
+            get
+            {
+                return ExceptionsMessage.GetString("TutorialNotStarted");
+            }
+        }
+
         public static string LoginNotFoundMessage
         {
             get
             {
                 return ExceptionsMessage.GetString("LoginNameNotFound");
+            }
+        }
+
+        public static string LoginIsUsed
+        {
+            get
+            {
+                return ExceptionsMessage.GetString("LoginIsUsed");
             }
         }
 

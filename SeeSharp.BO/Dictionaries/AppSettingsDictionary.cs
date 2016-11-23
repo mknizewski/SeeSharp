@@ -7,6 +7,38 @@ namespace SeeSharp.BO.Dictionaries
     {
         private readonly static ResourceManager AppSettings = ResourceManagerFactory.GetResource(typeof(Resources.AppSettings));
 
+        public static string ShowPercentage
+        {
+            get
+            {
+                return AppSettings.GetString("ShowPercentage");
+            }
+        }
+
+        public static string JavaScriptAlert
+        {
+            get
+            {
+                return AppSettings.GetString("JavaScriptAlert");
+            }
+        }
+
+        public static string VideoDirectory
+        {
+            get
+            {
+                return AppSettings.GetString("VideoDirectory");
+            }
+        }
+
+        public static string ProgramFilesDirectory
+        {
+            get
+            {
+                return AppSettings.GetString("ProgramFilesDirectory");
+            }
+        }
+
         public static string XmlFilesDirectiory
         {
             get

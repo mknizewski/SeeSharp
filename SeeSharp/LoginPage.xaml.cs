@@ -65,6 +65,7 @@ namespace SeeSharp
         private static bool IsNotNumber(string text)
         {
             Regex regex = new Regex(RegexNumberOnlyPattern);
+
             return regex.IsMatch(text);
         }
     }

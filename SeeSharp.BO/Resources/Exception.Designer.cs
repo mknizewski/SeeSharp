@@ -79,11 +79,39 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login {0} jest już używany!
+        ///Proszę wpisz inny login..
+        /// </summary>
+        internal static string LoginIsUsed {
+            get {
+                return ResourceManager.GetString("LoginIsUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nie wpisano poprawnie loginu!.
         /// </summary>
         internal static string LoginNameNotFound {
             get {
                 return ResourceManager.GetString("LoginNameNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ten moduł nie jest jeszcze dostępny! Możesz przejść do modułu następnego, licząc od modułu ostatnio zakończonego. .
+        /// </summary>
+        internal static string ModuleNotAllowed {
+            get {
+                return ResourceManager.GetString("ModuleNotAllowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie zaczęto kursu! Kurs można zacząć poprzez kliknięcie na pozycję 1.1 na liście..
+        /// </summary>
+        internal static string TutorialNotStarted {
+            get {
+                return ResourceManager.GetString("TutorialNotStarted", resourceCulture);
             }
         }
     }

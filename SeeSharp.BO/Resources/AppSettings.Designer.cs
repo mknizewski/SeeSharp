@@ -61,7 +61,7 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0.3 - Środowisko Testowe.
+        ///   Looks up a localized string similar to 0.5 - Środowisko Testowe.
         /// </summary>
         internal static string AppVersion {
             get {
@@ -98,11 +98,29 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to alert(&apos;{0}&apos;);.
+        /// </summary>
+        internal static string JavaScriptAlert {
+            get {
+                return ResourceManager.GetString("JavaScriptAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} %.
         /// </summary>
         internal static string PercentagePattern {
             get {
                 return ResourceManager.GetString("PercentagePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Content/Samples/{0}.txt.
+        /// </summary>
+        internal static string ProgramFilesDirectory {
+            get {
+                return ResourceManager.GetString("ProgramFilesDirectory", resourceCulture);
             }
         }
         
@@ -125,6 +143,15 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} %.
+        /// </summary>
+        internal static string ShowPercentage {
+            get {
+                return ResourceManager.GetString("ShowPercentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Niezalogowany.
         /// </summary>
         internal static string UnloggedAlert {
@@ -139,6 +166,15 @@ namespace SeeSharp.BO.Resources {
         internal static string VersionMessagePattern {
             get {
                 return ResourceManager.GetString("VersionMessagePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Content/MovieCourses/{0}.mp4.
+        /// </summary>
+        internal static string VideoDirectory {
+            get {
+                return ResourceManager.GetString("VideoDirectory", resourceCulture);
             }
         }
         

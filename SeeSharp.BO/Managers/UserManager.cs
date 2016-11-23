@@ -34,6 +34,18 @@ namespace SeeSharp.BO.Managers
             };
         }
 
+        public Dictionary<string, string> UserProfileToDictionary()
+        {
+            Dictionary<string, string> userInfoDictionary = new Dictionary<string, string>();
+
+            userInfoDictionary.Add("login", UserInfo.Login);
+            userInfoDictionary.Add("code", UserInfo.Code);
+            userInfoDictionary.Add("percentage", UserInfo.Percentage.ToString());
+            userInfoDictionary.Add("last", UserInfo.LastTutorial);
+
+            return userInfoDictionary;
+        }
+
         public void SignOut()
         {
             UserInfo = null;
