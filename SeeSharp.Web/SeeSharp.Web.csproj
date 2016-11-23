@@ -20,7 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <SilverlightApplicationList>{CAA37C92-D208-43D5-82C2-1D54DB61A65C}|..\SeeSharp\SeeSharp.csproj|ClientBin|False</SilverlightApplicationList>
+    <SilverlightApplicationList>{CAA37C92-D208-43D5-82C2-1D54DB61A65C}|..\SeeSharp\SeeSharp.UI.csproj|ClientBin|False</SilverlightApplicationList>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -31,6 +31,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -81,9 +82,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\SeeSharp-Test - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\SeeSharp-Test - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\SeeSharp-Test.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -93,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ClientBin\Debug\" />
+    <Folder Include="ClientBin\Release\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SeeSharp.Sandbox\SeeSharp.Sandbox.csproj">

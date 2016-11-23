@@ -52,9 +52,6 @@ namespace SeeSharp
             this.ModuleTitle.Text = _moduleManager.CurrentModule.ModuleName;
             this.ModuleTextBox.Text = AppSettingsDictionary.RandomText;
 
-            string pathToVegas = string.Format(AppSettingsDictionary.VideoDirectory, "2_1_3");
-            this.media.Source = new Uri(HtmlPage.Document.DocumentUri, pathToVegas);
-
             string pathToTemplateProgram = string.Format(AppSettingsDictionary.ProgramFilesDirectory, "ProgramTemplate");
             this.ProgramDownloadLink.NavigateUri = new Uri(HtmlPage.Document.DocumentUri, pathToTemplateProgram);
 
@@ -67,6 +64,11 @@ namespace SeeSharp
 
         private void InitializeView()
         {
+            string pathToVegas = string.Format(@AppSettingsDictionary.VideoDirectory, "2_1_3");
+            string absoluteUri = HtmlPage.Document.DocumentUri + pathToVegas;
+            Debug.WriteLine(absoluteUri);
+            this.media.Source = new Uri(HtmlPage.Document.DocumentUri, pathToVegas);
+
             this.DataContext = this._viewModel = new MediaViewModel(this.media);
 
             this.media.MediaOpened += this.MediaOpened;
@@ -127,7 +129,7 @@ namespace SeeSharp
         private void MediaFailed(object sender, ExceptionRoutedEventArgs e)
         {
             errorText.Visibility = Visibility.Visible;
-            errorText.Text = e.ErrorException.Message;
+            errorText.Text = e.ErrorException.ToString();
         }
 
         private void MediaCurrentStateChanged(object sender, RoutedEventArgs e)

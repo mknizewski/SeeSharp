@@ -27,6 +27,7 @@
 
                         <Border BorderThickness="0" Background="Black">
                             <MediaElement x:Name="media" MaxWidth="1280" MaxHeight="720"
+                              Source="http://ecn.channel9.msdn.com/o9/content/smf/progressivecontent/wildlife.wmv"
 							  AutoPlay="False"
 							  Position="{Binding Position, Mode=TwoWay}" />
                         </Border>
