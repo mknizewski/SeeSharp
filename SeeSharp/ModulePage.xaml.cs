@@ -17,6 +17,7 @@ namespace SeeSharp
         private const double Height720p = 720;
         private const double Width480p = 854.0;
         private const double Height480p = 480.0;
+        private const double OneModuleFinished = 2.93;
 
         private ModuleManager _moduleManager;
         private MediaViewModel _viewModel;
@@ -197,8 +198,13 @@ namespace SeeSharp
             _moduleManager.ChangeModule(ActionModule.Next);
             InitializeModule();
 
-            //ViewFactory.MainPageInstance.ProgressCircle.Percentage += 2.93;
-            //ViewFactory.MainPageInstance.ProgressPercentageTextBlock.Text = Math.Ceiling(ViewFactory.MainPageInstance.ProgressCircle.Percentage).ToString() + " %";
+            ViewFactory.MainPageInstance.ProgressCircle.Percentage += 2.93;
+            ViewFactory.MainPageInstance.ProgressPercentageTextBlock.Text = Math.Ceiling(ViewFactory.MainPageInstance.ProgressCircle.Percentage).ToString() + " %";
+
+            ViewFactory.MainPageInstance.UserManager.UserInfo.Percentage = Convert.ToInt32(Math.Ceiling(ViewFactory.MainPageInstance.ProgressCircle.Percentage));
+
+            ServiceReference1.ServerServiceClient serverService = ServiceReference1.ServerServiceClient.GetInstance();
+            serverService.UpdateUserProfileAsync(ViewFactory.MainPageInstance.UserManager.UserProfileToDictionary());
         }
 
         private void LayoutRoot_SizeChanged(object sender, SizeChangedEventArgs e)

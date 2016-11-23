@@ -60,7 +60,25 @@ namespace SeeSharp.Web.Managers
 
         public static void UpdateXml(Dictionary<string, string> userProfile, string xmlFilePath)
         {
+            XmlDocument xmlProfile = new XmlDocument();
+            xmlProfile.Load(xmlFilePath);
 
+            XmlNode appProfileNode = xmlProfile.FirstChild;
+
+            XmlNode userNode = appProfileNode.FirstChild;
+            XmlNode loginProp = userNode.FirstChild;
+            XmlNode codeProp = userNode.LastChild;
+
+            XmlNode tutorialNode = appProfileNode.LastChild;
+            XmlNode percetnageProp = tutorialNode.FirstChild;
+            XmlNode lastProp = tutorialNode.LastChild;
+
+            loginProp.InnerText = userProfile["login"];
+            codeProp.InnerText = userProfile["code"];
+            percetnageProp.InnerText = userProfile["percentage"];
+            lastProp.InnerText = userProfile["last"];
+
+            xmlProfile.Save(xmlFilePath);
         }
     }
 }
