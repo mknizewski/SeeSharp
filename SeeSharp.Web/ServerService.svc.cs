@@ -108,5 +108,19 @@ namespace SeeSharp.Web
 
             return consoleOutput;
         }
+
+        public void UpdateUserProfile(Dictionary<string, string> userProfile)
+        {
+            string loginName = userProfile["login"];
+            string xmlDirectoryPath = string.Concat(AppDomain.CurrentDomain.BaseDirectory, ServerDictionary.XmlFileDirectory);
+            string userProfilePath = string.Concat(
+                xmlDirectoryPath,
+                Separator,
+                loginName,
+                Separator,
+                ServerDictionary.XmlFileName);
+
+            XmlManager.UpdateXml(userProfile, userProfilePath);
+        }
     }
 }

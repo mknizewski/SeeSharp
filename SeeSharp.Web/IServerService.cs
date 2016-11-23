@@ -18,5 +18,8 @@ namespace SeeSharp.Web
 
         [OperationContract]
         string CompileAndRunProgram(string sourceCode, string[] parameters);
+
+        [OperationContract]
+        void UpdateUserProfile(Dictionary<string, string> userProfile);
     }
 }

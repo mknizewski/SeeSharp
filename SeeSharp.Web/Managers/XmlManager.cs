@@ -57,5 +57,10 @@ namespace SeeSharp.Web.Managers
 
             return userDictionary;
         }
+
+        public static void UpdateXml(Dictionary<string, string> userProfile, string xmlFilePath)
+        {
+
+        }
     }
 }

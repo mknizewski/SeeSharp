@@ -30,13 +30,12 @@ namespace SeeSharp
             InitializeComponent();
             InitializeView();
             InitializeModule();
-            AdjustMediaMaxResolution();
         }
 
-        private void AdjustMediaMaxResolution()
+        private void AdjustMediaMaxResolution(Size size)
         {
-            double actualViewWidth = this.ActualWidth;
-            double actualViewHeight = this.ActualHeight;
+            double actualViewWidth = size.Width;
+            double actualViewHeight = size.Height;
             double mediaWidth = double.NaN;
             double mediaHeight = double.NaN;
 
@@ -200,6 +199,11 @@ namespace SeeSharp
 
             //ViewFactory.MainPageInstance.ProgressCircle.Percentage += 2.93;
             //ViewFactory.MainPageInstance.ProgressPercentageTextBlock.Text = Math.Ceiling(ViewFactory.MainPageInstance.ProgressCircle.Percentage).ToString() + " %";
+        }
+
+        private void LayoutRoot_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            AdjustMediaMaxResolution(e.NewSize);
         }
     }
 }
