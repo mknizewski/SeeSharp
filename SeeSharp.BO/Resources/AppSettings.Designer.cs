@@ -143,6 +143,15 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} %.
+        /// </summary>
+        internal static string ShowPercentage {
+            get {
+                return ResourceManager.GetString("ShowPercentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Niezalogowany.
         /// </summary>
         internal static string UnloggedAlert {

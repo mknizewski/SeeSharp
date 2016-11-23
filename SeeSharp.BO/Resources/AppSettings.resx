@@ -155,6 +155,9 @@ Ryby się lisa gdym najpiękniejszéj Najpiękniejszego Dać Rzeczypospolitéj. 
   <data name="SectionPrefixPattern" xml:space="preserve">
     <value>Jesteś w sekcji: {0}</value>
   </data>
+  <data name="ShowPercentage" xml:space="preserve">
+    <value>{0} %</value>
+  </data>
   <data name="UnloggedAlert" xml:space="preserve">
     <value>Niezalogowany</value>
   </data>

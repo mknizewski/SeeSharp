@@ -2,12 +2,14 @@
 using SeeSharp.BO.Managers;
 using SeeSharp.Infrastructure;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Browser;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using SeeSharp.ServiceReference1;
 
 namespace SeeSharp
 {
@@ -17,7 +19,8 @@ namespace SeeSharp
         private const double Height720p = 720;
         private const double Width480p = 854.0;
         private const double Height480p = 480.0;
-        private const double OneModuleFinished = 2.93;
+        private const double OneModuleFinished = 3.0;
+        private const int CourseFinished = 100;
 
         private ModuleManager _moduleManager;
         private MediaViewModel _viewModel;
@@ -31,6 +34,7 @@ namespace SeeSharp
             InitializeComponent();
             InitializeView();
             InitializeModule();
+            BeginCourseIfNotStarted();
         }
 
         private void AdjustMediaMaxResolution(Size size)
@@ -60,6 +64,23 @@ namespace SeeSharp
 
             this.Scroll.ScrollToVerticalOffset(0.0);
             ViewFactory.MainPageInstance.SectionBlock.Text = string.Format(AppSettingsDictionary.SectionPrefixPattern, _moduleManager.CurrentModule.ModuleName);
+        }
+
+        private void BeginCourseIfNotStarted()
+        {
+            MainPage mainPage = ViewFactory.MainPageInstance;
+            UserManager userManager = mainPage.UserManager;
+            string lastUserTagModule = userManager.UserInfo.LastTutorial;
+
+            if (_moduleManager.First && string.IsNullOrEmpty(lastUserTagModule))
+            {
+                userManager.UserInfo.LastTutorial = _moduleManager.CurrentModule.ModuleTag;
+
+                Dictionary<string, string> userProfile = userManager.UserProfileToDictionary();
+                ServerServiceClient serverService = ServerServiceClient.GetInstance();
+
+                serverService.UpdateUserProfileAsync(userProfile);
+            }
         }
 
         private void InitializeView()
@@ -197,14 +218,31 @@ namespace SeeSharp
         {
             _moduleManager.ChangeModule(ActionModule.Next);
             InitializeModule();
+            UpdateUserCourseAndUI();
+        }
 
-            ViewFactory.MainPageInstance.ProgressCircle.Percentage += 2.93;
-            ViewFactory.MainPageInstance.ProgressPercentageTextBlock.Text = Math.Ceiling(ViewFactory.MainPageInstance.ProgressCircle.Percentage).ToString() + " %";
+        private void UpdateUserCourseAndUI()
+        {
+            MainPage mainPage = ViewFactory.MainPageInstance;
+            UserManager userManager = mainPage.UserManager;
+            int currentModuleIndex = _moduleManager.GetIndexByTag(_moduleManager.CurrentModule.ModuleTag);
+            int userModuleIndex = _moduleManager.GetIndexByTag(userManager.UserInfo.LastTutorial);
 
-            ViewFactory.MainPageInstance.UserManager.UserInfo.Percentage = Convert.ToInt32(Math.Ceiling(ViewFactory.MainPageInstance.ProgressCircle.Percentage));
+            if (currentModuleIndex > userModuleIndex)
+            {
+                int currentPercentage = Convert.ToInt32(Math.Ceiling(userManager.UserInfo.Percentage + OneModuleFinished));
+                currentPercentage = currentPercentage > CourseFinished ? CourseFinished : currentPercentage;
+                
+                mainPage.ProgressCircle.Percentage = currentPercentage;
+                mainPage.ProgressPercentageTextBlock.Text = string.Format(AppSettingsDictionary.ShowPercentage, currentPercentage);
+                userManager.UserInfo.LastTutorial = _moduleManager.CurrentModule.ModuleTag;
+                userManager.UserInfo.Percentage = currentPercentage;
 
-            ServiceReference1.ServerServiceClient serverService = ServiceReference1.ServerServiceClient.GetInstance();
-            serverService.UpdateUserProfileAsync(ViewFactory.MainPageInstance.UserManager.UserProfileToDictionary());
+                Dictionary<string, string> userProfile = userManager.UserProfileToDictionary();
+                ServerServiceClient serverService = ServerServiceClient.GetInstance();
+
+                serverService.UpdateUserProfileAsync(userProfile);
+            }
         }
 
         private void LayoutRoot_SizeChanged(object sender, SizeChangedEventArgs e)

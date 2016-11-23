@@ -53,6 +53,13 @@ namespace SeeSharp.BO.Managers
             }
         }
 
+        public int GetIndexByTag(string tag)
+        {
+            Module module = _moduleList.Where(x => x.ModuleTag.Equals(tag)).FirstOrDefault();
+
+            return _moduleList.IndexOf(module);
+        }
+
         private void GetNextModule()
         {
             int nextIndex = _moduleList.IndexOf(CurrentModule) + 1;
