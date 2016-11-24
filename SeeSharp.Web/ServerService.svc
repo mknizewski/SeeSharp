@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SeeSharp.Web.ServerService" CodeBehind="ServerService.svc.cs" %>

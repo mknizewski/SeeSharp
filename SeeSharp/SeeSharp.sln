@@ -3,11 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeeSharp", "SeeSharp.csproj", "{CAA37C92-D208-43D5-82C2-1D54DB61A65C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeeSharp.UI", "SeeSharp.UI.csproj", "{CAA37C92-D208-43D5-82C2-1D54DB61A65C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A0A1856B-3A66-4F28-8724-0DA9FF4236AC} = {A0A1856B-3A66-4F28-8724-0DA9FF4236AC}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeeSharp.Web", "..\SeeSharp.Web\SeeSharp.Web.csproj", "{A0A1856B-3A66-4F28-8724-0DA9FF4236AC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeeSharp.BO", "..\SeeSharp.BO\SeeSharp.BO.csproj", "{4DDFFA8E-F3C0-41EB-98C9-97FC5C07D3DC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A0A1856B-3A66-4F28-8724-0DA9FF4236AC} = {A0A1856B-3A66-4F28-8724-0DA9FF4236AC}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeeSharp.Sandbox", "..\SeeSharp.Sandbox\SeeSharp.Sandbox.csproj", "{ACF8A33D-0F59-4C73-8102-A1C319627E78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +35,10 @@ Global
 		{4DDFFA8E-F3C0-41EB-98C9-97FC5C07D3DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DDFFA8E-F3C0-41EB-98C9-97FC5C07D3DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DDFFA8E-F3C0-41EB-98C9-97FC5C07D3DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACF8A33D-0F59-4C73-8102-A1C319627E78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACF8A33D-0F59-4C73-8102-A1C319627E78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACF8A33D-0F59-4C73-8102-A1C319627E78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACF8A33D-0F59-4C73-8102-A1C319627E78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
