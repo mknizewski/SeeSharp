@@ -33,6 +33,11 @@ namespace SeeSharp.Infrastructure
             }
         }
 
+        public static Alert GetAlert(string meesage)
+        {
+            return new Alert(meesage);
+        }
+
         public static UserControl GetModule(string tag)
         {
             return new ModulePage(tag);

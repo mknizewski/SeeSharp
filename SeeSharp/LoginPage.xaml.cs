@@ -50,15 +50,13 @@ namespace SeeSharp
                     }
                     catch (Exception ex)
                     {
-                        this.LoginAlert.Visibility = System.Windows.Visibility.Visible;
-                        this.LoginAlert.Text = ex.Message;
+                        ViewFactory.MainPageInstance.SetAlert(ex.Message);
                     }
                 };
             }
             catch (Exception ex)
             {
-                this.LoginAlert.Visibility = System.Windows.Visibility.Visible;
-                this.LoginAlert.Text = ex.Message;
+                ViewFactory.MainPageInstance.SetAlert(ex.Message);
             }
         }
 

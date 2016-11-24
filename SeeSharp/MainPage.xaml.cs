@@ -46,7 +46,7 @@ namespace SeeSharp
 
         private void AboutCourse_Click(object sender, RoutedEventArgs e)
         {
-            SetView(ViewType.AboutCourse, NavigationDictionary.AboutCourseView);
+            SetView(ViewType.AboutCourse, NavigationDictionary.AboutAuthorsView);
         }
 
         private void LogOut_Click(object sender, RoutedEventArgs e)
@@ -67,6 +67,13 @@ namespace SeeSharp
             this.DynamicView.UpdateLayout();
 
             this.SectionBlock.Text = string.Format(AppSettingsDictionary.SectionPrefixPattern, section);
+        }
+
+        public void SetAlert(string message)
+        {
+            Alert alert = ViewFactory.GetAlert(message);
+
+            alert.Show();
         }
 
         public void SetModule(string tag)
