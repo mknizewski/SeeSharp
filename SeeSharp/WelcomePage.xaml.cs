@@ -4,7 +4,6 @@ using SeeSharp.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Browser;
 using System.Windows.Controls;
 
 namespace SeeSharp
@@ -74,8 +73,7 @@ namespace SeeSharp
             }
             catch (Exception ex)
             {
-                string jsAlertPopUp = string.Format(AppSettingsDictionary.JavaScriptAlert, ex.Message);
-                HtmlPage.Window.Eval(jsAlertPopUp);
+                ViewFactory.MainPageInstance.SetAlert(ex.Message);
             }
         }
 
@@ -106,8 +104,7 @@ namespace SeeSharp
                 }
                 catch (Exception ex)
                 {
-                    string jsAlertPopUp = string.Format(AppSettingsDictionary.JavaScriptAlert, ex.Message);
-                    HtmlPage.Window.Eval(jsAlertPopUp);
+                    ViewFactory.MainPageInstance.SetAlert(ex.Message);
                 }
             }
         }

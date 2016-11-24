@@ -55,16 +55,14 @@ namespace SeeSharp
                     }
                     catch (Exception ex)
                     {
-                        this.RegisterAlert.Visibility = Visibility.Visible;
-                        this.RegisterAlert.Text = ex.Message;
+                        ViewFactory.MainPageInstance.SetAlert(ex.Message);
                         this.RegisterButton.IsEnabled = true;
                     }
                 };
             }
             catch (Exception ex)
             {
-                this.RegisterAlert.Visibility = Visibility.Visible;
-                this.RegisterAlert.Text = ex.Message;
+                ViewFactory.MainPageInstance.SetAlert(ex.Message);
             }
         }
 
