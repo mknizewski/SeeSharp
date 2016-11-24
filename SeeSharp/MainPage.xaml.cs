@@ -71,9 +71,7 @@ namespace SeeSharp
 
         public void SetAlert(string message)
         {
-            Alert alert = ViewFactory.GetAlert(message);
-
-            alert.Show();
+            ViewFactory.GetAlert(message).Show();
         }
 
         public void SetModule(string tag)
