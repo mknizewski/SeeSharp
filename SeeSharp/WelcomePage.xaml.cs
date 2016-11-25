@@ -25,7 +25,7 @@ namespace SeeSharp
 
             ServerServiceClient serverSevice = ServerServiceClient.GetInstance();
             serverSevice.GetAchivmentFileAsync(userManager.UserInfo.Login);
-            serverSevice.GetAchivmentFileCompleted += (send, recv) => 
+            serverSevice.GetAchivmentFileCompleted += (send, recv) =>
             {
                 List<int> achivList = recv.Result;
 
@@ -77,12 +77,10 @@ namespace SeeSharp
 
         private void DeleteAccountButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            
         }
 
         private void NewModuleButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            
         }
 
         private void PervButton_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -113,6 +111,7 @@ namespace SeeSharp
         }
 
         #region Modules & ModuleEvents
+
         private void LoadModule(TreeViewItem selectedItem)
         {
             if (selectedItem != null)
@@ -167,6 +166,7 @@ namespace SeeSharp
         {
             LoadModule(sender as TreeViewItem);
         }
+
         #endregion Modules & ModuleEvents
     }
 }

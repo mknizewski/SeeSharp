@@ -1,6 +1,7 @@
 ﻿using SeeSharp.BO.Dictionaries;
 using SeeSharp.BO.Managers;
 using SeeSharp.Infrastructure;
+using SeeSharp.ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,7 +10,6 @@ using System.Windows.Browser;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using SeeSharp.ServiceReference1;
 
 namespace SeeSharp
 {
@@ -66,7 +66,7 @@ namespace SeeSharp
                 tagModule == "3.1.1" ? Achivments.ItsAPower : Achivments.None;
 
             if (achivments != Achivments.None)
-                ViewFactory.MainPageInstance.SetAchivmentAlert(achivments); 
+                ViewFactory.MainPageInstance.SetAchivmentAlert(achivments);
         }
 
         private void InitializeModule()
@@ -251,7 +251,7 @@ namespace SeeSharp
             {
                 int currentPercentage = Convert.ToInt32(Math.Ceiling(userManager.UserInfo.Percentage + OneModuleFinished));
                 currentPercentage = currentPercentage > CourseFinished ? CourseFinished : currentPercentage;
-                
+
                 mainPage.ProgressCircle.Percentage = currentPercentage;
                 mainPage.ProgressPercentageTextBlock.Text = string.Format(AppSettingsDictionary.ShowPercentage, currentPercentage);
                 userManager.UserInfo.LastTutorial = _moduleManager.CurrentModule.ModuleTag;

@@ -80,7 +80,7 @@ namespace SeeSharp
         {
             ServerServiceClient serverService = ServerServiceClient.GetInstance();
             serverService.GetAchivmentFileAsync(UserManager.UserInfo.Login);
-            serverService.GetAchivmentFileCompleted += (send, recv) => 
+            serverService.GetAchivmentFileCompleted += (send, recv) =>
             {
                 List<int> achivList = recv.Result;
                 int achivId = (int)achivments;

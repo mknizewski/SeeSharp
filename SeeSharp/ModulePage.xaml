@@ -52,16 +52,19 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20 10 20 10">
                     <Button x:Name="MainPage" Click="MainPage_Click" Cursor="Hand" Width="100" Height="65">
                         <Button.Effect>
-                            <DropShadowEffect/>
-                        </Button.Effect> Strona Główna</Button>
+                            <DropShadowEffect />
+                        </Button.Effect> Strona Główna
+                    </Button>
                     <Button x:Name="PervModule" Click="PervModule_Click" Cursor="Hand" Width="100" Height="65" Margin="10 0 0 0">
                         <Button.Effect>
-                            <DropShadowEffect/>
-                        </Button.Effect> Poprzedni</Button>
+                            <DropShadowEffect />
+                        </Button.Effect> Poprzedni
+                    </Button>
                     <Button x:Name="NextModule" Click="NextModule_Click" Cursor="Hand" Width="100" Height="65" Margin="10 0 0 0">
                         <Button.Effect>
-                            <DropShadowEffect/>
-                        </Button.Effect> Następny</Button>
+                            <DropShadowEffect />
+                        </Button.Effect> Następny
+                    </Button>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

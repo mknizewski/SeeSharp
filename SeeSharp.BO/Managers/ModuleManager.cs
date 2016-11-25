@@ -19,7 +19,7 @@ namespace SeeSharp.BO.Managers
         private Module _currentModule;
         private bool _first;
         private bool _last;
-            
+
         static ModuleManager()
         {
             InitializeList();
@@ -49,9 +49,11 @@ namespace SeeSharp.BO.Managers
                 case ActionModule.Next:
                     GetNextModule();
                     break;
+
                 case ActionModule.Perv:
                     GetPervModule();
                     break;
+
                 default:
                     break;
             }
@@ -68,7 +70,7 @@ namespace SeeSharp.BO.Managers
         {
             int nextIndex = ModuleList.IndexOf(CurrentModule) + 1;
             Module nextModule = ModuleList.ElementAt(nextIndex);
-            
+
             CurrentModule = nextModule;
             CheckModulePosition();
         }
@@ -91,6 +93,7 @@ namespace SeeSharp.BO.Managers
         }
 
         #region List Initializer
+
         private static void InitializeList()
         {
             // Ininicjalizacja
@@ -252,7 +255,8 @@ namespace SeeSharp.BO.Managers
             // Rozdział III - sekcja V
             ModuleList.Add(Module.CreateModule("3.5 Parę słów o Garbage Collector", "3.5", IsNotExam));
         }
-        #endregion
+
+        #endregion List Initializer
     }
 
     public enum ActionModule { Next, Perv }
