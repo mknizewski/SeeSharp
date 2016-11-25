@@ -21,5 +21,11 @@ namespace SeeSharp.Web
 
         [OperationContract]
         void UpdateUserProfile(Dictionary<string, string> userProfile);
+
+        [OperationContract]
+        int[] GetAchivmentFile(string loginName);
+
+        [OperationContract]
+        void UpdateAchivmentFile(int achivId, string loginName);
     }
 }

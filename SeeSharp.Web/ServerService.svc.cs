@@ -126,5 +126,31 @@ namespace SeeSharp.Web
 
             XmlManager.UpdateXmlProfile(userProfile, userProfilePath);
         }
+
+        public int[] GetAchivmentFile(string loginName)
+        {
+            string xmlDirectoryPath = string.Concat(AppDomain.CurrentDomain.BaseDirectory, ServerDictionary.XmlFileDirectory);
+            string userAchivmentPath = string.Concat(
+                xmlDirectoryPath,
+                Separator,
+                loginName,
+                Separator,
+                ServerDictionary.XmlAchivmentsFileName);
+
+            return XmlManager.DeserializeXmlAchivments(userAchivmentPath);
+        }
+
+        public void UpdateAchivmentFile(int achivId, string loginName)
+        {
+            string xmlDirectoryPath = string.Concat(AppDomain.CurrentDomain.BaseDirectory, ServerDictionary.XmlFileDirectory);
+            string userAchivmentPath = string.Concat(
+                xmlDirectoryPath,
+                Separator,
+                loginName,
+                Separator,
+                ServerDictionary.XmlAchivmentsFileName);
+
+            XmlManager.UpdateXmlAchivments(achivId, userAchivmentPath);
+        }
     }
 }
