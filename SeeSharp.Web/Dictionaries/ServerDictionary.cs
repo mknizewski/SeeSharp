@@ -16,11 +16,19 @@ namespace SeeSharp.Web.Dictionaries
             }
         }
 
-        public static string XmlFileName
+        public static string XmlAchivmentsFileName
         {
             get
             {
-                return WebConfigurationManager.AppSettings["XmlFileName"];
+                return WebConfigurationManager.AppSettings["XmlAchivmentsFileName"];
+            }
+        }
+
+        public static string XmlProfileFileName
+        {
+            get
+            {
+                return WebConfigurationManager.AppSettings["XmlProfileFileName"];
             }
         }
 

@@ -7,6 +7,14 @@ namespace SeeSharp.BO.Dictionaries
     {
         private readonly static ResourceManager AppSettings = ResourceManagerFactory.GetResource(typeof(Resources.AppSettings));
 
+        public static string AchivmentImageDirectory
+        {
+            get
+            {
+                return AppSettings.GetString("AchivmentImageDirectory");
+            }
+        }
+
         public static string ShowPercentage
         {
             get

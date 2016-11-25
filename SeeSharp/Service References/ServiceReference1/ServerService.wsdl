@@ -37,6 +37,18 @@
   <wsdl:message name="IServerService_UpdateUserProfile_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateUserProfileResponse" />
   </wsdl:message>
+  <wsdl:message name="IServerService_GetAchivmentFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAchivmentFile" />
+  </wsdl:message>
+  <wsdl:message name="IServerService_GetAchivmentFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAchivmentFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServerService_UpdateAchivmentFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAchivmentFile" />
+  </wsdl:message>
+  <wsdl:message name="IServerService_UpdateAchivmentFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAchivmentFileResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServerService">
     <wsdl:operation name="CreateDirectoriesIfDosentExists">
       <wsdl:input wsaw:Action="http://tempuri.org/IServerService/CreateDirectoriesIfDosentExists" message="tns:IServerService_CreateDirectoriesIfDosentExists_InputMessage" />
@@ -57,6 +69,14 @@
     <wsdl:operation name="UpdateUserProfile">
       <wsdl:input wsaw:Action="http://tempuri.org/IServerService/UpdateUserProfile" message="tns:IServerService_UpdateUserProfile_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServerService/UpdateUserProfileResponse" message="tns:IServerService_UpdateUserProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAchivmentFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServerService/GetAchivmentFile" message="tns:IServerService_GetAchivmentFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServerService/GetAchivmentFileResponse" message="tns:IServerService_GetAchivmentFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAchivmentFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServerService/UpdateAchivmentFile" message="tns:IServerService_UpdateAchivmentFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServerService/UpdateAchivmentFileResponse" message="tns:IServerService_UpdateAchivmentFile_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServerService" type="tns:IServerService">
@@ -99,6 +119,24 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateUserProfile">
       <soap:operation soapAction="http://tempuri.org/IServerService/UpdateUserProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAchivmentFile">
+      <soap:operation soapAction="http://tempuri.org/IServerService/GetAchivmentFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAchivmentFile">
+      <soap:operation soapAction="http://tempuri.org/IServerService/UpdateAchivmentFile" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
