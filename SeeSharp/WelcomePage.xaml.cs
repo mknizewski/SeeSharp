@@ -1,6 +1,7 @@
 ﻿using SeeSharp.BO.Dictionaries;
 using SeeSharp.BO.Managers;
 using SeeSharp.Infrastructure;
+using SeeSharp.ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,36 @@ namespace SeeSharp
         {
             InitializeComponent();
             InitializeView();
+        }
+
+        private void InitializeAchivmentPanel()
+        {
+            UserManager userManager = ViewFactory.MainPageInstance.UserManager;
+
+            ServerServiceClient serverSevice = ServerServiceClient.GetInstance();
+            serverSevice.GetAchivmentFileAsync(userManager.UserInfo.Login);
+            serverSevice.GetAchivmentFileCompleted += (send, recv) => 
+            {
+                List<int> achivList = recv.Result;
+
+                if (achivList != null)
+                {
+                    achivList.ForEach(id =>
+                    {
+                        Achivment achivment = AchivmentManager.GetAchivment((Achivments)id);
+                        AchivmentItem item = new AchivmentItem(achivment);
+
+                        this.AchivmentPanel.Children.Add(item);
+                    });
+                }
+                else
+                {
+                    this.AchivmentPanel.Visibility = System.Windows.Visibility.Collapsed;
+                    this.AchivmentBorder.Visibility = System.Windows.Visibility.Collapsed;
+                }
+
+                this.UpdateLayout();
+            };
         }
 
         private void InitializeView()
@@ -34,6 +65,8 @@ namespace SeeSharp
                     this.LastModuleTextBlock.Text = string.Format(LastModuleTextBlock.Text, lastModuleMessage);
                     this.CuriositiesTextBox.Text = CuriositiesManager.GetRandomCuriosities();
                     this.GreetingsTextBlock.Text = GreetingsManager.GetGreetingsByDayOfWeek(DateTime.Now.DayOfWeek, mainView.UserManager.UserInfo.Login);
+
+                    InitializeAchivmentPanel();
                 }
                 else
                     this.LayoutRoot.Visibility = System.Windows.Visibility.Collapsed;
@@ -44,10 +77,12 @@ namespace SeeSharp
 
         private void DeleteAccountButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            
         }
 
         private void NewModuleButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            
         }
 
         private void PervButton_Click(object sender, System.Windows.RoutedEventArgs e)

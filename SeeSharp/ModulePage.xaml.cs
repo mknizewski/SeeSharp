@@ -36,6 +36,7 @@ namespace SeeSharp
             InitializeModule();
             BeginCourseIfNotStarted();
             UpdateUserCourseAndUI();
+            SetAchivmentIfNessesary();
         }
 
         private void AdjustMediaMaxResolution(Size size)
@@ -50,6 +51,22 @@ namespace SeeSharp
 
             this.media.MaxHeight = mediaHeight;
             this.media.MaxWidth = mediaWidth;
+        }
+
+        private void SetAchivmentIfNessesary()
+        {
+            Achivments achivments;
+            string tagModule = _moduleManager.CurrentModule.ModuleTag;
+
+            achivments = tagModule == "1.1" ? Achivments.TechnologyPionier :
+                tagModule == "2.1.3" ? Achivments.MakeVsGreatAgain :
+                tagModule == "2.3.1" ? Achivments.DeclareVarNotWar :
+                tagModule == "2.8" ? Achivments.ObjectiveJanusz :
+                tagModule == "3.5" ? Achivments.KingOfNET :
+                tagModule == "3.1.1" ? Achivments.ItsAPower : Achivments.None;
+
+            if (achivments != Achivments.None)
+                ViewFactory.MainPageInstance.SetAchivmentAlert(achivments); 
         }
 
         private void InitializeModule()
@@ -220,6 +237,7 @@ namespace SeeSharp
             _moduleManager.ChangeModule(ActionModule.Next);
             InitializeModule();
             UpdateUserCourseAndUI();
+            SetAchivmentIfNessesary();
         }
 
         private void UpdateUserCourseAndUI()

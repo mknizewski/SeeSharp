@@ -92,6 +92,13 @@
                         </StackPanel>
                     </Grid>
                 </Border>
+                <Border Margin="10 10 10 0" BorderBrush="#FF225195" BorderThickness="2" x:Name="AchivmentBorder">
+                    <Grid>
+                        <StackPanel Orientation="Vertical" x:Name="AchivmentPanel">
+                            <TextBlock Text="Twoje osiągnięcia" FontFamily="Open Sans" FontSize="24" Margin="10 10 0 20" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
                 <TextBlock Text="Ustawienia:" FontFamily="OpenSans" Margin="0 5 0 0 " FontSize="32" />
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="DeleteAccountButton" Click="DeleteAccountButton_Click" Cursor="Hand" MaxWidth="100" Margin="5 0 10 0">Usuń konto</Button>

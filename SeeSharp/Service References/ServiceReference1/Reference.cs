@@ -42,6 +42,16 @@ namespace SeeSharp.ServiceReference1 {
         System.IAsyncResult BeginUpdateUserProfile(System.Collections.Generic.Dictionary<string, string> userProfile, System.AsyncCallback callback, object asyncState);
         
         void EndUpdateUserProfile(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerService/GetAchivmentFile", ReplyAction="http://tempuri.org/IServerService/GetAchivmentFileResponse")]
+        System.IAsyncResult BeginGetAchivmentFile(string loginName, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.Generic.List<int> EndGetAchivmentFile(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerService/UpdateAchivmentFile", ReplyAction="http://tempuri.org/IServerService/UpdateAchivmentFileResponse")]
+        System.IAsyncResult BeginUpdateAchivmentFile(int achivId, string loginName, System.AsyncCallback callback, object asyncState);
+        
+        void EndUpdateAchivmentFile(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -107,6 +117,25 @@ namespace SeeSharp.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetAchivmentFileCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetAchivmentFileCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.Generic.List<int> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.Generic.List<int>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ServerServiceClient : System.ServiceModel.ClientBase<SeeSharp.ServiceReference1.IServerService>, SeeSharp.ServiceReference1.IServerService {
         
         private BeginOperationDelegate onBeginCreateDirectoriesIfDosentExistsDelegate;
@@ -139,6 +168,18 @@ namespace SeeSharp.ServiceReference1 {
         
         private System.Threading.SendOrPostCallback onUpdateUserProfileCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGetAchivmentFileDelegate;
+        
+        private EndOperationDelegate onEndGetAchivmentFileDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetAchivmentFileCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUpdateAchivmentFileDelegate;
+        
+        private EndOperationDelegate onEndUpdateAchivmentFileDelegate;
+        
+        private System.Threading.SendOrPostCallback onUpdateAchivmentFileCompletedDelegate;
+        
         private BeginOperationDelegate onBeginOpenDelegate;
         
         private EndOperationDelegate onEndOpenDelegate;
@@ -154,7 +195,6 @@ namespace SeeSharp.ServiceReference1 {
         public ServerServiceClient() {
         }
         
-
         public static ServerServiceClient GetInstance()
         {
             return new ServerServiceClient();
@@ -207,6 +247,10 @@ namespace SeeSharp.ServiceReference1 {
         public event System.EventHandler<CompileAndRunProgramCompletedEventArgs> CompileAndRunProgramCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> UpdateUserProfileCompleted;
+        
+        public event System.EventHandler<GetAchivmentFileCompletedEventArgs> GetAchivmentFileCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> UpdateAchivmentFileCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -442,6 +486,99 @@ namespace SeeSharp.ServiceReference1 {
                         userProfile}, this.onEndUpdateUserProfileDelegate, this.onUpdateUserProfileCompletedDelegate, userState);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SeeSharp.ServiceReference1.IServerService.BeginGetAchivmentFile(string loginName, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetAchivmentFile(loginName, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.Generic.List<int> SeeSharp.ServiceReference1.IServerService.EndGetAchivmentFile(System.IAsyncResult result) {
+            return base.Channel.EndGetAchivmentFile(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetAchivmentFile(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string loginName = ((string)(inValues[0]));
+            return ((SeeSharp.ServiceReference1.IServerService)(this)).BeginGetAchivmentFile(loginName, callback, asyncState);
+        }
+        
+        private object[] OnEndGetAchivmentFile(System.IAsyncResult result) {
+            System.Collections.Generic.List<int> retVal = ((SeeSharp.ServiceReference1.IServerService)(this)).EndGetAchivmentFile(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetAchivmentFileCompleted(object state) {
+            if ((this.GetAchivmentFileCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetAchivmentFileCompleted(this, new GetAchivmentFileCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetAchivmentFileAsync(string loginName) {
+            this.GetAchivmentFileAsync(loginName, null);
+        }
+        
+        public void GetAchivmentFileAsync(string loginName, object userState) {
+            if ((this.onBeginGetAchivmentFileDelegate == null)) {
+                this.onBeginGetAchivmentFileDelegate = new BeginOperationDelegate(this.OnBeginGetAchivmentFile);
+            }
+            if ((this.onEndGetAchivmentFileDelegate == null)) {
+                this.onEndGetAchivmentFileDelegate = new EndOperationDelegate(this.OnEndGetAchivmentFile);
+            }
+            if ((this.onGetAchivmentFileCompletedDelegate == null)) {
+                this.onGetAchivmentFileCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetAchivmentFileCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetAchivmentFileDelegate, new object[] {
+                        loginName}, this.onEndGetAchivmentFileDelegate, this.onGetAchivmentFileCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SeeSharp.ServiceReference1.IServerService.BeginUpdateAchivmentFile(int achivId, string loginName, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUpdateAchivmentFile(achivId, loginName, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SeeSharp.ServiceReference1.IServerService.EndUpdateAchivmentFile(System.IAsyncResult result) {
+            base.Channel.EndUpdateAchivmentFile(result);
+        }
+        
+        private System.IAsyncResult OnBeginUpdateAchivmentFile(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int achivId = ((int)(inValues[0]));
+            string loginName = ((string)(inValues[1]));
+            return ((SeeSharp.ServiceReference1.IServerService)(this)).BeginUpdateAchivmentFile(achivId, loginName, callback, asyncState);
+        }
+        
+        private object[] OnEndUpdateAchivmentFile(System.IAsyncResult result) {
+            ((SeeSharp.ServiceReference1.IServerService)(this)).EndUpdateAchivmentFile(result);
+            return null;
+        }
+        
+        private void OnUpdateAchivmentFileCompleted(object state) {
+            if ((this.UpdateAchivmentFileCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UpdateAchivmentFileCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UpdateAchivmentFileAsync(int achivId, string loginName) {
+            this.UpdateAchivmentFileAsync(achivId, loginName, null);
+        }
+        
+        public void UpdateAchivmentFileAsync(int achivId, string loginName, object userState) {
+            if ((this.onBeginUpdateAchivmentFileDelegate == null)) {
+                this.onBeginUpdateAchivmentFileDelegate = new BeginOperationDelegate(this.OnBeginUpdateAchivmentFile);
+            }
+            if ((this.onEndUpdateAchivmentFileDelegate == null)) {
+                this.onEndUpdateAchivmentFileDelegate = new EndOperationDelegate(this.OnEndUpdateAchivmentFile);
+            }
+            if ((this.onUpdateAchivmentFileCompletedDelegate == null)) {
+                this.onUpdateAchivmentFileCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateAchivmentFileCompleted);
+            }
+            base.InvokeAsync(this.onBeginUpdateAchivmentFileDelegate, new object[] {
+                        achivId,
+                        loginName}, this.onEndUpdateAchivmentFileDelegate, this.onUpdateAchivmentFileCompletedDelegate, userState);
+        }
+        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -580,6 +717,32 @@ namespace SeeSharp.ServiceReference1 {
             public void EndUpdateUserProfile(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 base.EndInvoke("UpdateUserProfile", _args, result);
+            }
+            
+            public System.IAsyncResult BeginGetAchivmentFile(string loginName, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = loginName;
+                System.IAsyncResult _result = base.BeginInvoke("GetAchivmentFile", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.Generic.List<int> EndGetAchivmentFile(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.Generic.List<int> _result = ((System.Collections.Generic.List<int>)(base.EndInvoke("GetAchivmentFile", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginUpdateAchivmentFile(int achivId, string loginName, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = achivId;
+                _args[1] = loginName;
+                System.IAsyncResult _result = base.BeginInvoke("UpdateAchivmentFile", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndUpdateAchivmentFile(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("UpdateAchivmentFile", _args, result);
             }
         }
     }

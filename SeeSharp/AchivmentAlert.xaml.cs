@@ -1,6 +1,7 @@
 ﻿using SeeSharp.BO.Dictionaries;
 using SeeSharp.BO.Managers;
 using SeeSharp.Infrastructure;
+using SeeSharp.ServiceReference1;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -32,8 +33,14 @@ namespace SeeSharp
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
         {
-            AchivmentManager.SaveAchivmentToProfile(_achivment.Id, ViewFactory.MainPageInstance.UserManager.UserInfo.Login);
+            SaveAchivmentToProfile(_achivment.Id, ViewFactory.MainPageInstance.UserManager.UserInfo.Login);
             this.DialogResult = true;
+        }
+
+        private static void SaveAchivmentToProfile(int achivId, string loginName)
+        {
+            ServerServiceClient serverService = ServerServiceClient.GetInstance();
+            serverService.UpdateAchivmentFileAsync(achivId, loginName);
         }
     }
 }

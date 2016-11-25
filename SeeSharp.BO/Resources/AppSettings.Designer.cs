@@ -61,7 +61,7 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to /Images/Achivments/{0}.
+        ///   Looks up a localized string similar to Images/Achivments/{0}.
         /// </summary>
         internal static string AchivmentImageDirectory {
             get {

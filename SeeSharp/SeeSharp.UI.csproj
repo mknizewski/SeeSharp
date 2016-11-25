@@ -87,6 +87,9 @@
     <Compile Include="AchivmentAlert.xaml.cs">
       <DependentUpon>AchivmentAlert.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AchivmentItem.xaml.cs">
+      <DependentUpon>AchivmentItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Alert.xaml.cs">
       <DependentUpon>Alert.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AchivmentAlert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AchivmentItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 
 namespace SeeSharp.BO.Managers
 {
@@ -26,13 +16,13 @@ namespace SeeSharp.BO.Managers
         {
             AchivmentList = new List<Achivment>();
 
-            AchivmentList.Add(Achivment.CreateAchivment(0, "TechnologyPionier.png", "Pionier techonologi", ""));
-            AchivmentList.Add(Achivment.CreateAchivment(1, "MakeVSGreatAgain.png", "Make Visual Studio greater!", ""));
-            AchivmentList.Add(Achivment.CreateAchivment(2, "DekareVarNotWar.png", "Declare var, not war", ""));
-            AchivmentList.Add(Achivment.CreateAchivment(3, "ObiektowyJanusz.png", "Obiektowy Janusz", ""));
+            AchivmentList.Add(Achivment.CreateAchivment(0, "TechnologyPionier.png", "Pionier techonologii", "Zacząłeś kurs o .NET"));
+            AchivmentList.Add(Achivment.CreateAchivment(1, "MakeVSGreatAgain.png", "Make Visual Studio greater!", "Dokonałeś instalacji programu Microsoft Visual Studio."));
+            AchivmentList.Add(Achivment.CreateAchivment(2, "DeckareVarNotWar.png", "Declare var, not war", "Zakończono podrozdział o zmiennych."));
+            AchivmentList.Add(Achivment.CreateAchivment(3, "ObiektowyJanusz.png", "Obiektowy Janusz", "Zakończono podrozdział o klasach."));
             AchivmentList.Add(Achivment.CreateAchivment(4, "CopyAndPasteDev.png", "Copy & Paste Developer", ""));
-            AchivmentList.Add(Achivment.CreateAchivment(5, "CesarzNET.png", "Cesarz .NET-a", ""));
-            AchivmentList.Add(Achivment.CreateAchivment(6, "ItsPower.png", "#ToJestPotęga", ""));
+            AchivmentList.Add(Achivment.CreateAchivment(5, "CesarzNET.png", "Cesarz .NET-a", "Brawo! Ukończyłeś w 100% kurs!"));
+            AchivmentList.Add(Achivment.CreateAchivment(6, "ItsPower.png", "#ToJestPotęga", "Zaczynasz kurs dla zaawansowanych użytkowników."));
         }
 
         public static Achivment GetAchivment(Achivments achivments)
@@ -40,11 +30,6 @@ namespace SeeSharp.BO.Managers
             int achivId = (int)achivments;
 
             return AchivmentList.Where(x => x.Id == achivId).First();
-        }
-
-        public static void SaveAchivmentToProfile(int achivId, string loginName)
-        {
-
         }
     }
 
@@ -77,6 +62,7 @@ namespace SeeSharp.BO.Managers
         ObjectiveJanusz,
         CopyAndPasteDev,
         KingOfNET,
-        ItsAPower
+        ItsAPower,
+        None
     }
 }
