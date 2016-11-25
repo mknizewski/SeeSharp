@@ -61,6 +61,15 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /Images/Achivments/{0}.
+        /// </summary>
+        internal static string AchivmentImageDirectory {
+            get {
+                return ResourceManager.GetString("AchivmentImageDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 0.5 - Środowisko Testowe.
         /// </summary>
         internal static string AppVersion {

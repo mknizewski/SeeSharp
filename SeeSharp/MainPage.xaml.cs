@@ -74,6 +74,11 @@ namespace SeeSharp
             ViewFactory.GetAlert(message).Show();
         }
 
+        public void SetAchivmentAlert(Achivments achivments)
+        {
+            ViewFactory.GetAchivmentAlert(achivments).Show();
+        }
+
         public void SetModule(string tag)
         {
             UserControl module = ViewFactory.GetModule(tag);
