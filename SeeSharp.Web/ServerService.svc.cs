@@ -23,10 +23,14 @@ namespace SeeSharp.Web
             if (!Directory.Exists(userDirectory))
             {
                 Directory.CreateDirectory(userDirectory);
-                XmlDocument xmlFile = XmlManager.CreateNewXmlFile(loginName, code);
-                string fullXmlFilePath = string.Concat(userDirectory, Separator, ServerDictionary.XmlFileName);
+                XmlDocument xmlProfileFile = XmlManager.CreateNewXmlProfileFile(loginName, code);
+                XmlDocument xmlAchivmentFile = XmlManager.CreateNewAchivmentFile();
 
-                xmlFile.Save(fullXmlFilePath);
+                string fullXmlProfileFilePath = string.Concat(userDirectory, Separator, ServerDictionary.XmlProfileFileName);
+                string fullXmlAchivmentFilePath = string.Concat(userDirectory, Separator, ServerDictionary.XmlAchivmentsFileName);
+
+                xmlProfileFile.Save(fullXmlProfileFilePath);
+                xmlAchivmentFile.Save(fullXmlAchivmentFilePath);
 
                 return true;
             }
@@ -54,7 +58,7 @@ namespace SeeSharp.Web
                 Separator,
                 loginName,
                 Separator,
-                ServerDictionary.XmlFileName);
+                ServerDictionary.XmlProfileFileName);
 
             if (!File.Exists(userProfilePath))
                 return new Dictionary<string, string>();
@@ -118,7 +122,7 @@ namespace SeeSharp.Web
                 Separator,
                 loginName,
                 Separator,
-                ServerDictionary.XmlFileName);
+                ServerDictionary.XmlProfileFileName);
 
             XmlManager.UpdateXml(userProfile, userProfilePath);
         }

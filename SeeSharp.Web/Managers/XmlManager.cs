@@ -5,7 +5,7 @@ namespace SeeSharp.Web.Managers
 {
     public static class XmlManager
     {
-        public static XmlDocument CreateNewXmlFile(string loginName, int code)
+        public static XmlDocument CreateNewXmlProfileFile(string loginName, int code)
         {
             XmlDocument xmlDocument = new XmlDocument();
 
@@ -34,6 +34,16 @@ namespace SeeSharp.Web.Managers
             tutorialNode.AppendChild(lastSubNode);
 
             rootNode.AppendChild(tutorialNode);
+
+            return xmlDocument;
+        }
+
+        public static XmlDocument CreateNewAchivmentFile()
+        {
+            XmlDocument xmlDocument = new XmlDocument();
+
+            XmlNode root = xmlDocument.CreateElement("achivments");
+            xmlDocument.AppendChild(root);
 
             return xmlDocument;
         }
