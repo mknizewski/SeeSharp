@@ -68,7 +68,43 @@ namespace SeeSharp.Web.Managers
             return userDictionary;
         }
 
-        public static void UpdateXml(Dictionary<string, string> userProfile, string xmlFilePath)
+        public static int[] DeserializeXmlAchivments(string xmlFilePath)
+        {
+            XmlDocument xmlAchivments = new XmlDocument();
+            xmlAchivments.Load(xmlFilePath);
+
+            XmlNode root = xmlAchivments.FirstChild;
+            int achivCount = root.ChildNodes.Count;
+
+            if (achivCount == 0)
+                return null;
+
+            int[] achivArray = new int[achivCount];
+
+            for (int i = 0; i < achivCount; i++)
+            {
+                XmlNode achiv = root.ChildNodes[i];
+                achivArray[i] = int.Parse(achiv.InnerText);
+            }
+
+            return achivArray;
+        }
+
+        public static void UpdateXmlAchivments(int achivId, string xmlAchivFilePath)
+        {
+            XmlDocument xmlAchivments = new XmlDocument();
+            xmlAchivments.Load(xmlAchivFilePath);
+
+            XmlNode root = xmlAchivments.FirstChild;
+            XmlNode achivment = xmlAchivments.CreateElement("achivment");
+
+            achivment.InnerText = achivId.ToString();
+            root.AppendChild(achivment);
+
+            xmlAchivments.Save(xmlAchivFilePath);
+        }
+
+        public static void UpdateXmlProfile(Dictionary<string, string> userProfile, string xmlFilePath)
         {
             XmlDocument xmlProfile = new XmlDocument();
             xmlProfile.Load(xmlFilePath);

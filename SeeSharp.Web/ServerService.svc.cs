@@ -124,7 +124,7 @@ namespace SeeSharp.Web
                 Separator,
                 ServerDictionary.XmlProfileFileName);
 
-            XmlManager.UpdateXml(userProfile, userProfilePath);
+            XmlManager.UpdateXmlProfile(userProfile, userProfilePath);
         }
     }
 }
