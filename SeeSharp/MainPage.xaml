@@ -16,7 +16,7 @@
         </Storyboard>
     </UserControl.Resources>
 
-    <Grid x:Name="LayoutRoot" Background="White">
+    <Grid x:Name="LayoutRoot" Background="White" KeyUp="LayoutRoot_KeyUp">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" MaxWidth="250" />

@@ -5,6 +5,7 @@ using SeeSharp.ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 using System.Windows.Browser;
 using System.Windows.Controls;
@@ -23,13 +24,16 @@ namespace SeeSharp
         private const int CourseFinished = 100;
 
         private ModuleManager _moduleManager;
+        private TimeSpan _currentVideoSpan;
         private MediaViewModel _viewModel;
+        private bool _isFullScreen;
 
         private enum ButtonState { Play, Pause, Restart }
 
         public ModulePage(string tag)
         {
             this._moduleManager = ModuleManager.GetModuleManager(tag);
+            this._isFullScreen = false;
 
             InitializeComponent();
             InitializeView();
@@ -46,11 +50,19 @@ namespace SeeSharp
             double mediaWidth = double.NaN;
             double mediaHeight = double.NaN;
 
-            mediaHeight = actualViewHeight >= Height720p ? Height720p : Height480p;
-            mediaWidth = actualViewWidth >= Width720p ? Width720p : Width480p;
+            if (_isFullScreen)
+            {
+                this.media.MaxWidth = size.Width;
+                this.media.MaxHeight = size.Height;
+            }
+            else
+            {
+                mediaHeight = actualViewHeight >= Height720p ? Height720p : Height480p;
+                mediaWidth = actualViewWidth >= Width720p ? Width720p : Width480p;
 
-            this.media.MaxHeight = mediaHeight;
-            this.media.MaxWidth = mediaWidth;
+                this.media.MaxHeight = mediaHeight;
+                this.media.MaxWidth = mediaWidth;
+            }
         }
 
         private void SetAchivmentIfNessesary()
@@ -131,6 +143,7 @@ namespace SeeSharp
         private void MediaOpened(object sender, RoutedEventArgs e)
         {
             this._viewModel.UpdateDurationInfo();
+            this.RestorePervousVideoPosition();
         }
 
         private void playPauseButton_Click(object sender, RoutedEventArgs e)
@@ -267,6 +280,50 @@ namespace SeeSharp
         private void LayoutRoot_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             AdjustMediaMaxResolution(e.NewSize);
+        }
+
+        private void fullScreenButton_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeScreen();
+        }
+
+        private void RestorePervousVideoPosition()
+        {
+            if (_currentVideoSpan.Ticks != 0)
+            {
+                this.media.Position = _currentVideoSpan;
+                this.media.Play();
+            }
+        }
+
+        public void ChangeScreen()
+        {
+            this._currentVideoSpan = new TimeSpan(this.media.Position.Ticks);
+
+            if (_isFullScreen)
+            {
+                ViewFactory.MainPageInstance.LayoutRoot.Children.ToList().ForEach(x => x.Visibility = Visibility.Visible);
+                ViewFactory.MainPageInstance.LayoutRoot.Children.Remove(this);
+                ViewFactory.MainPageInstance.DynamicView.Children.Add(this);
+
+                this.Scroll.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
+                this.ModuleGrid.Margin = new Thickness(20, 0, 20, 0);
+                this.Stack.Children.ToList().ForEach(x => x.Visibility = Visibility.Visible);
+            }
+            else
+            {
+                ViewFactory.MainPageInstance.LayoutRoot.Children.ToList().ForEach(x => x.Visibility = Visibility.Collapsed);
+                ViewFactory.MainPageInstance.DynamicView.Children.Remove(this);
+                ViewFactory.MainPageInstance.LayoutRoot.Children.Add(this);
+
+                this.ModuleGrid.Margin = new Thickness(0, 0, 0, 0);
+                this.Stack.Children.ToList().ForEach(x => x.Visibility = Visibility.Collapsed);
+                this.ModuleGrid.Visibility = Visibility.Visible;
+                this.Scroll.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
+            }
+
+            _isFullScreen = !_isFullScreen;
+            Application.Current.Host.Content.IsFullScreen = _isFullScreen;
         }
     }
 }
