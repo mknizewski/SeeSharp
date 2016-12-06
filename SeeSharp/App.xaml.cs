@@ -2,6 +2,7 @@
 using SeeSharp.ServiceReference1;
 using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace SeeSharp
 {
@@ -18,14 +19,18 @@ namespace SeeSharp
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            this.RootVisual = new MainPage();
-            ViewFactory.MainPageInstance = this.RootVisual as MainPage;
+            Grid grid = new Grid();
+            MainPage mainPage = new MainPage();
+            ViewFactory.MainPageInstance = mainPage;
+
+            grid.Children.Add(mainPage);
+            this.RootVisual = grid;
             this.ConfigureServer();
         }
 
         private void Application_Exit(object sender, EventArgs e)
         {
-            (this.RootVisual as MainPage).Dispose();
+            ViewFactory.MainPageInstance.Dispose();
         }
 
         private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)

@@ -12,11 +12,11 @@
     </UserControl.Resources>
 
     <Grid x:Name="LayoutRoot" SizeChanged="LayoutRoot_SizeChanged">
-        <ScrollViewer x:Name="Scroll">
-            <StackPanel Orientation="Vertical">
+        <ScrollViewer x:Name="Scroll" BorderBrush="{x:Null}" BorderThickness="0">
+            <StackPanel Orientation="Vertical" x:Name="Stack">
                 <TextBlock x:Name="ModuleTitle" FontFamily="Open Sans" FontSize="32" Text="Title" HorizontalAlignment="Center" />
                 <TextBox x:Name="ModuleTextBox" AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True" FontFamily="Open Sans" FontSize="16" Margin="20 10 20 10" />
-                <Grid Margin="20 0 20 0">
+                <Grid Margin="20 0 20 0" x:Name="ModuleGrid">
                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -26,7 +26,7 @@
                         </Grid.RowDefinitions>
 
                         <Border BorderThickness="0" Background="Black">
-                            <MediaElement x:Name="media" MaxWidth="1280" MaxHeight="720"
+                            <MediaElement x:Name="media"
                               Source="http://ecn.channel9.msdn.com/o9/content/smf/progressivecontent/wildlife.wmv"
 							  AutoPlay="False"
 							  Position="{Binding Position, Mode=TwoWay}" />
@@ -37,13 +37,17 @@
                         </Canvas>
 
                         <StackPanel Grid.Row="2" Orientation="Horizontal" Background="#1B1B1B">
-                            <Button x:Name="playPauseButton" Style="{StaticResource PlayButtonStyle}" Click="playPauseButton_Click" />
-                            <Slider Style="{StaticResource VolumeSlider}" Width="56" Minimum="0" Maximum="10" Value="{Binding Path=Volume, ElementName=media, Mode=TwoWay, Converter={StaticResource VolumeConverter}}" />
-                            <TextBlock Margin="6,0,0,0" VerticalAlignment="Center" Style="{StaticResource ProgressTextStyle}">
-					<Run Text="{Binding PositionText}" Foreground="White" />
-					<Run Text=" / " />
-					<Run Text="{Binding DurationText}" />
+                            <Button x:Name="playPauseButton" Style="{StaticResource PlayButtonStyle}" Click="playPauseButton_Click" Cursor="Hand" />
+                            <Slider Cursor="Hand" Style="{StaticResource VolumeSlider}" Width="56" Minimum="0" Maximum="10" Value="{Binding Path=Volume, ElementName=media, Mode=TwoWay, Converter={StaticResource VolumeConverter}}" />
+                            <TextBlock Margin="6,0,0,0" VerticalAlignment="Center" Style="{StaticResource ProgressTextStyle}">                 
+					            <Run Text="{Binding PositionText}" Foreground="White" />
+					            <Run Text=" / " />
+					            <Run Text="{Binding DurationText}" />
                             </TextBlock>
+                            
+                            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                                <Button x:Name="fullScreenButton" Cursor="Hand" Click="fullScreenButton_Click" Style="{StaticResource FullScreenButtonStyle}" />
+                            </StackPanel>
                         </StackPanel>
                         <TextBlock x:Name="errorText" Grid.Row="3" Foreground="Red" TextWrapping="Wrap" Visibility="Collapsed" />
                     </Grid>

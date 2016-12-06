@@ -28,7 +28,7 @@ namespace SeeSharp
 
         public void Dispose()
         {
-            ;
+            GC.Collect();
         }
 
         private void Grid_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -139,6 +139,24 @@ namespace SeeSharp
         private void WelcomePageButtonMenuButton_Click(object sender, RoutedEventArgs e)
         {
             SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
+        }
+
+        private void LayoutRoot_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            int fullScreenIndex = 1;
+
+            if (e.Key == System.Windows.Input.Key.Escape)
+            {
+                try
+                {
+                    UIElement element = this.LayoutRoot.Children[fullScreenIndex];
+
+                    if (element is ModulePage)
+                        (element as ModulePage).ChangeScreen();
+                }
+                catch (ArgumentOutOfRangeException)
+                { }
+            }
         }
     }
 }
