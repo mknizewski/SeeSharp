@@ -64,9 +64,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AuthPage.html" />
     <Content Include="ClientBin\SeeSharp.xap" />
     <Content Include="Content\MovieCourses\2_1_3.mp4" />
     <Content Include="Content\Samples\ProgramTemplate.txt" />
+    <Content Include="Global.asax" />
     <Content Include="SeeSharpTestPage.aspx" />
     <Content Include="SeeSharpTestPage.html" />
     <Content Include="ServerService.svc" />
@@ -75,6 +77,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dictionaries\ServerDictionary.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="IServerService.cs" />
     <Compile Include="Managers\XmlManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
