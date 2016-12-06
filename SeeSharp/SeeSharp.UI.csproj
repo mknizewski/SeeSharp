@@ -211,6 +211,8 @@
     <Resource Include="Images\Achivments\MakeVSGreatAgain.png" />
     <Resource Include="Images\Achivments\ObiektowyJanusz.png" />
     <Resource Include="Images\Achivments\TechnologyPionier.png" />
+    <Resource Include="Images\Video\full_screen_hover.png" />
+    <Resource Include="Images\Video\full_screen.png" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>

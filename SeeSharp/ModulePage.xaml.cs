@@ -312,11 +312,13 @@ namespace SeeSharp
             }
             else
             {
+                double zero = Convert.ToDouble(decimal.Zero);
                 ViewFactory.MainPageInstance.LayoutRoot.Children.ToList().ForEach(x => x.Visibility = Visibility.Collapsed);
                 ViewFactory.MainPageInstance.DynamicView.Children.Remove(this);
                 ViewFactory.MainPageInstance.LayoutRoot.Children.Add(this);
 
-                this.ModuleGrid.Margin = new Thickness(0, 0, 0, 0);
+                this.ModuleGrid.Margin = new Thickness(zero, zero, zero, zero);
+                this.Scroll.ScrollToVerticalOffset(zero);
                 this.Stack.Children.ToList().ForEach(x => x.Visibility = Visibility.Collapsed);
                 this.ModuleGrid.Visibility = Visibility.Visible;
                 this.Scroll.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;

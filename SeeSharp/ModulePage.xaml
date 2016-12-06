@@ -44,7 +44,10 @@
 					            <Run Text=" / " />
 					            <Run Text="{Binding DurationText}" />
                             </TextBlock>
-                            <Button x:Name="fullScreenButton" Click="fullScreenButton_Click" HorizontalAlignment="Right" Margin="0 0 5 0">F</Button>
+                            
+                            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                                <Button x:Name="fullScreenButton" Click="fullScreenButton_Click" Style="{StaticResource FullScreenButtonStyle}" />
+                            </StackPanel>
                         </StackPanel>
                         <TextBlock x:Name="errorText" Grid.Row="3" Foreground="Red" TextWrapping="Wrap" Visibility="Collapsed" />
                     </Grid>
