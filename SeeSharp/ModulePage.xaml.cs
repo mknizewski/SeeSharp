@@ -132,6 +132,11 @@ namespace SeeSharp
             this.media.BufferingTime = TimeSpan.FromSeconds(1);
             this.UpdateStatusText();
             this.UpdatePlayPauseButton();
+            Application.Current.Host.Content.FullScreenChanged += (sender, eventArgs) =>
+            {
+                if (Application.Current.Host.Content.IsFullScreen != _isFullScreen)
+                    ChangeScreen();
+            };
         }
 
         public void Dispose()
@@ -322,6 +327,7 @@ namespace SeeSharp
                 this.Stack.Children.ToList().ForEach(x => x.Visibility = Visibility.Collapsed);
                 this.ModuleGrid.Visibility = Visibility.Visible;
                 this.Scroll.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
+                this.Focus();
             }
 
             _isFullScreen = !_isFullScreen;
