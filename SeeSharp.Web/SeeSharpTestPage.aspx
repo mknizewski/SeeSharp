@@ -70,6 +70,14 @@
     </script>
 </head>
 <body>
+    <%
+        if (string.IsNullOrEmpty(Request["auth"]))
+        {
+            Response.Clear();
+            Response.Close();
+            Response.End();
+        }
+    %>
     <form id="form1" runat="server" style="height: 100%; width: 100%;">
         <div id="silverlightControlHost">
             <object id="silverlightObject" data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="100%" height="100%">
