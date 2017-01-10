@@ -1,0 +1,7 @@
+W³aœciwoœæ jest konstrukcj¹ charakterystyczn¹ dla jêzyka C sharp. Zapewnia ona w³aœciwoœæ do pól znajduj¹cych siê w klasie przy pomocy akcesorów get i set. G³ówn¹ funkcjonalnoœci¹ w³aœciwoœci jest mo¿liwoœæ zapisywania i odczytywania prywatnych pól znajduj¹cych siê w klasie, tak jakby by³y publiczne.
+
+Pola okreœlane s¹ poprzez zmienne deklarowane w klasach.
+
+W³aœciwoœæ deklarujemy w sposób podobny do deklarowania zmiennej, jednak w jej wnêtrzu nale¿y obs³u¿yæ akcesory get i set. W³aœciwoœæ ma dostêp publiczny i typ taki sam jak pole, którego dotyczy, a w jej ciele definicje obu akcesorów:
+- Akcesor get mówi co ma zostaæ zwrócone przy odwo³aniu w³aœciwoœci pola (u¿yto danej w³aœciwoœci “do odczytu”);
+- Akcesor set mówi co ma staæ siê wartoœci¹ przypisan¹ do w³aœciwoœci pola (u¿yto danej w³aœciwoœci “do zapisu”).

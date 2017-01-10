@@ -1,0 +1,8 @@
+Operatorem okreœlamy jeden lub kilka znaków, które s¹ wykorzystywane w jêzyku programowania na ka¿dym kroku. 
+
+Operatorem arytmetycznym nazywamy operator s³u¿¹cy do wykonywania prostych dzia³añ matematycznych:
+- Operator dodawania (+);
+- Operator odejmowania (-);
+- Operator mno¿enia (*);
+- Operator dzielenia (/);
+- Operator reszty z dzielenia (%).

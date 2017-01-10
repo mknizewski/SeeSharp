@@ -1,0 +1,3 @@
+Pêtle s¹ instrukcjami pozwalaj¹cymi na cykliczne wykonywanie tego samego fragmentu kodu. G³ównie pêtle wykorzystujemy do wykonywania okreœlonych sekwencji bloków kodu, które chcemy wykonaæ wielokrotnie, przyk³adowo przy obróbce kolejnych serii danych. 
+
+Pêtla foreach() s³u¿y do obs³ugi kolekcji (list, s³owników, stosów, kolejek, tablic), zbiorów elementów. Deklaracja zmiennej pêtli to deklaracja zmiennej, do której bêd¹ przypisywane kolejne elementy kolekcji. Zmienna ta jest u¿ywana wewn¹trz pêtli, jak ka¿da inna zmienna. Deklaracja zmiennej pêtli wygl¹da tak, jak deklaracja ka¿dej zmiennej. Typ zmiennej powinien byæ zgodny z typem elementów kolekcji, w przeciwnym przypadku nie mo¿liwe bêdzie przypisanie do tej zmiennej kolejnych elementów znajduj¹cych siê na kolekcji.

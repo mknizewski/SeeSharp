@@ -1,0 +1,8 @@
+W naszym kursie bêdziemy korzystaæ w³aœnie z jêzyka C#, który oczywiœcie jest wspierane przez nasze œrodowisko programistyczne, czyli Microsoft Visual Studio
+
+Definicja:
+C# jest jêzykiem programowania opracowanym przez firmê Microsoft. Jego g³ównym twórc¹ jest Anders Hejlsberg – in¿ynier oprogramowania znany z pracy nad Turbo Pascalem.
+
+C# ³¹czy w sobie to, co najlepsze z jêzyków Java, C oraz C++. Sk³adnia jêzyka podobna jest do tej z C++, zaœ samo dzia³anie programów przypomina mechanizm Javy (jest to wirtualizacja). 
+
+Powy¿szy wstêp mia³ za zadanie pokazaæ Ci, na czym bêdzie polegaæ praca z C Sharpem, dlaczego jest on ciekawy i jak wiele mo¿liwoœci ze sob¹ niesie. W kolejnej czêœci kursu zapoznasz siê ze œrodowiskiem Microsoft Visual Studio 2015. W dalszej kolejnoœci skupimy siê ju¿ konkretnie na nauce jêzyka C#.

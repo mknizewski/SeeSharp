@@ -1,0 +1,10 @@
+C sharp ma do zaoferowania wiele sposobów wyœwietlania wartoœci:
+- {O:C} - s³u¿y do formatowania waluty
+- {0:E} - s³u¿y do wyœwietlania liczby w notacji wyk³adniczej
+- {0:Dn} - s³u¿y do wyœwietlania liczby dziesiêtnej, gdzie n to minimalna iloœæ cyfr w wyœwietlanej liczbie;
+- {0:Fn} - s³u¿y do wyœwietlania liczby z n iloœci¹ miejsc po przecinku;
+- {0:X} - s³u¿y do wyœwietlania liczby w systemie szesnastkowym;
+- {0:d} - s³u¿y do wyœwietlania dnia;
+- {0:t} - s³u¿y do wyœwietlania godziny;
+- {0:P} - s³u¿y do wyœwietlania procentów;
+- {0:Nm} - s³u¿y do wyœwietlania numeru, gdzie m to iloœæ miejsc po przecinku.

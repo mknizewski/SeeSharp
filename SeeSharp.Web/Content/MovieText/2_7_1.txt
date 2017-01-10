@@ -1,0 +1,9 @@
+Hermetyzacja jest to kontrolowany dostêp do wnêtrza istniej¹cej klasy. Polega na ukrywaniu pewnych danych sk³adowych lub metod danej klasy, tak aby by³y one dostêpne tylko metodom wewnêtrznym danej klasu lub innym uprawnionym.
+
+Hermetyzacjê umo¿liwiaj¹ modyfikatory dostêpu tj:
+- public - brak ograniczeñ. Sk³adowe klasy oznaczone tym modyfikatorem s¹ dostêpne dla wszystkich metod ze wszystkich klas;
+- private - sk³adowe, które s¹ dostêpne tylko w obrêbie w³asnej klasy; 
+- protected - sk³adowe chronione dostêpne na poziomie danej klasy, w której znajduj¹ siê oraz klas dziedzicz¹cych po klasie bazowej;
+- internal - sk³adowe wewnêtrzne s¹ dostêpne dla klasy znajduj¹cej siê w danej bibliotece;
+- protected internal - sk³adowe chronione dostêpne na poziomie danej klasy, w której znajduj¹ siê oraz klas dziedzicz¹cych po klasie bazowej tylko w obrêbie danej biblioteki.
+

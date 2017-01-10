@@ -1,0 +1,5 @@
+Typy generyczne s¹ to konstrukcje udostêpniaj¹ce wielopostaciowoœæ (z typem <T>). Typy generyczne znajduj¹ siê w przestrzeni nazw System.Collections.Generic. Umo¿liwiaj¹ one deklarowanie, jakiego typu elementy maj¹ znajdowaæ siê w zdefiniowanej kolekcji.
+
+G³ówn¹ zalet¹ jest przyspieszenie dzia³ania kolekcji. Podczas dodawania elementu nie jest o rzutowany na typ obiektowy, a podczas pobierania elementu z kolekcji nie musimy go z powrotem rzutowaæ na odpowiedni typ. Unikniêcie tych operacji znacz¹co przyspiesza dzia³anie programu.
+
+Deklarowanie kolekcji generycznej ró¿ni siê tym ¿e musimy dodatkowo w nawiasach ostrych <> okreœliæ typ elementów znajduj¹cych siê na zdefiniowanej kolekcji.

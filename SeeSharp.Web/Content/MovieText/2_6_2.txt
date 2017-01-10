@@ -1,0 +1,7 @@
+Tablice przechowuj¹ okreœlon¹ z góry iloœæ danych tego samego typu. Poniewa¿ tablice s³u¿¹ do przechowywania grupy danych (które mog¹ byæ liczne i zajmowaæ du¿o miejsca w pamiêci) tablice umieszcza siê na stercie, jako obiekty. Tablice maj¹ zatem typ referencyjny.
+
+Tablice dwuwymiarowe mo¿na porównaæ do uk³adu wspó³rzêdnych. Aby odwo³aæ siê do któregoœ z elementów podajemy indeks wiersza (x) oraz indeks kolumny (y).
+
+Elementy wierszy i kolumn indeksowane s¹ od 0. Zatem je¿eli mamy tablicê o wymiarze 4x6 to maksymalny indeks wiersza wyniesie 3 (zakres 0 do 3), a maksymalny indeks kolumny wyniesie 5 (zakres 0 do 4).
+
+Aby zadeklarowaæ tablicê n wymiarow¹ nale¿y zadeklarowaæ n nawiasów kwadratowych (w przypadku tablicy dwuwymiarowej podwójne nawiasy kwadratowe).

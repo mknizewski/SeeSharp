@@ -1,0 +1,7 @@
+Tablice przechowuj¹ okreœlon¹ z góry iloœæ danych tego samego typu. Poniewa¿ tablice s³u¿¹ do przechowywania grupy danych (które mog¹ byæ liczne i zajmowaæ du¿o miejsca w pamiêci) tablice umieszcza siê na stercie jako obiekty. Tablice maj¹ zatem typ referencyjny.
+
+Aby móc u¿ywaæ w programie tablicy nale¿y zadeklarowaæ zmienn¹ tablicow¹ oraz utworzyæ sam¹ tablicê (obiekt tablicy). Istnieje kilka mo¿liwoœci deklarowania tablic, które s¹ przedstawione w nagranym filmie poni¿ej. W trakcie deklarowania tablicy musz¹ wyst¹piæ nawiasy kwadratowe (w przypadku tablicy jednowymiarowej pojedyncze nawiasy kwadratowe).
+
+Tablice jednowymiarowe mo¿na porównaæ do osi liczbowej. Aby odwo³aæ siê do któregoœ z elementów znajduj¹cych siê na tablicy, wystarczy podaæ jej wspó³rzêdn¹. Nale¿y pamiêtaæ, ¿e w danej pozycji znajduje siê tylko jedna wartoœæ.
+
+Elementy tablicy indeksowane s¹ od 0. Zatem je¿eli tablica ma rozmiar równ¹ 6, to maksymalny indeks tablicy bêdzie wynosi³ 5, poniewa¿ zakres od 0 do 5 wynosi 6 elementów.

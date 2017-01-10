@@ -1,0 +1,8 @@
+Pêtle s¹ instrukcjami pozwalaj¹cymi na cykliczne wykonywanie tego samego fragmentu kodu. G³ównie pêtle wykorzystujemy do wykonywania okreœlonych sekwencji bloków kodu, które chcemy wykonaæ wielokrotnie, przyk³adowo przy obróbce kolejnych serii danych. 
+
+W pêtli for wystêpuje zmienna, która okreœlana jest licznikiem pêtli, lub zmienn¹ steruj¹c¹. Dziêki tej zmiennej istnieje mo¿liwoœæ okreœlania, ile razy ma siê wykonaæ pêtla. Oprócz licznika pêtli, kluczowe znaczenie ma wyra¿enie logiczne zawarte w for(), które decyduje, czy pêtla siê wykona czy te¿ nie; oraz polecenia wykonywane w samej pêtli.
+
+Kolejne kroki w pêtli for okreœlane s¹ poprzez:
+- krok inicjalizacji wykonywany w pierwszej kolejnoœci (tylko raz). Krok ten pozwala na zadeklarowanie zmiennej, pocz¹tkowej wartoœci licznika pêtli
+- kolejny krok jest krokiem w którym jest sprawdzane czy zasz³o wyra¿enie logiczne, które wykorzystuje wartoœæ licznika pêtli. Jeœli warunek jest spe³niony (true) to wykonaj polecenia zawarte w ciele pêtli, po czym zmieñ wartoœæ licznika pêtli w sekcji iteracyjnej;
+- je¿eli zaœ wyra¿enie logiczne jest nieprawdziwe (zwraca false) to zakoñcz dzia³anie pêtli for; 

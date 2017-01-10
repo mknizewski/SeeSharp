@@ -1,0 +1,12 @@
+- abstract - modyfikator dla klasy abstrakcyjnej
+
+Klasy abstrakcyjny wykorzystywane s¹ jedynie w postaci klasy bazowej (inne klasy po niej dziedzicz¹) i nie mo¿na na jej podstawie tworzyæ obiektów.
+
+Klasa abstrakcyjna umo¿liwia:
+- posiadanie metod abstrakcyjnych, które nie posiadaj¹ implementacji;
+- zawieranie sta³ych (zmienne oznaczone jako static final);
+- zawieranie zwyk³ych metod posiadaj¹cych pewn¹ funkcjonalnoœæ, a klasy pochodne mog¹ - dziedziczyæ t¹ funkcjonalnoœæ odziedziczyæ.
+
+Klasa abstrakcyjna nie umo¿liwia:
+- oznaczaæ metod abstrakcyjnych jako statyczne;
+- nie da siê tworzyæ instancji klas abstrakcyjnych.

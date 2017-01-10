@@ -1,0 +1,3 @@
+Sta³e s¹ to zmienne, które nie podlegaj¹ modyfikacji. Aby zadeklarowaæ sta³¹ u¿ywamy s³owa const typ nazwa = wartoœæ. Raz ju¿ zadeklarowanej wartoœci nie mo¿emy potem zmieniaæ w programie. Bêdzie to skutkowaæ b³êdem programu. 
+
+Aby zapobiec b³êdom w programie, podczas wyœwietlania zmiennej mo¿emy dokonaæ operacjê na tej zmiennej podczas wyœwietlania, lecz zmienna w pamiêci wci¹¿ bêdzie mia³a sta³¹, niezmienn¹, zadeklarowan¹ wczeœniej wartoœæ.

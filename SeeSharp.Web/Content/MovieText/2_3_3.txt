@@ -1,0 +1,12 @@
+Operatorem okreœlamy jeden lub kilka znaków, które s¹ wykorzystywane w jêzyku programowania na ka¿dym kroku.
+
+Operatorem porównania (inaczej relacji) okreœlamy operatory s³u¿¹ce do porównania dwóch zmiennych i zawsze daj¹ wynik true lub false:
+- Równy (==);
+- Ró¿ny (!=);
+- Mniejszy (<);
+- Wiêkszy (>);
+- Mniejszy równy (<=);
+- Wiêkszy równy (>=) . 
+
+Operator warunkowy pozwala na sprawdzenie wyra¿enia logicznego, które jest zapisane z lewej strony operatora w nawiasach okr¹g³ych. Jeœli spe³nione jest wyra¿enie logiczne to operator warunkowy zwraca wyra¿enie1, w przeciwnym wypadku zwraca wyra¿enie drugie:
+- (wyra¿enie logiczne)? wyra¿enie1 : wyra¿enie2

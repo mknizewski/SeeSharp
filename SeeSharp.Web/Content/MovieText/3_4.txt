@@ -1,0 +1,6 @@
+Wyra¿enia lambda umo¿liwiaj¹ tworzenie anonimowych funkcji które posiadaj¹ cia³o, lecz nie posiadaj¹ swojej nazwy. Wyra¿enie lambda w du¿ym stopniu zapewniaj¹ wygodê dla programisty, poniewa¿:
+- typ parametru nie musi byæ podawany;
+- jeœli podawany jest jeden parametr to nawiasy () nie musz¹ wystêpowaæ;
+- jeœli jedyn¹ instrukcj¹ jest return to mo¿emy pomin¹æ nawiasy klamrowe {};
+
+Podstawowa sk³adnia: (parametry) => {zwracana wartoœæ}

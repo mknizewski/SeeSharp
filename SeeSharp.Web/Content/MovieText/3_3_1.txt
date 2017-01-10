@@ -1,0 +1,5 @@
+Delegaty s¹ to nowe typy danych, które mog¹ byæ zadeklarowane w klasie jako typ zagnie¿d¿ony lub poza ni¹. Delegaty deklarujemy jak nowe metody lecz, aby zadeklarowaæ delegat nale¿y dodatkowo u¿yæ s³owo kluczowe delegate (tu¿ przed zadeklarowanym typem metody delegata).
+
+Delegaty nie posiadaj¹ implementacji, jedynie nag³ówek zakoñczony znakiem œrednika. Delegata musi zwracaæ i przyjmowaæ dok³adnie takie same typy i iloœci zmiennych. Pod delegata mo¿na praktycznie podpi¹æ ka¿d¹ metodê, która niczego nie zwraca (przyjmuj¹c przy tym typ tekstowy string).
+
+Nag³ówek okreœlaj¹ parametry delegatu oraz typ zwrotny.

@@ -1,0 +1,4 @@
+Polimorfizm to tak zwana wielopostaciowoœæ. S¹ to mechanizmy pozwalaj¹ce programiœcie u¿ywaæ wartoœci, zmiennych i podprogramów na kilka ró¿nych sposobów. Inaczej mówi¹c jest to mo¿liwoœæ wyabstrahowania wyra¿eñ od konkretnych typów. Opisuj¹c najproœciej, polimorfizm polega na zdolnoœci obiektu do ró¿nych zachowañ zale¿nie od bie¿¹cego wykonania programu.
+Polimorfizm to filar programowania obiektowego. Polega na ró¿nym zachowaniu tych samych metod polimorficznych (o tych samych deklaracjach) w klasach bêd¹cych w relacji dziedziczenia.
+ 
+Metodami polimorficznymi (czyli obs³uguj¹cymi mechanizm polimorfizmu) s¹ metody wirtualne oraz metody abstrakcyjne.

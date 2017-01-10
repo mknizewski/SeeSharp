@@ -1,0 +1,5 @@
+Instrukcje warunkowe pozwalaj¹ u¿ytkownikowi na ustalenie jednego lub wiêcej warunków, od których bêdzie zale¿a³ dalszy ci¹g tok programu.
+
+Instrukcja switch() case jest instrukcj¹ wielokrotnego wyboru. Polega ona na tym, ¿e jest pobierania zmienna do instrukcji switch, która musi znajdowaæ siê w nawiasach klamrowych. Nastêpnie zale¿nie od wartoœci tej zmiennej dany case siê wykona lub nie. Przy ka¿dym z case’ów znajduje siê wartoœæ. Jeœli ta wartoœæ jest identyczna do wartoœci zmiennej to blok zawarty w danym case siê wykona. W przypadku, gdy ¿adna wartoœæ case nie odpowiada wartoœci zmiennej w instrukcji switch wykonuje siê blok zawarty w klauzuli default. 
+
+Nale¿y pamiêtaæ, aby po ka¿dym case oraz czy klauzuli default wywo³aæ komendê break. W przeciwnym wypadku nigdy nie wyjdziemy z instrukcji switch.

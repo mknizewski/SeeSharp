@@ -1,0 +1,11 @@
+Definicja:
+.NET Framework, w skrócie .NET (wym. dot net) – platforma programistyczna opracowana przez Microsoft, obejmuj¹ca œrodowisko uruchomieniowe (Common Language Runtime – CLR) oraz biblioteki klas dostarczaj¹ce standardowej funkcjonalnoœci dla aplikacji. 
+
+.NET nie jest zwi¹zany z jakimœ konkretnym jêzykiem oprogramowania. Mo¿esz pisaæ programy w jednym z wielu jêzyków, np. C#, F#, J#, C++/CLI, Visual Basic .NET. Zadaniem tej¿e platformy jest zarz¹dzanie elementami systemu, takimi jak: kod aplikacji, pamiêæ czy zabezpieczenia. W tym œrodowisku mo¿esz tworzyæ oprogramowanie, które bêdzie dzia³aæ po stronie serwera (IIS), b¹dŸ te¿ takie, które bêdzie pracowa³o na systemach, które posiadaj¹ dzia³aj¹c¹ implementacjê tej platformy. 
+
+Obecnie, najbardziej znane platformy .NET to:
+- Microsoft .NET Framework – jest to darmowe œrodowisko udostêpniane przez Microsoft
+- Mono – jest to projekt Novella na licencji Open Source
+- DotGNU Portable.NET – jest to implementacja powstaj¹ca w ramach projektu GNU
+	
+Œrodowiskiem programistycznym, którego bêdziemy u¿ywaæ w naszym kursie jest Microsoft Visual Studio. Jest to flagowy produkt, który umo¿liwia pisanie w kilku jêzykach programowania. Istnieje tak¿e wiele innych narzêdzi jak choæby komercyjny Borland, czy te¿ œrodowisko zastêpcze dla MS VS - SharpDevelop.
