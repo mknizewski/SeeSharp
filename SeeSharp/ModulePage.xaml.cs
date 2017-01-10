@@ -5,7 +5,9 @@ using SeeSharp.ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Browser;
 using System.Windows.Controls;
@@ -84,7 +86,14 @@ namespace SeeSharp
         private void InitializeModule()
         {
             this.ModuleTitle.Text = _moduleManager.CurrentModule.ModuleName;
-            this.ModuleTextBox.Text = AppSettingsDictionary.RandomText;
+
+            string pathToTextModule = string.Format(AppSettingsDictionary.TextDirectory, _moduleManager.CurrentModule.ModuleTag.Replace('.', '_'));
+            ServerServiceClient serviceClient = ServerServiceClient.GetInstance();
+            serviceClient.GetModuleTextAsync(pathToTextModule);
+            serviceClient.GetModuleTextCompleted += (send, recv) =>
+            {
+                this.ModuleTextBox.Text = recv.Result;
+            };
 
             string pathToTemplateProgram = string.Format(AppSettingsDictionary.ProgramFilesDirectory, "ProgramTemplate");
             this.ProgramDownloadLink.NavigateUri = new Uri(HtmlPage.Document.DocumentUri, pathToTemplateProgram);

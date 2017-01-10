@@ -161,6 +161,9 @@ Ryby się lisa gdym najpiękniejszéj Najpiękniejszego Dać Rzeczypospolitéj. 
   <data name="ShowPercentage" xml:space="preserve">
     <value>{0} %</value>
   </data>
+  <data name="TextDirectory" xml:space="preserve">
+    <value>/Content/MovieText/{0}.txt</value>
+  </data>
   <data name="UnloggedAlert" xml:space="preserve">
     <value>Niezalogowany</value>
   </data>

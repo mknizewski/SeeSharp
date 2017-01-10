@@ -161,6 +161,15 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /Content/MovieText/{0}.txt.
+        /// </summary>
+        internal static string TextDirectory {
+            get {
+                return ResourceManager.GetString("TextDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Niezalogowany.
         /// </summary>
         internal static string UnloggedAlert {
