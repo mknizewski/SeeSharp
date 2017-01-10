@@ -97,10 +97,10 @@ namespace SeeSharp
 
         public void SetModule(string tag)
         {
-            UserControl module = ViewFactory.GetModule(tag);
+            UserControl modulePage = ViewFactory.GetModule(tag);
 
             this.DynamicView.Children.Clear();
-            this.DynamicView.Children.Add(module);
+            this.DynamicView.Children.Add(modulePage);
             this.DynamicView.UpdateLayout();
         }
 

@@ -5,9 +5,7 @@ using SeeSharp.ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Browser;
 using System.Windows.Controls;
@@ -121,10 +119,21 @@ namespace SeeSharp
 
         private void InitializeView()
         {
-            string pathToVegas = string.Format(@AppSettingsDictionary.VideoDirectory, "2_1_3");
-            string absoluteUri = HtmlPage.Document.DocumentUri + pathToVegas;
-            Debug.WriteLine(absoluteUri);
-            this.media.Source = new Uri(HtmlPage.Document.DocumentUri, pathToVegas);
+            if (_moduleManager.CurrentModule.ModuleTag.Equals("1.1") || _moduleManager.CurrentModule.ModuleTag.Equals("1.2"))
+            {
+                this.ModuleGrid.Visibility = Visibility.Collapsed;
+                this.ProgramDownloadLink.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                this.ModuleGrid.Visibility = Visibility.Visible;
+                this.ProgramDownloadLink.Visibility = Visibility.Visible;
+
+                string pathToMovie = string.Format(@AppSettingsDictionary.VideoDirectory, _moduleManager.CurrentModule.ModuleTag.Replace('.', '_'));
+                string absoluteUri = HtmlPage.Document.DocumentUri + pathToMovie;
+
+                this.media.Source = new Uri(HtmlPage.Document.DocumentUri, pathToMovie);
+            }
 
             this.DataContext = this._viewModel = new MediaViewModel(this.media);
 
@@ -253,15 +262,13 @@ namespace SeeSharp
         private void PervModule_Click(object sender, RoutedEventArgs e)
         {
             _moduleManager.ChangeModule(ActionModule.Perv);
-            InitializeModule();
+            ViewFactory.MainPageInstance.SetModule(_moduleManager.CurrentModule.ModuleTag);
         }
 
         private void NextModule_Click(object sender, RoutedEventArgs e)
         {
             _moduleManager.ChangeModule(ActionModule.Next);
-            InitializeModule();
-            UpdateUserCourseAndUI();
-            SetAchivmentIfNessesary();
+            ViewFactory.MainPageInstance.SetModule(_moduleManager.CurrentModule.ModuleTag);
         }
 
         private void UpdateUserCourseAndUI()
