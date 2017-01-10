@@ -1,7 +1,7 @@
-W celu napisania pierwszego programu “Hello world” w jêzyku C# nale¿y stworzyæ nowy projekt poprzez wybór opcji kolejno File, New, Project nastêpnie wybór opcji “Console Application”. W nastêpnej kolejnoœci nazywamy nasz projekt w polu “Name” i wybieramy lokalizacjê zapisu projektu w polu “Location”.
+W celu napisania pierwszego programu â€œHello worldâ€ w jÄ™zyku C# naleÅ¼y stworzyÄ‡ nowy projekt poprzez wybÃ³r opcji kolejno File, New, Project nastÄ™pnie wybÃ³r opcji â€œConsole Applicationâ€. W nastÄ™pnej kolejnoÅ›ci nazywamy nasz projekt w polu â€œNameâ€ i wybieramy lokalizacjÄ™ zapisu projektu w polu â€œLocationâ€.
 
-Pierwszym programem w kursie bêdzie napisanie programu polegaj¹cego na wyœwietlaniu tekstu “Hello World” na ekranie monitora przy u¿yciu komendy Console.WriteLine();
+Pierwszym programem w kursie bÄ™dzie napisanie programu polegajÄ…cego na wyÅ›wietlaniu tekstu â€œHello Worldâ€ na ekranie monitora przy uÅ¼yciu komendy Console.WriteLine();
 
-Kompilujemy i nastêpnie uruchamiamy program poprzez klikniêcie klawisza F5 lub wybór opcji “Start” z zielon¹ strza³k¹ z panelu górnego.
+Kompilujemy i nastÄ™pnie uruchamiamy program poprzez klikniÄ™cie klawisza F5 lub wybÃ³r opcji â€œStartâ€ z zielonÄ… strzaÅ‚kÄ… z panelu gÃ³rnego.
 
-Nale¿y pamiêtaæ, aby móc wyœwietliæ skompilowany program nale¿y równie¿ wpisaæ Console.Readkey() w ostatniej linii programu w bloku “Main”.  
+NaleÅ¼y pamiÄ™taÄ‡, aby mÃ³c wyÅ›wietliÄ‡ skompilowany program naleÅ¼y rÃ³wnieÅ¼ wpisaÄ‡ Console.Readkey() w ostatniej linii programu w bloku â€œMainâ€.  

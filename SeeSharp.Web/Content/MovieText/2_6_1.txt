@@ -1,7 +1,7 @@
-Tablice przechowuj¹ okreœlon¹ z góry iloœæ danych tego samego typu. Poniewa¿ tablice s³u¿¹ do przechowywania grupy danych (które mog¹ byæ liczne i zajmowaæ du¿o miejsca w pamiêci) tablice umieszcza siê na stercie jako obiekty. Tablice maj¹ zatem typ referencyjny.
+Tablice przechowujÄ… okreÅ›lonÄ… z gÃ³ry iloÅ›Ä‡ danych tego samego typu. PoniewaÅ¼ tablice sÅ‚uÅ¼Ä… do przechowywania grupy danych (ktÃ³re mogÄ… byÄ‡ liczne i zajmowaÄ‡ duÅ¼o miejsca w pamiÄ™ci) tablice umieszcza siÄ™ na stercie jako obiekty. Tablice majÄ… zatem typ referencyjny.
 
-Aby móc u¿ywaæ w programie tablicy nale¿y zadeklarowaæ zmienn¹ tablicow¹ oraz utworzyæ sam¹ tablicê (obiekt tablicy). Istnieje kilka mo¿liwoœci deklarowania tablic, które s¹ przedstawione w nagranym filmie poni¿ej. W trakcie deklarowania tablicy musz¹ wyst¹piæ nawiasy kwadratowe (w przypadku tablicy jednowymiarowej pojedyncze nawiasy kwadratowe).
+Aby mÃ³c uÅ¼ywaÄ‡ w programie tablicy naleÅ¼y zadeklarowaÄ‡ zmiennÄ… tablicowÄ… oraz utworzyÄ‡ samÄ… tablicÄ™ (obiekt tablicy). Istnieje kilka moÅ¼liwoÅ›ci deklarowania tablic, ktÃ³re sÄ… przedstawione w nagranym filmie poniÅ¼ej. W trakcie deklarowania tablicy muszÄ… wystÄ…piÄ‡ nawiasy kwadratowe (w przypadku tablicy jednowymiarowej pojedyncze nawiasy kwadratowe).
 
-Tablice jednowymiarowe mo¿na porównaæ do osi liczbowej. Aby odwo³aæ siê do któregoœ z elementów znajduj¹cych siê na tablicy, wystarczy podaæ jej wspó³rzêdn¹. Nale¿y pamiêtaæ, ¿e w danej pozycji znajduje siê tylko jedna wartoœæ.
+Tablice jednowymiarowe moÅ¼na porÃ³wnaÄ‡ do osi liczbowej. Aby odwoÅ‚aÄ‡ siÄ™ do ktÃ³regoÅ› z elementÃ³w znajdujÄ…cych siÄ™ na tablicy, wystarczy podaÄ‡ jej wspÃ³Å‚rzÄ™dnÄ…. NaleÅ¼y pamiÄ™taÄ‡, Å¼e w danej pozycji znajduje siÄ™ tylko jedna wartoÅ›Ä‡.
 
-Elementy tablicy indeksowane s¹ od 0. Zatem je¿eli tablica ma rozmiar równ¹ 6, to maksymalny indeks tablicy bêdzie wynosi³ 5, poniewa¿ zakres od 0 do 5 wynosi 6 elementów.
+Elementy tablicy indeksowane sÄ… od 0. Zatem jeÅ¼eli tablica ma rozmiar rÃ³wnÄ… 6, to maksymalny indeks tablicy bÄ™dzie wynosiÅ‚ 5, poniewaÅ¼ zakres od 0 do 5 wynosi 6 elementÃ³w.

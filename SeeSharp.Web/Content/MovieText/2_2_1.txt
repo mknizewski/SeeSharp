@@ -1,5 +1,5 @@
-C sharp ma do zaoferowania wiele typów zmiennych, które mog¹ byæ wykorzystane przez nas w programie. Typy dzielimy na dwa rodzaje. Pierwszym z typów s¹ typy skalarne, które przechowuje wartoœci na stosie. Podstawowymi typami skalarnymi s¹ miêdzy innymi:
-Liczby ca³kowite:
+C sharp ma do zaoferowania wiele typÃ³w zmiennych, ktÃ³re mogÄ… byÄ‡ wykorzystane przez nas w programie. Typy dzielimy na dwa rodzaje. Pierwszym z typÃ³w sÄ… typy skalarne, ktÃ³re przechowuje wartoÅ›ci na stosie. Podstawowymi typami skalarnymi sÄ… miÄ™dzy innymi:
+Liczby caÅ‚kowite:
 - byte - liczba bez znaku (8 bitowa);
 - sbyte - liczba ze znakiem (8 bitowa);
 - short - liczba ze znakiem (16 bitowa);
@@ -8,12 +8,12 @@ Liczby ca³kowite:
 
 Liczby zmiennoprzecinkowe:
 - float - liczba pojedynczej precyzji;
-- double - liczba podwójnej precyzji;
-- decimal - liczba sta³ej precyzji.
+- double - liczba podwÃ³jnej precyzji;
+- decimal - liczba staÅ‚ej precyzji.
 
-Pozosta³e typy:
-- string - ci¹g znaków Unicode;
+PozostaÅ‚e typy:
+- string - ciÄ…g znakÃ³w Unicode;
 - char - znak Unicode;
-- bool - wartoœæ logiczna. 
+- bool - wartoÅ›Ä‡ logiczna. 
 
-Istniej¹ równie¿ typy referencyjne, które przechowuj¹ na stosie adres do wartoœci na stercie. Podczas gdy na dan¹ wartoœæ wskazuje kilka zmiennych typu referencyjnego to zmiana wartoœci wp³ywa na ka¿d¹ ze zmiennych.
+IstniejÄ… rÃ³wnieÅ¼ typy referencyjne, ktÃ³re przechowujÄ… na stosie adres do wartoÅ›ci na stercie. Podczas gdy na danÄ… wartoÅ›Ä‡ wskazuje kilka zmiennych typu referencyjnego to zmiana wartoÅ›ci wpÅ‚ywa na kaÅ¼dÄ… ze zmiennych.

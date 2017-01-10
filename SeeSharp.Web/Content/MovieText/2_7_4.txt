@@ -1,7 +1,7 @@
-Konstruktor to specjalna metoda, która jest wykonywana w chwili tworzenia obiektu, najczêœciej s³u¿¹ca do inicjalizacji pól obiektu. Konstruktor musi nazywaæ siê tak samo jak nazwa klasy, w której siê znajduje. Konstruktor nie mo¿e nic zwracaæ, a dostêp do konstruktora powinien byæ publiczny. 
+Konstruktor to specjalna metoda, ktÃ³ra jest wykonywana w chwili tworzenia obiektu, najczÄ™Å›ciej sÅ‚uÅ¼Ä…ca do inicjalizacji pÃ³l obiektu. Konstruktor musi nazywaÄ‡ siÄ™ tak samo jak nazwa klasy, w ktÃ³rej siÄ™ znajduje. Konstruktor nie moÅ¼e nic zwracaÄ‡, a dostÄ™p do konstruktora powinien byÄ‡ publiczny. 
 
-Konstruktor ma za zadanie inicjalizowanie pól klasy domyœlnymi wartoœciami i jest wywo³ywany w momencie tworzenia klasy. Konstruktor domyœlny zostaje do³¹czony do klasy niejawnie w momencie kompilacji, dziêki temu mo¿liwe jest utworzenie obiektu klasy operatorem new.
+Konstruktor ma za zadanie inicjalizowanie pÃ³l klasy domyÅ›lnymi wartoÅ›ciami i jest wywoÅ‚ywany w momencie tworzenia klasy. Konstruktor domyÅ›lny zostaje doÅ‚Ä…czony do klasy niejawnie w momencie kompilacji, dziÄ™ki temu moÅ¼liwe jest utworzenie obiektu klasy operatorem new.
 
-S³owo kluczowe this zawiera w sobie referencjê do danej instancji klasy w obszarze której jest u¿ywany. Przydaje siê w momencie przes³aniania nazw zmiennych w konstruktorach i tak¿e metodach.
+SÅ‚owo kluczowe this zawiera w sobie referencjÄ™ do danej instancji klasy w obszarze ktÃ³rej jest uÅ¼ywany. Przydaje siÄ™ w momencie przesÅ‚aniania nazw zmiennych w konstruktorach i takÅ¼e metodach.
 
-Konstruktory mo¿na przeci¹¿aæ, jak zwyk³e metody. W przypadku zdefiniowanego konstruktora nie ma potrzeby, aby by³y w nim inicjalizowane wszystkie pola, poniewa¿ te pola, które nie bêd¹ jawnie inicjalizowane, bêd¹ mia³y przypisane wartoœci domyœlne, w zale¿noœci od typu danej zmiennej.
+Konstruktory moÅ¼na przeciÄ…Å¼aÄ‡, jak zwykÅ‚e metody. W przypadku zdefiniowanego konstruktora nie ma potrzeby, aby byÅ‚y w nim inicjalizowane wszystkie pola, poniewaÅ¼ te pola, ktÃ³re nie bÄ™dÄ… jawnie inicjalizowane, bÄ™dÄ… miaÅ‚y przypisane wartoÅ›ci domyÅ›lne, w zaleÅ¼noÅ›ci od typu danej zmiennej.

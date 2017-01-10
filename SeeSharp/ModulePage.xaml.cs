@@ -90,10 +90,7 @@ namespace SeeSharp
             string pathToTextModule = string.Format(AppSettingsDictionary.TextDirectory, _moduleManager.CurrentModule.ModuleTag.Replace('.', '_'));
             ServerServiceClient serviceClient = ServerServiceClient.GetInstance();
             serviceClient.GetModuleTextAsync(pathToTextModule);
-            serviceClient.GetModuleTextCompleted += (send, recv) =>
-            {
-                this.ModuleTextBox.Text = recv.Result;
-            };
+            serviceClient.GetModuleTextCompleted += (send, recv) => this.ModuleTextBox.Text = recv.Result;
 
             string pathToTemplateProgram = string.Format(AppSettingsDictionary.ProgramFilesDirectory, "ProgramTemplate");
             this.ProgramDownloadLink.NavigateUri = new Uri(HtmlPage.Document.DocumentUri, pathToTemplateProgram);

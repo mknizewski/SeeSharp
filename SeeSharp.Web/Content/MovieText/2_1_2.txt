@@ -1,7 +1,7 @@
-Aby zainstalowaæ program Visual Studio nale¿y uruchomiæ œci¹gniêty przez nas instalator programu. Po krótkim oczekiwaniu poka¿e siê nam okno z wyborem œcie¿ki instalacji œrodowiska z mo¿liwoœci¹ jej zmiany. Je¿eli œcie¿ka instalacyjna jest rozpoznawana przez instalator, wybieramy opcjê Install. Program zacznie siê instalowaæ.
+Aby zainstalowaÄ‡ program Visual Studio naleÅ¼y uruchomiÄ‡ Å›ciÄ…gniÄ™ty przez nas instalator programu. Po krÃ³tkim oczekiwaniu pokaÅ¼e siÄ™ nam okno z wyborem Å›cieÅ¼ki instalacji Å›rodowiska z moÅ¼liwoÅ›ciÄ… jej zmiany. JeÅ¼eli Å›cieÅ¼ka instalacyjna jest rozpoznawana przez instalator, wybieramy opcjÄ™ Install. Program zacznie siÄ™ instalowaÄ‡.
 
-Po krótkim czasie instalacji wyœwietli siê okno z powodzeniem. Zmuszeni jesteœmy zrestartowaæ komputer, aby Visual Studio móg³ zacz¹æ dzia³aæ.
+Po krÃ³tkim czasie instalacji wyÅ›wietli siÄ™ okno z powodzeniem. Zmuszeni jesteÅ›my zrestartowaÄ‡ komputer, aby Visual Studio mÃ³gÅ‚ zaczÄ…Ä‡ dziaÅ‚aÄ‡.
 
-Po ponownym uruchomieniu komputera mo¿emy uruchomiæ Visual Studio, przyk³adowo z menu start. Wyœwietli siê nam okno z koniecznoœci¹ zalogowania siê na konto Microsoft, b¹dŸ rejestracj¹ konta w przypadku, gdy takowego nie posiadamy.
+Po ponownym uruchomieniu komputera moÅ¼emy uruchomiÄ‡ Visual Studio, przykÅ‚adowo z menu start. WyÅ›wietli siÄ™ nam okno z koniecznoÅ›ciÄ… zalogowania siÄ™ na konto Microsoft, bÄ…dÅº rejestracjÄ… konta w przypadku, gdy takowego nie posiadamy.
 
-Je¿eli zalogujemy siê pomyœlnie, od tej pory mo¿emy korzystaæ z programu Visual Studio.
+JeÅ¼eli zalogujemy siÄ™ pomyÅ›lnie, od tej pory moÅ¼emy korzystaÄ‡ z programu Visual Studio.

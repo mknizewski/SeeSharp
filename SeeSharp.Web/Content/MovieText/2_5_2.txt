@@ -1,8 +1,8 @@
-Pêtle s¹ instrukcjami pozwalaj¹cymi na cykliczne wykonywanie tego samego fragmentu kodu. G³ównie pêtle wykorzystujemy do wykonywania okreœlonych sekwencji bloków kodu, które chcemy wykonaæ wielokrotnie, przyk³adowo przy obróbce kolejnych serii danych. 
+PÄ™tle sÄ… instrukcjami pozwalajÄ…cymi na cykliczne wykonywanie tego samego fragmentu kodu. GÅ‚Ã³wnie pÄ™tle wykorzystujemy do wykonywania okreÅ›lonych sekwencji blokÃ³w kodu, ktÃ³re chcemy wykonaÄ‡ wielokrotnie, przykÅ‚adowo przy obrÃ³bce kolejnych serii danych. 
 
-W pêtli for wystêpuje zmienna, która okreœlana jest licznikiem pêtli, lub zmienn¹ steruj¹c¹. Dziêki tej zmiennej istnieje mo¿liwoœæ okreœlania, ile razy ma siê wykonaæ pêtla. Oprócz licznika pêtli, kluczowe znaczenie ma wyra¿enie logiczne zawarte w for(), które decyduje, czy pêtla siê wykona czy te¿ nie; oraz polecenia wykonywane w samej pêtli.
+W pÄ™tli for wystÄ™puje zmienna, ktÃ³ra okreÅ›lana jest licznikiem pÄ™tli, lub zmiennÄ… sterujÄ…cÄ…. DziÄ™ki tej zmiennej istnieje moÅ¼liwoÅ›Ä‡ okreÅ›lania, ile razy ma siÄ™ wykonaÄ‡ pÄ™tla. OprÃ³cz licznika pÄ™tli, kluczowe znaczenie ma wyraÅ¼enie logiczne zawarte w for(), ktÃ³re decyduje, czy pÄ™tla siÄ™ wykona czy teÅ¼ nie; oraz polecenia wykonywane w samej pÄ™tli.
 
-Kolejne kroki w pêtli for okreœlane s¹ poprzez:
-- krok inicjalizacji wykonywany w pierwszej kolejnoœci (tylko raz). Krok ten pozwala na zadeklarowanie zmiennej, pocz¹tkowej wartoœci licznika pêtli
-- kolejny krok jest krokiem w którym jest sprawdzane czy zasz³o wyra¿enie logiczne, które wykorzystuje wartoœæ licznika pêtli. Jeœli warunek jest spe³niony (true) to wykonaj polecenia zawarte w ciele pêtli, po czym zmieñ wartoœæ licznika pêtli w sekcji iteracyjnej;
-- je¿eli zaœ wyra¿enie logiczne jest nieprawdziwe (zwraca false) to zakoñcz dzia³anie pêtli for; 
+Kolejne kroki w pÄ™tli for okreÅ›lane sÄ… poprzez:
+- krok inicjalizacji wykonywany w pierwszej kolejnoÅ›ci (tylko raz). Krok ten pozwala na zadeklarowanie zmiennej, poczÄ…tkowej wartoÅ›ci licznika pÄ™tli
+- kolejny krok jest krokiem w ktÃ³rym jest sprawdzane czy zaszÅ‚o wyraÅ¼enie logiczne, ktÃ³re wykorzystuje wartoÅ›Ä‡ licznika pÄ™tli. JeÅ›li warunek jest speÅ‚niony (true) to wykonaj polecenia zawarte w ciele pÄ™tli, po czym zmieÅ„ wartoÅ›Ä‡ licznika pÄ™tli w sekcji iteracyjnej;
+- jeÅ¼eli zaÅ› wyraÅ¼enie logiczne jest nieprawdziwe (zwraca false) to zakoÅ„cz dziaÅ‚anie pÄ™tli for; 

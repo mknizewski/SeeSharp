@@ -1,9 +1,9 @@
-Hermetyzacja jest to kontrolowany dostêp do wnêtrza istniej¹cej klasy. Polega na ukrywaniu pewnych danych sk³adowych lub metod danej klasy, tak aby by³y one dostêpne tylko metodom wewnêtrznym danej klasu lub innym uprawnionym.
+Hermetyzacja jest to kontrolowany dostÄ™p do wnÄ™trza istniejÄ…cej klasy. Polega na ukrywaniu pewnych danych skÅ‚adowych lub metod danej klasy, tak aby byÅ‚y one dostÄ™pne tylko metodom wewnÄ™trznym danej klasu lub innym uprawnionym.
 
-Hermetyzacjê umo¿liwiaj¹ modyfikatory dostêpu tj:
-- public - brak ograniczeñ. Sk³adowe klasy oznaczone tym modyfikatorem s¹ dostêpne dla wszystkich metod ze wszystkich klas;
-- private - sk³adowe, które s¹ dostêpne tylko w obrêbie w³asnej klasy; 
-- protected - sk³adowe chronione dostêpne na poziomie danej klasy, w której znajduj¹ siê oraz klas dziedzicz¹cych po klasie bazowej;
-- internal - sk³adowe wewnêtrzne s¹ dostêpne dla klasy znajduj¹cej siê w danej bibliotece;
-- protected internal - sk³adowe chronione dostêpne na poziomie danej klasy, w której znajduj¹ siê oraz klas dziedzicz¹cych po klasie bazowej tylko w obrêbie danej biblioteki.
+HermetyzacjÄ™ umoÅ¼liwiajÄ… modyfikatory dostÄ™pu tj:
+- public - brak ograniczeÅ„. SkÅ‚adowe klasy oznaczone tym modyfikatorem sÄ… dostÄ™pne dla wszystkich metod ze wszystkich klas;
+- private - skÅ‚adowe, ktÃ³re sÄ… dostÄ™pne tylko w obrÄ™bie wÅ‚asnej klasy; 
+- protected - skÅ‚adowe chronione dostÄ™pne na poziomie danej klasy, w ktÃ³rej znajdujÄ… siÄ™ oraz klas dziedziczÄ…cych po klasie bazowej;
+- internal - skÅ‚adowe wewnÄ™trzne sÄ… dostÄ™pne dla klasy znajdujÄ…cej siÄ™ w danej bibliotece;
+- protected internal - skÅ‚adowe chronione dostÄ™pne na poziomie danej klasy, w ktÃ³rej znajdujÄ… siÄ™ oraz klas dziedziczÄ…cych po klasie bazowej tylko w obrÄ™bie danej biblioteki.
 

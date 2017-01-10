@@ -1,12 +1,12 @@
-Operatorem okreúlamy jeden lub kilka znakÛw, ktÛre sπ wykorzystywane w jÍzyku programowania na kaødym kroku.
+Operatorem okre≈õlamy jeden lub kilka znak√≥w, kt√≥re sƒÖ wykorzystywane w jƒôzyku programowania na ka≈ºdym kroku.
 
-Operatorem porÛwnania (inaczej relacji) okreúlamy operatory s≥uøπce do porÛwnania dwÛch zmiennych i zawsze dajπ wynik true lub false:
-- RÛwny (==);
-- RÛøny (!=);
+Operatorem por√≥wnania (inaczej relacji) okre≈õlamy operatory s≈Çu≈ºƒÖce do por√≥wnania dw√≥ch zmiennych i zawsze dajƒÖ wynik true lub false:
+- R√≥wny (==);
+- R√≥≈ºny (!=);
 - Mniejszy (<);
-- WiÍkszy (>);
-- Mniejszy rÛwny (<=);
-- WiÍkszy rÛwny (>=) . 
+- Wiƒôkszy (>);
+- Mniejszy r√≥wny (<=);
+- Wiƒôkszy r√≥wny (>=) . 
 
-Operator warunkowy pozwala na sprawdzenie wyraøenia logicznego, ktÛre jest zapisane z lewej strony operatora w nawiasach okrπg≥ych. Jeúli spe≥nione jest wyraøenie logiczne to operator warunkowy zwraca wyraøenie1, w przeciwnym wypadku zwraca wyraøenie drugie:
-- (wyraøenie logiczne)? wyraøenie1 : wyraøenie2
+Operator warunkowy pozwala na sprawdzenie wyra≈ºenia logicznego, kt√≥re jest zapisane z lewej strony operatora w nawiasach okrƒÖg≈Çych. Je≈õli spe≈Çnione jest wyra≈ºenie logiczne to operator warunkowy zwraca wyra≈ºenie1, w przeciwnym wypadku zwraca wyra≈ºenie drugie:
+- (wyra≈ºenie logiczne)? wyra≈ºenie1 : wyra≈ºenie2

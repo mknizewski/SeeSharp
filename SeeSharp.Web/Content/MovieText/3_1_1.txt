@@ -1,5 +1,5 @@
-Klonowanie s³u¿y do utworzenia kopii istniej¹cego obiektu w ten sposób tworz¹c now¹ instancjê obiektu, tego samego typu co obiekt, na rzecz którego metoda zosta³a wywo³ana, zachowuj¹c wszystkie pola wewnêtrzne w tej samej formie.
+Klonowanie sÅ‚uÅ¼y do utworzenia kopii istniejÄ…cego obiektu w ten sposÃ³b tworzÄ…c nowÄ… instancjÄ™ obiektu, tego samego typu co obiekt, na rzecz ktÃ³rego metoda zostaÅ‚a wywoÅ‚ana, zachowujÄ…c wszystkie pola wewnÄ™trzne w tej samej formie.
 
-W uproszczeniu kopiowanie referencji do obiektu jest to skopiowanie adresu w pamiêci do którego odwo³uje siê istniej¹cy obiekt.
+W uproszczeniu kopiowanie referencji do obiektu jest to skopiowanie adresu w pamiÄ™ci do ktÃ³rego odwoÅ‚uje siÄ™ istniejÄ…cy obiekt.
 
-P³ytkiej kopii u¿ywamy kiedy klasa obiektu, któr¹ chcemy skopiowaæ, nie zawiera pól referencyjnych. Wówczas klasa dziedziczy po interfejsie ICloneable i implementuje metodê Clone() w której wywo³uje siê metodê MemberwiseClone().
+PÅ‚ytkiej kopii uÅ¼ywamy kiedy klasa obiektu, ktÃ³rÄ… chcemy skopiowaÄ‡, nie zawiera pÃ³l referencyjnych. WÃ³wczas klasa dziedziczy po interfejsie ICloneable i implementuje metodÄ™ Clone() w ktÃ³rej wywoÅ‚uje siÄ™ metodÄ™ MemberwiseClone().

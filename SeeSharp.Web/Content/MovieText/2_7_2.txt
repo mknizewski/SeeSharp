@@ -1,7 +1,7 @@
-W³aœciwoœæ jest konstrukcj¹ charakterystyczn¹ dla jêzyka C sharp. Zapewnia ona w³aœciwoœæ do pól znajduj¹cych siê w klasie przy pomocy akcesorów get i set. G³ówn¹ funkcjonalnoœci¹ w³aœciwoœci jest mo¿liwoœæ zapisywania i odczytywania prywatnych pól znajduj¹cych siê w klasie, tak jakby by³y publiczne.
+WÅ‚aÅ›ciwoÅ›Ä‡ jest konstrukcjÄ… charakterystycznÄ… dla jÄ™zyka C sharp. Zapewnia ona wÅ‚aÅ›ciwoÅ›Ä‡ do pÃ³l znajdujÄ…cych siÄ™ w klasie przy pomocy akcesorÃ³w get i set. GÅ‚Ã³wnÄ… funkcjonalnoÅ›ciÄ… wÅ‚aÅ›ciwoÅ›ci jest moÅ¼liwoÅ›Ä‡ zapisywania i odczytywania prywatnych pÃ³l znajdujÄ…cych siÄ™ w klasie, tak jakby byÅ‚y publiczne.
 
-Pola okreœlane s¹ poprzez zmienne deklarowane w klasach.
+Pola okreÅ›lane sÄ… poprzez zmienne deklarowane w klasach.
 
-W³aœciwoœæ deklarujemy w sposób podobny do deklarowania zmiennej, jednak w jej wnêtrzu nale¿y obs³u¿yæ akcesory get i set. W³aœciwoœæ ma dostêp publiczny i typ taki sam jak pole, którego dotyczy, a w jej ciele definicje obu akcesorów:
-- Akcesor get mówi co ma zostaæ zwrócone przy odwo³aniu w³aœciwoœci pola (u¿yto danej w³aœciwoœci “do odczytu”);
-- Akcesor set mówi co ma staæ siê wartoœci¹ przypisan¹ do w³aœciwoœci pola (u¿yto danej w³aœciwoœci “do zapisu”).
+WÅ‚aÅ›ciwoÅ›Ä‡ deklarujemy w sposÃ³b podobny do deklarowania zmiennej, jednak w jej wnÄ™trzu naleÅ¼y obsÅ‚uÅ¼yÄ‡ akcesory get i set. WÅ‚aÅ›ciwoÅ›Ä‡ ma dostÄ™p publiczny i typ taki sam jak pole, ktÃ³rego dotyczy, a w jej ciele definicje obu akcesorÃ³w:
+- Akcesor get mÃ³wi co ma zostaÄ‡ zwrÃ³cone przy odwoÅ‚aniu wÅ‚aÅ›ciwoÅ›ci pola (uÅ¼yto danej wÅ‚aÅ›ciwoÅ›ci â€œdo odczytuâ€);
+- Akcesor set mÃ³wi co ma staÄ‡ siÄ™ wartoÅ›ciÄ… przypisanÄ… do wÅ‚aÅ›ciwoÅ›ci pola (uÅ¼yto danej wÅ‚aÅ›ciwoÅ›ci â€œdo zapisuâ€).

@@ -1,10 +1,10 @@
-Rzutowanie jest okreœlane mianem tzw. jawnej konwersji typów (implicit). Rzutowanie jawne informuje kompilator, ¿e celowo zamierzamy dokonaæ konwersji oraz ¿e jesteœmy œwiadomi, ¿e mo¿e dojœæ do utracenia danych.
+Rzutowanie jest okreÅ›lane mianem tzw. jawnej konwersji typÃ³w (implicit). Rzutowanie jawne informuje kompilator, Å¼e celowo zamierzamy dokonaÄ‡ konwersji oraz Å¼e jesteÅ›my Å›wiadomi, Å¼e moÅ¼e dojÅ›Ä‡ do utracenia danych.
 
-W przypadku gdy rzutujemy zmienn¹ typu int do typu double (konwersja poszerzaj¹ca) nie ryzykujemy utraceniem danych, poniewa¿ double jest bardziej pojemny. Je¿eli zaœ bêdziemy rzutowaæ zmienn¹ typu double do int (konwersja przybli¿aj¹ca), sprawimy, ¿e zmienna bêdzie mia³a wartoœæ tylko ca³kowit¹ (czêœæ u³amkowa zostanie utracona).
+W przypadku gdy rzutujemy zmiennÄ… typu int do typu double (konwersja poszerzajÄ…ca) nie ryzykujemy utraceniem danych, poniewaÅ¼ double jest bardziej pojemny. JeÅ¼eli zaÅ› bÄ™dziemy rzutowaÄ‡ zmiennÄ… typu double do int (konwersja przybliÅ¼ajÄ…ca), sprawimy, Å¼e zmienna bÄ™dzie miaÅ‚a wartoÅ›Ä‡ tylko caÅ‚kowitÄ… (czÄ™Å›Ä‡ uÅ‚amkowa zostanie utracona).
 
-Utrata precyzji nie musi powodowaæ b³êdu, ale wymaga, aby proces takiej konwersji by³ kontrolowany przez programistê, dlatego konieczne jest jawne wykonywanie operacji rzutowania typów.
+Utrata precyzji nie musi powodowaÄ‡ bÅ‚Ä™du, ale wymaga, aby proces takiej konwersji byÅ‚ kontrolowany przez programistÄ™, dlatego konieczne jest jawne wykonywanie operacji rzutowania typÃ³w.
 
-Istniej¹ te¿ inne konwersje dostêpne w C#:
+IstniejÄ… teÅ¼ inne konwersje dostÄ™pne w C#:
 - konwersje niejawne (explicit);
-- zdefiniowane przez u¿ytkownika;
-- konwersje przy pomocy metod do konwersji dostêpnych w bibliotekach.
+- zdefiniowane przez uÅ¼ytkownika;
+- konwersje przy pomocy metod do konwersji dostÄ™pnych w bibliotekach.

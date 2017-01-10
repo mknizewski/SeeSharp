@@ -1,7 +1,7 @@
-Tablice przechowuj¹ okreœlon¹ z góry iloœæ danych tego samego typu. Poniewa¿ tablice s³u¿¹ do przechowywania grupy danych (które mog¹ byæ liczne i zajmowaæ du¿o miejsca w pamiêci) tablice umieszcza siê na stercie, jako obiekty. Tablice maj¹ zatem typ referencyjny.
+Tablice przechowujÄ… okreÅ›lonÄ… z gÃ³ry iloÅ›Ä‡ danych tego samego typu. PoniewaÅ¼ tablice sÅ‚uÅ¼Ä… do przechowywania grupy danych (ktÃ³re mogÄ… byÄ‡ liczne i zajmowaÄ‡ duÅ¼o miejsca w pamiÄ™ci) tablice umieszcza siÄ™ na stercie, jako obiekty. Tablice majÄ… zatem typ referencyjny.
 
-Tablice dwuwymiarowe mo¿na porównaæ do uk³adu wspó³rzêdnych. Aby odwo³aæ siê do któregoœ z elementów podajemy indeks wiersza (x) oraz indeks kolumny (y).
+Tablice dwuwymiarowe moÅ¼na porÃ³wnaÄ‡ do ukÅ‚adu wspÃ³Å‚rzÄ™dnych. Aby odwoÅ‚aÄ‡ siÄ™ do ktÃ³regoÅ› z elementÃ³w podajemy indeks wiersza (x) oraz indeks kolumny (y).
 
-Elementy wierszy i kolumn indeksowane s¹ od 0. Zatem je¿eli mamy tablicê o wymiarze 4x6 to maksymalny indeks wiersza wyniesie 3 (zakres 0 do 3), a maksymalny indeks kolumny wyniesie 5 (zakres 0 do 4).
+Elementy wierszy i kolumn indeksowane sÄ… od 0. Zatem jeÅ¼eli mamy tablicÄ™ o wymiarze 4x6 to maksymalny indeks wiersza wyniesie 3 (zakres 0 do 3), a maksymalny indeks kolumny wyniesie 5 (zakres 0 do 4).
 
-Aby zadeklarowaæ tablicê n wymiarow¹ nale¿y zadeklarowaæ n nawiasów kwadratowych (w przypadku tablicy dwuwymiarowej podwójne nawiasy kwadratowe).
+Aby zadeklarowaÄ‡ tablicÄ™ n wymiarowÄ… naleÅ¼y zadeklarowaÄ‡ n nawiasÃ³w kwadratowych (w przypadku tablicy dwuwymiarowej podwÃ³jne nawiasy kwadratowe).

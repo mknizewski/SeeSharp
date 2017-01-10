@@ -1,5 +1,5 @@
-Interfejs to szkielet, albo bardziej szczegó³owo wymóg, jaki bêd¹ musia³y spe³niaæ klasy implementuj¹ce nasz interfejs. Interfejs to nic innego, jak zbiór deklaracji metod, zatem znaczenie zaimplementowaæ interfejs oznacza zaimplementowanie wszystkich zadeklarowanych w nim metod. Klasa mo¿e implementowaæ wiele interfejsów. Jeden interfejs mo¿e byæ implementowany przez wiele klas.
+Interfejs to szkielet, albo bardziej szczegÃ³Å‚owo wymÃ³g, jaki bÄ™dÄ… musiaÅ‚y speÅ‚niaÄ‡ klasy implementujÄ…ce nasz interfejs. Interfejs to nic innego, jak zbiÃ³r deklaracji metod, zatem znaczenie zaimplementowaÄ‡ interfejs oznacza zaimplementowanie wszystkich zadeklarowanych w nim metod. Klasa moÅ¼e implementowaÄ‡ wiele interfejsÃ³w. Jeden interfejs moÅ¼e byÄ‡ implementowany przez wiele klas.
 
-Interfejs definiujemy poprzez s³owo kluczowe “interface” nazwa interfejsu i w nawiasach klamrowych okreœlamy jakie metody ma zawieraæ zdefiniowany interfejs. 
+Interfejs definiujemy poprzez sÅ‚owo kluczowe â€œinterfaceâ€ nazwa interfejsu i w nawiasach klamrowych okreÅ›lamy jakie metody ma zawieraÄ‡ zdefiniowany interfejs. 
 
-Interfejsy domyœlnie s¹ ustawiane jako publiczne.
+Interfejsy domyÅ›lnie sÄ… ustawiane jako publiczne.

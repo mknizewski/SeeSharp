@@ -1,11 +1,11 @@
-Metoda to inaczej funkcja, lecz znajduj¹ca siê na obszarze klasy. 
-Metoda jest to grupa poleceñ, która ma wykonywaæ pewne, okreœlone dzia³anie. Ka¿dy program w jêzyku C# posiada co najmniej jedn¹ klasê z metod¹ nazwan¹ Main().
+Metoda to inaczej funkcja, lecz znajdujÄ…ca siÄ™ na obszarze klasy. 
+Metoda jest to grupa poleceÅ„, ktÃ³ra ma wykonywaÄ‡ pewne, okreÅ›lone dziaÅ‚anie. KaÅ¼dy program w jÄ™zyku C# posiada co najmniej jednÄ… klasÄ™ z metodÄ… nazwanÄ… Main().
 
-Aby u¿yæ metody nale¿y j¹ pocz¹tkowo zdefiniowaæ w klasie i nastêpnie wywo³aæ przyk³adowo w Main().
+Aby uÅ¼yÄ‡ metody naleÅ¼y jÄ… poczÄ…tkowo zdefiniowaÄ‡ w klasie i nastÄ™pnie wywoÅ‚aÄ‡ przykÅ‚adowo w Main().
 
-Podczas definiowania metody nale¿y okreœliæ elementy jej struktury:
-- modyfikator dostêpu (hermetyzacja) - widocznoœæ zmiennej lub metody;
-- zwracany typ - okreœlenie rodzaju wartoœci zwracanej przez metodê;
-- nazwa metody - okreœlenie nazwy metody, która powinna byæ unikalna (nie mo¿e byæ identyczna z pozosta³ymi identyfikatorami zdefiniowanymi w obrêbie danej klasy);
-- lista parametrów - parametry powinny byæ umieszczone w nawiasie. Pozwalaj¹ one na przekazywanie oraz zwracanie wartoœci z danej metody;
-- wnêtrze metody - zawiera zestaw poleceñ koniecznych do prawid³owego dzia³ania metody.
+Podczas definiowania metody naleÅ¼y okreÅ›liÄ‡ elementy jej struktury:
+- modyfikator dostÄ™pu (hermetyzacja) - widocznoÅ›Ä‡ zmiennej lub metody;
+- zwracany typ - okreÅ›lenie rodzaju wartoÅ›ci zwracanej przez metodÄ™;
+- nazwa metody - okreÅ›lenie nazwy metody, ktÃ³ra powinna byÄ‡ unikalna (nie moÅ¼e byÄ‡ identyczna z pozostaÅ‚ymi identyfikatorami zdefiniowanymi w obrÄ™bie danej klasy);
+- lista parametrÃ³w - parametry powinny byÄ‡ umieszczone w nawiasie. PozwalajÄ… one na przekazywanie oraz zwracanie wartoÅ›ci z danej metody;
+- wnÄ™trze metody - zawiera zestaw poleceÅ„ koniecznych do prawidÅ‚owego dziaÅ‚ania metody.

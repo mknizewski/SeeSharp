@@ -1,7 +1,7 @@
-Instrukcje warunkowe pozwalaj¹ u¿ytkownikowi na ustalenie jednego lub wiêcej warunków, od których bêdzie zale¿a³ dalszy ci¹g tok programu. 
+Instrukcje warunkowe pozwalajÄ… uÅ¼ytkownikowi na ustalenie jednego lub wiÄ™cej warunkÃ³w, od ktÃ³rych bÄ™dzie zaleÅ¼aÅ‚ dalszy ciÄ…g tok programu. 
 
-Po s³owie kluczowym if (je¿eli) musi wyst¹piæ wyra¿enie logiczne, które nale¿y umieœciæ w nawiasach okr¹g³ych. Nastêpnie trzeba okreœliæ jaki blok kodu/polecenie ma siê wykonaæ po pomyœlnym wejœciu do warunku (warunek jest prawdziwy je¿eli wyra¿enie logiczne zwraca true). [jeœli blok kodu to koniecznie ograniczony nawiasami klamrowymi, je¿eli jedno polecenie nie ma koniecznoœci stosowania nawiasów klamrowych].
+Po sÅ‚owie kluczowym if (jeÅ¼eli) musi wystÄ…piÄ‡ wyraÅ¼enie logiczne, ktÃ³re naleÅ¼y umieÅ›ciÄ‡ w nawiasach okrÄ…gÅ‚ych. NastÄ™pnie trzeba okreÅ›liÄ‡ jaki blok kodu/polecenie ma siÄ™ wykonaÄ‡ po pomyÅ›lnym wejÅ›ciu do warunku (warunek jest prawdziwy jeÅ¼eli wyraÅ¼enie logiczne zwraca true). [jeÅ›li blok kodu to koniecznie ograniczony nawiasami klamrowymi, jeÅ¼eli jedno polecenie nie ma koniecznoÅ›ci stosowania nawiasÃ³w klamrowych].
 
-Je¿eli chcemy wykonaæ blok kodu podczas, gdy warunek w if nie zwróci true, mo¿emy wówczas wykorzystaæ wykonaæ klauzule else (w przeciwnym wypadku). W klauzuli else nie podajemy ju¿ warunku w nawiasach, a jedynie blok kodu lub polecenie, które ma siê wykonaæ.
+JeÅ¼eli chcemy wykonaÄ‡ blok kodu podczas, gdy warunek w if nie zwrÃ³ci true, moÅ¼emy wÃ³wczas wykorzystaÄ‡ wykonaÄ‡ klauzule else (w przeciwnym wypadku). W klauzuli else nie podajemy juÅ¼ warunku w nawiasach, a jedynie blok kodu lub polecenie, ktÃ³re ma siÄ™ wykonaÄ‡.
 
-Klauzule else mo¿na u¿ywaæ jednoczeœnie z klauzula if (else if), w celu sprawdzania wielu warunków jednoczeœnie (wiemy ¿e tylko jeden z wielu warunków zajdzie).
+Klauzule else moÅ¼na uÅ¼ywaÄ‡ jednoczeÅ›nie z klauzula if (else if), w celu sprawdzania wielu warunkÃ³w jednoczeÅ›nie (wiemy Å¼e tylko jeden z wielu warunkÃ³w zajdzie).

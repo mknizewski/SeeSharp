@@ -1,7 +1,7 @@
-Pêtle s¹ instrukcjami pozwalaj¹cymi na cykliczne wykonywanie tego samego fragmentu kodu. G³ównie pêtle wykorzystujemy do wykonywania okreœlonych sekwencji bloków kodu, które chcemy wykonaæ wielokrotnie, przyk³adowo przy obróbce kolejnych serii danych. 
+PÄ™tle sÄ… instrukcjami pozwalajÄ…cymi na cykliczne wykonywanie tego samego fragmentu kodu. GÅ‚Ã³wnie pÄ™tle wykorzystujemy do wykonywania okreÅ›lonych sekwencji blokÃ³w kodu, ktÃ³re chcemy wykonaÄ‡ wielokrotnie, przykÅ‚adowo przy obrÃ³bce kolejnych serii danych. 
 
-Pêtla while powoduje wykonywania wyra¿enia tak d³ugo, dopóki rezultat wyra¿enia logicznego zawartego w nawiasach klamrowych while jest prawdziwy (true). Wyra¿enie stanowi sekwencjê kodu ograniczon¹ nawiasami klamrowymi.
+PÄ™tla while powoduje wykonywania wyraÅ¼enia tak dÅ‚ugo, dopÃ³ki rezultat wyraÅ¼enia logicznego zawartego w nawiasach klamrowych while jest prawdziwy (true). WyraÅ¼enie stanowi sekwencjÄ™ kodu ograniczonÄ… nawiasami klamrowymi.
 
-Gdy warunek bêdzie zwraca³ fa³sz (false), wtedy program automatycznie wyjdzie z bloku pêtli while i bêdzie wykonywaæ kolejne komendy zapisane po tym bloku.
+Gdy warunek bÄ™dzie zwracaÅ‚ faÅ‚sz (false), wtedy program automatycznie wyjdzie z bloku pÄ™tli while i bÄ™dzie wykonywaÄ‡ kolejne komendy zapisane po tym bloku.
 
-Pêtla do while() w przeciwieñstwie do zwyk³ej pêtli while() sprawdza warunek na koñcu pêtli. Pêtla do while() zawsze zostanie wykonana co najmniej raz.
+PÄ™tla do while() w przeciwieÅ„stwie do zwykÅ‚ej pÄ™tli while() sprawdza warunek na koÅ„cu pÄ™tli. PÄ™tla do while() zawsze zostanie wykonana co najmniej raz.

@@ -1,8 +1,8 @@
-Kolekcje s³u¿¹ do przechowywania obiektów ró¿nych typów i nie maj¹ okreœlonego odgórnie rozmiaru. Udostêpniaj¹ one mechanizmy pozwalaj¹ce na wstawienie, przegl¹danie i pobieranie sk³adowych w nich obiektów. Kolekcje jest w stanie pomieœciæ dowoln¹ liczbê obiektów, jedynie ograniczon¹ przez pojemnoœæ pamiêci komputera.
+Kolekcje sÅ‚uÅ¼Ä… do przechowywania obiektÃ³w rÃ³Å¼nych typÃ³w i nie majÄ… okreÅ›lonego odgÃ³rnie rozmiaru. UdostÄ™pniajÄ… one mechanizmy pozwalajÄ…ce na wstawienie, przeglÄ…danie i pobieranie skÅ‚adowych w nich obiektÃ³w. Kolekcje jest w stanie pomieÅ›ciÄ‡ dowolnÄ… liczbÄ™ obiektÃ³w, jedynie ograniczonÄ… przez pojemnoÅ›Ä‡ pamiÄ™ci komputera.
 
 Rodzaje kolekcji:
-- tablice - najprostsza kolekcja w jêzyku C sharp;
+- tablice - najprostsza kolekcja w jÄ™zyku C sharp;
 - listy;
-- s³owniki;
+- sÅ‚owniki;
 - stosy;
 - kolejki.

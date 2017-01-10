@@ -1,5 +1,5 @@
-Aby rozpocz¹æ swoj¹ przygodê z programowaniem w jêzyku C# nale¿y przejœæ do strony www.visualstudio.com. Nastêpnie wybraæ zak³adkê downloads i œci¹gn¹æ darmow¹ wersjê oprogramowania Visual Studio Community klikaj¹c w opcjê Free Download.
+Aby rozpoczÄ…Ä‡ swojÄ… przygodÄ™ z programowaniem w jÄ™zyku C# naleÅ¼y przejÅ›Ä‡ do strony www.visualstudio.com. NastÄ™pnie wybraÄ‡ zakÅ‚adkÄ™ downloads i Å›ciÄ…gnÄ…Ä‡ darmowÄ… wersjÄ™ oprogramowania Visual Studio Community klikajÄ…c w opcjÄ™ Free Download.
 
-Je¿eli jesteœmy zainteresowani pe³n¹ wersj¹ oprogramowania to nale¿y przejœæ na swoje konto dreamspark za³o¿one przez twoj¹ uczelniê. Nastêpnie nale¿y pobraæ Visual Studio ze strony Dreamsparka. 
+JeÅ¼eli jesteÅ›my zainteresowani peÅ‚nÄ… wersjÄ… oprogramowania to naleÅ¼y przejÅ›Ä‡ na swoje konto dreamspark zaÅ‚oÅ¼one przez twojÄ… uczelniÄ™. NastÄ™pnie naleÅ¼y pobraÄ‡ Visual Studio ze strony Dreamsparka. 
 
-W przypadku UwB szczegó³owe informacje odnoœnie za³o¿enia swojego konta na Dreamsparku oraz logowania znajduj¹ siê na stronie g³ównej uczelni: http://ii.uwb.edu.pl/index.php?p=994.
+W przypadku UwB szczegÃ³Å‚owe informacje odnoÅ›nie zaÅ‚oÅ¼enia swojego konta na Dreamsparku oraz logowania znajdujÄ… siÄ™ na stronie gÅ‚Ã³wnej uczelni: http://ii.uwb.edu.pl/index.php?p=994.

@@ -1,10 +1,10 @@
-C sharp ma do zaoferowania wiele sposobÛw wyúwietlania wartoúci:
-- {O:C} - s≥uøy do formatowania waluty
-- {0:E} - s≥uøy do wyúwietlania liczby w notacji wyk≥adniczej
-- {0:Dn} - s≥uøy do wyúwietlania liczby dziesiÍtnej, gdzie n to minimalna iloúÊ cyfr w wyúwietlanej liczbie;
-- {0:Fn} - s≥uøy do wyúwietlania liczby z n iloúciπ miejsc po przecinku;
-- {0:X} - s≥uøy do wyúwietlania liczby w systemie szesnastkowym;
-- {0:d} - s≥uøy do wyúwietlania dnia;
-- {0:t} - s≥uøy do wyúwietlania godziny;
-- {0:P} - s≥uøy do wyúwietlania procentÛw;
-- {0:Nm} - s≥uøy do wyúwietlania numeru, gdzie m to iloúÊ miejsc po przecinku.
+C sharp ma do zaoferowania wiele sposob√≥w wy≈õwietlania warto≈õci:
+- {O:C} - s≈Çu≈ºy do formatowania waluty
+- {0:E} - s≈Çu≈ºy do wy≈õwietlania liczby w notacji wyk≈Çadniczej
+- {0:Dn} - s≈Çu≈ºy do wy≈õwietlania liczby dziesiƒôtnej, gdzie n to minimalna ilo≈õƒá cyfr w wy≈õwietlanej liczbie;
+- {0:Fn} - s≈Çu≈ºy do wy≈õwietlania liczby z n ilo≈õciƒÖ miejsc po przecinku;
+- {0:X} - s≈Çu≈ºy do wy≈õwietlania liczby w systemie szesnastkowym;
+- {0:d} - s≈Çu≈ºy do wy≈õwietlania dnia;
+- {0:t} - s≈Çu≈ºy do wy≈õwietlania godziny;
+- {0:P} - s≈Çu≈ºy do wy≈õwietlania procent√≥w;
+- {0:Nm} - s≈Çu≈ºy do wy≈õwietlania numeru, gdzie m to ilo≈õƒá miejsc po przecinku.
