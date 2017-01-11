@@ -1,15 +1,17 @@
 ﻿using SeeSharp.BO.Dictionaries;
 using SeeSharp.BO.Managers;
 using SeeSharp.Infrastructure;
+using SeeSharp.ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Browser;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using SeeSharp.ServiceReference1;
 
 namespace SeeSharp
 {
@@ -23,19 +25,23 @@ namespace SeeSharp
         private const int CourseFinished = 100;
 
         private ModuleManager _moduleManager;
+        private TimeSpan _currentVideoSpan;
         private MediaViewModel _viewModel;
+        private bool _isFullScreen;
 
         private enum ButtonState { Play, Pause, Restart }
 
         public ModulePage(string tag)
         {
             this._moduleManager = ModuleManager.GetModuleManager(tag);
+            this._isFullScreen = false;
 
             InitializeComponent();
             InitializeView();
             InitializeModule();
             BeginCourseIfNotStarted();
             UpdateUserCourseAndUI();
+            SetAchivmentIfNessesary();
         }
 
         private void AdjustMediaMaxResolution(Size size)
@@ -45,19 +51,47 @@ namespace SeeSharp
             double mediaWidth = double.NaN;
             double mediaHeight = double.NaN;
 
-            mediaHeight = actualViewHeight >= Height720p ? Height720p : Height480p;
-            mediaWidth = actualViewWidth >= Width720p ? Width720p : Width480p;
+            if (_isFullScreen)
+            {
+                this.media.MaxWidth = size.Width;
+                this.media.MaxHeight = size.Height;
+            }
+            else
+            {
+                mediaHeight = actualViewHeight >= Height720p ? Height720p : Height480p;
+                mediaWidth = actualViewWidth >= Width720p ? Width720p : Width480p;
 
-            this.media.MaxHeight = mediaHeight;
-            this.media.MaxWidth = mediaWidth;
+                this.media.MaxHeight = mediaHeight;
+                this.media.MaxWidth = mediaWidth;
+            }
+        }
+
+        private void SetAchivmentIfNessesary()
+        {
+            Achivments achivments;
+            string tagModule = _moduleManager.CurrentModule.ModuleTag;
+
+            achivments = tagModule == "1.1" ? Achivments.TechnologyPionier :
+                tagModule == "2.1.3" ? Achivments.MakeVsGreatAgain :
+                tagModule == "2.3.1" ? Achivments.DeclareVarNotWar :
+                tagModule == "2.8" ? Achivments.ObjectiveJanusz :
+                tagModule == "3.5" ? Achivments.KingOfNET :
+                tagModule == "3.1.1" ? Achivments.ItsAPower : Achivments.None;
+
+            if (achivments != Achivments.None)
+                ViewFactory.MainPageInstance.SetAchivmentAlert(achivments);
         }
 
         private void InitializeModule()
         {
             this.ModuleTitle.Text = _moduleManager.CurrentModule.ModuleName;
-            this.ModuleTextBox.Text = AppSettingsDictionary.RandomText;
 
-            string pathToTemplateProgram = string.Format(AppSettingsDictionary.ProgramFilesDirectory, "ProgramTemplate");
+            string pathToTextModule = string.Format(AppSettingsDictionary.TextDirectory, _moduleManager.CurrentModule.ModuleTag.Replace('.', '_'));
+            ServerServiceClient serviceClient = ServerServiceClient.GetInstance();
+            serviceClient.GetModuleTextAsync(pathToTextModule);
+            serviceClient.GetModuleTextCompleted += (send, recv) => this.ModuleTextBox.Text = recv.Result;
+
+            string pathToTemplateProgram = string.Format(AppSettingsDictionary.ProgramFilesDirectory, _moduleManager.CurrentModule.ModuleTag);
             this.ProgramDownloadLink.NavigateUri = new Uri(HtmlPage.Document.DocumentUri, pathToTemplateProgram);
 
             this.PervModule.IsEnabled = !_moduleManager.First;
@@ -86,10 +120,21 @@ namespace SeeSharp
 
         private void InitializeView()
         {
-            string pathToVegas = string.Format(@AppSettingsDictionary.VideoDirectory, "2_1_3");
-            string absoluteUri = HtmlPage.Document.DocumentUri + pathToVegas;
-            Debug.WriteLine(absoluteUri);
-            this.media.Source = new Uri(HtmlPage.Document.DocumentUri, pathToVegas);
+            if (_moduleManager.CurrentModule.ModuleTag.Equals("1.1") || _moduleManager.CurrentModule.ModuleTag.Equals("1.2"))
+            {
+                this.ModuleGrid.Visibility = Visibility.Collapsed;
+                this.ProgramDownloadLink.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                this.ModuleGrid.Visibility = Visibility.Visible;
+                this.ProgramDownloadLink.Visibility = Visibility.Visible;
+
+                string pathToMovie = string.Format(@AppSettingsDictionary.VideoDirectory, _moduleManager.CurrentModule.ModuleTag);
+                string absoluteUri = HtmlPage.Document.DocumentUri + pathToMovie;
+
+                this.media.Source = new Uri(HtmlPage.Document.DocumentUri, pathToMovie);
+            }
 
             this.DataContext = this._viewModel = new MediaViewModel(this.media);
 
@@ -103,6 +148,11 @@ namespace SeeSharp
             this.media.BufferingTime = TimeSpan.FromSeconds(1);
             this.UpdateStatusText();
             this.UpdatePlayPauseButton();
+            Application.Current.Host.Content.FullScreenChanged += (sender, eventArgs) =>
+            {
+                ChangeScreen();
+                RestorePervousVideoPosition();
+            };
         }
 
         public void Dispose()
@@ -114,6 +164,7 @@ namespace SeeSharp
         private void MediaOpened(object sender, RoutedEventArgs e)
         {
             this._viewModel.UpdateDurationInfo();
+            this.RestorePervousVideoPosition();
         }
 
         private void playPauseButton_Click(object sender, RoutedEventArgs e)
@@ -212,14 +263,13 @@ namespace SeeSharp
         private void PervModule_Click(object sender, RoutedEventArgs e)
         {
             _moduleManager.ChangeModule(ActionModule.Perv);
-            InitializeModule();
+            ViewFactory.MainPageInstance.SetModule(_moduleManager.CurrentModule.ModuleTag);
         }
 
         private void NextModule_Click(object sender, RoutedEventArgs e)
         {
             _moduleManager.ChangeModule(ActionModule.Next);
-            InitializeModule();
-            UpdateUserCourseAndUI();
+            ViewFactory.MainPageInstance.SetModule(_moduleManager.CurrentModule.ModuleTag);
         }
 
         private void UpdateUserCourseAndUI()
@@ -233,7 +283,7 @@ namespace SeeSharp
             {
                 int currentPercentage = Convert.ToInt32(Math.Ceiling(userManager.UserInfo.Percentage + OneModuleFinished));
                 currentPercentage = currentPercentage > CourseFinished ? CourseFinished : currentPercentage;
-                
+
                 mainPage.ProgressCircle.Percentage = currentPercentage;
                 mainPage.ProgressPercentageTextBlock.Text = string.Format(AppSettingsDictionary.ShowPercentage, currentPercentage);
                 userManager.UserInfo.LastTutorial = _moduleManager.CurrentModule.ModuleTag;
@@ -249,6 +299,55 @@ namespace SeeSharp
         private void LayoutRoot_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             AdjustMediaMaxResolution(e.NewSize);
+        }
+
+        private void fullScreenButton_Click(object sender, RoutedEventArgs e)
+        {
+            _isFullScreen = !_isFullScreen;
+            Application.Current.Host.Content.IsFullScreen = _isFullScreen;
+        }
+
+        private void RestorePervousVideoPosition()
+        {
+            if (_currentVideoSpan.Ticks != 0)
+            {
+                this.media.Position = _currentVideoSpan;
+                this.media.Play();
+            }
+        }
+
+        public void ChangeScreen()
+        {
+            this._currentVideoSpan = new TimeSpan(this.media.Position.Ticks);
+
+            if (!_isFullScreen)
+            {
+                ViewFactory.MainPageInstance.LayoutRoot.Children.ToList().ForEach(x => x.Visibility = Visibility.Visible);
+                ViewFactory.MainPageInstance.LayoutRoot.Children
+                    .Where(x => x is ModulePage)
+                    .ToList()
+                    .ForEach(x => ViewFactory.MainPageInstance.LayoutRoot.Children.Remove(x));
+                ViewFactory.MainPageInstance.DynamicView.Children.Clear();
+                ViewFactory.MainPageInstance.DynamicView.Children.Add(this);
+
+                this.Scroll.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
+                this.ModuleGrid.Margin = new Thickness(20, 0, 20, 0);
+                this.Stack.Children.ToList().ForEach(x => x.Visibility = Visibility.Visible);
+            }
+            else
+            {
+                double zero = Convert.ToDouble(decimal.Zero);
+                ViewFactory.MainPageInstance.LayoutRoot.Children.ToList().ForEach(x => x.Visibility = Visibility.Collapsed);
+                ViewFactory.MainPageInstance.DynamicView.Children.Clear();
+                ViewFactory.MainPageInstance.LayoutRoot.Children.Add(this);
+
+                this.ModuleGrid.Margin = new Thickness(zero, zero, zero, zero);
+                this.Scroll.ScrollToVerticalOffset(zero);
+                this.Stack.Children.ToList().ForEach(x => x.Visibility = Visibility.Collapsed);
+                this.ModuleGrid.Visibility = Visibility.Visible;
+                this.Scroll.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
+                this.Focus();
+            }
         }
     }
 }

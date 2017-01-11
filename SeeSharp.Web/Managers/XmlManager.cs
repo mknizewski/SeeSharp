@@ -5,7 +5,7 @@ namespace SeeSharp.Web.Managers
 {
     public static class XmlManager
     {
-        public static XmlDocument CreateNewXmlFile(string loginName, int code)
+        public static XmlDocument CreateNewXmlProfileFile(string loginName, int code)
         {
             XmlDocument xmlDocument = new XmlDocument();
 
@@ -38,6 +38,16 @@ namespace SeeSharp.Web.Managers
             return xmlDocument;
         }
 
+        public static XmlDocument CreateNewAchivmentFile()
+        {
+            XmlDocument xmlDocument = new XmlDocument();
+
+            XmlNode root = xmlDocument.CreateElement("achivments");
+            xmlDocument.AppendChild(root);
+
+            return xmlDocument;
+        }
+
         public static Dictionary<string, string> DeserializeXmlProfile(string xmlFilePath)
         {
             XmlDocument xmlProfile = new XmlDocument();
@@ -58,7 +68,43 @@ namespace SeeSharp.Web.Managers
             return userDictionary;
         }
 
-        public static void UpdateXml(Dictionary<string, string> userProfile, string xmlFilePath)
+        public static int[] DeserializeXmlAchivments(string xmlFilePath)
+        {
+            XmlDocument xmlAchivments = new XmlDocument();
+            xmlAchivments.Load(xmlFilePath);
+
+            XmlNode root = xmlAchivments.FirstChild;
+            int achivCount = root.ChildNodes.Count;
+
+            if (achivCount == 0)
+                return null;
+
+            int[] achivArray = new int[achivCount];
+
+            for (int i = 0; i < achivCount; i++)
+            {
+                XmlNode achiv = root.ChildNodes[i];
+                achivArray[i] = int.Parse(achiv.InnerText);
+            }
+
+            return achivArray;
+        }
+
+        public static void UpdateXmlAchivments(int achivId, string xmlAchivFilePath)
+        {
+            XmlDocument xmlAchivments = new XmlDocument();
+            xmlAchivments.Load(xmlAchivFilePath);
+
+            XmlNode root = xmlAchivments.FirstChild;
+            XmlNode achivment = xmlAchivments.CreateElement("achivment");
+
+            achivment.InnerText = achivId.ToString();
+            root.AppendChild(achivment);
+
+            xmlAchivments.Save(xmlAchivFilePath);
+        }
+
+        public static void UpdateXmlProfile(Dictionary<string, string> userProfile, string xmlFilePath)
         {
             XmlDocument xmlProfile = new XmlDocument();
             xmlProfile.Load(xmlFilePath);

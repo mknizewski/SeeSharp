@@ -61,7 +61,16 @@ namespace SeeSharp.BO.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0.5 - Środowisko Testowe.
+        ///   Looks up a localized string similar to Images/Achivments/{0}.
+        /// </summary>
+        internal static string AchivmentImageDirectory {
+            get {
+                return ResourceManager.GetString("AchivmentImageDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.0.
         /// </summary>
         internal static string AppVersion {
             get {
@@ -148,6 +157,15 @@ namespace SeeSharp.BO.Resources {
         internal static string ShowPercentage {
             get {
                 return ResourceManager.GetString("ShowPercentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Content/MovieText/{0}.txt.
+        /// </summary>
+        internal static string TextDirectory {
+            get {
+                return ResourceManager.GetString("TextDirectory", resourceCulture);
             }
         }
         

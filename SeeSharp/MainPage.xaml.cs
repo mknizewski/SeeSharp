@@ -1,7 +1,9 @@
 ﻿using SeeSharp.BO.Dictionaries;
 using SeeSharp.BO.Managers;
 using SeeSharp.Infrastructure;
+using SeeSharp.ServiceReference1;
 using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -26,7 +28,7 @@ namespace SeeSharp
 
         public void Dispose()
         {
-            ;
+            GC.Collect();
         }
 
         private void Grid_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -74,12 +76,31 @@ namespace SeeSharp
             ViewFactory.GetAlert(message).Show();
         }
 
+        public void SetAchivmentAlert(Achivments achivments)
+        {
+            ServerServiceClient serverService = ServerServiceClient.GetInstance();
+            serverService.GetAchivmentFileAsync(UserManager.UserInfo.Login);
+            serverService.GetAchivmentFileCompleted += (send, recv) =>
+            {
+                List<int> achivList = recv.Result;
+                int achivId = (int)achivments;
+
+                if (achivList != null)
+                {
+                    if (!achivList.Contains(achivId))
+                        ViewFactory.GetAchivmentAlert(achivments).Show();
+                }
+                else
+                    ViewFactory.GetAchivmentAlert(achivments).Show();
+            };
+        }
+
         public void SetModule(string tag)
         {
-            UserControl module = ViewFactory.GetModule(tag);
+            UserControl modulePage = ViewFactory.GetModule(tag);
 
             this.DynamicView.Children.Clear();
-            this.DynamicView.Children.Add(module);
+            this.DynamicView.Children.Add(modulePage);
             this.DynamicView.UpdateLayout();
         }
 
@@ -118,6 +139,24 @@ namespace SeeSharp
         private void WelcomePageButtonMenuButton_Click(object sender, RoutedEventArgs e)
         {
             SetView(ViewType.WelcomePage, NavigationDictionary.WelcomePageView);
+        }
+
+        private void LayoutRoot_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            int fullScreenIndex = 1;
+
+            if (e.Key == System.Windows.Input.Key.Escape)
+            {
+                try
+                {
+                    UIElement element = this.LayoutRoot.Children[fullScreenIndex];
+
+                    if (element is ModulePage)
+                        (element as ModulePage).ChangeScreen();
+                }
+                catch (ArgumentOutOfRangeException)
+                { }
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using SeeSharp.BO.Managers;
+using System.Windows.Controls;
 
 namespace SeeSharp.Infrastructure
 {
@@ -41,6 +42,11 @@ namespace SeeSharp.Infrastructure
         public static UserControl GetModule(string tag)
         {
             return new ModulePage(tag);
+        }
+
+        public static AchivmentAlert GetAchivmentAlert(Achivments achivments)
+        {
+            return new AchivmentAlert(AchivmentManager.GetAchivment(achivments));
         }
     }
 

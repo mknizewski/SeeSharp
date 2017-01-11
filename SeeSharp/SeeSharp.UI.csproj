@@ -84,6 +84,12 @@
     <Compile Include="AboutCourse.xaml.cs">
       <DependentUpon>AboutCourse.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AchivmentAlert.xaml.cs">
+      <DependentUpon>AchivmentAlert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AchivmentItem.xaml.cs">
+      <DependentUpon>AchivmentItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Alert.xaml.cs">
       <DependentUpon>Alert.xaml</DependentUpon>
     </Compile>
@@ -129,6 +135,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AboutCourse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AchivmentAlert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AchivmentItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,6 +204,15 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Resource Include="Images\Achivments\CesarzNET.png" />
+    <Resource Include="Images\Achivments\CopyAndPasteDev.png" />
+    <Resource Include="Images\Achivments\DeckareVarNotWar.png" />
+    <Resource Include="Images\Achivments\ItsPower.png" />
+    <Resource Include="Images\Achivments\MakeVSGreatAgain.png" />
+    <Resource Include="Images\Achivments\ObiektowyJanusz.png" />
+    <Resource Include="Images\Achivments\TechnologyPionier.png" />
+    <Resource Include="Images\Video\full_screen_hover.png" />
+    <Resource Include="Images\Video\full_screen.png" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>

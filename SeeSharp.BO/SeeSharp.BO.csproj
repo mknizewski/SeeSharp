@@ -62,6 +62,7 @@
     <Compile Include="Dictionaries\GreetingsDictionary.cs" />
     <Compile Include="Dictionaries\PageDictionary.cs" />
     <Compile Include="Infrastructure\ResourceManagerFactory.cs" />
+    <Compile Include="Managers\AchivmentManager.cs" />
     <Compile Include="Managers\CuriositiesManager.cs" />
     <Compile Include="Managers\GreetingsManager.cs" />
     <Compile Include="Managers\ModuleManager.cs" />

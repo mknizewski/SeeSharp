@@ -36,7 +36,7 @@
                             <sdk:TreeViewItem Header="2.3 Operatory" MouseLeftButtonUp="LoadInnerModule_Click">
                                 <sdk:TreeViewItem Header="2.3.1 Operatory arytmetyczne" Tag="2.3.1" Cursor="Hand" />
                                 <sdk:TreeViewItem Header="2.3.2 Operatory logiczne" Tag="2.3.2" Cursor="Hand" />
-                                <sdk:TreeViewItem Header="2.3.2 Operator porównania i operator warunkowy" Tag="2.3.2" Cursor="Hand" />
+                                <sdk:TreeViewItem Header="2.3.3 Operator porównania i operator warunkowy" Tag="2.3.3" Cursor="Hand" />
                             </sdk:TreeViewItem>
                             <sdk:TreeViewItem Header="2.4 Instrukcje warunkowe" MouseLeftButtonUp="LoadInnerModule_Click">
                                 <sdk:TreeViewItem Header="2.4.1 Instrukcja if" Tag="2.4.1" Cursor="Hand" />
@@ -92,10 +92,17 @@
                         </StackPanel>
                     </Grid>
                 </Border>
+                <Border Margin="10 10 10 0" BorderBrush="#FF225195" BorderThickness="2" x:Name="AchivmentBorder">
+                    <Grid>
+                        <StackPanel Orientation="Vertical" x:Name="AchivmentPanel">
+                            <TextBlock Text="Twoje osiągnięcia" FontFamily="Open Sans" FontSize="24" Margin="10 10 0 20" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
                 <TextBlock Text="Ustawienia:" FontFamily="OpenSans" Margin="0 5 0 0 " FontSize="32" />
                 <StackPanel Orientation="Horizontal">
-                    <Button x:Name="DeleteAccountButton" Click="DeleteAccountButton_Click" Cursor="Hand" MaxWidth="100" Margin="5 0 10 0">Usuń konto</Button>
-                    <Button x:Name="NewModuleButton" Click="NewModuleButton_Click" Cursor="Hand" MaxWidth="125" Margin="0 0 10 0">Ustawienia domyślne</Button>
+                    <Button Visibility="Collapsed" x:Name="DeleteAccountButton" Click="DeleteAccountButton_Click" Cursor="Hand" MaxWidth="100" Margin="5 0 10 0">Usuń konto</Button>
+                    <Button Visibility="Collapsed" x:Name="NewModuleButton" Click="NewModuleButton_Click" Cursor="Hand" MaxWidth="125" Margin="0 0 10 0">Ustawienia domyślne</Button>
                     <Button x:Name="ReturnToModuleButton" Click="ReturnToModuleButton_Click" Cursor="Hand" MaxWidth="125">Powrót do kursu</Button>
                 </StackPanel>
             </StackPanel>

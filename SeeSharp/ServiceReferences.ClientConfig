@@ -9,9 +9,9 @@
             </basicHttpBinding>
         </bindings>
         <client>
-            <endpoint address="../ServerService.svc" binding="basicHttpBinding"
-                bindingConfiguration="BasicHttpBinding_IServerService" contract="ServiceReference1.IServerService"
-                name="BasicHttpBinding_IServerService" />
+            <endpoint address="http://localhost:15504/ServerService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IServerService"
+                contract="ServiceReference1.IServerService" name="BasicHttpBinding_IServerService" />
         </client>
     </system.serviceModel>
 </configuration>

@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AchivmentImageDirectory" xml:space="preserve">
+    <value>Images/Achivments/{0}</value>
+  </data>
   <data name="AppVersion" xml:space="preserve">
-    <value>0.5 - Środowisko Testowe</value>
+    <value>1.0</value>
   </data>
   <data name="CheckMark" xml:space="preserve">
     <value>✓</value>
@@ -157,6 +160,9 @@ Ryby się lisa gdym najpiękniejszéj Najpiękniejszego Dać Rzeczypospolitéj. 
   </data>
   <data name="ShowPercentage" xml:space="preserve">
     <value>{0} %</value>
+  </data>
+  <data name="TextDirectory" xml:space="preserve">
+    <value>/Content/MovieText/{0}.txt</value>
   </data>
   <data name="UnloggedAlert" xml:space="preserve">
     <value>Niezalogowany</value>
