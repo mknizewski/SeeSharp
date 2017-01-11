@@ -66,39 +66,6 @@
   <ItemGroup>
     <Content Include="AuthPage.html" />
     <Content Include="ClientBin\SeeSharp.xap" />
-    <Content Include="Content\MovieCourses\2_1_1.mp4" />
-    <Content Include="Content\MovieCourses\2_1_2.mp4" />
-    <Content Include="Content\MovieCourses\2_1_3.mp4" />
-    <Content Include="Content\MovieCourses\2_2_1.mp4" />
-    <Content Include="Content\MovieCourses\2_2_2.mp4" />
-    <Content Include="Content\MovieCourses\2_2_3.mp4" />
-    <Content Include="Content\MovieCourses\2_2_4.mp4" />
-    <Content Include="Content\MovieCourses\2_3_1.mp4" />
-    <Content Include="Content\MovieCourses\2_3_2.mp4" />
-    <Content Include="Content\MovieCourses\2_3_3.mp4" />
-    <Content Include="Content\MovieCourses\2_4_1.mp4" />
-    <Content Include="Content\MovieCourses\2_4_2.mp4" />
-    <Content Include="Content\MovieCourses\2_5_1.mp4" />
-    <Content Include="Content\MovieCourses\2_5_2.mp4" />
-    <Content Include="Content\MovieCourses\2_5_3.mp4" />
-    <Content Include="Content\MovieCourses\2_6_1.mp4" />
-    <Content Include="Content\MovieCourses\2_6_2.mp4" />
-    <Content Include="Content\MovieCourses\2_7_1.mp4" />
-    <Content Include="Content\MovieCourses\2_7_2.mp4" />
-    <Content Include="Content\MovieCourses\2_7_3.mp4" />
-    <Content Include="Content\MovieCourses\2_7_4.mp4" />
-    <Content Include="Content\MovieCourses\2_7_5.mp4" />
-    <Content Include="Content\MovieCourses\2_7_6.mp4" />
-    <Content Include="Content\MovieCourses\2_8.mp4" />
-    <Content Include="Content\MovieCourses\2_9.mp4" />
-    <Content Include="Content\MovieCourses\3_1_1.mp4" />
-    <Content Include="Content\MovieCourses\3_1_2.mp4" />
-    <Content Include="Content\MovieCourses\3_2_1.mp4" />
-    <Content Include="Content\MovieCourses\3_2_2.mp4" />
-    <Content Include="Content\MovieCourses\3_3_1.mp4" />
-    <Content Include="Content\MovieCourses\3_3_2.mp4" />
-    <Content Include="Content\MovieCourses\3_4.mp4" />
-    <Content Include="Content\MovieCourses\3_5.mp4" />
     <Content Include="Content\MovieText\1_1.txt" />
     <Content Include="Content\MovieText\1_2.txt" />
     <Content Include="Content\MovieText\2_1_1.txt" />
@@ -166,6 +133,7 @@
   <ItemGroup>
     <Folder Include="ClientBin\Debug\" />
     <Folder Include="ClientBin\Release\" />
+    <Folder Include="Content\MovieCourses\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SeeSharp.Sandbox\SeeSharp.Sandbox.csproj">
