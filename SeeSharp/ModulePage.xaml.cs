@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Browser;
 using System.Windows.Controls;
@@ -90,7 +91,7 @@ namespace SeeSharp
             serviceClient.GetModuleTextAsync(pathToTextModule);
             serviceClient.GetModuleTextCompleted += (send, recv) => this.ModuleTextBox.Text = recv.Result;
 
-            string pathToTemplateProgram = string.Format(AppSettingsDictionary.ProgramFilesDirectory, "ProgramTemplate");
+            string pathToTemplateProgram = string.Format(AppSettingsDictionary.ProgramFilesDirectory, _moduleManager.CurrentModule.ModuleTag);
             this.ProgramDownloadLink.NavigateUri = new Uri(HtmlPage.Document.DocumentUri, pathToTemplateProgram);
 
             this.PervModule.IsEnabled = !_moduleManager.First;
@@ -149,8 +150,7 @@ namespace SeeSharp
             this.UpdatePlayPauseButton();
             Application.Current.Host.Content.FullScreenChanged += (sender, eventArgs) =>
             {
-                if (Application.Current.Host.Content.IsFullScreen != _isFullScreen)
-                    ChangeScreen();
+                ChangeScreen();
             };
         }
 
@@ -302,7 +302,8 @@ namespace SeeSharp
 
         private void fullScreenButton_Click(object sender, RoutedEventArgs e)
         {
-            ChangeScreen();
+            _isFullScreen = !_isFullScreen;
+            Application.Current.Host.Content.IsFullScreen = _isFullScreen;
         }
 
         private void RestorePervousVideoPosition()
@@ -318,10 +319,14 @@ namespace SeeSharp
         {
             this._currentVideoSpan = new TimeSpan(this.media.Position.Ticks);
 
-            if (_isFullScreen)
+            if (!_isFullScreen)
             {
                 ViewFactory.MainPageInstance.LayoutRoot.Children.ToList().ForEach(x => x.Visibility = Visibility.Visible);
-                ViewFactory.MainPageInstance.LayoutRoot.Children.Remove(this);
+                ViewFactory.MainPageInstance.LayoutRoot.Children
+                    .Where(x => x is ModulePage)
+                    .ToList()
+                    .ForEach(x => ViewFactory.MainPageInstance.LayoutRoot.Children.Remove(x));
+                ViewFactory.MainPageInstance.DynamicView.Children.Clear();
                 ViewFactory.MainPageInstance.DynamicView.Children.Add(this);
 
                 this.Scroll.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
@@ -332,7 +337,7 @@ namespace SeeSharp
             {
                 double zero = Convert.ToDouble(decimal.Zero);
                 ViewFactory.MainPageInstance.LayoutRoot.Children.ToList().ForEach(x => x.Visibility = Visibility.Collapsed);
-                ViewFactory.MainPageInstance.DynamicView.Children.Remove(this);
+                ViewFactory.MainPageInstance.DynamicView.Children.Clear();
                 ViewFactory.MainPageInstance.LayoutRoot.Children.Add(this);
 
                 this.ModuleGrid.Margin = new Thickness(zero, zero, zero, zero);
@@ -342,9 +347,6 @@ namespace SeeSharp
                 this.Scroll.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
                 this.Focus();
             }
-
-            _isFullScreen = !_isFullScreen;
-            Application.Current.Host.Content.IsFullScreen = _isFullScreen;
         }
     }
 }
