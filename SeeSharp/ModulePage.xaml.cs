@@ -129,7 +129,7 @@ namespace SeeSharp
                 this.ModuleGrid.Visibility = Visibility.Visible;
                 this.ProgramDownloadLink.Visibility = Visibility.Visible;
 
-                string pathToMovie = string.Format(@AppSettingsDictionary.VideoDirectory, _moduleManager.CurrentModule.ModuleTag.Replace('.', '_'));
+                string pathToMovie = string.Format(@AppSettingsDictionary.VideoDirectory, _moduleManager.CurrentModule.ModuleTag);
                 string absoluteUri = HtmlPage.Document.DocumentUri + pathToMovie;
 
                 this.media.Source = new Uri(HtmlPage.Document.DocumentUri, pathToMovie);
