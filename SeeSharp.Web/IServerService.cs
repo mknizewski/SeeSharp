@@ -27,5 +27,8 @@ namespace SeeSharp.Web
 
         [OperationContract]
         void UpdateAchivmentFile(int achivId, string loginName);
+
+        [OperationContract]
+        string GetModuleText(string path);
     }
 }

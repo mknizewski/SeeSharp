@@ -49,6 +49,12 @@
   <wsdl:message name="IServerService_UpdateAchivmentFile_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateAchivmentFileResponse" />
   </wsdl:message>
+  <wsdl:message name="IServerService_GetModuleText_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleText" />
+  </wsdl:message>
+  <wsdl:message name="IServerService_GetModuleText_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleTextResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServerService">
     <wsdl:operation name="CreateDirectoriesIfDosentExists">
       <wsdl:input wsaw:Action="http://tempuri.org/IServerService/CreateDirectoriesIfDosentExists" message="tns:IServerService_CreateDirectoriesIfDosentExists_InputMessage" />
@@ -77,6 +83,10 @@
     <wsdl:operation name="UpdateAchivmentFile">
       <wsdl:input wsaw:Action="http://tempuri.org/IServerService/UpdateAchivmentFile" message="tns:IServerService_UpdateAchivmentFile_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServerService/UpdateAchivmentFileResponse" message="tns:IServerService_UpdateAchivmentFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleText">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServerService/GetModuleText" message="tns:IServerService_GetModuleText_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServerService/GetModuleTextResponse" message="tns:IServerService_GetModuleText_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServerService" type="tns:IServerService">
@@ -137,6 +147,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateAchivmentFile">
       <soap:operation soapAction="http://tempuri.org/IServerService/UpdateAchivmentFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleText">
+      <soap:operation soapAction="http://tempuri.org/IServerService/GetModuleText" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

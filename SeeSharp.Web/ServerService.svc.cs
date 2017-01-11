@@ -152,5 +152,10 @@ namespace SeeSharp.Web
 
             XmlManager.UpdateXmlAchivments(achivId, userAchivmentPath);
         }
+
+        public string GetModuleText(string path)
+        {
+            return File.ReadAllText(string.Concat(AppDomain.CurrentDomain.BaseDirectory, path));
+        }
     }
 }

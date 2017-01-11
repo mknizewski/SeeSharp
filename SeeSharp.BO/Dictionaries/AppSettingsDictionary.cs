@@ -47,6 +47,14 @@ namespace SeeSharp.BO.Dictionaries
             }
         }
 
+        public static string TextDirectory
+        {
+            get
+            {
+                return AppSettings.GetString("TextDirectory");
+            }
+        }
+
         public static string XmlFilesDirectiory
         {
             get

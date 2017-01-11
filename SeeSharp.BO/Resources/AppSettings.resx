@@ -121,7 +121,7 @@
     <value>Images/Achivments/{0}</value>
   </data>
   <data name="AppVersion" xml:space="preserve">
-    <value>0.5 - Środowisko Testowe</value>
+    <value>1.0</value>
   </data>
   <data name="CheckMark" xml:space="preserve">
     <value>✓</value>
@@ -160,6 +160,9 @@ Ryby się lisa gdym najpiękniejszéj Najpiękniejszego Dać Rzeczypospolitéj. 
   </data>
   <data name="ShowPercentage" xml:space="preserve">
     <value>{0} %</value>
+  </data>
+  <data name="TextDirectory" xml:space="preserve">
+    <value>/Content/MovieText/{0}.txt</value>
   </data>
   <data name="UnloggedAlert" xml:space="preserve">
     <value>Niezalogowany</value>

@@ -52,6 +52,11 @@ namespace SeeSharp.ServiceReference1 {
         System.IAsyncResult BeginUpdateAchivmentFile(int achivId, string loginName, System.AsyncCallback callback, object asyncState);
         
         void EndUpdateAchivmentFile(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerService/GetModuleText", ReplyAction="http://tempuri.org/IServerService/GetModuleTextResponse")]
+        System.IAsyncResult BeginGetModuleText(string path, System.AsyncCallback callback, object asyncState);
+        
+        string EndGetModuleText(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -136,6 +141,25 @@ namespace SeeSharp.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetModuleTextCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetModuleTextCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ServerServiceClient : System.ServiceModel.ClientBase<SeeSharp.ServiceReference1.IServerService>, SeeSharp.ServiceReference1.IServerService {
         
         private BeginOperationDelegate onBeginCreateDirectoriesIfDosentExistsDelegate;
@@ -180,6 +204,12 @@ namespace SeeSharp.ServiceReference1 {
         
         private System.Threading.SendOrPostCallback onUpdateAchivmentFileCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGetModuleTextDelegate;
+        
+        private EndOperationDelegate onEndGetModuleTextDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetModuleTextCompletedDelegate;
+        
         private BeginOperationDelegate onBeginOpenDelegate;
         
         private EndOperationDelegate onEndOpenDelegate;
@@ -192,14 +222,14 @@ namespace SeeSharp.ServiceReference1 {
         
         private System.Threading.SendOrPostCallback onCloseCompletedDelegate;
         
-        public ServerServiceClient() {
-        }
-        
         public static ServerServiceClient GetInstance()
         {
             return new ServerServiceClient();
         }
 
+        public ServerServiceClient() {
+        }
+        
         public ServerServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
@@ -251,6 +281,8 @@ namespace SeeSharp.ServiceReference1 {
         public event System.EventHandler<GetAchivmentFileCompletedEventArgs> GetAchivmentFileCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> UpdateAchivmentFileCompleted;
+        
+        public event System.EventHandler<GetModuleTextCompletedEventArgs> GetModuleTextCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -579,6 +611,52 @@ namespace SeeSharp.ServiceReference1 {
                         loginName}, this.onEndUpdateAchivmentFileDelegate, this.onUpdateAchivmentFileCompletedDelegate, userState);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SeeSharp.ServiceReference1.IServerService.BeginGetModuleText(string path, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetModuleText(path, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SeeSharp.ServiceReference1.IServerService.EndGetModuleText(System.IAsyncResult result) {
+            return base.Channel.EndGetModuleText(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetModuleText(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string path = ((string)(inValues[0]));
+            return ((SeeSharp.ServiceReference1.IServerService)(this)).BeginGetModuleText(path, callback, asyncState);
+        }
+        
+        private object[] OnEndGetModuleText(System.IAsyncResult result) {
+            string retVal = ((SeeSharp.ServiceReference1.IServerService)(this)).EndGetModuleText(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetModuleTextCompleted(object state) {
+            if ((this.GetModuleTextCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetModuleTextCompleted(this, new GetModuleTextCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetModuleTextAsync(string path) {
+            this.GetModuleTextAsync(path, null);
+        }
+        
+        public void GetModuleTextAsync(string path, object userState) {
+            if ((this.onBeginGetModuleTextDelegate == null)) {
+                this.onBeginGetModuleTextDelegate = new BeginOperationDelegate(this.OnBeginGetModuleText);
+            }
+            if ((this.onEndGetModuleTextDelegate == null)) {
+                this.onEndGetModuleTextDelegate = new EndOperationDelegate(this.OnEndGetModuleText);
+            }
+            if ((this.onGetModuleTextCompletedDelegate == null)) {
+                this.onGetModuleTextCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetModuleTextCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetModuleTextDelegate, new object[] {
+                        path}, this.onEndGetModuleTextDelegate, this.onGetModuleTextCompletedDelegate, userState);
+        }
+        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -743,6 +821,19 @@ namespace SeeSharp.ServiceReference1 {
             public void EndUpdateAchivmentFile(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 base.EndInvoke("UpdateAchivmentFile", _args, result);
+            }
+            
+            public System.IAsyncResult BeginGetModuleText(string path, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = path;
+                System.IAsyncResult _result = base.BeginInvoke("GetModuleText", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public string EndGetModuleText(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                string _result = ((string)(base.EndInvoke("GetModuleText", _args, result)));
+                return _result;
             }
         }
     }
