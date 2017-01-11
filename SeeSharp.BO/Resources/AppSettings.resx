@@ -121,7 +121,7 @@
     <value>Images/Achivments/{0}</value>
   </data>
   <data name="AppVersion" xml:space="preserve">
-    <value>0.5 - Środowisko Testowe</value>
+    <value>1.0</value>
   </data>
   <data name="CheckMark" xml:space="preserve">
     <value>✓</value>

@@ -151,6 +151,7 @@ namespace SeeSharp
             Application.Current.Host.Content.FullScreenChanged += (sender, eventArgs) =>
             {
                 ChangeScreen();
+                RestorePervousVideoPosition();
             };
         }
 
